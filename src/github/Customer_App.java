@@ -68,7 +68,7 @@ public class Customer_App {
 		Customer customer = new Customer();
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
-		ImagePanel1 welcomePanel = new ImagePanel1(new ImageIcon("C://Users//wjdtp//eclipse-workspace//reservation/image/restaurantimage.jpg").getImage());
+		ImagePanel1 welcomePanel = new ImagePanel1(new ImageIcon("image/restaurantimage.jpg").getImage());
 		welcomePanel.setBounds(0, 1, 544, 342);
 		frame.setSize(welcomePanel.getWidth(),welcomePanel.getHeight());
 		
@@ -168,6 +168,20 @@ public class Customer_App {
 		});
 		btnNewButton.setBounds(80, 277, 97, 23);
 		memberpanel.add(btnNewButton);
+		
+		JButton BackButton = new JButton("Back");//뒤로가기 버튼 생성
+		BackButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				welcomePanel.setVisible(true);
+				memberpanel.setVisible(false);
+				
+			}
+			
+		});
+		BackButton.setBounds(385, 277, 91, 23);
+		memberpanel.add(BackButton);
 		
 		
 		frame.getContentPane().add(welcomePanel);
