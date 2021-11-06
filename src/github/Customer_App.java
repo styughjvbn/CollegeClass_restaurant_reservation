@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -68,9 +69,46 @@ public class Customer_App {
 		Customer customer = new Customer();
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
+		frame.setSize(529,367);
 		ImagePanel1 welcomePanel = new ImagePanel1(new ImageIcon("image/restaurantimage.jpg").getImage());
 		welcomePanel.setBounds(0, 1, 544, 342);
-		frame.setSize(welcomePanel.getWidth(),welcomePanel.getHeight());
+		
+		
+		frame.getContentPane().add(welcomePanel);
+		welcomePanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Log in");
+		lblNewLabel.setBounds(270, 121, 121, 46);
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 20));
+		lblNewLabel.setForeground(Color.GREEN);
+		welcomePanel.add(lblNewLabel);
+		
+		id = new JTextField();
+		id.setBounds(229, 177, 162, 31);
+		id.setToolTipText("ID");
+		welcomePanel.add(id);
+		id.setColumns(10);
+		
+		pw = new JPasswordField();
+		pw.setBounds(229, 219, 162, 31);
+		pw.setToolTipText("Enter pass");
+		welcomePanel.add(pw);
+		
+		JLabel lblNewLabel_1 = new JLabel("ID :");
+		lblNewLabel_1.setBounds(148, 177, 75, 31);
+		lblNewLabel_1.setForeground(Color.BLUE);
+		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 22));
+		welcomePanel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("PW :");
+		lblNewLabel_1_1.setBounds(142, 219, 75, 31);
+		lblNewLabel_1_1.setForeground(Color.BLUE);
+		lblNewLabel_1_1.setFont(new Font("Verdana", Font.BOLD, 22));
+		welcomePanel.add(lblNewLabel_1_1);
+		
+		//23123
+		
+
 		
 		JPanel memberpanel = new JPanel();
 		memberpanel.setBackground(Color.WHITE);
@@ -119,6 +157,22 @@ public class Customer_App {
 		lblNewLabel_3_5.setFont(new Font("굴림", Font.PLAIN, 20));
 		lblNewLabel_3_5.setBounds(249, 224, 98, 24);
 		memberpanel.add(lblNewLabel_3_5);
+		
+		JButton membership = new JButton("\uD68C\uC6D0\uAC00\uC785"); //회원가입 버튼
+		membership.setBounds(142, 137, 97, 23);
+		membership.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				welcomePanel.setVisible(false);
+				memberpanel.setVisible(true);
+				
+			}
+			
+		});
+		welcomePanel.add(membership);
+		
+		
 		
 		name1 = new JTextField();
 		name1.setBounds(141, 98, 116, 21);
@@ -177,44 +231,30 @@ public class Customer_App {
 				welcomePanel.setVisible(true);
 				memberpanel.setVisible(false);
 				
+				
 			}
 			
 		});
 		BackButton.setBounds(385, 277, 91, 23);
 		memberpanel.add(BackButton);
 		
+		JPanel restpanel = new JPanel();
+		restpanel.setBounds(0, 0, 511, 305);
+		frame.getContentPane().add(restpanel);
 		
-		frame.getContentPane().add(welcomePanel);
-		welcomePanel.setLayout(null);
+		JButton btnNewButton_2 = new JButton("\uACE0\uAC1D\uC6A9");
+		restpanel.add(btnNewButton_2);
 		
-		JLabel lblNewLabel = new JLabel("Log in");
-		lblNewLabel.setBounds(270, 121, 121, 46);
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 20));
-		lblNewLabel.setForeground(Color.GREEN);
-		welcomePanel.add(lblNewLabel);
+		JPanel customerpanel = new JPanel();
+		customerpanel.setBounds(0, 0, 511, 305);
+		frame.getContentPane().add(customerpanel);
 		
-		id = new JTextField();
-		id.setBounds(229, 177, 162, 31);
-		id.setToolTipText("ID");
-		welcomePanel.add(id);
-		id.setColumns(10);
-		
-		pw = new JPasswordField();
-		pw.setBounds(229, 219, 162, 31);
-		pw.setToolTipText("Enter pass");
-		welcomePanel.add(pw);
-		
-		JLabel lblNewLabel_1 = new JLabel("ID :");
-		lblNewLabel_1.setBounds(148, 177, 75, 31);
-		lblNewLabel_1.setForeground(Color.BLUE);
-		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 22));
-		welcomePanel.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("PW :");
-		lblNewLabel_1_1.setBounds(142, 219, 75, 31);
-		lblNewLabel_1_1.setForeground(Color.BLUE);
-		lblNewLabel_1_1.setFont(new Font("Verdana", Font.BOLD, 22));
-		welcomePanel.add(lblNewLabel_1_1);
+		JButton btnNewButton_1 = new JButton("\uC0AC\uC7A5\uC6A9");
+		customerpanel.add(btnNewButton_1);
+		frame.setJMenuBar(menuBar());
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btnLogIn = new JButton("Log in");
 		btnLogIn.setBounds(152, 260, 239, 31);
@@ -222,13 +262,31 @@ public class Customer_App {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(id.getText().equals("seyeon") && Arrays.equals(pw.getPassword(),"hello".toCharArray())) {
-					System.out.println("Hello seyeon");
-
+				String idcode = id.getText();
+				String password = pw.getText();
+				String job1 = "사장";
+				String job2 = "고객";
+				int result1 = Customer.login1(idcode, password, job1);
+				int result2 = Customer.login2(idcode, password, job2);
+				if(result1 == 1) {
+					System.out.println("사장");
+					welcomePanel.setVisible(false);
+					memberpanel.setVisible(false);
+					restpanel.setVisible(false);
+					customerpanel.setVisible(true);
 				}
-
 				else {
-					JOptionPane.showMessageDialog(null,"You failed to log in");
+					if(result2 == 1) {
+						System.out.println("고객");
+						welcomePanel.setVisible(false);
+						memberpanel.setVisible(false);
+						restpanel.setVisible(true);
+						customerpanel.setVisible(false);
+					}
+					else
+					{
+						System.out.println("login failed");
+					}
 				}
 		
 				
@@ -237,23 +295,6 @@ public class Customer_App {
 		});
 		welcomePanel.add(btnLogIn);
 		
-		JButton membership = new JButton("\uD68C\uC6D0\uAC00\uC785"); //회원가입 버튼
-		membership.setBounds(142, 137, 97, 23);
-		membership.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				welcomePanel.setVisible(false);
-				memberpanel.setVisible(true);
-				
-			}
-			
-		});
-		welcomePanel.add(membership);
-		frame.setJMenuBar(menuBar());
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	public JMenuBar menuBar() {
 		JMenuBar bar = new JMenuBar();
@@ -281,6 +322,7 @@ public class Customer_App {
 		return bar;
 		
 	}
+
 }
 
 class ImagePanel1 extends JPanel{
