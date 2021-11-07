@@ -1,33 +1,16 @@
 package github;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
-import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JTextField;
 import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
-import javax.swing.JComboBox;
-import javax.swing.JTextPane;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
 
 public class Customer_App {
 
