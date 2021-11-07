@@ -69,94 +69,17 @@ public class Customer_App {
 		Customer customer = new Customer();
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
-		frame.setSize(529,367);
-		ImagePanel1 welcomePanel = new ImagePanel1(new ImageIcon("image/restaurantimage.jpg").getImage());
-		welcomePanel.setBounds(0, 1, 544, 342);
+		frame.setSize(1080,720);
+		welcomePanel Wpanel=new welcomePanel();
 		
-		
-		frame.getContentPane().add(welcomePanel);
-		welcomePanel.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Log in");
-		lblNewLabel.setBounds(270, 121, 121, 46);
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 20));
-		lblNewLabel.setForeground(Color.GREEN);
-		welcomePanel.add(lblNewLabel);
-		
-		id = new JTextField();
-		id.setBounds(229, 177, 162, 31);
-		id.setToolTipText("ID");
-		welcomePanel.add(id);
-		id.setColumns(10);
-		
-		pw = new JPasswordField();
-		pw.setBounds(229, 219, 162, 31);
-		pw.setToolTipText("Enter pass");
-		welcomePanel.add(pw);
-		
-		JLabel lblNewLabel_1 = new JLabel("ID :");
-		lblNewLabel_1.setBounds(148, 177, 75, 31);
-		lblNewLabel_1.setForeground(Color.BLUE);
-		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 22));
-		welcomePanel.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("PW :");
-		lblNewLabel_1_1.setBounds(142, 219, 75, 31);
-		lblNewLabel_1_1.setForeground(Color.BLUE);
-		lblNewLabel_1_1.setFont(new Font("Verdana", Font.BOLD, 22));
-		welcomePanel.add(lblNewLabel_1_1);
+		frame.getContentPane().add(Wpanel);
 		
 		//23123
 		
 
 		
-		JPanel memberpanel = new JPanel();
-		memberpanel.setBackground(Color.WHITE);
-		memberpanel.setBounds(0, 0, 544, 343);
-		frame.getContentPane().add(memberpanel);
-		memberpanel.setLayout(null);
-		memberpanel.setVisible(false);
-		
-		JLabel lblNewLabel_2 = new JLabel("Welcome this is main panel");
-		lblNewLabel_2.setFont(new Font("Verdana", Font.BOLD, 15));
-		lblNewLabel_2.setBounds(107, 41, 369, 52);
-		memberpanel.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("Name");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("굴림", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(58, 103, 98, 15);
-		memberpanel.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_3_1 = new JLabel("Age");
-		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_1.setFont(new Font("굴림", Font.PLAIN, 20));
-		lblNewLabel_3_1.setBounds(58, 167, 98, 15);
-		memberpanel.add(lblNewLabel_3_1);
-		
-		JLabel lblNewLabel_3_2 = new JLabel("Gender");
-		lblNewLabel_3_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_2.setFont(new Font("굴림", Font.PLAIN, 20));
-		lblNewLabel_3_2.setBounds(58, 220, 98, 33);
-		memberpanel.add(lblNewLabel_3_2);
-		
-		JLabel lblNewLabel_3_3 = new JLabel("Phone");
-		lblNewLabel_3_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_3.setFont(new Font("굴림", Font.PLAIN, 20));
-		lblNewLabel_3_3.setBounds(249, 94, 98, 24);
-		memberpanel.add(lblNewLabel_3_3);
-		
-		JLabel lblNewLabel_3_4 = new JLabel("BirthDay");
-		lblNewLabel_3_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_4.setFont(new Font("굴림", Font.PLAIN, 20));
-		lblNewLabel_3_4.setBounds(249, 158, 98, 33);
-		memberpanel.add(lblNewLabel_3_4);
-		
-		JLabel lblNewLabel_3_5 = new JLabel("Job");
-		lblNewLabel_3_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_5.setFont(new Font("굴림", Font.PLAIN, 20));
-		lblNewLabel_3_5.setBounds(249, 224, 98, 24);
-		memberpanel.add(lblNewLabel_3_5);
+		memberpanel member = new memberpanel();
+		frame.getContentPane().add(member);
 		
 		JButton membership = new JButton("\uD68C\uC6D0\uAC00\uC785"); //회원가입 버튼
 		membership.setBounds(142, 137, 97, 23);
@@ -164,45 +87,45 @@ public class Customer_App {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				welcomePanel.setVisible(false);
-				memberpanel.setVisible(true);
+				Wpanel.setVisible(false);
+				member.setVisible(true);
 				
 			}
 			
 		});
-		welcomePanel.add(membership);
+		Wpanel.add(membership);
 		
 		
 		
 		name1 = new JTextField();
 		name1.setBounds(141, 98, 116, 21);
-		memberpanel.add(name1);
+		member.add(name1);
 		name1.setColumns(10);
 		
 		phone = new JTextField();
 		phone.setColumns(10);
 		phone.setBounds(339, 94, 116, 21);
-		memberpanel.add(phone);
+		member.add(phone);
 		
 		age = new JTextField();
 		age.setColumns(10);
 		age.setBounds(141, 166, 116, 21);
-		memberpanel.add(age);
+		member.add(age);
 		
 		birthday = new JTextField();
 		birthday.setColumns(10);
 		birthday.setBounds(339, 166, 116, 21);
-		memberpanel.add(birthday);
+		member.add(birthday);
 		
 		JComboBox comboBox = new JComboBox(new String[] {"Male","Female"});
 		comboBox.setForeground(Color.BLACK);
 		comboBox.setBounds(141, 227, 116, 23);
-		memberpanel.add(comboBox);
+		member.add(comboBox);
 		
 		JComboBox Job = new JComboBox();
 		Job.setModel(new DefaultComboBoxModel(new String[] {"\uC0AC\uC7A5", "\uACE0\uAC1D"}));
 		Job.setBounds(338, 227, 117, 23);
-		memberpanel.add(Job);
+		member.add(Job);
 		
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -221,22 +144,22 @@ public class Customer_App {
 			
 		});
 		btnNewButton.setBounds(80, 277, 97, 23);
-		memberpanel.add(btnNewButton);
+		member.add(btnNewButton);
 		
 		JButton BackButton = new JButton("Back");//뒤로가기 버튼 생성
 		BackButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				welcomePanel.setVisible(true);
-				memberpanel.setVisible(false);
+				Wpanel.setVisible(true);
+				member.setVisible(false);
 				
 				
 			}
 			
 		});
 		BackButton.setBounds(385, 277, 91, 23);
-		memberpanel.add(BackButton);
+		member.add(BackButton);
 		
 		JPanel restpanel = new JPanel();
 		restpanel.setBounds(0, 0, 511, 305);
@@ -270,16 +193,16 @@ public class Customer_App {
 				int result2 = Customer.login2(idcode, password, job2);
 				if(result1 == 1) {
 					System.out.println("사장");
-					welcomePanel.setVisible(false);
-					memberpanel.setVisible(false);
+					Wpanel.setVisible(false);
+					member.setVisible(false);
 					restpanel.setVisible(false);
 					customerpanel.setVisible(true);
 				}
 				else {
 					if(result2 == 1) {
 						System.out.println("고객");
-						welcomePanel.setVisible(false);
-						memberpanel.setVisible(false);
+						Wpanel.setVisible(false);
+						member.setVisible(false);
 						restpanel.setVisible(true);
 						customerpanel.setVisible(false);
 					}
@@ -293,7 +216,7 @@ public class Customer_App {
 			}
 			
 		});
-		welcomePanel.add(btnLogIn);
+		Wpanel.add(btnLogIn);
 		
 	}
 	public JMenuBar menuBar() {
@@ -323,25 +246,4 @@ public class Customer_App {
 		
 	}
 
-}
-
-class ImagePanel1 extends JPanel{
-	private Image img;
-	
-	public ImagePanel1(Image img) {
-		this.img = img;
-		setSize(new Dimension(img.getWidth(null),img.getHeight(null))); //이미지 크기가 자동으로 조절
-		setPreferredSize(new Dimension(img.getWidth(null),img.getHeight(null)));
-		setLayout(null);
-	}
-	public int getWidth() {
-		return img.getWidth(null);
-	}
-	public int getHeight() {
-		return img.getHeight(null);
-	}
-	public void paintComponent(Graphics g)
-	{
-		g.drawImage(img, 0, 0, null);
-	}
 }
