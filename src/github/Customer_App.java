@@ -42,8 +42,8 @@ public class Customer_App {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+	public static void main(String[] args) {//main 함수
+		EventQueue.invokeLater(new Runnable() {//스윙이 동작될 수 있도록 하는 교통경찰같은 역할..?
 			public void run() {
 				try {
 					Customer_App window = new Customer_App();
@@ -66,120 +66,46 @@ public class Customer_App {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Customer customer = new Customer();
 		frame = new JFrame();
+		frame.setResizable(false);//프로그램 크기 재조정 불가 
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//x키 누르면 프로그램 완전 종료
 		frame.getContentPane().setLayout(null);
-		frame.setSize(1080,720);
-		welcomePanel Wpanel=new welcomePanel();
+		frame.setSize(1080,720);//프로그램 크기 설정
+		frame.setJMenuBar(menuBar());//메뉴바 설정
+		Customer customer = new Customer();//DB객체 
 		
-		frame.getContentPane().add(Wpanel);
+		welcomePanel Wpanel=new welcomePanel();//처음 시작 로그인 패널 생성
+		frame.getContentPane().add(Wpanel);//프레임에 로그인 패널 추가
 		
-		//23123
-		
-
-		
-		memberpanel member = new memberpanel();
-		frame.getContentPane().add(member);
+		memberpanel member = new memberpanel();//회원가입 패널 생성
+		frame.getContentPane().add(member);//프레임에 회원가입 패널 추가
 		
 		JButton membership = new JButton("\uD68C\uC6D0\uAC00\uC785"); //회원가입 버튼
 		membership.setBounds(142, 137, 97, 23);
 		membership.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Wpanel.setVisible(false);
 				member.setVisible(true);
-				
 			}
-			
 		});
 		Wpanel.add(membership);
 		
 		
-		
-		name1 = new JTextField();
-		name1.setBounds(141, 98, 116, 21);
-		member.add(name1);
-		name1.setColumns(10);
-		
-		phone = new JTextField();
-		phone.setColumns(10);
-		phone.setBounds(339, 94, 116, 21);
-		member.add(phone);
-		
-		age = new JTextField();
-		age.setColumns(10);
-		age.setBounds(141, 166, 116, 21);
-		member.add(age);
-		
-		birthday = new JTextField();
-		birthday.setColumns(10);
-		birthday.setBounds(339, 166, 116, 21);
-		member.add(birthday);
-		
-		JComboBox comboBox = new JComboBox(new String[] {"Male","Female"});
-		comboBox.setForeground(Color.BLACK);
-		comboBox.setBounds(141, 227, 116, 23);
-		member.add(comboBox);
-		
-		JComboBox Job = new JComboBox();
-		Job.setModel(new DefaultComboBoxModel(new String[] {"\uC0AC\uC7A5", "\uACE0\uAC1D"}));
-		Job.setBounds(338, 227, 117, 23);
-		member.add(Job);
-		
-		JButton btnNewButton = new JButton("Submit");
-		btnNewButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String nameTxt = name1.getText();
-				String ageTxt = age.getText();
-				String phoneTxt = phone.getText();
-				String genderTxt = comboBox.getSelectedItem().toString();
-				String JobTxt = Job.getSelectedItem().toString();
-				customer.createTable();
-				customer.createCustomer(nameTxt,phoneTxt,genderTxt,ageTxt,JobTxt);
-				JOptionPane.showMessageDialog(null, "Your data has been saved successfully");
-			}
-			
-		});
-		btnNewButton.setBounds(80, 277, 97, 23);
-		member.add(btnNewButton);
-		
 		JButton BackButton = new JButton("Back");//뒤로가기 버튼 생성
 		BackButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Wpanel.setVisible(true);
 				member.setVisible(false);
-				
-				
 			}
-			
 		});
 		BackButton.setBounds(385, 277, 91, 23);
 		member.add(BackButton);
 		
-		JPanel restpanel = new JPanel();
-		restpanel.setBounds(0, 0, 511, 305);
-		frame.getContentPane().add(restpanel);
 		
-		JButton btnNewButton_2 = new JButton("\uACE0\uAC1D\uC6A9");
-		restpanel.add(btnNewButton_2);
 		
-		JPanel customerpanel = new JPanel();
-		customerpanel.setBounds(0, 0, 511, 305);
-		frame.getContentPane().add(customerpanel);
-		
-		JButton btnNewButton_1 = new JButton("\uC0AC\uC7A5\uC6A9");
-		customerpanel.add(btnNewButton_1);
-		frame.setJMenuBar(menuBar());
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JButton btnLogIn = new JButton("Log in");
+		JButton btnLogIn = new JButton("Log in");//로그인 버튼
 		btnLogIn.setBounds(152, 260, 239, 31);
 		btnLogIn.addActionListener(new ActionListener() {
 
@@ -195,29 +121,22 @@ public class Customer_App {
 					System.out.println("사장");
 					Wpanel.setVisible(false);
 					member.setVisible(false);
-					restpanel.setVisible(false);
-					customerpanel.setVisible(true);
 				}
 				else {
 					if(result2 == 1) {
 						System.out.println("고객");
 						Wpanel.setVisible(false);
 						member.setVisible(false);
-						restpanel.setVisible(true);
-						customerpanel.setVisible(false);
 					}
 					else
 					{
 						System.out.println("login failed");
 					}
 				}
-		
-				
 			}
-			
 		});
 		Wpanel.add(btnLogIn);
-		
+		frame.setLocationRelativeTo(null);//화면 중앙에 프로그램 띄우기
 	}
 	public JMenuBar menuBar() {
 		JMenuBar bar = new JMenuBar();
@@ -234,16 +153,11 @@ public class Customer_App {
 		fileMenu.add(exit);
 		
 		exit.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
-				
 			}
-			
 		});
 		return bar;
-		
 	}
-
 }
