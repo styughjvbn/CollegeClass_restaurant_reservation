@@ -134,7 +134,7 @@ public class Customer {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
-			String pass = "12345678";
+			String pass = "11111111";
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			System.out.println("The Connection successful");
