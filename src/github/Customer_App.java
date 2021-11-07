@@ -12,6 +12,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
 public class Customer_App {
 
@@ -71,8 +73,8 @@ public class Customer_App {
 		Wpanel.add(membership);
 		
 		
-		JButton BackButton = new JButton("Back");//뒤로가기 버튼 생성
-		BackButton.setBounds(385, 277, 91, 23);
+		JButton BackButton = new JButton("Back");
+		BackButton.setBounds(542, 219, 61, 23);
 		BackButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

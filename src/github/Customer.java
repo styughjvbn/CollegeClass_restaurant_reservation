@@ -11,6 +11,25 @@ public class Customer {
 	private static Connection conn;
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
+	public static int overlap_id(String id) {
+		conn = getConnection();
+		try {
+			pstmt = conn.prepareStatement("select * from manager where manager_id = ?");
+			pstmt.setString(1, id); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { //rs의 next에 값이 있으면 일치한다는 뜻
+				return 1; //로그인 성공
+			}
+			else
+				return 0;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	public static int login1(String idcode, String pw, String job) {
 		conn = getConnection();
 		try {
