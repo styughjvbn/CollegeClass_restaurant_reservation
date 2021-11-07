@@ -11,6 +11,24 @@ public class Customer {
 	private static Connection conn;
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
+	
+	public static int manager_signup(String id,char[] pw,String HP,String shop) {
+		String PW=new String(pw);
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO manager"
+			     + "(manager_id, manager_pw, manager_HP, manager_shop) "
+			     + "VALUE "
+			     + "('"+id+"','"+PW+"','"+HP+"','"+shop+"')");
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
 	public static int overlap_id(String id) {
 		conn = getConnection();
 		try {

@@ -30,6 +30,7 @@ public class manager_signup_panel extends JPanel {
 	private Customer customer = new Customer();
 	private JOptionPane aa=new JOptionPane();
 	private search machine= new search();
+	private boolean  isoverlap;
 
 	/**
 	 * Create the panel.
@@ -101,12 +102,44 @@ public class manager_signup_panel extends JPanel {
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(customer.overlap_id(textField.getText())==0)
+				if(customer.overlap_id(textField.getText())==0) {
 					aa.showMessageDialog(null, "사용할 수 있는 아이디입니다.");
-				else
+					isoverlap=false;
+				}
+				else {
 					aa.showMessageDialog(null, "아이디가 중복됩니다.");
+					isoverlap=true;
+				}
 			}
 		});
-		
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				machine.update_XY(textField_2.getText());
+				machine.search_result(textField_3.getText());
+				ArrayList<String[]> list1 = machine.get_result();
+				machine.print();
+				for(int i=0;i<(int)list1.size();i++) {
+					comboBox.addItem(list1.get(i)[1]);
+				}
+			}
+		});
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!isoverlap) {
+					if (!passwordField_1.getText().equals(passwordField.getText())) {
+						aa.showMessageDialog(null, "비밀번호가 동일하지 않습니다.");
+					} else {
+						String id=textField.getText();
+						char[] pw= passwordField_1.getPassword();
+						String HP=textField_1.getText();
+						String shop=comboBox.getSelectedItem().toString();
+						customer.manager_signup(id,pw,HP,shop);
+					}
+				}
+				else
+					aa.showMessageDialog(null, "아이디가 중복됩니다.");
+				
+			}
+		});
 	}
 }
