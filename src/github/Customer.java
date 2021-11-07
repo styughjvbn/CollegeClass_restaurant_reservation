@@ -1,6 +1,5 @@
 package github;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,20 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
-
-
-
 public class Customer {
 	private static Connection conn;
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
-	public static void main(String[] args) {
-		ArrayList<String>job = getJob();
-		for(String item : job) {
-			System.out.println(item);
-		}
-	}
 	public static int login1(String idcode, String pw, String job) {
 		conn = getConnection();
 		try {

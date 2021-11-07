@@ -14,8 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.Box;
 
 public class welcomePanel extends JPanel {
-	private JTextField id;
-	private JPasswordField pw;
+	public JTextField id;
+	public JPasswordField pw;
 	private Image img;
 
 	/**
