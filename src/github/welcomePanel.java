@@ -1,64 +1,99 @@
 package github;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.Box;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
 public class welcomePanel extends JPanel {
-	public JTextField id;
-	public JPasswordField pw;
-	private Image img;
+	public JTextField textField_1;
+	public JPasswordField passwordField;
+	private ButtonGroup group = new ButtonGroup();
+	JButton btnNewButton;
+	String a;
 
 	/**
 	 * Create the panel.
 	 */
 	public welcomePanel() {
-		setBounds(0, 1, 544, 342);
+		setBackground(Color.WHITE);
+		setBounds(0, 1, 1080, 531);
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Log in");
-		lblNewLabel.setBounds(270, 121, 121, 46);
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 20));
-		lblNewLabel.setForeground(Color.GREEN);
-		add(lblNewLabel);
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		panel.setBorder(new LineBorder(Color.BLACK, 2, true));
+		panel.setBounds(297, 46, 500, 450);
+		add(panel);
+		panel.setLayout(null);
 		
-		id = new JTextField();
-		id.setBounds(229, 177, 162, 31);
-		id.setToolTipText("ID");
-		add(id);
-		id.setColumns(10);
+		JLabel lblNewLabel_2 = new JLabel("Resaurant");
+		lblNewLabel_2.setForeground(Color.GREEN);
+		lblNewLabel_2.setBounds(136, 2, 228, 129);
+		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setFont(new Font("Segoe Print", Font.PLAIN, 45));
 		
-		pw = new JPasswordField();
-		pw.setBounds(229, 219, 162, 31);
-		pw.setToolTipText("Enter pass");
-		add(pw);
+		textField_1 = new JTextField();
+		textField_1.setForeground(Color.BLACK);
+		textField_1.setBounds(186, 156, 120, 38);
+		panel.add(textField_1);
+		textField_1.setAlignmentX(5.0f);
+		textField_1.setColumns(10);
+		textField_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "ID", TitledBorder.LEADING, TitledBorder.TOP, null, Color.GREEN));
+		textField_1.setBackground(Color.WHITE);
 		
-		JLabel lblNewLabel_1 = new JLabel("ID :");
-		lblNewLabel_1.setBounds(148, 177, 75, 31);
-		lblNewLabel_1.setForeground(Color.BLUE);
-		lblNewLabel_1.setFont(new Font("Verdana", Font.BOLD, 22));
-		add(lblNewLabel_1);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(186, 224, 120, 38);
+		panel.add(passwordField);
+		passwordField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password", TitledBorder.LEADING, TitledBorder.TOP, null, Color.GREEN));
+		passwordField.setBackground(Color.WHITE);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("PW :");
-		lblNewLabel_1_1.setBounds(142, 219, 75, 31);
-		lblNewLabel_1_1.setForeground(Color.BLUE);
-		lblNewLabel_1_1.setFont(new Font("Verdana", Font.BOLD, 22));
-		add(lblNewLabel_1_1);
-		img = new ImageIcon("image/restaurantimage.jpg").getImage();
+		btnNewButton = new JButton("LOGIN");
+		btnNewButton.setBounds(133, 340, 231, 100);
+		panel.add(btnNewButton);
+		btnNewButton.setForeground(Color.GREEN);
+		btnNewButton.setFont(new Font("Segoe Print", Font.PLAIN, 26));
+		btnNewButton.setBorder(null);
+		btnNewButton.setBackground(Color.WHITE);
+		
+		JRadioButton rdbtnNewRadioButton_1_1 = new JRadioButton("Manager");
+		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				a = e.getActionCommand();
+				System.out.print(a);
+			}
+		});
+		
+		rdbtnNewRadioButton_1_1.setForeground(Color.GREEN);
+		rdbtnNewRadioButton_1_1.setFont(new Font("Segoe Print", Font.PLAIN, 12));
+		rdbtnNewRadioButton_1_1.setBounds(279, 123, 85, 23);
+		panel.add(rdbtnNewRadioButton_1_1);
+		rdbtnNewRadioButton_1_1.setBackground(Color.WHITE);
+		group.add(rdbtnNewRadioButton_1_1);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Customer");
+		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				a = e.getActionCommand();
+				System.out.print(a);
+			}
+		});
+		rdbtnNewRadioButton_1.setForeground(Color.GREEN);
+		rdbtnNewRadioButton_1.setFont(new Font("Segoe Print", Font.PLAIN, 12));
+		rdbtnNewRadioButton_1.setBounds(146, 123, 96, 23);
+		panel.add(rdbtnNewRadioButton_1);
+		rdbtnNewRadioButton_1.setBackground(Color.WHITE);
+		group.add(rdbtnNewRadioButton_1);
 	}
-	public void paintComponent(Graphics g)
-	{
-		g.drawImage(img, 0, 0, null);
-	}
-
 }
 

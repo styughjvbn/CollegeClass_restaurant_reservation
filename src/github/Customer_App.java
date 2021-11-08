@@ -7,13 +7,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 public class Customer_App {
 
@@ -52,8 +45,8 @@ public class Customer_App {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//x키 누르면 프로그램 완전 종료
 		frame.getContentPane().setLayout(card);
 		frame.setSize(1080,720);//프로그램 크기 설정
-		frame.setJMenuBar(menuBar());//메뉴바 설정
 		Customer customer = new Customer();//DB객체 
+		Customer.createTable();
 		
 		welcomePanel Wpanel=new welcomePanel();//처음 시작 로그인 패널 생성
 		frame.getContentPane().add(Wpanel,"login");//프레임에 로그인 패널 추가
@@ -73,7 +66,7 @@ public class Customer_App {
 		Wpanel.add(membership);
 		
 		
-		JButton BackButton = new JButton("Back");
+		JButton BackButton = new JButton("Back");//뒤로가기 버튼
 		BackButton.setBounds(542, 219, 61, 23);
 		BackButton.addActionListener(new ActionListener() {
 			@Override
@@ -82,55 +75,29 @@ public class Customer_App {
 			}
 		});
 		member.add(BackButton);
-			
-		JButton btnLogIn = new JButton("Log in");//로그인 버튼
-		btnLogIn.setBounds(152, 260, 239, 31);
-		btnLogIn.addActionListener(new ActionListener() {
+		
+		
+		Wpanel.btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String idcode = Wpanel.id.getText();
-				String password = Wpanel.pw.getText();
-				String job1 = "사장";
-				String job2 = "고객";
-				int result1 = Customer.login1(idcode, password, job1);
-				int result2 = Customer.login2(idcode, password, job2);
-				if(result1 == 1) {
-					System.out.println("사장");
-				}
-				else {
-					if(result2 == 1) {
-						System.out.println("고객");
+				if(Wpanel.a.equals("Manager")){
+					if(customer.login_manager(Wpanel.textField_1.getText(),Wpanel.passwordField.getText())) {
+						System.out.println("사장 로그인 성공");
 					}
 					else
-					{
-						System.out.println("login failed");
+						System.out.println("로그인 실패");
+				}
+				else if(Wpanel.a.equals("Customer")){
+					if(customer.login_customer(Wpanel.textField_1.getText(),Wpanel.passwordField.getText())) {
+						System.out.println("고객 로그인 성공");
 					}
+					else
+						System.out.println("로그인 실패");
 				}
 			}
 		});
-		Wpanel.add(btnLogIn);
+		
+		
 		frame.setLocationRelativeTo(null);//화면 중앙에 프로그램 띄우기
-	}
-	public JMenuBar menuBar() {
-		JMenuBar bar = new JMenuBar();
-		JMenu fileMenu = new JMenu("File");
-		JMenu aboutMenu = new JMenu("About");
-		
-		bar.add(fileMenu);
-		bar.add(aboutMenu);
-		
-		JMenuItem openFile = new JMenuItem("Open");
-		JMenuItem exit = new JMenuItem("Exit");
-		fileMenu.add(openFile);
-		fileMenu.addSeparator();
-		fileMenu.add(exit);
-		
-		exit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		return bar;
 	}
 }
