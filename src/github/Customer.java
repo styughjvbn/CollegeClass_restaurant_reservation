@@ -29,10 +29,46 @@ public class Customer {
 		
 		return 0;
 	}
+	public static int customer_signup(String id,char[] pw,String Name,String Age, String Gender) {//고객 회원가입
+		String PW=new String(pw);
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO customer"
+			     + "(idcode, pw, name, age, gender) " //customer DB 따로 만들던지 기존꺼 쓰던지 하면될듯
+			     + "VALUE "
+			     + "('"+id+"','"+PW+"','"+Name+"','"+Age+"','"+Gender+"')");
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
 	public static int overlap_id(String id) {//중복확인
 		conn = getConnection();
 		try {
 			pstmt = conn.prepareStatement("select * from manager where manager_id = ?");
+			pstmt.setString(1, id); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) { //rs의 next에 값이 있으면 일치한다는 뜻
+				return 1; //로그인 성공
+			}
+			else
+				return 0;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	public static int overlap_id2customer(String id) {//고객 아이디 중복확인
+		conn = getConnection();
+		try {
+			pstmt = conn.prepareStatement("select * from customer where idcode = ?");
 			pstmt.setString(1, id); //첫번째 ?에 넣음
 			
 			rs = pstmt.executeQuery();

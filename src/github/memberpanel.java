@@ -31,6 +31,14 @@ public class memberpanel extends JPanel {
 		manager_signup_panel panel=new manager_signup_panel();
 		panel.setBounds(0, 0, 504, 437);
 		add(panel);
+		
+		setBackground(Color.WHITE);
+		setBounds(0, 0, 504, 437);
+		setVisible(true);
+		setLayout(null);
+		customermember panel2=new customermember();
+		panel.setBounds(0, 0, 504, 437);
+		add(panel2);
 	}
 
 }
