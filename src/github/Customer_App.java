@@ -41,10 +41,11 @@ public class Customer_App {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setResizable(false);//프로그램 크기 재조정 불가 
+		frame.setResizable(false);
+		frame.setTitle("\uC2DD\uB2F9\uC608\uC57D \uD504\uB85C\uADF8\uB7A8");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//x키 누르면 프로그램 완전 종료
 		frame.getContentPane().setLayout(card);
-		frame.setSize(1080,720);//프로그램 크기 설정
+		frame.setSize(1296,759);//프로그램 크기 설정 이거 중요 프레임 내부 패널의 크기가 1280x720 온전하게 표현되게 하기 위함
 		Customer customer = new Customer();//DB객체 
 		Customer.createTable();
 		
