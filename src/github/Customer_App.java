@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Customer_App {
 
 	private JFrame frame;
 	private CardLayout card = new CardLayout();
+	private JOptionPane aa=new JOptionPane();
 
 	/**
 	 * 프로그램 실행
@@ -46,54 +48,47 @@ public class Customer_App {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//x키 누르면 프로그램 완전 종료
 		frame.getContentPane().setLayout(card);
 		frame.setSize(1296,759);//프로그램 크기 설정 이거 중요 프레임 내부 패널의 크기가 1280x720 온전하게 표현되게 하기 위함
-		Customer customer = new Customer();//DB객체 
-		Customer.createTable();
+		DAO_signup DAO=new DAO_signup();
+		DAO.create_customer_Table();//첫 실행시 고객회원 테이블 생성
+		DAO.create_manager_Table();//첫 실행시 사장회원 테이블 생성
 		
-		welcomePanel Wpanel=new welcomePanel();//처음 시작 로그인 패널 생성
+		signin_base Wpanel=new signin_base();//처음 시작 로그인 패널 생성
 		frame.getContentPane().add(Wpanel,"login");//프레임에 로그인 패널 추가
 		card.show(frame.getContentPane(), "login");
 		
-		memberpanel member = new memberpanel();//회원가입 패널 생성
+		signup_base member = new signup_base();//회원가입 패널 생성
 		frame.getContentPane().add(member,"signup");//프레임에 회원가입 패널 추가
 		
-		JButton membership = new JButton("\uD68C\uC6D0\uAC00\uC785"); //회원가입 버튼
-		membership.setBounds(142, 137, 97, 23);
-		membership.addActionListener(new ActionListener() {
+		Wpanel.btnSignup.addActionListener(new ActionListener() {//회원가입 버튼 액션
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "signup");
 			}
 		});
-		Wpanel.add(membership);
 		
-		
-		JButton BackButton = new JButton("Back");//뒤로가기 버튼
-		BackButton.setBounds(542, 219, 61, 23);
-		BackButton.addActionListener(new ActionListener() {
+		member.btnNewButton.addActionListener(new ActionListener() {//뒤로가기 버튼 액션
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "login");
 			}
 		});
-		member.add(BackButton);
 		
-		
-		Wpanel.btnNewButton.addActionListener(new ActionListener() {
+		Wpanel.btnNewButton.addActionListener(new ActionListener() {//로그인 버튼 액션
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(Wpanel.a.equals("Manager")){
-					if(customer.login_manager(Wpanel.textField_1.getText(),Wpanel.passwordField.getText())) {
-						System.out.println("사장 로그인 성공");
+				if(Wpanel.a.equals("Manager")){//콤보박스가 사장이라면
+					if(DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
+						aa.showMessageDialog(null, "환영합니다"+Wpanel.textField_1.getText()+"님");	
 					}
 					else
-						System.out.println("로그인 실패");
+						aa.showMessageDialog(null, "로그인에 실패하였습니다");	
 				}
-				else if(Wpanel.a.equals("Customer")){
-					if(customer.login_customer(Wpanel.textField_1.getText(),Wpanel.passwordField.getText())) {
-						System.out.println("고객 로그인 성공");
+				else if(Wpanel.a.equals("Customer")){//콤보박스가 고객이라면
+					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
+						aa.showMessageDialog(null, "환영합니다"+Wpanel.textField_1.getText()+"님");	
 					}
 					else
-						System.out.println("로그인 실패");
+						aa.showMessageDialog(null, "로그인에 실패하였습니다");	
 				}
 			}
 		});

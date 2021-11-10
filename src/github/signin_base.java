@@ -12,6 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -23,26 +24,27 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.border.EmptyBorder;
 
-public class welcomePanel extends JPanel {
+public class signin_base extends JPanel {
 	public JTextField textField_1;
 	public JPasswordField passwordField;
 	private ButtonGroup group = new ButtonGroup();
 	JButton btnNewButton;
-	String a;
+	String a="Customer";//로그인 첫화면 고객로그인으로 설정
 	private Image img;
 	private Dimension d;
+	public JButton btnSignup;
 
 	/**
 	 * Create the panel.
 	 */
-	public welcomePanel() {
+	public signin_base() {
 		setBorder(new EmptyBorder(0, 0, 0, 0));
 		setBackground(Color.WHITE);
 		setBounds(0, 1, 1280, 720);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(285, 200, 500, 350);
+		panel.setBounds(390, 350, 500, 350);
 		panel.setBackground(Color.WHITE);
 		panel.setBorder(new LineBorder(Color.BLACK, 2, true));
 		add(panel);
@@ -63,8 +65,8 @@ public class welcomePanel extends JPanel {
 		passwordField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 		passwordField.setBackground(Color.WHITE);
 		
-		btnNewButton = new JButton("LOGIN");
-		btnNewButton.setBounds(132, 238, 231, 100);
+		btnNewButton = new JButton("SIGNIN");
+		btnNewButton.setBounds(12, 238, 231, 100);
 		panel.add(btnNewButton);
 		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setFont(new Font("Segoe Print", Font.PLAIN, 26));
@@ -87,6 +89,7 @@ public class welcomePanel extends JPanel {
 		group.add(rdbtnNewRadioButton_1_1);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Customer");
+		rdbtnNewRadioButton_1.setSelected(true);
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				a = e.getActionCommand();
@@ -100,11 +103,17 @@ public class welcomePanel extends JPanel {
 		rdbtnNewRadioButton_1.setBackground(Color.WHITE);
 		group.add(rdbtnNewRadioButton_1);
 		
+		btnSignup = new JButton("SIGNUP");
+		btnSignup.setForeground(Color.BLACK);
+		btnSignup.setFont(new Font("Segoe Print", Font.PLAIN, 26));
+		btnSignup.setBorder(null);
+		btnSignup.setBackground(Color.WHITE);
+		btnSignup.setBounds(257, 238, 231, 100);
+		panel.add(btnSignup);
+		
 		img = new ImageIcon("image/image01.jpg").getImage();
 		
 		d=getSize();
-		System.out.println(d.width);
-		System.out.println(d.height);
 	}
 	public void paintComponent(Graphics g) {
 	      g.drawImage(img, 0, 0,d.width,d.height, null);

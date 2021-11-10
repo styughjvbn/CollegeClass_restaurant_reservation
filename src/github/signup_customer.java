@@ -18,38 +18,40 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.DefaultComboBoxModel;
 
-public class customermember extends JPanel {
+public class signup_customer extends JPanel {
 	private JPasswordField pwtxt;
 	private JTextField idtxt;
 	private JPasswordField pwtxtc;
 	private JTextField nametxt;
 	private JTextField agetxt;
 	private JButton btnNewButton_2;
-	private Customer customer = new Customer();
 	private JOptionPane aa=new JOptionPane();
 	private search machine= new search();
 	private boolean  isoverlap;
 	private JComboBox comboBox;
-	private JTextField textField_4;
+	private DAO_signup DAO=new DAO_signup();
+	private JTextField textField;
 
 	/**
 	 * Create the panel.
 	 */
-	public customermember() {
+	public signup_customer() {
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
 		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setBounds(185, 16, 97, 30);
 		add(btnNewButton);
 		
 		pwtxt = new JPasswordField();
 		pwtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		pwtxt.setBackground(SystemColor.menu);
+		pwtxt.setBackground(Color.WHITE);
 		pwtxt.setBounds(12, 60, 160, 40);
 		add(pwtxt);
 		
 		idtxt = new JTextField();
-		idtxt.setBackground(UIManager.getColor("Button.background"));
+		idtxt.setBackground(Color.WHITE);
 		idtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "ID", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		idtxt.setBounds(13, 10, 160, 40);
 		add(idtxt);
@@ -57,21 +59,21 @@ public class customermember extends JPanel {
 		
 		pwtxtc = new JPasswordField();
 		pwtxtc.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password check", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		pwtxtc.setBackground(SystemColor.menu);
+		pwtxtc.setBackground(Color.WHITE);
 		pwtxtc.setBounds(12, 110, 160, 40);
 		add(pwtxtc);
 		
 		nametxt = new JTextField();
 		nametxt.setColumns(10);
 		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Name", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		nametxt.setBackground(SystemColor.menu);
+		nametxt.setBackground(Color.WHITE);
 		nametxt.setBounds(195, 60, 160, 40);
 		add(nametxt);
 		
 		agetxt = new JTextField();
 		agetxt.setColumns(10);
 		agetxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Age", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		agetxt.setBackground(SystemColor.menu);
+		agetxt.setBackground(Color.WHITE);
 		agetxt.setBounds(195, 110, 160, 40);
 		add(agetxt);
 		
@@ -80,21 +82,26 @@ public class customermember extends JPanel {
 		add(btnNewButton_2);
 		
 		comboBox = new JComboBox(new Object[]{});
+		comboBox.setBackground(Color.WHITE);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"male", "female"}));
 		comboBox.setForeground(Color.BLACK);
-		comboBox.setBounds(30, 175, 116, 21);
+		comboBox.setBounds(12, 203, 116, 21);
 		add(comboBox);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Gender", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		textField_4.setBackground(SystemColor.menu);
-		textField_4.setBounds(12, 160, 160, 40);
-		add(textField_4);
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "H.P.", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		textField.setBackground(Color.WHITE);
+		textField.setBounds(195, 160, 160, 40);
+		add(textField);
+		
+		JLabel lblNewLabel = new JLabel("\uC131\uBCC4");
+		lblNewLabel.setBounds(12, 178, 57, 15);
+		add(lblNewLabel);
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(customer.overlap_id(idtxt.getText())==0) {
+				if(DAO.overlap_id_customer(idtxt.getText())==0) {
 					aa.showMessageDialog(null, "사용할 수 있는 아이디입니다.");
 					isoverlap=false;
 				}
@@ -111,11 +118,18 @@ public class customermember extends JPanel {
 						aa.showMessageDialog(null, "비밀번호가 동일하지 않습니다.");
 					} else {
 						String id=idtxt.getText();
-						char[] pw= pwtxt.getPassword();
+						String pw= pwtxt.getText();
 						String age=agetxt.getText();
 						String name=nametxt.getText();
 						String Gender=comboBox.getSelectedItem().toString();
-						customer.customer_signup(id,pw,name,age,Gender);
+						String HP=textField.getText();
+						
+						if(age.equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")||Gender.equals("")) {
+							aa.showMessageDialog(null, "모두 입력해주세요");	
+						}else {
+							DAO.customer_signup(new DTO_customer_login(id,pw,HP,Gender,name,age));
+							aa.showMessageDialog(null, "환영합니다"+id+"님");	
+						}
 					}
 				}
 				else
