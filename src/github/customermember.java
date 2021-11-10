@@ -82,7 +82,7 @@ public class customermember extends JPanel {
 		comboBox = new JComboBox(new Object[]{});
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"male", "female"}));
 		comboBox.setForeground(Color.BLACK);
-		comboBox.setBounds(29, 175, 116, 21);
+		comboBox.setBounds(30, 175, 116, 21);
 		add(comboBox);
 		
 		textField_4 = new JTextField();
