@@ -93,7 +93,7 @@ public class Customer_App {
 			}
 		});
 		
-		
+		System.out.println("hello");
 		frame.setLocationRelativeTo(null);//화면 중앙에 프로그램 띄우기
 	}
 }
