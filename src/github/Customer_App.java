@@ -59,6 +59,9 @@ public class Customer_App {
 		signup_base member = new signup_base();//회원가입 패널 생성
 		frame.getContentPane().add(member,"signup");//프레임에 회원가입 패널 추가
 		
+		reservation_base reservation = new reservation_base();
+		frame.getContentPane().add(reservation,"reservation");//프레임에 회원가입 패널 추가
+		
 		Wpanel.btnSignup.addActionListener(new ActionListener() {//회원가입 버튼 액션
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -85,7 +88,7 @@ public class Customer_App {
 				}
 				else if(Wpanel.a.equals("Customer")){//콤보박스가 고객이라면
 					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
-						aa.showMessageDialog(null, "환영합니다"+Wpanel.textField_1.getText()+"님");	
+						card.show(frame.getContentPane(), "reservation");
 					}
 					else
 						aa.showMessageDialog(null, "로그인에 실패하였습니다");	

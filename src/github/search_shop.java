@@ -120,10 +120,12 @@ class search extends call_address{//키워드로 음식점 검석
 		for(int i=0;i<15;i++) {//첫번째 결과 페이지를 저장
 			try {
 				tmp = (JSONObject)documents.get(i);
-				ary=new String[3];
-				ary[0]=tmp.get("distance").toString();
-				ary[1]=tmp.get("place_name").toString();
-				ary[2]=tmp.get("place_url").toString();
+				ary=new String[5];
+				ary[0]=tmp.get("place_name").toString();
+				ary[1]=tmp.get("distance").toString();
+				ary[2]=tmp.get("phone").toString();
+				ary[3]=tmp.get("category_name").toString();
+				ary[4]=tmp.get("address_name").toString();
 				list1.add(ary);
 			}catch(IndexOutOfBoundsException e) {
 				break;
@@ -148,10 +150,12 @@ class search extends call_address{//키워드로 음식점 검석
 			tmp = (JSONObject)documents.get(j);
 			while(true) {
 				try {
-				ary=new String[3];
-				ary[0]=tmp.get("distance").toString();
-				ary[1]=tmp.get("place_name").toString();
-				ary[2]=tmp.get("place_url").toString();
+				ary=new String[5];
+				ary[0]=tmp.get("place_name").toString();
+				ary[1]=tmp.get("distance").toString();
+				ary[2]=tmp.get("phone").toString();
+				ary[3]=tmp.get("category_name").toString();
+				ary[4]=tmp.get("address_name").toString();
 				list1.add(ary);
 				j++;
 				tmp = (JSONObject)documents.get(j);
@@ -166,6 +170,8 @@ class search extends call_address{//키워드로 음식점 검석
 			System.out.println(list1.get(i)[0]);
 			System.out.println(list1.get(i)[1]);
 			System.out.println(list1.get(i)[2]);
+			System.out.println(list1.get(i)[3]);
+			System.out.println(list1.get(i)[4]);
 		}
 	}
 	ArrayList<String[]> get_result() {
