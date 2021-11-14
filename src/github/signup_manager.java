@@ -118,7 +118,6 @@ public class signup_manager extends JPanel {
 				machine.update_XY(textField_2.getText());
 				machine.search_result(textField_3.getText());
 				ArrayList<String[]> list1 = machine.get_result();
-				machine.print();
 				for(int i=0;i<(int)list1.size();i++) {
 					comboBox.addItem(list1.get(i)[1]);
 				}
