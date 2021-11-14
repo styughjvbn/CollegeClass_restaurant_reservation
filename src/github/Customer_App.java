@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class Customer_App {
 
@@ -77,14 +78,14 @@ public class Customer_App {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(Wpanel.a.equals("Manager")){//콤보박스가 사장이라면
-					if(DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
+					if(DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
 						aa.showMessageDialog(null, "환영합니다"+Wpanel.textField_1.getText()+"님");	
 					}
 					else
 						aa.showMessageDialog(null, "로그인에 실패하였습니다");	
 				}
 				else if(Wpanel.a.equals("Customer")){//콤보박스가 고객이라면
-					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
+					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
 						aa.showMessageDialog(null, "환영합니다"+Wpanel.textField_1.getText()+"님");	
 					}
 					else
@@ -92,6 +93,19 @@ public class Customer_App {
 				}
 			}
 		});
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(450, 346, 319, 120);
+		Wpanel.add(panel);
+		panel.setLayout(null);
+		
+		JButton btnNewButton = new JButton("\uD655\uC778");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(113, 87, 97, 23);
+		panel.add(btnNewButton);
 		
 		
 		frame.setLocationRelativeTo(null);//화면 중앙에 프로그램 띄우기
