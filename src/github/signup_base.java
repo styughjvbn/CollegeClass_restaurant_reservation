@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.Font;
 
 public class signup_base extends JPanel {
 	private ButtonGroup group = new ButtonGroup();
@@ -31,7 +33,7 @@ public class signup_base extends JPanel {
 		setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(390, 149, 500, 450);
+		panel_1.setBounds(395, 204, 500, 450);
 		add(panel_1);
 		panel_1.setLayout(card);
 		
@@ -43,32 +45,34 @@ public class signup_base extends JPanel {
 		panel2.setBounds(-10008, -10031, 504, 437);
 		panel_1.add(panel2,"customer_signup");
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("\uC0AC\uC7A5");
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Manager");
 		rdbtnNewRadioButton.setSelected(true);
-		rdbtnNewRadioButton.setBackground(Color.WHITE);
+		rdbtnNewRadioButton.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
+		rdbtnNewRadioButton.setBackground(new Color(226,221,215));
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel_1, "maneger_signup");
 			}
 		});
-		rdbtnNewRadioButton.setBounds(656, 89, 61, 23);
+		rdbtnNewRadioButton.setBounds(675, 160, 140, 38);
 		add(rdbtnNewRadioButton);
 		group.add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("\uACE0\uAC1D");
-		rdbtnNewRadioButton_1.setBackground(Color.WHITE);
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Customer");
+		rdbtnNewRadioButton_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
+		rdbtnNewRadioButton_1.setBackground(new Color(226,221,215));
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel_1, "customer_signup");
 			}
 		});
-		rdbtnNewRadioButton_1.setBounds(568, 89, 61, 23);
+		rdbtnNewRadioButton_1.setBounds(489, 160, 140, 38);
 		add(rdbtnNewRadioButton_1);
 		group.add(rdbtnNewRadioButton_1);
 		
 		btnNewButton = new JButton("");
 		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBackground(new Color(226,221,215));
 		btnNewButton.setIcon(new ImageIcon("image/back.png"));
 		btnNewButton.setBounds(12, 10, 61, 50);
 		add(btnNewButton);

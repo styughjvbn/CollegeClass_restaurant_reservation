@@ -36,7 +36,7 @@ public class signup_manager extends JPanel {
 	 * Create the panel.
 	 */
 	public signup_manager() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(226,221,215));
 		setLayout(null);
 		
 		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");

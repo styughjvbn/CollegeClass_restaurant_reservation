@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class Customer_App {
 
@@ -16,10 +17,10 @@ public class Customer_App {
 	private JOptionPane aa=new JOptionPane();
 
 	/**
-	 * ÇÁ·Î±×·¥ ½ÇÇà
+	 * í”„ë¡œê·¸ë¨ ì‹¤í–‰
 	 */
-	public static void main(String[] args) {//main ÇÔ¼ö
-		EventQueue.invokeLater(new Runnable() {//½ºÀ®ÀÌ µ¿ÀÛµÉ ¼ö ÀÖµµ·Ï ÇÏ´Â ±³Åë°æÂû°°Àº ¿ªÇÒ..?
+	public static void main(String[] args) {//main í•¨ìˆ˜
+		EventQueue.invokeLater(new Runnable() {//ìŠ¤ìœ™ì´ ë™ì‘ë  ìˆ˜ ìˆë„ë¡ í•˜ëŠ” êµí†µê²½ì°°ê°™ì€ ì—­í• ..?
 			public void run() {
 				try {
 					Customer_App window = new Customer_App();
@@ -32,71 +33,84 @@ public class Customer_App {
 	}
 
 	/**
-	 * ÇÁ·¹ÀÓ »ı¼º
+	 * í”„ë ˆì„ ìƒì„±
 	 */
 	public Customer_App() {
 		initialize();
 	}
 
 	/**
-	 * ÇÁ·¹ÀÓ ÃÊ±âÈ­
+	 * í”„ë ˆì„ ì´ˆê¸°í™”
 	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setTitle("\uC2DD\uB2F9\uC608\uC57D \uD504\uB85C\uADF8\uB7A8");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xÅ° ´©¸£¸é ÇÁ·Î±×·¥ ¿ÏÀü Á¾·á
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//xí‚¤ ëˆ„ë¥´ë©´ í”„ë¡œê·¸ë¨ ì™„ì „ ì¢…ë£Œ
 		frame.getContentPane().setLayout(card);
-		frame.setSize(1296,759);//ÇÁ·Î±×·¥ Å©±â ¼³Á¤ ÀÌ°Å Áß¿ä ÇÁ·¹ÀÓ ³»ºÎ ÆĞ³ÎÀÇ Å©±â°¡ 1280x720 ¿ÂÀüÇÏ°Ô Ç¥ÇöµÇ°Ô ÇÏ±â À§ÇÔ
+		frame.setSize(1296,759);//í”„ë¡œê·¸ë¨ í¬ê¸° ì„¤ì • ì´ê±° ì¤‘ìš” í”„ë ˆì„ ë‚´ë¶€ íŒ¨ë„ì˜ í¬ê¸°ê°€ 1280x720 ì˜¨ì „í•˜ê²Œ í‘œí˜„ë˜ê²Œ í•˜ê¸° ìœ„í•¨
 		DAO_signup DAO=new DAO_signup();
-		DAO.create_customer_Table();//Ã¹ ½ÇÇà½Ã °í°´È¸¿ø Å×ÀÌºí »ı¼º
-		DAO.create_manager_Table();//Ã¹ ½ÇÇà½Ã »çÀåÈ¸¿ø Å×ÀÌºí »ı¼º
+		DAO.create_customer_Table();//ì²« ì‹¤í–‰ì‹œ ê³ ê°íšŒì› í…Œì´ë¸” ìƒì„±
+		DAO.create_manager_Table();//ì²« ì‹¤í–‰ì‹œ ì‚¬ì¥íšŒì› í…Œì´ë¸” ìƒì„±
 		
-		signin_base Wpanel=new signin_base();//Ã³À½ ½ÃÀÛ ·Î±×ÀÎ ÆĞ³Î »ı¼º
-		frame.getContentPane().add(Wpanel,"login");//ÇÁ·¹ÀÓ¿¡ ·Î±×ÀÎ ÆĞ³Î Ãß°¡
+		signin_base Wpanel=new signin_base();//ì²˜ìŒ ì‹œì‘ ë¡œê·¸ì¸ íŒ¨ë„ ìƒì„±
+		frame.getContentPane().add(Wpanel,"login");//í”„ë ˆì„ì— ë¡œê·¸ì¸ íŒ¨ë„ ì¶”ê°€
 		card.show(frame.getContentPane(), "login");
 		
-		signup_base member = new signup_base();//È¸¿ø°¡ÀÔ ÆĞ³Î »ı¼º
-		frame.getContentPane().add(member,"signup");//ÇÁ·¹ÀÓ¿¡ È¸¿ø°¡ÀÔ ÆĞ³Î Ãß°¡
+		signup_base member = new signup_base();//íšŒì›ê°€ì… íŒ¨ë„ ìƒì„±
+		frame.getContentPane().add(member,"signup");//í”„ë ˆì„ì— íšŒì›ê°€ì… íŒ¨ë„ ì¶”ê°€
 		
 		reservation_base reservation = new reservation_base();
-		frame.getContentPane().add(reservation,"reservation");//ÇÁ·¹ÀÓ¿¡ È¸¿ø°¡ÀÔ ÆĞ³Î Ãß°¡
+		frame.getContentPane().add(reservation,"reservation");//í”„ë ˆì„ì— íšŒì›ê°€ì… íŒ¨ë„ ì¶”ê°€
 		
-		Wpanel.btnSignup.addActionListener(new ActionListener() {//È¸¿ø°¡ÀÔ ¹öÆ° ¾×¼Ç
+		Wpanel.btnSignup.addActionListener(new ActionListener() {//íšŒì›ê°€ì… ë²„íŠ¼ ì•¡ì…˜
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "signup");
 			}
 		});
 		
-		member.btnNewButton.addActionListener(new ActionListener() {//µÚ·Î°¡±â ¹öÆ° ¾×¼Ç
+		member.btnNewButton.addActionListener(new ActionListener() {//ë’¤ë¡œê°€ê¸° ë²„íŠ¼ ì•¡ì…˜
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "login");
 			}
 		});
 		
-		Wpanel.btnNewButton.addActionListener(new ActionListener() {//·Î±×ÀÎ ¹öÆ° ¾×¼Ç
+		Wpanel.btnNewButton.addActionListener(new ActionListener() {//ë¡œê·¸ì¸ ë²„íŠ¼ ì•¡ì…˜
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(Wpanel.a.equals("Manager")){//ÄŞº¸¹Ú½º°¡ »çÀåÀÌ¶ó¸é
-					if(DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
-						aa.showMessageDialog(null, "È¯¿µÇÕ´Ï´Ù"+Wpanel.textField_1.getText()+"´Ô");	
+				if(Wpanel.a.equals("Manager")){//ì½¤ë³´ë°•ìŠ¤ê°€ ì‚¬ì¥ì´ë¼ë©´
+					if(DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
+						aa.showMessageDialog(null, "í™˜ì˜í•©ë‹ˆë‹¤"+Wpanel.textField_1.getText()+"ë‹˜");	
 					}
 					else
-						aa.showMessageDialog(null, "·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");	
+						aa.showMessageDialog(null, "ë¡œê·¸ì¸ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");	
 				}
-				else if(Wpanel.a.equals("Customer")){//ÄŞº¸¹Ú½º°¡ °í°´ÀÌ¶ó¸é
+				else if(Wpanel.a.equals("Customer")){//ì½¤ë³´ë°•ìŠ¤ê°€ ê³ ê°ì´ë¼ë©´
 					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
 						card.show(frame.getContentPane(), "reservation");
 					}
 					else
-						aa.showMessageDialog(null, "·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");	
+						aa.showMessageDialog(null, "ë¡œê·¸ì¸ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");	
 				}
 			}
 		});
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(450, 346, 319, 120);
+		Wpanel.add(panel);
+		panel.setLayout(null);
 		
-		frame.setLocationRelativeTo(null);//È­¸é Áß¾Ó¿¡ ÇÁ·Î±×·¥ ¶ç¿ì±â
+		JButton btnNewButton = new JButton("\uD655\uC778");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(113, 87, 97, 23);
+		panel.add(btnNewButton);
+		
+		
+		frame.setLocationRelativeTo(null);//í™”ë©´ ì¤‘ì•™ì— í”„ë¡œê·¸ë¨ ë„ìš°ê¸°
 	}
 }

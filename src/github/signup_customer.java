@@ -36,45 +36,45 @@ public class signup_customer extends JPanel {
 	 * Create the panel.
 	 */
 	public signup_customer() {
-		setBackground(Color.WHITE);
+		setBackground(new Color(226,221,215));
 		setLayout(null);
 		
 		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");
 		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setBounds(185, 16, 97, 30);
+		btnNewButton.setBounds(225, 75, 97, 30);
 		add(btnNewButton);
 		
 		pwtxt = new JPasswordField();
 		pwtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pwtxt.setBackground(Color.WHITE);
-		pwtxt.setBounds(12, 60, 160, 40);
+		pwtxt.setBounds(13, 115, 201, 40);
 		add(pwtxt);
 		
 		idtxt = new JTextField();
 		idtxt.setBackground(Color.WHITE);
 		idtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "ID", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		idtxt.setBounds(13, 10, 160, 40);
+		idtxt.setBounds(13, 65, 200, 40);
 		add(idtxt);
 		idtxt.setColumns(10);
 		
 		pwtxtc = new JPasswordField();
 		pwtxtc.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password check", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pwtxtc.setBackground(Color.WHITE);
-		pwtxtc.setBounds(12, 110, 160, 40);
+		pwtxtc.setBounds(13, 165, 201, 40);
 		add(pwtxtc);
 		
 		nametxt = new JTextField();
 		nametxt.setColumns(10);
 		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Name", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		nametxt.setBackground(Color.WHITE);
-		nametxt.setBounds(195, 60, 160, 40);
+		nametxt.setBounds(13, 15, 160, 40);
 		add(nametxt);
 		
 		agetxt = new JTextField();
 		agetxt.setColumns(10);
 		agetxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Age", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		agetxt.setBackground(Color.WHITE);
-		agetxt.setBounds(195, 110, 160, 40);
+		agetxt.setBounds(157, 257, 57, 40);
 		add(agetxt);
 		
 		btnNewButton_2 = new JButton("\uAC00\uC785");
@@ -85,18 +85,18 @@ public class signup_customer extends JPanel {
 		comboBox.setBackground(Color.WHITE);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"male", "female"}));
 		comboBox.setForeground(Color.BLACK);
-		comboBox.setBounds(12, 203, 116, 21);
+		comboBox.setBounds(23, 272, 116, 21);
 		add(comboBox);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "H.P.", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		textField.setBackground(Color.WHITE);
-		textField.setBounds(195, 160, 160, 40);
+		textField.setBounds(13, 215, 201, 40);
 		add(textField);
 		
 		JLabel lblNewLabel = new JLabel("\uC131\uBCC4");
-		lblNewLabel.setBounds(12, 178, 57, 15);
+		lblNewLabel.setBounds(0, 275, 57, 15);
 		add(lblNewLabel);
 
 		btnNewButton.addActionListener(new ActionListener() {
