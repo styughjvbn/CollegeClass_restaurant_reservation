@@ -88,7 +88,7 @@ public class Customer_App {
 						aa.showMessageDialog(null, "로그인에 실패하였습니다");	
 				}
 				else if(Wpanel.a.equals("Customer")){//콤보박스가 고객이라면
-					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.passwordField.getText()))) {
+					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
 						card.show(frame.getContentPane(), "reservation");
 					}
 					else
