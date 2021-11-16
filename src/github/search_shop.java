@@ -46,7 +46,6 @@ abstract class call_json {
 				}
 				JSONParser parser = new JSONParser();
 				Object obj = parser.parse(sb.toString());
-				System.out.println("success call json");
 				return obj;
 			}
 		} catch (IOException e) {
@@ -94,7 +93,7 @@ class call_address extends call_json {//주소를 xy좌표로 변환
 class search extends call_address{//키워드로 음식점 검석 
 	String radius="1000";//해당 좌표기준 반지름 만큼 검색 하지만 결과값은 최대 45
 	int page=1;
-	ArrayList<String[]> list1 = new ArrayList();
+	ArrayList<String[]> list1;
 	
 	URL create_url(String str) {
 		try {
@@ -115,17 +114,21 @@ class search extends call_address{//키워드로 음식점 검석
 		String []ary=null;
 		responseJson = (JSONObject)temp;
 		JSONObject tmp;
+		list1 = new ArrayList();
 
 		JSONArray documents = (JSONArray) responseJson.get("documents");// 음식점 검색 결과 JSON
+		System.out.println(documents);
 		for(int i=0;i<15;i++) {//첫번째 결과 페이지를 저장
 			try {
 				tmp = (JSONObject)documents.get(i);
-				ary=new String[5];
+				ary=new String[7];
 				ary[0]=tmp.get("place_name").toString();
 				ary[1]=tmp.get("distance").toString();
 				ary[2]=tmp.get("phone").toString();
 				ary[3]=tmp.get("category_name").toString();
 				ary[4]=tmp.get("address_name").toString();
+				ary[5]=tmp.get("x").toString();
+				ary[6]=tmp.get("y").toString();
 				list1.add(ary);
 			}catch(IndexOutOfBoundsException e) {
 				break;
@@ -150,46 +153,30 @@ class search extends call_address{//키워드로 음식점 검석
 			tmp = (JSONObject)documents.get(j);
 			while(true) {
 				try {
-				ary=new String[5];
-				ary[0]=tmp.get("place_name").toString();
-				ary[1]=tmp.get("distance").toString();
-				ary[2]=tmp.get("phone").toString();
-				ary[3]=tmp.get("category_name").toString();
-				ary[4]=tmp.get("address_name").toString();
-				list1.add(ary);
-				j++;
-				tmp = (JSONObject)documents.get(j);
+					ary=new String[7];
+					ary[0]=tmp.get("place_name").toString();
+					ary[1]=tmp.get("distance").toString();
+					ary[2]=tmp.get("phone").toString();
+					ary[3]=tmp.get("category_name").toString();
+					ary[4]=tmp.get("address_name").toString();
+					ary[5]=tmp.get("x").toString();
+					ary[6]=tmp.get("y").toString();
+					list1.add(ary);
+					j++;
+					tmp = (JSONObject)documents.get(j);
 				} catch(IndexOutOfBoundsException e) {
 					break;
 				}
 			}
 		}	
 	}
-	void print() {
-		for(int i=0;i<(int)list1.size();i++) {
-			System.out.println(list1.get(i)[0]);
-			System.out.println(list1.get(i)[1]);
-			System.out.println(list1.get(i)[2]);
-			System.out.println(list1.get(i)[3]);
-			System.out.println(list1.get(i)[4]);
-		}
-	}
 	ArrayList<String[]> get_result() {
 		return list1;
 	}
-}
-
-public class search_shop {
-
-	public static void main(String[] args) {
-		search machine= new search();
-		System.out.print("주소입력>>");
-		Scanner scanner=new Scanner(System.in);
-		String temp=scanner.nextLine();
-		machine.update_XY(temp);
-		System.out.print("검색어입력>>");
-		temp=scanner.nextLine();
-		machine.search_result(temp);
-		machine.print();
+	String get_center_x() {
+		return super.x;
+	}
+	String get_center_y() {
+		return super.y;
 	}
 }

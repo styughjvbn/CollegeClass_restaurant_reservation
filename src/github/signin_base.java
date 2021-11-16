@@ -52,7 +52,7 @@ public class signin_base extends JPanel {
 		panel.add(textField_1);
 		textField_1.setAlignmentX(5.0f);
 		textField_1.setColumns(10);
-		textField_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 3, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		textField_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 3, true),"", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		textField_1.setText("ID를 입력해주세요.");
 		textField_1.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
 		textField_1.setForeground(Color.LIGHT_GRAY);
@@ -88,6 +88,7 @@ public class signin_base extends JPanel {
 	            if(PasswordField.getText().equals("Password를 입력해주세요.")) {
 	               PasswordField.setText("");
 	               PasswordField.setEchoChar('*');
+	               PasswordField.setForeground(Color.BLACK);
 	            }
 	            
 	         }

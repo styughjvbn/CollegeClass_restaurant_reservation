@@ -29,7 +29,7 @@ public class signup_manager extends JPanel {
 	private JButton signup_bt;
 	private DAO_signup DAO = new DAO_signup();
 	private JOptionPane aa=new JOptionPane();
-	private search machine= new search();
+	private search machine;
 	private boolean  isoverlap=false;
 
 	/**
@@ -115,6 +115,7 @@ public class signup_manager extends JPanel {
 		});
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				machine=new search();
 				machine.update_XY(textField_2.getText());
 				machine.search_result(textField_3.getText());
 				ArrayList<String[]> list1 = machine.get_result();
