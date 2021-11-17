@@ -12,23 +12,24 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class customerpanel extends JPanel {
+public class reservation_detail extends JPanel {
 	private JTextField nametxt;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-
+	public JButton detail_back;
 	Calendar calendar = Calendar.getInstance(); //java에서 날짜 + 시간을 받아옴
 	private JButton checkbutton;
 	
 	/**
 	 * Create the panel.
 	 */
-	public customerpanel() {
+	public reservation_detail() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -102,6 +103,12 @@ public class customerpanel extends JPanel {
 			
 		});
 		panel.add(checkbutton);
-
+		
+		detail_back = new JButton("");//back버튼
+		detail_back.setBounds(29, 23, 61, 50);
+		add(detail_back);
+		detail_back.setBorder(null);
+		detail_back.setBackground(new Color(226,221,215));
+		detail_back.setIcon(new ImageIcon("image/back.png"));
 	}
 }

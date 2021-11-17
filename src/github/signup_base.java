@@ -13,7 +13,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import java.awt.Font;
 
 public class signup_base extends JPanel {

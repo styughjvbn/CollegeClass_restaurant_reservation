@@ -27,23 +27,26 @@ public class reservation_base extends JPanel {
 	private static_map_image create_image=new static_map_image();
 	private String shop="";
 	public JButton back;
+	private CardLayout card=new CardLayout(0, 0);
 
 	/**
 	 * Create the panel.
 	 */
 	public reservation_base() {
-		setLayout(new CardLayout(0, 0));
+		setLayout(card);
 		
 		JPanel panel = new JPanel();
-		add(panel, "name_257469438277100");
+		add(panel, "base");
 		panel.setLayout(null);
+		
+		reservation_detail detail=new reservation_detail();
+		add(detail, "detail");
 		
 		textField = new JTextField();
 		textField.setBorder(new TitledBorder(null, "rotation", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		textField.setBounds(46, 71, 146, 51);
 		panel.add(textField);
 		textField.setColumns(10);
-		
 		JComboBox<String> comboBox = new JComboBox();
 		comboBox.setBounds(742, 56, 313, 51);
 		panel.add(comboBox);
@@ -132,9 +135,16 @@ public class reservation_base extends JPanel {
 		JButton btnNewButton_1 = new JButton("\uC608\uC57D\uD558\uAE30");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				card.show(panel.getParent(),"detail");
 			}
 		});
 		btnNewButton_1.setBounds(742, 464, 329, 87);
 		panel.add(btnNewButton_1);
+		
+		detail.detail_back.addActionListener(new ActionListener() {//상세페이지의 back버튼 클릭시 
+			public void actionPerformed(ActionEvent e) {
+				card.show(detail.getParent(),"base");
+			}
+		});
 	}
 }

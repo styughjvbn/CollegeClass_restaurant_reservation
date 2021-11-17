@@ -2,23 +2,14 @@ package github;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.awt.Component;
-import java.awt.Color;
 
 public class Customer_App {
 
 	private JFrame frame;
 	private CardLayout card = new CardLayout();
-	private JOptionPane aa=new JOptionPane();
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -47,6 +38,7 @@ public class Customer_App {
 		DAO_signup DAO=new DAO_signup();
 		DAO.create_customer_Table();
 		DAO.create_manager_Table();
+		DAO.create_Haru_Table();
 		
 		signin_base Wpanel=new signin_base();//로그인 패널
 		frame.getContentPane().add(Wpanel,"login");
