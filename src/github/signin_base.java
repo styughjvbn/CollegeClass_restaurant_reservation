@@ -26,11 +26,13 @@ public class signin_base extends JPanel {
 	public JTextField textField_1;
 	public JPasswordField PasswordField;
 	private ButtonGroup group = new ButtonGroup();
-	JButton btnNewButton;
+	public JButton btnNewButton;
 	String a="Customer";//로그인 첫화면 고객로그인으로 설정
 	private Image img;
 	private Dimension d;
 	public JButton btnSignup;
+	public JPanel error_panel;
+	public JLabel error_label;
 
 	/**
 	 * Create the panel.
@@ -39,6 +41,29 @@ public class signin_base extends JPanel {
 		setBorder(new EmptyBorder(0, 0, 0, 0));
 		setBounds(0, 1, 1280, 720);
 		setLayout(null);
+		
+		error_panel = new JPanel();
+		error_panel.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		error_panel.setBackground(Color.LIGHT_GRAY);
+		error_panel.setVisible(false);
+		error_panel.setBounds(449, 302, 319, 120);
+		add(error_panel);
+		error_panel.setLayout(null);
+		
+		JButton error_button = new JButton("\uD655\uC778");
+		error_button.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		error_button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				error_panel.setVisible(false);
+			}
+		});
+		error_button.setBounds(113, 87, 97, 23);
+		error_panel.add(error_button);
+		
+		error_label = new JLabel("\uB85C\uADF8\uC778 \uC2E4\uD328");
+		error_label.setBounds(88, 10, 137, 60);
+		error_label.setFont(new Font("SEBANG Gothic", Font.PLAIN, 26));
+		error_panel.add(error_label);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(574, 0, 706, 758);

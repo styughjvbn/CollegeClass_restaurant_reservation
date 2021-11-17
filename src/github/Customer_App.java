@@ -2,6 +2,7 @@ package github;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Component;
+import java.awt.Color;
 
 public class Customer_App {
 
@@ -44,64 +48,58 @@ public class Customer_App {
 		DAO.create_customer_Table();
 		DAO.create_manager_Table();
 		
-		signin_base Wpanel=new signin_base();
+		signin_base Wpanel=new signin_base();//로그인 패널
 		frame.getContentPane().add(Wpanel,"login");
 		card.show(frame.getContentPane(), "login");
 		
-		signup_base member = new signup_base();
+		signup_base member = new signup_base();//회원가입 패널
 		frame.getContentPane().add(member,"signup");
 		
-		reservation_base reservation = new reservation_base();
+		reservation_base reservation = new reservation_base();//예약 패널
 		frame.getContentPane().add(reservation,"reservation");
 		
-		Wpanel.btnSignup.addActionListener(new ActionListener() {
+		reservation.back.addActionListener(new ActionListener() {//예약 패널의 back버튼
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				card.show(frame.getContentPane(), "login");
+			}
+		});
+		Wpanel.btnSignup.addActionListener(new ActionListener() {//회원가입 버튼
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "signup");
 			}
 		});
 		
-		member.btnNewButton.addActionListener(new ActionListener() {
+		member.btnNewButton.addActionListener(new ActionListener() {//회원가입 패널의 back버튼
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "login");
 			}
 		});
 		
-		Wpanel.btnNewButton.addActionListener(new ActionListener() {
+		
+		
+		Wpanel.btnNewButton.addActionListener(new ActionListener() {//로그인 버튼
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(Wpanel.a.equals("Manager")){
 					if(DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
-						aa.showMessageDialog(null, "환영합니다"+Wpanel.textField_1.getText()+"님");	
 					}
 					else
-						aa.showMessageDialog(null, "로그인 실패");	
+						Wpanel.error_panel.setVisible(true);
 				}
 				else if(Wpanel.a.equals("Customer")){
 					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
 						card.show(frame.getContentPane(), "reservation");
 					}
 					else
-						aa.showMessageDialog(null, "로그인 실패");	
+						Wpanel.error_panel.setVisible(true);
 				}
 			}
 		});
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(450, 346, 319, 120);
-		Wpanel.add(panel);
-		panel.setLayout(null);
 		
-		JButton btnNewButton = new JButton("\uD655\uC778");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(113, 87, 97, 23);
-		panel.add(btnNewButton);
-		
-		
-		frame.setLocationRelativeTo(null);
+		frame.setLocationRelativeTo(null);//포로그램 실행시 화면 가운데 띄우기
 	}
 }

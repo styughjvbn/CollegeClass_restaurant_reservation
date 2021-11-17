@@ -1,6 +1,7 @@
 package github;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class reservation_base extends JPanel {
 	private JTextField shop_category;
 	private static_map_image create_image=new static_map_image();
 	private String shop="";
+	public JButton back;
 
 	/**
 	 * Create the panel.
@@ -38,7 +40,7 @@ public class reservation_base extends JPanel {
 		
 		textField = new JTextField();
 		textField.setBorder(new TitledBorder(null, "rotation", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		textField.setBounds(28, 51, 146, 51);
+		textField.setBounds(46, 71, 146, 51);
 		panel.add(textField);
 		textField.setColumns(10);
 		
@@ -48,7 +50,7 @@ public class reservation_base extends JPanel {
 		
 		textField_1 = new JTextField();
 		textField_1.setBorder(new TitledBorder(null, "keyword", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		textField_1.setBounds(221, 51, 146, 51);
+		textField_1.setBounds(228, 71, 146, 51);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -120,5 +122,11 @@ public class reservation_base extends JPanel {
 			}
 		});
 
+		back = new JButton("");//back¹öÆ°
+		back.setBorder(null);
+		back.setBackground(new Color(226,221,215));
+		back.setIcon(new ImageIcon("image/back.png"));
+		back.setBounds(12, 10, 61, 50);
+		panel.add(back);
 	}
 }

@@ -70,7 +70,7 @@ public class signup_base extends JPanel {
 		add(rdbtnNewRadioButton_1);
 		group.add(rdbtnNewRadioButton_1);
 		
-		btnNewButton = new JButton("");
+		btnNewButton = new JButton("");//back¹öÆ°
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(new Color(226,221,215));
 		btnNewButton.setIcon(new ImageIcon("image/back.png"));
@@ -80,7 +80,6 @@ public class signup_base extends JPanel {
 		img = new ImageIcon("image/signup.jpg").getImage();
 
 		d = getSize();
-		
 	}
 	public void paintComponent(Graphics g) {
 	      g.drawImage(img, 0, 0,d.width,d.height, null);
