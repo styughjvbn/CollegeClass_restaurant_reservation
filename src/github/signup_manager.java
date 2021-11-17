@@ -1,9 +1,13 @@
 package github;
 
 import java.awt.Color;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -11,8 +15,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
 
 public class signup_manager extends JPanel {
 	private JPasswordField passwordField_1;
@@ -26,90 +36,161 @@ public class signup_manager extends JPanel {
 	private JButton signup_bt;
 	private DAO_signup DAO = new DAO_signup();
 	private JOptionPane aa=new JOptionPane();
-	private search machine;
+	private search machine= new search();
 	private boolean  isoverlap=false;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
 
 	/**
 	 * Create the panel.
 	 */
 	public signup_manager() {
-		setBackground(new Color(226,221,215));
+		setBackground(Color.WHITE);
 		setLayout(null);
 		
 		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");
-		btnNewButton.setBounds(185, 16, 97, 30);
+		btnNewButton.setBounds(1097, 141, 97, 30);
 		add(btnNewButton);
 		
 		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(928, 181, 160, 40);
 		passwordField_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		passwordField_1.setBackground(Color.WHITE);
-		passwordField_1.setBounds(12, 60, 160, 40);
 		add(passwordField_1);
 		
 		textField = new JTextField();
+		textField.setBounds(928, 131, 160, 40);
 		textField.setBackground(Color.WHITE);
 		textField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "ID", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		textField.setBounds(13, 10, 160, 40);
 		add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setBounds(928, 292, 160, 40);
 		textField_1.setColumns(10);
 		textField_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "H.P", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		textField_1.setBackground(Color.WHITE);
-		textField_1.setBounds(12, 160, 160, 40);
 		add(textField_1);
 		
 		passwordField = new JPasswordField();
+		passwordField.setBounds(928, 242, 160, 40);
 		passwordField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password check", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		passwordField.setBackground(Color.WHITE);
-		passwordField.setBounds(12, 110, 160, 40);
 		add(passwordField);
 		
-		lblNewLabel = new JLabel("\uC810\uD3EC");
-		lblNewLabel.setBounds(12, 222, 57, 15);
+		//점포 입력
+		lblNewLabel = new JLabel("\uC810\uD3EC \uC785\uB825");  
+		lblNewLabel.setForeground(new Color(90, 81, 75));
+		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel.setBounds(84, 131, 102, 15);
 		add(lblNewLabel);
 		
 		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Dialog", Font.BOLD, 20));
+		textField_2.setForeground(Color.GRAY);
+		textField_2.setText("\uC9C0\uC5ED\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.");
+		textField_2.setBounds(84, 168, 423, 40);
 		textField_2.setColumns(10);
-		textField_2.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "\uC9C0\uC5ED", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		textField_2.setBackground(Color.WHITE);
-		textField_2.setBounds(12, 247, 160, 40);
+		textField_2.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		textField_2.setBackground(new Color(226,221,215));
+		textField_2.addFocusListener(new FocusAdapter() {
+	         @Override
+	         public void focusGained(FocusEvent e) {
+	            if(textField_2.getText().equals("지역을 입력해주세요.")) {
+	            	textField_2.setText("");
+	            }
+	            
+	         }
+	         @Override
+	         public void focusLost(FocusEvent e) {
+	            if(textField_2.getText().equals("")) {
+	            	textField_2.setText("지역을 입력해주세요.");
+	            }
+	         }
+	      });
 		add(textField_2);
 		
+		//상호명 입력
 		textField_3 = new JTextField();
+		textField_3.setText("\uC0C1\uD638\uBA85\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.");
+		textField_3.setBounds(84, 218, 309, 40);
 		textField_3.setColumns(10);
-		textField_3.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "\uC0C1\uD638\uBA85", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		textField_3.setBackground(Color.WHITE);
-		textField_3.setBounds(185, 247, 160, 40);
+		textField_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		textField_3.setBackground(new Color(226,221,215));
+		textField_3.addFocusListener(new FocusAdapter() {
+	         @Override
+	         public void focusGained(FocusEvent e) {
+	            if(textField_3.getText().equals("상호명을 입력해주세요.")) {
+	            	textField_3.setText("");
+	            }
+	            
+	         }
+	         @Override
+	         public void focusLost(FocusEvent e) {
+	            if(textField_3.getText().equals("")) {
+	            	textField_3.setText("상호명을 입력해주세요.");
+	            }
+	         }
+	      });
 		add(textField_3);
 		
 		comboBox = new JComboBox();
+		comboBox.setBounds(84, 278, 423, 40);
 		comboBox.setBackground(Color.WHITE);
 		comboBox.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
-		comboBox.setBounds(12, 297, 333, 40);
 		add(comboBox);
 		
 		signup_bt = new JButton("\uAC00\uC785");
-		signup_bt.setBounds(185, 377, 97, 30);
+		signup_bt.setBounds(1062, 376, 97, 30);
 		add(signup_bt);
 		
+		//검색버튼
 		JButton btnNewButton_2_1 = new JButton("\uAC80\uC0C9");
-		btnNewButton_2_1.setBounds(354, 299, 97, 30);
+		btnNewButton_2_1.setBounds(392, 216, 115, 42);
 		add(btnNewButton_2_1);
+		
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\signup_step1.png"));
+		lblNewLabel_1.setBounds(340, 27, 535, 82);
+		add(lblNewLabel_1);
+		
+		
+		//상세정보
+		lblNewLabel_2 = new JLabel("\uC0C1\uC138\uC815\uBCF4");
+		lblNewLabel_2.setForeground(new Color(90, 81, 75));
+		lblNewLabel_2.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(688, 131, 102, 15);
+		add(lblNewLabel_2);
+		
+		JPanel panel = new JPanel();  //3단계 패널
+		panel.setBounds(5, 350, 785, 253);
+		add(panel);
+		panel.setVisible(false);
+		
+		//다음단계
+				JButton btnNewButton_1 = new JButton("\uB2E4\uC74C \uB2E8\uACC4"); 
+				btnNewButton_1.setBounds(841, 407, 127, 40);
+				add(btnNewButton_1);
+				btnNewButton_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						panel.setVisible(true);
+					}
+				});
+		
 
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(DAO.overlap_id_manager(textField.getText())==0) {
-					aa.showMessageDialog(null, "사용할 수 있는 아이디입니다.");
-					isoverlap=false;
-				}
-				else {
-					aa.showMessageDialog(null, "아이디가 중복됩니다.");
-					isoverlap=true;
-				}
-			}
-		});
+				btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if(DAO.overlap_id_manager(textField.getText())==0) {
+							aa.showMessageDialog(null, "사용할 수 있는 아이디입니다.");
+							isoverlap=false;
+						}
+						else {
+							aa.showMessageDialog(null, "아이디가 중복됩니다.");
+							isoverlap=true;
+						}
+					}
+				});
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				machine=new search();
