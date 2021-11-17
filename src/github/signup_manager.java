@@ -80,7 +80,7 @@ public class signup_manager extends JPanel {
 		
 		//점포 입력
 		lblNewLabel = new JLabel("\uC810\uD3EC \uC785\uB825");  
-		lblNewLabel.setForeground(new Color(90, 81, 75));
+		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblNewLabel.setBounds(84, 131, 102, 15);
 		add(lblNewLabel);
@@ -158,7 +158,7 @@ public class signup_manager extends JPanel {
 		
 		//상세정보
 		lblNewLabel_2 = new JLabel("\uC0C1\uC138\uC815\uBCF4");
-		lblNewLabel_2.setForeground(new Color(90, 81, 75));
+		lblNewLabel_2.setForeground(Color.BLACK);
 		lblNewLabel_2.setFont(new Font("Dialog", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(688, 131, 102, 15);
 		add(lblNewLabel_2);
