@@ -128,5 +128,13 @@ public class reservation_base extends JPanel {
 		back.setIcon(new ImageIcon("image/back.png"));
 		back.setBounds(12, 10, 61, 50);
 		panel.add(back);
+		
+		JButton btnNewButton_1 = new JButton("\uC608\uC57D\uD558\uAE30");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(742, 464, 329, 87);
+		panel.add(btnNewButton_1);
 	}
 }
