@@ -43,7 +43,7 @@ public class signup_base extends JPanel {
 		panel_1.add(panel_2, "member_type");
 		panel_2.setLayout(null);
 		
-		JButton rdbtnNewRadioButton_1 = new JButton("");  //customer 버튼
+		JButton rdbtnNewRadioButton_1 = new JButton("");  // customer 버튼
 		rdbtnNewRadioButton_1.setBorder(null);
 		rdbtnNewRadioButton_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\csignupbtn.PNG"));
 		rdbtnNewRadioButton_1.setBounds(447, 281, 134, 51);
