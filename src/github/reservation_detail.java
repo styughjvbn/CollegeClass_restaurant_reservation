@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.awt.CardLayout;
 
 public class reservation_detail extends JPanel {
 	private JTextField nametxt;
@@ -25,6 +26,8 @@ public class reservation_detail extends JPanel {
 	public JButton detail_back;
 	Calendar calendar = Calendar.getInstance(); //java에서 날짜 + 시간을 받아옴
 	private JButton checkbutton;
+	private JPanel panel_1;
+	private JPanel panel_2;
 	
 	/**
 	 * Create the panel.
@@ -35,7 +38,7 @@ public class reservation_detail extends JPanel {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		panel.setForeground(Color.WHITE);
-		panel.setBounds(676, 23, 298, 266);
+		panel.setBounds(676, 23, 427, 532);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -88,7 +91,7 @@ public class reservation_detail extends JPanel {
 		panel.add(datebox);
 		
 		checkbutton = new JButton("Check");
-		checkbutton.setBounds(189, 231, 97, 23);
+		checkbutton.setBounds(318, 445, 97, 23);
 		checkbutton.addActionListener(new ActionListener() {
 
 			@Override
@@ -110,5 +113,13 @@ public class reservation_detail extends JPanel {
 		detail_back.setBorder(null);
 		detail_back.setBackground(new Color(226,221,215));
 		detail_back.setIcon(new ImageIcon("image/back.png"));
+		
+		panel_1 = new JPanel();
+		panel_1.setBounds(23, 83, 608, 493);
+		add(panel_1);
+		panel_1.setLayout(new CardLayout(0, 0));
+		
+		panel_2 = new JPanel();
+		panel_1.add(panel_2, "name_605965324031500");
 	}
 }
