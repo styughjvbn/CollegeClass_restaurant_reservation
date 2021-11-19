@@ -213,7 +213,11 @@ public class DAO_signup {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
+<<<<<<< HEAD
 			String pass = "1q2w3e4r!";//비밀번호 수정 필요
+=======
+			String pass = "@dhdldldhkdlwm2";//비밀번호 수정 필요
+>>>>>>> ab868aa261f0b7891cf3e402b07c5ab485498bfe
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			System.out.println("The Connection successful");
