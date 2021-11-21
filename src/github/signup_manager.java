@@ -81,13 +81,13 @@ public class signup_manager extends JPanel {
 
 		JLabel lblNewLabel_10 = new JLabel("");
 		lblNewLabel_10.setIcon(
-				new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\signup_step41.PNG"));
+				new ImageIcon("image/signup_step41.PNG"));
 		lblNewLabel_10.setBounds(324, 0, 543, 69);
 		panel_1.add(lblNewLabel_10);
 
 		JButton btnNewButton_2 = new JButton(""); // 시작하기
 		btnNewButton_2.setIcon(
-				new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\startbtn.PNG"));
+				new ImageIcon("image/startbtn.PNG"));
 		btnNewButton_2.setBounds(355, 306, 492, 52);
 		panel_1.add(btnNewButton_2);
 
@@ -165,7 +165,7 @@ public class signup_manager extends JPanel {
 		panel_2.add(btnNewButton_2_1);
 		btnNewButton_2_1.setBorder(null);
 		btnNewButton_2_1.setIcon(
-				new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\searchbtn.PNG"));
+				new ImageIcon("image/searchbtn.PNG"));
 
 		// 다음단계
 		JButton btnNewButton_1 = new JButton("\uB2E4\uC74C \uB2E8\uACC4");
@@ -182,7 +182,7 @@ public class signup_manager extends JPanel {
 		lblNewLabel_1.setBounds(283, 0, 574, 83);
 		panel_2.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(
-				new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\signup_step21.PNG"));
+				new ImageIcon("image/signup_step21.PNG"));
 
 		// 3단계 패널
 		// 아이디
@@ -276,7 +276,7 @@ public class signup_manager extends JPanel {
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(
-				new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\ducheck1.PNG"));
+				new ImageIcon("image/ducheck1.PNG"));
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 15));
 		btnNewButton.setBounds(657, 150, 129, 40);
 		panel.add(btnNewButton);
@@ -312,7 +312,7 @@ public class signup_manager extends JPanel {
 		// 가입하기
 		signup_bt = new JButton("");
 		signup_bt.setIcon(
-				new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\joinbtn.PNG"));
+				new ImageIcon("image/joinbtn.PNG"));
 		signup_bt.setBounds(301, 426, 485, 46);
 		panel.add(signup_bt);
 
@@ -324,7 +324,7 @@ public class signup_manager extends JPanel {
 
 		lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setIcon(
-				new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\signup_step31.PNG"));
+				new ImageIcon("image/signup_step31.PNG"));
 		lblNewLabel_6.setBounds(281, 0, 574, 71);
 		panel.add(lblNewLabel_6);
 

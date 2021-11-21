@@ -45,19 +45,19 @@ public class signup_base extends JPanel {
 		
 		JButton rdbtnNewRadioButton_1 = new JButton("");  // customer 버튼
 		rdbtnNewRadioButton_1.setBorder(null);
-		rdbtnNewRadioButton_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\csignupbtn.PNG"));
+		rdbtnNewRadioButton_1.setIcon(new ImageIcon("image/csignupbtn.PNG"));
 		rdbtnNewRadioButton_1.setBounds(447, 281, 134, 51);
 		panel_2.add(rdbtnNewRadioButton_1);
 		
 		JButton rdbtnNewRadioButton = new JButton("");  //manager 버튼
 		rdbtnNewRadioButton.setBorder(null);
-		rdbtnNewRadioButton.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\msig.PNG"));
+		rdbtnNewRadioButton.setIcon(new ImageIcon("image/msig.PNG"));
 		rdbtnNewRadioButton.setBounds(963, 281, 134, 57);
 		panel_2.add(rdbtnNewRadioButton);
 		
 		//manager/customer 선택 버튼
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\signup_step13.PNG"));
+		lblNewLabel_1.setIcon(new ImageIcon("image/signup_step13.PNG"));
 		lblNewLabel_1.setBounds(303, 58, 666, 101);
 		panel_2.add(lblNewLabel_1);
 		
@@ -83,7 +83,7 @@ public class signup_base extends JPanel {
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setFont(new Font("Dialog", Font.PLAIN, 12));
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\signup_select1.PNG"));
+		lblNewLabel_2.setIcon(new ImageIcon("image/signup_select1.PNG"));
 		lblNewLabel_2.setBounds(86, 189, 1057, 194);
 		panel_2.add(lblNewLabel_2);
 		
@@ -117,15 +117,10 @@ public class signup_base extends JPanel {
 		
 		btnNewButton = new JButton("");  //뒤로가기
 		btnNewButton.setBorder(null);
-		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBackground(new Color(226,221,215));
 		btnNewButton.setIcon(new ImageIcon("image/back.png"));
-		btnNewButton.setBounds(12, 10, 61, 50);
+		btnNewButton.setBounds(35, 53, 61, 50);
 		add(btnNewButton);
-		
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uAC00\uC785");
-		lblNewLabel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		lblNewLabel.setBounds(356, 52, 575, 84);
-		add(lblNewLabel);
 		
 		img = new ImageIcon("image/signup.jpg").getImage();
 
