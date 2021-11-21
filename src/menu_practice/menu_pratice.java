@@ -11,6 +11,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class menu_pratice extends JPanel {
 	private hi temp;
@@ -27,35 +29,40 @@ public class menu_pratice extends JPanel {
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.setBounds(28, 24, 713, 564);
 		add(panel);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("New button");
-		panel.add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("New button");
-		panel.add(btnNewButton_3);
+		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				temp=new hi();
+				temp=new hi((++num)*150,(num)*150);
 				shop_table.add(temp);
-				num++;
+				
 				panel.add(shop_table.get(num));
 				panel.repaint();
-				System.out.println("hi");
 			}
 		});
 		btnNewButton.setBounds(862, 84, 97, 23);
 		add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
+		btnNewButton_1.setBounds(862, 294, 97, 23);
+		add(btnNewButton_1);
 	}
 }
 class hi extends JButton{
-	int x,y;
-	public hi(){
+	public hi(int x,int y){
+		setBounds(x, y, 100, 100);
 		setBorder(new LineBorder(new Color(0, 0, 0)));
+	}
+}
+class hjh extends JPanel{
+	public hjh() {
+		
 	}
 }
