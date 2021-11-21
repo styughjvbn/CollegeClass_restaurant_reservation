@@ -190,7 +190,6 @@ public class manager_shop extends JPanel {
 		});
 		btnNewButton_4.setBounds(842, 538, 305, 77);
 		add(btnNewButton_4);
-
 	}
 }
 
