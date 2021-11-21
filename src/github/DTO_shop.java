@@ -17,6 +17,19 @@ public class DTO_shop {
 		this.shop_table_num = shop_table_num;
 		this.shop_address = shop_address;
 	}
+	DTO_shop(String shop_name,String shop_address)
+	{
+		this.shop_name = shop_name;
+		this.shop_address = shop_address;
+	}
+	public DTO_shop(String shop_name, byte shop_holyday, int shop_open, int shop_close, int shop_table_num)
+	{
+		this.shop_name = shop_name;
+		this.shop_holyday = shop_holyday;
+		this.shop_open = shop_open;
+		this.shop_close = shop_close;
+		this.shop_table_num = shop_table_num;
+	}
 	
 	String get_shop_name() {
 		return shop_name;

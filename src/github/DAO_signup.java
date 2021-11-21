@@ -28,6 +28,57 @@ public class DAO_signup {
 		
 		return 0;
 	}
+	public static int new_shop(DTO_shop manager) {//새로운 점포 입점
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO shop"
+			     + "(shop_name, shop_address) "
+			     + "VALUE "
+			     + "('"+manager.get_shop_name()+"','"+manager.get_shop_address()+"')");
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
+	public static int update_shop(DTO_shop manager) {//새로운 점포 입점
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "UPDATE shop SET"
+			     + " shop_holyday = '"+manager.get_shop_holyday()+"',"
+			     + " shop_open = '"+manager.get_shop_open()+"',"
+			     + " shop_close = '"+manager.get_shop_close()+"',"
+			     + " shop_table_num = '"+manager.get_shop_table_num()+"'"
+			     +" WHERE (shop_name = '"+manager.get_shop_name()+"');");
+			   System.out.println(insert1);
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
+	public static int new_table(DTO_manage_table manager) {//새로운 점포 입점
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO manage_table"
+			     + "(mt_table, mt_shop, mt_size, mt_x, mt_y) "
+			     + "VALUE "
+			     + "('"+manager.get_mt_table()+"','"+manager.get_mt_shop()+"','"+manager.get_mt_size()+"','"+manager.get_mt_x()+"','"+manager.get_mt_y()+"')");
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
 	public static int customer_signup(DTO_customer_login customer) {//고객 회원가입
 		try{
 			   Connection con = getConnection();
@@ -82,7 +133,8 @@ public class DAO_signup {
 		
 		return 0;
 	}
-	public static boolean login_manager(DTO_manager_login manager) {//사장 로그인
+	public DTO_manager_login login_manager(DTO_manager_login manager) {//사장 로그인
+		DTO_manager_login temp;
 		conn = getConnection();
 		try {
 			pstmt = conn.prepareStatement("select * from manager where manager_id = ? and manager_pw= ? "); //db에서 idcode와 pw 테이블에 값이 존재하는지 확인
@@ -92,12 +144,13 @@ public class DAO_signup {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) { //rs의 next에 값이 있으면 일치한다는 뜻
-				return true; //로그인 성공
+				System.out.println(rs.getString(1)+rs.getString(2)+rs.getString(3)+rs.getString(4));
+				return new DTO_manager_login(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));//로그인 성공
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return false; //로그인 실패
+		return null; //로그인 실패
 	}
 	public static boolean login_customer(DTO_customer_login customer) {//고객 로그인
 		conn = getConnection();
@@ -172,25 +225,7 @@ public class DAO_signup {
 		   System.out.println("Table successfully created");
 		  }
 		 }
-	public static void create_Haru_Table(){//하루초밥 테이블이 존재하지 않으면 만든다.
-		  try{
-		   Connection con = getConnection();
-		   PreparedStatement create = con.prepareStatement(
-		     "CREATE TABLE IF NOT EXISTS "
-		     + "하루초밥(id하루초밥 VARCHAR(255) NOT NULL,"
-		     + "r_name VARCHAR(255) NOT NULL,"
-		     + "r_peoplenum VARCHAR(255) NOT NULL,"
-		     + "r_time VARCHAR(255) NOT NULL,"
-		     + "r_table VARCHAR(255) NOT NULL,"
-		     + "r_date INT(30) UNSIGNED NOT NULL,"
-		     + "PRIMARY KEY(id하루초밥), UNIQUE INDEX id하루초밥_UNIQUE (id하루초밥 ASC) VISIBLE)");
-		   create.execute();
-		  }catch(Exception e){
-		   System.out.println(e.getMessage());
-		  }finally{
-		   System.out.println("Table successfully created");
-		  }
-		 }
+	
 	
 	public static  Connection getConnection() {//DB와 연결
 		try {
