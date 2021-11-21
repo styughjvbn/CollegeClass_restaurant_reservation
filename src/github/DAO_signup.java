@@ -12,22 +12,6 @@ public class DAO_signup {
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
 	
-	public static int manager_signup(DTO_하루초밥 Haru) {//하루초밥 예약누르면 여기로 값이 들어감
-		try{
-			   Connection con = getConnection();
-			   PreparedStatement insert1 = con.prepareStatement(""
-			     + "INSERT INTO 하루초밥"
-			     + "(r_name, r_peoplenum, r_time, r_table, r_date) "
-			     + "VALUE "
-			     + "('"+Haru.getr_name()+"','"+Haru.getr_peoplenum()+"','"+Haru.getr_time()+"','"+Haru.getr_table()+"','"+Haru.getr_date()+"')");
-			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
-			  }catch(Exception e){
-			   System.out.println(e.getMessage());
-			  }
-		
-		return 0;
-	}
 	public static int manager_signup(DTO_manager_login manager) {//사장 회원가입
 		try{
 			   Connection con = getConnection();

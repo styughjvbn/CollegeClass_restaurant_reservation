@@ -114,7 +114,6 @@ public class manager_shop extends JPanel {
 		add(lblNewLabel_3);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("\uC6D4");
-		chckbxNewCheckBox.addItemListener();
 		chckbxNewCheckBox.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 			}
@@ -191,29 +190,6 @@ public class manager_shop extends JPanel {
 		});
 		btnNewButton_4.setBounds(842, 538, 305, 77);
 		add(btnNewButton_4);
-		ItemListener action = new ItemListener() {    
-	        @Override
-	        public void itemStateChanged(ItemEvent e) {
-	           
-	           
-	            if(e.getSource() == ls ) {
-	                System.out.println(e.getItem()+"is SELECTED");
-	                tf.append(ls.getSelectedItem()+"를 선택하셨습니다.\n");
-	            }else{
-	           
-	                if(e.getStateChange()==1){
-	                    System.out.println(e.getItem()+"is SELECTED");
-	                    tf.append(e.getItem()+"를 선택하셨습니다.\n");
-	                }else{
-	                    System.out.println(e.getItem()+"is DESELECTED");
-	                    tf.append(e.getItem()+"를 해제하셨습니다.\n");
-	                }          
-	            }
-	           
-	            //tf.append(ls.getItem((Integer) e.getItem())+"를 선택하셨습니다.\n");
-	            //System.out.println(e.getItemSelectable());          
-	        }
-	    };
 	}
 }
 

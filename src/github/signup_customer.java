@@ -115,12 +115,12 @@ public class signup_customer extends JPanel {
 					} else {
 						String id=idtxt.getText();
 						String pw= pwtxt.getText();
-						String age=agetxt.getText();
+						int age=Integer.parseInt(agetxt.getText().toString());
 						String name=nametxt.getText();
-						String Gender=comboBox.getSelectedItem().toString();
+						byte Gender=(byte)Integer.parseInt(comboBox.getSelectedItem().toString());
 						String HP=textField.getText();
 						
-						if(age.equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")||Gender.equals("")) {
+						if(agetxt.getText().toString().equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")) {
 							aa.showMessageDialog(null, "모두 입력해주세요");	
 						}else {
 							DAO.customer_signup(new DTO_customer_login(id,pw,HP,Gender,name,age));
