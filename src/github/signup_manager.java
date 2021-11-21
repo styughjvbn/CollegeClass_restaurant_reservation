@@ -28,6 +28,7 @@ public class signup_manager extends JPanel {
 	private JOptionPane aa=new JOptionPane();
 	private search machine;
 	private boolean  isoverlap=false;
+	private ArrayList<String[]> list1;
 
 	/**
 	 * Create the panel.
@@ -115,9 +116,9 @@ public class signup_manager extends JPanel {
 				machine=new search();
 				machine.update_XY(textField_2.getText());
 				machine.search_result(textField_3.getText());
-				ArrayList<String[]> list1 = machine.get_result();
+				list1 = machine.get_result();
 				for(int i=0;i<(int)list1.size();i++) {
-					comboBox.addItem(list1.get(i)[1]);
+					comboBox.addItem(list1.get(i)[0]);
 				}
 			}
 		});
@@ -135,6 +136,7 @@ public class signup_manager extends JPanel {
 							aa.showMessageDialog(null, "모두 입력해주세요");	
 						}else {
 							shop=comboBox.getSelectedItem().toString();
+							DAO.new_shop(new DTO_shop(shop,list1.get(comboBox.getSelectedIndex())[4]));
 							DAO.manager_signup(new DTO_manager_login(id,pw,HP,shop));
 							aa.showMessageDialog(null, "환영합니다"+id+"님");	
 						}

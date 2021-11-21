@@ -4,7 +4,9 @@ import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
+
 
 public class Customer_App {
 
@@ -38,7 +40,6 @@ public class Customer_App {
 		DAO_signup DAO=new DAO_signup();
 		DAO.create_customer_Table();
 		DAO.create_manager_Table();
-		DAO.create_Haru_Table();
 		
 		signin_base Wpanel=new signin_base();//로그인 패널
 		frame.getContentPane().add(Wpanel,"login");
@@ -49,6 +50,9 @@ public class Customer_App {
 		
 		reservation_base reservation = new reservation_base();//예약 패널
 		frame.getContentPane().add(reservation,"reservation");
+		
+		manager_base manage=new manager_base();
+		frame.getContentPane().add(manage,"manage");
 		
 		reservation.back.addActionListener(new ActionListener() {//예약 패널의 back버튼
 			@Override
@@ -76,10 +80,14 @@ public class Customer_App {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(Wpanel.a.equals("Manager")){
-					if(DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
-					}
-					else
+					DTO_manager_login temp=DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()));
+					if(temp==null) {
 						Wpanel.error_panel.setVisible(true);
+					}
+					else{
+						card.show(frame.getContentPane(), "manage");
+						manage.cnt_user=temp;
+					}
 				}
 				else if(Wpanel.a.equals("Customer")){
 					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {

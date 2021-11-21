@@ -1,34 +1,32 @@
-package github.manager;
+package github;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseAdapter;
-import javax.swing.JCheckBox;
-import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
 
 class shop_table extends JLabel{
 	int x,y;
+	int size;
 	public shop_table(int num,int tablenum){
+		size=num;
 		setBounds(0, 0, 100, 100);
 		setBorder(new LineBorder(new Color(0, 0, 0)));
-		setIcon(new ImageIcon("image/"+num+".png"));
+		setIcon(new ImageIcon("image/"+size+".png"));
 		setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), Integer.toString(tablenum), TitledBorder.LEADING, TitledBorder.BOTTOM, null, new Color(0, 0, 0)));
 		addMouseListener(new MouseAdapter() {
 			@Override
@@ -59,18 +57,17 @@ class shop_table extends JLabel{
 public class manager_shop extends JPanel {
 	private ArrayList<shop_table> shop_table=new ArrayList();
 	int table_num=-1;
-	int x,y;
 	int holyday[]=new int[7];
+	private DAO_signup DAO=new DAO_signup();
+	public String shop;
 	/**
 	 * Create the panel.
 	 */
 	public manager_shop() {
 		setLayout(null);
-		
 		JButton btnNewButton_3 = new JButton("\uB9CC\uB4E4\uAE30");
 		btnNewButton_3.setBounds(842, 311, 305, 31);
 		add(btnNewButton_3);
-		
 		
 		
 		JLabel lblNewLabel = new JLabel("\uC778\uC6D0\uC218");
@@ -87,13 +84,6 @@ public class manager_shop extends JPanel {
 		panel_1.setBounds(12, 67, 800, 600);
 		add(panel_1);
 		panel_1.setLayout(null);
-		
-		JLabel lblNewLabel_6 = new JLabel();
-		lblNewLabel_6.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "1", TitledBorder.LEADING, TitledBorder.BOTTOM, null, new Color(0, 0, 0)));
-		lblNewLabel_6.setVerticalTextPosition(SwingConstants.TOP);
-		lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\33387\\Desktop\\2\uD559\uB144 2\uD559\uAE30\\\uC624\uD508\uC18C\uC2A4\uD504\uB85C\uC81D\uD2B8\\restaurant_reservation\\image\\4.png"));
-		lblNewLabel_6.setBounds(318, 143, 100, 100);
-		panel_1.add(lblNewLabel_6);
 		
 		JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"}));
@@ -113,18 +103,13 @@ public class manager_shop extends JPanel {
 		lblNewLabel_3.setBounds(994, 50, 57, 15);
 		add(lblNewLabel_3);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("\uC6D4");
-		chckbxNewCheckBox.addItemListener();
-		chckbxNewCheckBox.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e) {
-			}
-		});
-		chckbxNewCheckBox.setBounds(893, 99, 45, 23);
-		add(chckbxNewCheckBox);
-		
 		JLabel lblNewLabel_4 = new JLabel("\uD734\uBB34\uC77C");
 		lblNewLabel_4.setBounds(810, 103, 57, 15);
 		add(lblNewLabel_4);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("\uC6D4");
+		chckbxNewCheckBox.setBounds(893, 99, 45, 23);
+		add(chckbxNewCheckBox);
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("\uD654");
 		chckbxNewCheckBox_1.setBounds(942, 99, 45, 23);
@@ -183,7 +168,27 @@ public class manager_shop extends JPanel {
 		JButton btnNewButton_4 = new JButton("\uC800\uC7A5");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int open=comboBox_1.getSelectedIndex();
+				int close=comboBox_2.getSelectedIndex();
+				int count=comboBox.getSelectedIndex()+2;
+				byte holyday=0;
+				if(chckbxNewCheckBox.isSelected())
+					holyday+=127;
+				if(chckbxNewCheckBox_1.isSelected())
+					holyday+=63;
+				if(chckbxNewCheckBox_2.isSelected())
+					holyday+=31;
+				if(chckbxNewCheckBox_3.isSelected())
+					holyday+=15;
+				if(chckbxNewCheckBox_4.isSelected())
+					holyday+=7;
+				if(chckbxNewCheckBox_5.isSelected())
+					holyday+=3;
+				if(chckbxNewCheckBox_6.isSelected())
+					holyday+=1;
+				DAO.update_shop(new DTO_shop(shop,(byte)holyday,open,close,shop_table.size()));
 				for(int i=0;i<shop_table.size();i++) {
+					DAO.new_table(new DTO_manage_table(i+1,shop,shop_table.get(i).size,shop_table.get(i).getX(),shop_table.get(i).getY()));
 					System.out.println(shop_table.get(i).getX()+" "+shop_table.get(i).getY());
 				}
 				
@@ -191,29 +196,6 @@ public class manager_shop extends JPanel {
 		});
 		btnNewButton_4.setBounds(842, 538, 305, 77);
 		add(btnNewButton_4);
-		ItemListener action = new ItemListener() {    
-	        @Override
-	        public void itemStateChanged(ItemEvent e) {
-	           
-	           
-	            if(e.getSource() == ls ) {
-	                System.out.println(e.getItem()+"is SELECTED");
-	                tf.append(ls.getSelectedItem()+"를 선택하셨습니다.\n");
-	            }else{
-	           
-	                if(e.getStateChange()==1){
-	                    System.out.println(e.getItem()+"is SELECTED");
-	                    tf.append(e.getItem()+"를 선택하셨습니다.\n");
-	                }else{
-	                    System.out.println(e.getItem()+"is DESELECTED");
-	                    tf.append(e.getItem()+"를 해제하셨습니다.\n");
-	                }          
-	            }
-	           
-	            //tf.append(ls.getItem((Integer) e.getItem())+"를 선택하셨습니다.\n");
-	            //System.out.println(e.getItemSelectable());          
-	        }
-	    };
 	}
 }
 

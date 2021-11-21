@@ -1,26 +1,22 @@
-package github.manager;
+package github;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class manager_base extends JPanel {
-	public manager_shop table_manage=new manager_shop();
+	public manager_shop table_manage;
 	public CardLayout card=new CardLayout();
+	public DTO_manager_login cnt_user=null;
 	/**
 	 * Create the panel.
 	 */
 	public manager_base() {
 		setLayout(card);
-		
+		table_manage=new manager_shop();
 		JPanel panel = new JPanel();
 		add(panel, "name_607799466526300");
 		panel.setLayout(null);
@@ -30,6 +26,7 @@ public class manager_base extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "table_manage");
+				table_manage.shop=cnt_user.get_Shop();
 			}
 		});
 		btnNewButton.setBounds(94, 159, 275, 238);

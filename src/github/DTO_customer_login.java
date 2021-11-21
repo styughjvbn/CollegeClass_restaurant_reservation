@@ -4,11 +4,12 @@ public class DTO_customer_login {
 	private String ID;
 	private String PW;
 	private String HP;
-	private String Gender;
+	private byte Gender;
 	private String Name;
-	private String Age;
+	private int Age;
+	private int money;
 	
-	DTO_customer_login(String ID,String PW,String HP,String Gender, String Name,String Age){
+	DTO_customer_login(String ID,String PW,String HP,byte Gender, String Name,int Age){
 		this.ID=ID;
 		this.PW=PW;
 		this.HP=HP;
@@ -29,13 +30,13 @@ public class DTO_customer_login {
 	String get_HP() {
 		return HP;
 	}
-	String get_Gender() {
+	byte get_Gender() {
 		return Gender;
 	}
 	String get_Name() {
 		return Name;
 	}
-	String get_Age() {
+	int get_Age() {
 		return Age;
 	}
 }
