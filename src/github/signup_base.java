@@ -43,6 +43,14 @@ public class signup_base extends JPanel {
 		panel_1.add(panel_2, "member_type");
 		panel_2.setLayout(null);
 		
+		signup_manager panel=new signup_manager();//사장 회원가입
+		panel.setBounds(-10008, -10031, 1215,500);
+		panel_1.add(panel,"maneger_signup");
+		
+		signup_customer panel2=new signup_customer();//고객 회원가입
+		panel2.setBounds(-10008, -10031, 504, 437);
+		panel_1.add(panel2,"customer_signup");
+		
 		JButton rdbtnNewRadioButton_1 = new JButton("");  // customer 버튼
 		rdbtnNewRadioButton_1.setBorder(null);
 		rdbtnNewRadioButton_1.setIcon(new ImageIcon("image/csignupbtn.PNG"));
@@ -92,9 +100,6 @@ public class signup_base extends JPanel {
 		lblNewLabel_3.setBounds(146, 405, 672, 33);
 		panel_2.add(lblNewLabel_3);
 		
-		
-		
-		
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel_1, "maneger_signup");
@@ -105,16 +110,7 @@ public class signup_base extends JPanel {
 				card.show(panel_1, "customer_signup");
 			}
 		});
-		
-		signup_manager panel=new signup_manager();
-		panel.setBounds(-10008, -10031, 1215,500);
-		panel_1.add(panel,"maneger_signup");
-		
-		signup_customer panel2=new signup_customer();
-		panel2.setBounds(-10008, -10031, 504, 437);
-		panel_1.add(panel2,"customer_signup");
-		
-		
+
 		btnNewButton = new JButton("");  //뒤로가기
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(new Color(226,221,215));
@@ -122,10 +118,15 @@ public class signup_base extends JPanel {
 		btnNewButton.setBounds(35, 53, 61, 50);
 		add(btnNewButton);
 		
+		panel.btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(panel_1, "member_type");
+			}
+		});
+		
 		img = new ImageIcon("image/signup.jpg").getImage();
 
 		d = getSize();
-		
 	}
 	public void paintComponent(Graphics g) {
 	      g.drawImage(img, 0, 0,d.width,d.height, null);

@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-
 public class Customer_App {
 
 	private JFrame frame;
@@ -38,8 +37,7 @@ public class Customer_App {
 		frame.getContentPane().setLayout(card);
 		frame.setSize(1296,759);
 		DAO_signup DAO=new DAO_signup();
-		DAO.create_customer_Table();
-		DAO.create_manager_Table();
+		DAO.init();
 		
 		signin_base Wpanel=new signin_base();//로그인 패널
 		frame.getContentPane().add(Wpanel,"login");
@@ -80,7 +78,7 @@ public class Customer_App {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(Wpanel.a.equals("Manager")){
-					DTO_manager_login temp=DAO.login_manager(new DTO_manager_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()));
+					DTO_manager temp=DAO.login_manager(new DTO_manager(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()));
 					if(temp==null) {
 						Wpanel.error_panel.setVisible(true);
 					}
@@ -90,7 +88,7 @@ public class Customer_App {
 					}
 				}
 				else if(Wpanel.a.equals("Customer")){
-					if(DAO.login_customer(new DTO_customer_login(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
+					if(DAO.login_customer(new DTO_customer(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
 						card.show(frame.getContentPane(), "reservation");
 					}
 					else

@@ -1,6 +1,6 @@
 package github;
 
-public class DTO_customer_login {
+public class DTO_customer {
 	private String ID;
 	private String PW;
 	private String HP;
@@ -9,7 +9,7 @@ public class DTO_customer_login {
 	private int Age;
 	private int money;
 	
-	DTO_customer_login(String ID,String PW,String HP,byte Gender, String Name,int Age){
+	DTO_customer(String ID,String PW,String HP,byte Gender, String Name,int Age){
 		this.ID=ID;
 		this.PW=PW;
 		this.HP=HP;
@@ -17,7 +17,7 @@ public class DTO_customer_login {
 		this.Name=Name;
 		this.Age=Age;
 	}
-	DTO_customer_login(String ID,String PW){
+	DTO_customer(String ID,String PW){
 		this.ID=ID;
 		this.PW=PW;
 	}

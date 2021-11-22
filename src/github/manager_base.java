@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class manager_base extends JPanel {
 	public manager_shop table_manage;
 	public CardLayout card=new CardLayout();
-	public DTO_manager_login cnt_user=null;
+	public DTO_manager cnt_user=null;
 	/**
 	 * Create the panel.
 	 */
@@ -26,7 +26,9 @@ public class manager_base extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "table_manage");
-				table_manage.shop=cnt_user.get_Shop();
+				table_manage.shop=cnt_user.get_Shop();//현재 로그인 된 사장의 점포를 저장
+				
+				table_manage.init();//현재 로그인된 사장 점포의 테이블 내역 불러옴
 			}
 		});
 		btnNewButton.setBounds(94, 159, 275, 238);

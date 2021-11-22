@@ -1,17 +1,17 @@
 package github;
 
-public class DTO_manager_login {
+public class DTO_manager {
 	private String ID;
 	private String PW;
 	private String HP;
 	private String Shop;
-	DTO_manager_login(String ID,String PW,String HP,String Shop){
+	DTO_manager(String ID,String PW,String HP,String Shop){
 		this.ID=ID;
 		this.PW=PW;
 		this.HP=HP;
 		this.Shop=Shop;
 	}
-	DTO_manager_login(String ID,String PW){
+	DTO_manager(String ID,String PW){
 		this.ID=ID;
 		this.PW=PW;
 	}

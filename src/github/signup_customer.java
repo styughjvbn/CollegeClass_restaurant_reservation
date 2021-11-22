@@ -45,7 +45,7 @@ public class signup_customer extends JPanel {
 		setBackground(new Color(226, 221, 215));
 		setLayout(null);
 
-		// 4ë²ˆì§¸
+		// 4¹øÂ°
 		JPanel Panel_4 = new JPanel();
 		Panel_4.setBounds(12, 0, 1203, 507);
 		add(Panel_4);
@@ -53,7 +53,7 @@ public class signup_customer extends JPanel {
 		Panel_4.setLayout(null);
 		Panel_4.setVisible(false);
 
-		// 3ë²ˆì§¸
+		// 3¹øÂ°
 		JPanel Panel_3 = new JPanel();
 		Panel_3.setBounds(58, 0, 1203, 507);
 		add(Panel_3);
@@ -68,31 +68,31 @@ public class signup_customer extends JPanel {
 		Panel_2.setLayout(null);
 		Panel_2.setVisible(true);
 		
-		// 2ë‹¨ê³„ ì´ë¯¸ì§€
+		// 2´Ü°è ÀÌ¹ÌÁö
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(283, 0, 574, 83);
 		Panel_2.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon("image/signup_step21.PNG"));
 		
-		// 3ë‹¨ê³„ ì´ë¯¸ì§€
+		// 3´Ü°è ÀÌ¹ÌÁö
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBounds(283, 0, 574, 83);
 		Panel_3.add(lblNewLabel_2);
 		lblNewLabel_2.setIcon(new ImageIcon("image/signup_step31.PNG"));
 		
-		// 4ë‹¨ê³„ ì´ë¯¸ì§€
+		// 4´Ü°è ÀÌ¹ÌÁö
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setBounds(283, 0, 574, 83);
 		Panel_4.add(lblNewLabel_3);
 		lblNewLabel_3.setIcon(new ImageIcon("image/signup_step41.PNG"));
 		
-		// 3ë²ˆÂŠ íŒ¨ë„, ì¤‘ë³µê²€ì‚¬ ë²„íŠ¼
+		// 3¹øÂ° ÆĞ³Î, Áßº¹°Ë»ç ¹öÆ°
 		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");
 		btnNewButton.setIcon(new ImageIcon("image/check.png"));
 		btnNewButton.setBounds(225, 75, 97, 30);
 		Panel_3.add(btnNewButton);
 
-		// 3ë²ˆì§¸ íŒ¨ë„
+		// 3¹øÂ° ÆĞ³Î
 		pwtxt = new JPasswordField();
 		pwtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password", TitledBorder.LEADING,
 				TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -100,7 +100,7 @@ public class signup_customer extends JPanel {
 		pwtxt.setBounds(13, 115, 201, 40);
 		Panel_3.add(pwtxt);
 
-		// 3ë²ˆì§¸ íŒ¨ë„
+		// 3¹øÂ° ÆĞ³Î
 		idtxt = new JTextField();
 		idtxt.setBackground(Color.WHITE);
 		idtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "ID", TitledBorder.LEADING,
@@ -109,7 +109,7 @@ public class signup_customer extends JPanel {
 		Panel_3.add(idtxt);
 		idtxt.setColumns(10);
 
-		// 3ë²ˆì§¸ íŒ¨ë„
+		// 3¹øÂ° ÆĞ³Î
 		pwtxtc = new JPasswordField();
 		pwtxtc.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Password check",
 				TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -117,7 +117,7 @@ public class signup_customer extends JPanel {
 		pwtxtc.setBounds(13, 165, 201, 40);
 		Panel_3.add(pwtxtc);
 
-		// 2ë²ˆì§¸ íŒ¨ë„
+		// 2¹øÂ° ÆĞ³Î
 		nametxt = new JTextField();
 		nametxt.setColumns(10);
 		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Name", TitledBorder.LEADING,
@@ -126,7 +126,7 @@ public class signup_customer extends JPanel {
 		nametxt.setBounds(13, 15, 160, 40);
 		Panel_2.add(nametxt);
 
-		// 2ë²ˆì§¸ íŒ¨ë„
+		// 2¹øÂ° ÆĞ³Î
 		agetxt = new JTextField();
 		agetxt.setColumns(10);
 		agetxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Age", TitledBorder.LEADING,
@@ -135,13 +135,13 @@ public class signup_customer extends JPanel {
 		agetxt.setBounds(157, 257, 57, 40);
 		Panel_2.add(agetxt);
 
-		// 3ë²ˆì§¸ íŒ¨ë„ (ê°€ì…)
+		// 3¹øÂ° ÆĞ³Î (°¡ÀÔ)
 		btnNewButton_2 = new JButton("\uAC00\uC785");
 		btnNewButton_2.setIcon(new ImageIcon("image/signup.png"));
 		btnNewButton_2.setBounds(185, 377, 97, 30);
 		Panel_3.add(btnNewButton_2);
 
-		// 2ë²ˆì§¸ íŒ¨ë„
+		// 2¹øÂ° ÆĞ³Î
 		comboBox = new JComboBox(new Object[] {});
 		comboBox.setBackground(Color.WHITE);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "male", "female" }));
@@ -149,7 +149,7 @@ public class signup_customer extends JPanel {
 		comboBox.setBounds(23, 272, 116, 21);
 		Panel_2.add(comboBox);
 
-		// 2ë²ˆì§¸ íŒ¨ë„
+		// 2¹øÂ° ÆĞ³Î
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "H.P.", TitledBorder.LEADING,
@@ -158,17 +158,17 @@ public class signup_customer extends JPanel {
 		textField.setBounds(13, 215, 201, 40);
 		Panel_2.add(textField);
 
-		// 2ë²ˆì§¸ íŒ¨ë„
+		// 2¹øÂ° ÆĞ³Î
 		JLabel lblNewLabel = new JLabel("\uC131\uBCC4");
 		lblNewLabel.setBounds(0, 275, 57, 15);
 		Panel_2.add(lblNewLabel);
 
-		// ë‹¤ìŒë‹¨ê³„
+		// ´ÙÀ½´Ü°è
 		JButton btnNewButton_1 = new JButton("\uB2E4\uC74C \uB2E8\uACC4");
 		btnNewButton_1.setIcon(new ImageIcon("image/next.png"));
 		btnNewButton_1.setBounds(994, 445, 127, 40);
 		Panel_2.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {// step3ìœ¼ë¡œ ê°€ëŠ” ë‹¤ìŒë‹¨ê³„
+		btnNewButton_1.addActionListener(new ActionListener() {// step3À¸·Î °¡´Â ´ÙÀ½´Ü°è
 			public void actionPerformed(ActionEvent e) {
 				Panel_3.setVisible(true);
 				Panel_2.setVisible(false);
@@ -179,10 +179,10 @@ public class signup_customer extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (DAO.overlap_id_customer(idtxt.getText()) == 0) {
-					aa.showMessageDialog(null, "ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤.");
+					aa.showMessageDialog(null, "»ç¿ëÇÒ ¼ö ÀÖ´Â ¾ÆÀÌµğÀÔ´Ï´Ù.");
 					isoverlap = false;
 				} else {
-					aa.showMessageDialog(null, "ì•„ì´ë””ê°€ ì¤‘ë³µë©ë‹ˆë‹¤.");
+					aa.showMessageDialog(null, "¾ÆÀÌµğ°¡ Áßº¹µË´Ï´Ù.");
 					isoverlap = true;
 				}
 			}
@@ -191,7 +191,7 @@ public class signup_customer extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (!isoverlap) {
 					if (!pwtxt.getText().equals(pwtxtc.getText())) {
-						aa.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ê°€ ë™ì¼í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+						aa.showMessageDialog(null, "ºñ¹Ğ¹øÈ£°¡ µ¿ÀÏÇÏÁö ¾Ê½À´Ï´Ù.");
 					} else {
 						String id=idtxt.getText();
 						String pw= pwtxt.getText();
@@ -201,14 +201,14 @@ public class signup_customer extends JPanel {
 						String HP=textField.getText();
 						
 						if(agetxt.getText().toString().equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")) {
-							aa.showMessageDialog(null, "ëª¨ë‘ ì…ë ¥í•´ì£¼ì„¸ìš”");	
+							aa.showMessageDialog(null, "¸ğµÎ ÀÔ·ÂÇØÁÖ¼¼¿ä");	
 						}else {
-							DAO.customer_signup(new DTO_customer_login(id,pw,HP,Gender,name,age));
-							aa.showMessageDialog(null, "í™˜ì˜í•©ë‹ˆë‹¤"+id+"ë‹˜");	
+							DAO.customer_signup(new DTO_customer(id,pw,HP,Gender,name,age));
+							aa.showMessageDialog(null, "È¯¿µÇÕ´Ï´Ù"+id+"´Ô");	
 						}
 					}
 				} else
-					aa.showMessageDialog(null, "ì•„ì´ë””ê°€ ì¤‘ë³µë©ë‹ˆë‹¤.");
+					aa.showMessageDialog(null, "¾ÆÀÌµğ°¡ Áßº¹µË´Ï´Ù.");
 
 			}
 		});
