@@ -316,7 +316,7 @@ public class signup_customer extends JPanel {
 			}
 		});
 
-		// 2번째 패널
+		// 2번째 패널(성별)
 		JLabel SEXLabel = new JLabel("S E X");
 		SEXLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		SEXLabel.setBounds(273, 351, 50, 40);
@@ -328,16 +328,19 @@ public class signup_customer extends JPanel {
 		NextButton.setBounds(994, 445, 127, 40);
 		Panel_2.add(NextButton);
 		
+		// 2번째 패널(이름)
 		JLabel NameLabel = new JLabel("Name");
 		NameLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		NameLabel.setBounds(273, 144, 57, 15);
 		Panel_2.add(NameLabel);
 		
+		// 2번째 패널(전화번호)
 		HPLabel = new JLabel("H.P");
 		HPLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		HPLabel.setBounds(273, 233, 57, 15);
 		Panel_2.add(HPLabel);
 		
+		// 2번째 패널(나이)
 		AGELabel = new JLabel("AGE");
 		AGELabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		AGELabel.setBounds(676, 324, 57, 15);
@@ -348,8 +351,7 @@ public class signup_customer extends JPanel {
 				Panel_2.setVisible(false);
 			}
 		});
-		
-
+		// 중복확인 버튼 조건문
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (DAO.overlap_id_customer(idtxt.getText()) == 0) {
@@ -361,6 +363,7 @@ public class signup_customer extends JPanel {
 				}
 			}
 		});
+		// 가입하기 버튼 조건문
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!isoverlap) {
