@@ -43,7 +43,7 @@ public class manager_base extends JPanel {
 		btnNewButton_2.setBounds(702, 159, 287, 238);
 		panel.add(btnNewButton_2);
 		
-		btnNewButton_3 = new JButton("back");
+		btnNewButton_3 = new JButton("logout");
 		btnNewButton_3.setBounds(40, 41, 97, 23);
 		panel.add(btnNewButton_3);
 		table_manage.btnNewButton_1.addActionListener(new ActionListener() {

@@ -117,7 +117,7 @@ public class DAO_signup {
 		}
 		return null; //로그인 실패
 	}
-	public static boolean login_customer(DTO_customer customer) {//고객 로그인
+	public DTO_customer login_customer(DTO_customer customer) {//고객 로그인
 		conn = getConnection();
 		try {
 			pstmt = conn.prepareStatement("select * from customer where customer_id = ? and customer_pw = ?"); //db에서 idcode와 pw 테이블에 값이 존재하는지 확인
@@ -126,12 +126,13 @@ public class DAO_signup {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) { //rs의 next에 값이 있으면 일치한다는 뜻
-				return true; //로그인 성공
+				return new DTO_customer(rs.getString(1),rs.getString(2),rs.getString(3),(byte)rs.getInt(4),rs.getString(5),rs.getInt(6),rs.getInt(7)); //로그인 성공
 			}
+			return null;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return false; //로그인 실패
+		return null; //로그인 실패
 	}
 
 	public static ArrayList<String> getCustomers(){ //데이터를 db에서 불러옴, 실질적으로 쓰이진않지만 예시로 활용가능 db에서 데이터 불러오는 예시!

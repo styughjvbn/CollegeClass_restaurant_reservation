@@ -9,6 +9,15 @@ public class DTO_customer {
 	private int Age;
 	private int money;
 	
+	DTO_customer(String ID,String PW,String HP,byte Gender, String Name,int Age,int money){
+		this.ID=ID;
+		this.PW=PW;
+		this.HP=HP;
+		this.Gender=Gender;
+		this.Name=Name;
+		this.Age=Age;
+		this.money=money;
+	}
 	DTO_customer(String ID,String PW,String HP,byte Gender, String Name,int Age){
 		this.ID=ID;
 		this.PW=PW;
@@ -38,5 +47,8 @@ public class DTO_customer {
 	}
 	int get_Age() {
 		return Age;
+	}
+	int get_money() {
+		return money;
 	}
 }

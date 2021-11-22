@@ -28,12 +28,17 @@ public class reservation_base extends JPanel {
 	private String shop="";
 	public JButton back;
 	private CardLayout card=new CardLayout(0, 0);
-
+	public DTO_customer cnt_user;
+	private DAO_reservation DAO=new DAO_reservation();
+	private JTextField open_time;
+	private JTextField holyday;
+	private DTO_shop cnt_shop;
 	/**
 	 * Create the panel.
 	 */
 	public reservation_base() {
 		setLayout(card);
+		
 		
 		JPanel panel = new JPanel();
 		add(panel, "base");
@@ -80,33 +85,44 @@ public class reservation_base extends JPanel {
 		
 		shop_name = new JTextField();
 		shop_name.setEditable(false);
-		shop_name.setBounds(742, 211, 329, 21);
+		shop_name.setBounds(742, 151, 329, 21);
 		panel.add(shop_name);
 		shop_name.setColumns(10);
 		
 		shop_tel = new JTextField();
 		shop_tel.setEditable(false);
-		shop_tel.setBounds(742, 258, 329, 21);
+		shop_tel.setBounds(742, 197, 329, 21);
 		panel.add(shop_tel);
 		shop_tel.setColumns(10);
 		
 		shop_distance = new JTextField();
 		shop_distance.setEditable(false);
-		shop_distance.setBounds(742, 317, 329, 21);
+		shop_distance.setBounds(742, 240, 329, 21);
 		panel.add(shop_distance);
 		shop_distance.setColumns(10);
 		
 		shop_adress = new JTextField();
 		shop_adress.setEditable(false);
-		shop_adress.setBounds(742, 377, 329, 21);
+		shop_adress.setBounds(742, 296, 329, 21);
 		panel.add(shop_adress);
 		shop_adress.setColumns(10);
 		
 		shop_category = new JTextField();
 		shop_category.setEditable(false);
-		shop_category.setBounds(742, 433, 329, 21);
+		shop_category.setBounds(742, 342, 329, 21);
 		panel.add(shop_category);
 		shop_category.setColumns(10);
+		
+		open_time = new JTextField();
+		open_time.setBounds(742, 383, 329, 21);
+		panel.add(open_time);
+		open_time.setColumns(10);
+		
+		holyday = new JTextField();
+		holyday.setBounds(742, 414, 329, 21);
+		panel.add(holyday);
+		holyday.setColumns(10);
+		
 		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -114,10 +130,36 @@ public class reservation_base extends JPanel {
 				int index = cb.getSelectedIndex();
 				if (index > -1) {
 					shop_name.setText(list1.get(index)[0]);
+					cnt_shop=DAO.get_shop_info(shop_name.getText());
 					shop_tel.setText(list1.get(index)[1]);
 					shop_distance.setText(list1.get(index)[2]);
 					shop_adress.setText(list1.get(index)[3]);
 					shop_category.setText(list1.get(index)[4]);
+					if(cnt_shop!=null) {
+						open_time.setText(cnt_shop.get_shop_open()+":00 ~ "+cnt_shop.get_shop_close()+":00");
+						int aa=cnt_shop.get_shop_holyday();
+						String bb="";
+						if((aa&64)==64)
+							bb+="월";
+						if((aa&32)==32)
+							bb+="화";
+						if((aa&16)==16)
+							bb+="수";
+						if((aa&8)==8)
+							bb+="목";
+						if((aa&4)==4)
+							bb+="금";
+						if((aa&2)==2)
+							bb+="토";
+						if((aa&1)==1)
+							bb+="일";
+						holyday.setText(bb);
+					}
+					else {
+						open_time.setText("");
+						holyday.setText("");
+					}
+						
 					create_image.create_map_image(machine.get_center_x(), machine.get_center_y(), list1.get(index)[5],list1.get(index)[6], shop, list1.get(index)[0]);
 					lblNewLabel.setIcon(new ImageIcon("image/shop/" + list1.get(index)[0] + ".png"));
 					shop = list1.get(index)[0];
@@ -135,7 +177,15 @@ public class reservation_base extends JPanel {
 		JButton btnNewButton_1 = new JButton("\uC608\uC57D\uD558\uAE30");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				card.show(panel.getParent(),"detail");
+				if(cnt_shop!=null) {
+					card.show(panel.getParent(),"detail");
+					detail.cnt_shop=cnt_shop;
+					detail.init();
+				}
+				else {
+					System.out.println("아직 입점이 되지 않은 점포입니다.");
+				}
+				
 			}
 		});
 		btnNewButton_1.setBounds(742, 464, 329, 87);

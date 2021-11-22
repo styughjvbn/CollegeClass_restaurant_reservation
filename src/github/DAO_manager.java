@@ -85,8 +85,9 @@ public class DAO_manager {
 				a[2]=rs.getInt(4);
 				a[3]=rs.getInt(5);
 				System.out.println("불러오기 완료");
+				return a;
 			}
-			return a;
+			return null;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}

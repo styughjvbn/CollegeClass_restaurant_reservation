@@ -103,8 +103,10 @@ public class Customer_App {
 					}
 				}
 				else if(Wpanel.a.equals("Customer")){
-					if(DAO.login_customer(new DTO_customer(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()))) {
+					DTO_customer temp=DAO.login_customer(new DTO_customer(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()));
+					if(temp!=null) {
 						card.show(frame.getContentPane(), "reservation");
+						reservation.cnt_user=temp;
 					}
 					else
 						Wpanel.error_panel.setVisible(true);
