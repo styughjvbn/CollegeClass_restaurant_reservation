@@ -123,7 +123,11 @@ public class signup_base extends JPanel {
 				card.show(panel_1, "member_type");
 			}
 		});
-		
+		panel2.btnBack_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(panel_1, "member_type");
+			}
+		});
 		img = new ImageIcon("image/signup.jpg").getImage();
 
 		d = getSize();

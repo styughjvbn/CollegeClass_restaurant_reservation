@@ -20,7 +20,8 @@ public class DAO_manager {
 			     + " shop_holyday = '"+manager.get_shop_holyday()+"',"
 			     + " shop_open = '"+manager.get_shop_open()+"',"
 			     + " shop_close = '"+manager.get_shop_close()+"',"
-			     + " shop_table_num = '"+manager.get_shop_table_num()+"'"
+			     + " shop_table_num = '"+manager.get_shop_table_num()+"',"
+			     + " shop_iner = '"+manager.get_shop_iner()+"'"
 			     +" WHERE (shop_name = '"+manager.get_shop_name()+"');");
 			   System.out.println(insert1);
 			   insert1.executeUpdate();
@@ -31,7 +32,7 @@ public class DAO_manager {
 		
 		return 0;
 	}
-	public static int new_table(DTO_manage_table manager) {//점포의 테이블 관리
+	public static int new_table(DTO_manage_table manager) {//점포의 테이블 추가
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -68,7 +69,7 @@ public class DAO_manager {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null; //로그인 실패
+		return null; 
 	}
 	public int[] get_shop_info(String shop) {//점포 정보 가져오기
 		conn = getConnection();
@@ -91,7 +92,25 @@ public class DAO_manager {
 		}
 		return null; //로그인 실패
 	}
-	public boolean delete_table(String shop) {//점포의 테이블 관리
+	public String get_shop_image(String shop) {//점포 이미지 가져오기
+		conn = getConnection();
+		String a;
+		try {
+			pstmt = conn.prepareStatement("select shop_iner from shop where shop_name = ? ");
+			pstmt.setString(1, shop); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻
+				a=rs.getString(1);
+				System.out.println("불러오기 완료");
+				return a;
+			}	
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; //로그인 실패
+	}
+	public boolean delete_table(String shop) {//점포 테이블 모두 삭제
 		conn = getConnection();
 		int[] a=new int[4];
 		try {

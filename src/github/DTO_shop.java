@@ -7,7 +7,18 @@ public class DTO_shop {
 	private int shop_close;
 	private int shop_table_num;
 	private String shop_address;
+	private String shop_iner;
 	
+	DTO_shop(String shop_name, byte shop_holyday, int shop_open, int shop_close, int shop_table_num, String shop_address,String image)
+	{
+		this.shop_name = shop_name;
+		this.shop_holyday = shop_holyday;
+		this.shop_open = shop_open;
+		this.shop_close = shop_close;
+		this.shop_table_num = shop_table_num;
+		this.shop_address = shop_address;
+		this.shop_iner = image;
+	}
 	DTO_shop(String shop_name, byte shop_holyday, int shop_open, int shop_close, int shop_table_num, String shop_address)
 	{
 		this.shop_name = shop_name;
@@ -49,5 +60,8 @@ public class DTO_shop {
 	}
 	String get_shop_address() {
 		return shop_address;
+	}
+	String get_shop_iner() {
+		return shop_iner;
 	}
 }

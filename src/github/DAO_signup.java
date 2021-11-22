@@ -185,6 +185,7 @@ public class DAO_signup {
 		     + "  shop_close TINYINT UNSIGNED NULL DEFAULT '22',\r\n"
 		     + "  shop_table_num TINYINT UNSIGNED NULL DEFAULT '0',\r\n"
 		     + "  shop_address VARCHAR(45) NOT NULL,\r\n"
+		     + "  shop_iner VARCHAR(45) NULL DEFAULT 'null',"
 		     + "  PRIMARY KEY (shop_name));");
 		   create.execute();
 		   System.out.println("Table successfully created");

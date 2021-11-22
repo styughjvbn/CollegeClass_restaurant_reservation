@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JFrame;
 
@@ -38,7 +39,17 @@ public class Customer_App {
 		frame.setSize(1296,759);
 		DAO_signup DAO=new DAO_signup();
 		DAO.init();
-		
+		File imgFile = new File("image/shop_image");//폴더 생성
+		if (!imgFile.exists()) {// 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
+			try{
+				imgFile.mkdir(); //폴더 생성합니다.
+			    System.out.println("폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	    }
+
 		signin_base Wpanel=new signin_base();//로그인 패널
 		frame.getContentPane().add(Wpanel,"login");
 		card.show(frame.getContentPane(), "login");

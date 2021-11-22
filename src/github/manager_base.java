@@ -28,7 +28,7 @@ public class manager_base extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "table_manage");
 				table_manage.shop=cnt_user.get_Shop();//현재 로그인 된 사장의 점포를 저장
-				
+				table_manage.lblNewLabel_5.setText(table_manage.shop+"점포관리");
 				table_manage.init();//현재 로그인된 사장 점포의 테이블 내역 불러옴
 			}
 		});

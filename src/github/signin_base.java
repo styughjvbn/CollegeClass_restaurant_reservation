@@ -145,7 +145,6 @@ public class signin_base extends JPanel {
 		rdbtnNewRadioButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				a = e.getActionCommand();
-				System.out.print(a);
 			}
 		});
 
@@ -161,7 +160,6 @@ public class signin_base extends JPanel {
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				a = e.getActionCommand();
-				System.out.print(a);
 			}
 		});
 		rdbtnNewRadioButton_1.setForeground(Color.BLACK);

@@ -11,6 +11,16 @@ class static_map_image{
 	
 	static_map_image(){//객체 이용전 폴더내의 이미지 정리
 		File imgFile = new File("image/shop");
+		if (!imgFile.exists()) {// 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
+			try{
+				imgFile.mkdir(); //폴더 생성합니다.
+			    System.out.println("폴더가 생성되었습니다.");
+		        } 
+		        catch(Exception e){
+			    e.getStackTrace();
+			}        
+	         }else {
+		}	
 		File[] deletefileList = imgFile.listFiles();
 		for(int i=0;i<deletefileList.length;i++) {
 			deletefileList[i].delete();

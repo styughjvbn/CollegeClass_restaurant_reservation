@@ -1,5 +1,6 @@
 package github;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -7,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -16,9 +19,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import java.awt.SystemColor;
 
 public class signup_customer extends JPanel {
 	private JPasswordField pwtxt;
@@ -42,18 +42,20 @@ public class signup_customer extends JPanel {
 	private JLabel pwLabel;
 	private JLabel pwLabel_2;
 	private JLabel WelcomeLabel;
+	private CardLayout card=new CardLayout(0, 0);
+	public JButton btnBack_1;
 
 	/**
 	 * Create the panel.
 	 */
 	public signup_customer() {
 		setBackground(new Color(226, 221, 215));
-		setLayout(null);
+		setLayout(card);
 		
 		// 4번째
 		JPanel Panel_4 = new JPanel();
 		Panel_4.setBounds(12, 0, 1203, 507);
-		add(Panel_4);
+		add(Panel_4, "4번쨰");
 		Panel_4.setBackground(new Color(226, 221, 215));
 		Panel_4.setLayout(null);
 		Panel_4.setVisible(false);
@@ -61,7 +63,7 @@ public class signup_customer extends JPanel {
 		// 3번째
 		JPanel Panel_3 = new JPanel();
 		Panel_3.setBounds(58, 0, 1203, 507);
-		add(Panel_3);
+		add(Panel_3, "3번쨰");
 		Panel_3.setBackground(new Color(226, 221, 215));
 		Panel_3.setLayout(null);
 		Panel_3.setVisible(false);
@@ -69,7 +71,7 @@ public class signup_customer extends JPanel {
 		// 2번째
 		JPanel Panel_2 = new JPanel();
 		Panel_2.setBounds(52, 0, 1203, 507);
-		add(Panel_2);
+		add(Panel_2, "2번째");
 		Panel_2.setBackground(new Color(226, 221, 215));
 		Panel_2.setLayout(null);
 		Panel_2.setVisible(true);
@@ -276,6 +278,15 @@ public class signup_customer extends JPanel {
 		pwLabel_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		pwLabel_2.setBounds(283, 298, 167, 15);
 		Panel_3.add(pwLabel_2);
+		
+		JButton btnBack = new JButton("back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(Panel_2.getParent(), "2번째");
+			}
+		});
+		btnBack.setBounds(200, 390, 63, 58);
+		Panel_3.add(btnBack);
 
 		// 2번째 패널 (성별 선택)
 		comboBox = new JComboBox(new Object[] {});
@@ -345,10 +356,13 @@ public class signup_customer extends JPanel {
 		AGELabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		AGELabel.setBounds(676, 324, 57, 15);
 		Panel_2.add(AGELabel);
+		
+		btnBack_1 = new JButton("back");
+		btnBack_1.setBounds(56, 454, 127, 40);
+		Panel_2.add(btnBack_1);
 		NextButton.addActionListener(new ActionListener() {// step3으로 가는 다음단계
 			public void actionPerformed(ActionEvent e) {
-				Panel_3.setVisible(true);
-				Panel_2.setVisible(false);
+				card.show(Panel_2.getParent(), "3번쨰");
 			}
 		});
 		// 중복확인 버튼 조건문
@@ -374,12 +388,15 @@ public class signup_customer extends JPanel {
 						String pw= pwtxt.getText();
 						int age=Integer.parseInt(agetxt.getText().toString());
 						String name=nametxt.getText();
-						byte Gender=(byte)Integer.parseInt(comboBox.getSelectedItem().toString());
+						byte Gender=(byte)(comboBox.getSelectedIndex());//남자는 1 여자는 2
 						String HP=txtHp.getText();
 						
 						if(agetxt.getText().toString().equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")) {
 							aa.showMessageDialog(null, "모두 입력해주세요");	
-						}else {
+						}else if(Gender==0)	{
+							aa.showMessageDialog(null, "성별을 올바르게 선택해주세요");	
+						}
+						else {
 							Panel_4.setVisible(true);
 							Panel_3.setVisible(false);
 							DAO.customer_signup(new DTO_customer(id,pw,HP,Gender,name,age));

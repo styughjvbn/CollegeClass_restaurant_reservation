@@ -1,8 +1,6 @@
 package github;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -30,7 +28,7 @@ class shop_table extends JLabel{//드래그로 배치가 가능한 테이블 라벨
 	int x,y;
 	int size;
 	public shop_table(int num,int tablenum){
-		size=num;
+		size=num;//테이블의 인원수
 		setBounds(0, 0, 100, 100);
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setIcon(new ImageIcon("image/"+size+".png"));
@@ -58,7 +56,7 @@ class shop_table extends JLabel{//드래그로 배치가 가능한 테이블 라벨
 	}
 	public shop_table(int num,int tablenum,int newx,int newy){
 		size=num;
-		setBounds(newx, newy,100 ,100 );
+		setBounds(newx, newy, 100 ,100 );
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		setIcon(new ImageIcon("image/"+size+".png"));
 		setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), Integer.toString(tablenum), TitledBorder.LEADING, TitledBorder.BOTTOM, null, new Color(0, 0, 0)));
@@ -85,15 +83,6 @@ class shop_table extends JLabel{//드래그로 배치가 가능한 테이블 라벨
 	}
 }
 
-class dragpanel extends JPanel{
-	public Image img;
-	dragpanel(){
-		
-	}
-	public void paintComponent(Graphics g) {
-		g.drawImage(this.img, 0, 0, null);
-	}
-}
 public class manager_shop extends JPanel {
 	private ArrayList<shop_table> shop_table=new ArrayList();
 	private JCheckBox[] holydaycheck=new JCheckBox[7];
@@ -103,11 +92,13 @@ public class manager_shop extends JPanel {
 	private JComboBox comboBox_2;
 	public JButton btnNewButton_1;
 	public String shop;
-	private dragpanel panel_1;
+	private JPanel panel_1;
 	public byte holyday;
 	public int open;
 	public int close;
-	public int count;
+	private String img;
+	private JLabel lblNewLabel_6;
+	public JLabel lblNewLabel_5;
 	/**
 	 * Create the panel.
 	 */
@@ -117,20 +108,23 @@ public class manager_shop extends JPanel {
 		c.setBounds(842, 311, 305, 31);
 		add(c);
 
-		JLabel lblNewLabel = new JLabel("\uC778\uC6D0\uC218");//인원수
+		JLabel lblNewLabel = new JLabel("\uC778\uC6D0\uC218");//인원수 라벨
 		lblNewLabel.setBounds(842, 267, 144, 31);
 		add(lblNewLabel);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2", "3", "4", "5"}));
+		JComboBox comboBox = new JComboBox();//테이블 인원수 설정
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2", "3", "4", "5", "6"}));
 		comboBox.setBounds(1009, 267, 138, 31);
 		add(comboBox);
 		
-		panel_1 = new dragpanel();//드래그가 가능한 공간
+		panel_1 = new JPanel();//드래그가 가능한 공간
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBounds(12, 67, 800, 600);
 		add(panel_1);
 		panel_1.setLayout(null);
+		
+		lblNewLabel_6 = new JLabel();//드래그가 가능한 공간의 배경화면
+		lblNewLabel_6.setBounds(0, 0, 800, 600);
 		
 		comboBox_1 = new JComboBox();//영업시작 시작 콤보박스
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"}));
@@ -184,12 +178,12 @@ public class manager_shop extends JPanel {
 		add(holydaycheck[6]);
 		//여기까지 체크 박스
 		
-		JLabel lblNewLabel_5 = new JLabel("\uC810\uD3EC\uAD00\uB9AC");//점포 관리 라벨 제목
+		lblNewLabel_5 = new JLabel();//점포 관리 라벨 제목
 		lblNewLabel_5.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblNewLabel_5.setBounds(371, 10, 342, 64);
 		add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_1 = new JLabel("\uD14C\uC774\uBE14 \uAD00\uB9AC");//테이블 관리
+		JLabel lblNewLabel_1 = new JLabel("\uD14C\uC774\uBE14 \uAD00\uB9AC");//테이블 관리 라벨
 		lblNewLabel_1.setBounds(842, 192, 196, 65);
 		add(lblNewLabel_1);
 		
@@ -219,9 +213,8 @@ public class manager_shop extends JPanel {
 		JButton btnNewButton_4 = new JButton("\uC800\uC7A5");//저장 버튼
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int open=comboBox_1.getSelectedIndex();
-				int close=comboBox_2.getSelectedIndex();
-				int count=comboBox.getSelectedIndex()+2;
+				open=comboBox_1.getSelectedIndex();
+				close=comboBox_2.getSelectedIndex();
 				holyday=0;
 				if(holydaycheck[0].isSelected())
 					holyday+=64;
@@ -237,35 +230,32 @@ public class manager_shop extends JPanel {
 					holyday+=2;
 				if(holydaycheck[6].isSelected())
 					holyday+=1;
-				DAO.update_shop(new DTO_shop(shop,(byte)holyday,open,close,shop_table.size()));
+				DAO.update_shop(new DTO_shop(shop,(byte)holyday,open,close,shop_table.size(),"",img));
 				DAO.delete_table(shop);
 				for(int i=0;i<shop_table.size();i++) {
 					DAO.new_table(new DTO_manage_table(i+1,shop,shop_table.get(i).size,shop_table.get(i).getX(),shop_table.get(i).getY()));
-					System.out.println(shop_table.get(i).getX()+" "+shop_table.get(i).getY());
 				}
-				
 			}
 		});
 		btnNewButton_4.setBounds(842, 538, 305, 77);
 		add(btnNewButton_4);
 		
-		btnNewButton_1 = new JButton("back");
+		btnNewButton_1 = new JButton("back");//뒤로가기 버튼
 		btnNewButton_1.setBounds(12, 10, 118, 47);
 		add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("\uBC30\uACBD \uC0AC\uC9C4 \uC124\uC815");//배경화면 이미지 설정
+		JButton btnNewButton_2 = new JButton("\uBC30\uACBD \uC0AC\uC9C4 (.jpg) \uC124\uC815");//배경화면 이미지 설정		
+		btnNewButton_2.setBounds(842, 138, 291, 36);
+		add(btnNewButton_2);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser jfc = new JFileChooser();
 		        int returnVal = jfc.showOpenDialog(null);
 		        File oriFile = jfc.getSelectedFile();
-		        File copyFile = new File("image/shop/"+shop+"배경화면.jpg");
-		        
-		        try {
-		            
+		        File copyFile = new File("image/shop_image/"+shop+"배경화면.jpg"); 
+		        try {		        
 		            FileInputStream fis = new FileInputStream(oriFile); //읽을파일
-		            FileOutputStream fos = new FileOutputStream(copyFile); //복사할파일
-		            
+		            FileOutputStream fos = new FileOutputStream(copyFile); //복사할파일		            
 		            int fileByte = 0; 
 		            // fis.read()가 -1 이면 파일을 다 읽은것
 		            while((fileByte = fis.read()) != -1) {
@@ -273,66 +263,63 @@ public class manager_shop extends JPanel {
 		            }
 		            //자원사용종료
 		            fis.close();
-		            fos.close();
-		            panel_1.img=new ImageIcon("image/shop/"+shop+"배경화면.jpg").getImage();
-		            panel_1.repaint();
-		            
+		            fos.close(); 
 		        } catch (FileNotFoundException ee) {
-		            // TODO Auto-generated catch block
 		            ee.printStackTrace();
 		        } catch (IOException me) {
-		            // TODO Auto-generated catch block
 		            me.printStackTrace();
 		        }
-		        
+		        img="image/shop_image/"+shop+"배경화면.jpg";
+		        lblNewLabel_6.setIcon(new ImageIcon(img));
 			}
 		});
-		btnNewButton_2.setBounds(842, 138, 291, 36);
-		add(btnNewButton_2);
-
-		
 	}
 	void init() {
 		ArrayList<int[]> temp=DAO.get_table_info(shop);
+		img=DAO.get_shop_image(shop);
 		shop_table.clear();
 		table_num=-1;
 		panel_1.removeAll();
+		panel_1.add(lblNewLabel_6);
+		
+		if((img!=null)&&(!(img.equals("null")))) {
+			lblNewLabel_6.setIcon(new ImageIcon(img));
+			lblNewLabel_6.repaint();
+		}
+		else {
+			lblNewLabel_6.setIcon(new ImageIcon("image/drag.jpg"));//드래그가되는 패널의 기본이미지 설정
+			lblNewLabel_6.repaint();
+		}
 		for(int i=0;i<temp.size();i++) {
 			shop_table tmp=new shop_table(temp.get(i)[1],++table_num+1,temp.get(i)[2],temp.get(i)[3]);
 			shop_table.add(tmp);
-			panel_1.add(shop_table.get(table_num),table_num);
-			panel_1.repaint();
+			panel_1.add(shop_table.get(table_num),table_num);			
 		}
+		panel_1.repaint();
 		int[] a=DAO.get_shop_info(shop);
 		int aa;
-		System.out.println(a[0]);
-		System.out.println(a[1]);
-		System.out.println(a[2]);
-		System.out.println(a[3]);
+
 		comboBox_1.setSelectedIndex(a[1]);
 		comboBox_2.setSelectedIndex(a[2]);
 		holyday=(byte)a[0];
-
-		aa=holyday&64;
-		if(aa==64)
+		aa=Byte.toUnsignedInt(holyday);
+		System.out.println(Integer.toBinaryString(aa));
+		for(int i=0;i<holydaycheck.length;i++) {
+			holydaycheck[i].setSelected(false);
+		}
+		if((aa&64)==64)
 			holydaycheck[0].setSelected(true);
-		aa=holyday&32;
-		if(aa==32)
+		if((aa&32)==32)
 			holydaycheck[1].setSelected(true);
-		aa=holyday&16;
-		if(aa==16)
+		if((aa&16)==16)
 			holydaycheck[2].setSelected(true);
-		aa=holyday&8;
-		if(aa==8)
+		if((aa&8)==8)
 			holydaycheck[3].setSelected(true);
-		aa=holyday&4;
-		if(aa==4)
+		if((aa&4)==4)
 			holydaycheck[4].setSelected(true);
-		aa=holyday&2;
-		if(aa==2)
+		if((aa&2)==2)
 			holydaycheck[5].setSelected(true);
-		aa=holyday&1;
-		if(aa==1)
+		if((aa&1)==1)
 			holydaycheck[6].setSelected(true);
 	}
 }
