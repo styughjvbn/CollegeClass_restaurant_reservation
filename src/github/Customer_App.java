@@ -49,7 +49,7 @@ public class Customer_App {
 		reservation_base reservation = new reservation_base();//예약 패널
 		frame.getContentPane().add(reservation,"reservation");
 		
-		manager_base manage=new manager_base();
+		manager_base manage=new manager_base();//사장 패널
 		frame.getContentPane().add(manage,"manage");
 		
 		reservation.back.addActionListener(new ActionListener() {//예약 패널의 back버튼
@@ -72,7 +72,11 @@ public class Customer_App {
 			}
 		});
 		
-		
+		manage.btnNewButton_3.addActionListener(new ActionListener() {//사장 패널 back버튼
+			public void actionPerformed(ActionEvent e) {
+				card.show(frame.getContentPane(), "login");
+			}
+		});
 		
 		Wpanel.btnNewButton.addActionListener(new ActionListener() {//로그인 버튼
 			@Override

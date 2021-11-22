@@ -11,6 +11,7 @@ public class manager_base extends JPanel {
 	public manager_shop table_manage;
 	public CardLayout card=new CardLayout();
 	public DTO_manager cnt_user=null;
+	public JButton btnNewButton_3;
 	/**
 	 * Create the panel.
 	 */
@@ -18,7 +19,7 @@ public class manager_base extends JPanel {
 		setLayout(card);
 		table_manage=new manager_shop();
 		JPanel panel = new JPanel();
-		add(panel, "name_607799466526300");
+		add(panel, "main");
 		panel.setLayout(null);
 		
 		add(table_manage,"table_manage");
@@ -41,5 +42,14 @@ public class manager_base extends JPanel {
 		JButton btnNewButton_2 = new JButton("\uC608\uC57D \uAD00\uB9AC");
 		btnNewButton_2.setBounds(702, 159, 287, 238);
 		panel.add(btnNewButton_2);
+		
+		btnNewButton_3 = new JButton("back");
+		btnNewButton_3.setBounds(40, 41, 97, 23);
+		panel.add(btnNewButton_3);
+		table_manage.btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(panel.getParent(), "main");
+			}
+		});
 	}
 }

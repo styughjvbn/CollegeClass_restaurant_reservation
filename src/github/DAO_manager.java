@@ -91,6 +91,20 @@ public class DAO_manager {
 		}
 		return null; //로그인 실패
 	}
+	public boolean delete_table(String shop) {//점포의 테이블 관리
+		conn = getConnection();
+		int[] a=new int[4];
+		try {
+			pstmt = conn.prepareStatement("DELETE FROM manage_table WHERE mt_shop = ? ");
+			pstmt.setString(1, shop); //첫번째 ?에 넣음
+			
+			pstmt.executeUpdate();
+			return true;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return false; //로그인 실패
+	}
 
 	public static  Connection getConnection() {//DB와 연결
 		try {
