@@ -35,6 +35,7 @@ public class signup_manager extends JPanel {
 	private JComboBox comboBox;
 	private JButton signup_bt;
 	private DAO_signup DAO = new DAO_signup();
+
 	private JOptionPane aa = new JOptionPane();
 	private search machine = new search();
 	private boolean isoverlap = false;
@@ -47,6 +48,8 @@ public class signup_manager extends JPanel {
 	private JLabel lblNewLabel_7;
 	private JLabel lblNewLabel_8;
 	private JLabel lblNewLabel_9;
+	private ArrayList<String[]> list1;
+
 
 	/**
 	 * Create the panel.
@@ -55,7 +58,7 @@ public class signup_manager extends JPanel {
 		setBackground(new Color(226, 221, 215));
 		setLayout(null);
 
-		// 4´Ü°è ÆĞ³Î
+		// 4ë‹¨ê³„ íŒ¨ë„
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(12, 0, 1203, 507);
 		add(panel_1);
@@ -63,7 +66,7 @@ public class signup_manager extends JPanel {
 		panel_1.setLayout(null);
 		panel_1.setVisible(false);
 
-		// 3´Ü°è ÆĞ³Î
+		// 3ë‹¨ê³„ íŒ¨ë„
 		JPanel panel = new JPanel();
 		panel.setBounds(58, 0, 1203, 507);
 		add(panel);
@@ -71,7 +74,7 @@ public class signup_manager extends JPanel {
 		panel.setLayout(null);
 		panel.setVisible(false);
 
-		// 2´Ü°è ÆĞ³Î
+		// 2ë‹¨ê³„ íŒ¨ë„
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(52, 0, 1203, 507);
 		add(panel_2);
@@ -85,13 +88,13 @@ public class signup_manager extends JPanel {
 		lblNewLabel_10.setBounds(324, 0, 543, 69);
 		panel_1.add(lblNewLabel_10);
 
-		JButton btnNewButton_2 = new JButton(""); // ½ÃÀÛÇÏ±â
+		JButton btnNewButton_2 = new JButton(""); // ì‹œì‘í•˜ê¸°
 		btnNewButton_2.setIcon(
 				new ImageIcon("image/startbtn.PNG"));
 		btnNewButton_2.setBounds(355, 306, 492, 52);
 		panel_1.add(btnNewButton_2);
 
-		// È¯¿µÇÕ´Ï´Ù
+		// í™˜ì˜í•©ë‹ˆë‹¤
 		JLabel lblNewLabel_11 = new JLabel("\uD658\uC601\uD569\uB2C8\uB2E4 !");
 		lblNewLabel_11.setFont(new Font("Dialog", Font.BOLD, 25));
 		lblNewLabel_11.setBounds(459, 125, 356, 52);
@@ -103,7 +106,7 @@ public class signup_manager extends JPanel {
 		lblNewLabel_12.setBounds(510, 208, 217, 22);
 		panel_1.add(lblNewLabel_12);
 
-		// Á¡Æ÷ ÀÔ·Â
+		// ì í¬ ì…ë ¥
 		lblNewLabel = new JLabel("\uC810\uD3EC \uC815\uBCF4\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		lblNewLabel.setBounds(62, 113, 231, 27);
 		panel_2.add(lblNewLabel);
@@ -116,7 +119,7 @@ public class signup_manager extends JPanel {
 		lblNewLabel_4.setForeground(Color.BLACK);
 		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 15));
 
-		// Áö¿ª ÀÔ·Â
+		// ì§€ì—­ ì…ë ¥
 		textField_2 = new JTextField();
 		textField_2.setBounds(62, 186, 500, 40);
 		panel_2.add(textField_2);
@@ -127,7 +130,7 @@ public class signup_manager extends JPanel {
 		textField_2.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		textField_2.setBackground(new Color(226, 221, 215));
 
-		// »ó¼¼Á¤º¸
+		// ìƒì„¸ì •ë³´
 		lblNewLabel_2 = new JLabel("\uC0C1\uC138\uC815\uBCF4 \uD655\uC778");
 		lblNewLabel_2.setBounds(671, 163, 161, 27);
 		panel_2.add(lblNewLabel_2);
@@ -140,7 +143,7 @@ public class signup_manager extends JPanel {
 		lblNewLabel_5.setForeground(Color.BLACK);
 		lblNewLabel_5.setFont(new Font("Dialog", Font.BOLD, 15));
 
-		// »óÈ£¸í ÀÔ·Â
+		// ìƒí˜¸ëª… ì…ë ¥
 		textField_3 = new JTextField();
 		textField_3.setBounds(62, 270, 371, 40);
 		panel_2.add(textField_3);
@@ -155,11 +158,11 @@ public class signup_manager extends JPanel {
 		comboBox = new JComboBox();
 		comboBox.setBounds(62, 320, 500, 40);
 		panel_2.add(comboBox);
-		comboBox.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		comboBox.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 15));
 		comboBox.setBackground(new Color(226, 221, 215));
 		comboBox.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 
-		// °Ë»ö¹öÆ°
+		// ê²€ìƒ‰ë²„íŠ¼
 		JButton btnNewButton_2_1 = new JButton("");
 		btnNewButton_2_1.setBounds(430, 270, 129, 40);
 		panel_2.add(btnNewButton_2_1);
@@ -167,11 +170,11 @@ public class signup_manager extends JPanel {
 		btnNewButton_2_1.setIcon(
 				new ImageIcon("image/searchbtn.PNG"));
 
-		// ´ÙÀ½´Ü°è
+		// ë‹¤ìŒë‹¨ê³„
 		JButton btnNewButton_1 = new JButton("\uB2E4\uC74C \uB2E8\uACC4");
 		btnNewButton_1.setBounds(994, 445, 127, 40);
 		panel_2.add(btnNewButton_1);
-				btnNewButton_1.addActionListener(new ActionListener() {// step3À¸·Î °¡´Â ´ÙÀ½´Ü°è
+				btnNewButton_1.addActionListener(new ActionListener() {// step3ìœ¼ë¡œ ê°€ëŠ” ë‹¤ìŒë‹¨ê³„
 					public void actionPerformed(ActionEvent e) {
 						panel.setVisible(true);
 						panel_2.setVisible(false);
@@ -184,8 +187,8 @@ public class signup_manager extends JPanel {
 		lblNewLabel_1.setIcon(
 				new ImageIcon("image/signup_step21.PNG"));
 
-		// 3´Ü°è ÆĞ³Î
-		// ¾ÆÀÌµğ
+		// 3ë‹¨ê³„ íŒ¨ë„
+		// ì•„ì´ë””
 		txtId = new JTextField();
 		txtId.setFont(new Font("Dialog", Font.BOLD, 15));
 		txtId.setText("ID\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
@@ -197,7 +200,7 @@ public class signup_manager extends JPanel {
 		txtId.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (txtId.getText().equals("ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (txtId.getText().equals("IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					txtId.setText("");
 					txtId.setForeground(Color.BLACK);
 				}
@@ -207,7 +210,7 @@ public class signup_manager extends JPanel {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (txtId.getText().equals("")) {
-					txtId.setText("ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					txtId.setText("IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					txtId.setForeground(new Color(200, 184, 164));
 				}
 			}
@@ -226,7 +229,7 @@ public class signup_manager extends JPanel {
 		pwdPassword.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (pwdPassword.getText().equals("PASSWORD¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (pwdPassword.getText().equals("PASSWORDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					pwdPassword.setText("");
 					pwdPassword.setEchoChar('*');
 					pwdPassword.setForeground(Color.BLACK);
@@ -239,7 +242,7 @@ public class signup_manager extends JPanel {
 				if (pwdPassword.getText().equals("")) {
 					pwdPassword.setEchoChar((char) 0);
 					pwdPassword_1.setForeground(new Color(200, 184, 164));
-					pwdPassword.setText("PASSWORD¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					pwdPassword.setText("PASSWORDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
@@ -256,7 +259,7 @@ public class signup_manager extends JPanel {
 		pwdPassword_1.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (pwdPassword_1.getText().equals("PASSWORD ÀçÀÔ·Â")) {
+				if (pwdPassword_1.getText().equals("PASSWORD ì¬ì…ë ¥")) {
 					pwdPassword_1.setText("");
 					pwdPassword_1.setEchoChar('*');
 					pwdPassword_1.setForeground(Color.BLACK);
@@ -269,7 +272,7 @@ public class signup_manager extends JPanel {
 				if (pwdPassword_1.getText().equals("")) {
 					pwdPassword_1.setEchoChar((char) 0);
 					pwdPassword_1.setForeground(new Color(200, 184, 164));
-					pwdPassword_1.setText("PASSWORD ÀçÀÔ·Â");
+					pwdPassword_1.setText("PASSWORD ì¬ì…ë ¥");
 				}
 			}
 		});
@@ -293,7 +296,7 @@ public class signup_manager extends JPanel {
 		textField_1.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (textField_1.getText().equals("ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (textField_1.getText().equals("ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					textField_1.setText("");
 					textField_1.setForeground(Color.BLACK);
 				}
@@ -304,12 +307,12 @@ public class signup_manager extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (textField_1.getText().equals("")) {
 					textField_1.setForeground(new Color(200, 184, 164));
-					textField_1.setText("ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					textField_1.setText("ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
 
-		// °¡ÀÔÇÏ±â
+		// ê°€ì…í•˜ê¸°
 		signup_bt = new JButton("");
 		signup_bt.setIcon(
 				new ImageIcon("image/joinbtn.PNG"));
@@ -349,25 +352,25 @@ public class signup_manager extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (!isoverlap) {
 					if (!pwdPassword.getText().equals(pwdPassword_1.getText())) {
-						aa.showMessageDialog(null, "ºñ¹Ğ¹øÈ£°¡ µ¿ÀÏÇÏÁö ¾Ê½À´Ï´Ù.");
+						aa.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ê°€ ë™ì¼í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 					} else {
 						String shop = "";
 						String id = txtId.getText();
 						String pw = pwdPassword.getText();
 						String HP = textField_1.getText();
 						if (comboBox.getSelectedItem() == null || HP.equals("") || pw.equals("") || id.equals("")) {
-							aa.showMessageDialog(null, "¸ğµÎ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+							aa.showMessageDialog(null, "ëª¨ë‘ ì…ë ¥í•´ì£¼ì„¸ìš”");
 						} else {
 							panel_1.setVisible(true); // step4
 							panel.setVisible(false);
 							shop = comboBox.getSelectedItem().toString();
 							DAO.manager_signup(new DTO_manager_login(id, pw, HP, shop));
-							lblNewLabel_11.setText("È¯¿µÇÕ´Ï´Ù!  " + id + "´Ô");
-							// aa.showMessageDialog(null, "È¯¿µÇÕ´Ï´Ù" + id + "´Ô");
+							lblNewLabel_11.setText("í™˜ì˜í•©ë‹ˆë‹¤!  " + id + "ë‹˜");
+							// aa.showMessageDialog(null, "í™˜ì˜í•©ë‹ˆë‹¤" + id + "ë‹˜");
 						}
 					}
 				} else
-					aa.showMessageDialog(null, "¾ÆÀÌµğ°¡ Áßº¹µË´Ï´Ù.");
+					aa.showMessageDialog(null, "ì•„ì´ë””ê°€ ì¤‘ë³µë©ë‹ˆë‹¤.");
 
 			}
 		});
@@ -375,10 +378,10 @@ public class signup_manager extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (DAO.overlap_id_manager(txtId.getText()) == 0) {
-					aa.showMessageDialog(null, "»ç¿ëÇÒ ¼ö ÀÖ´Â ¾ÆÀÌµğÀÔ´Ï´Ù.");
+					aa.showMessageDialog(null, "ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤.");
 					isoverlap = false;
 				} else {
-					aa.showMessageDialog(null, "¾ÆÀÌµğ°¡ Áßº¹µË´Ï´Ù.");
+					aa.showMessageDialog(null, "ì•„ì´ë””ê°€ ì¤‘ë³µë©ë‹ˆë‹¤.");
 					isoverlap = true;
 				}
 			}
@@ -390,16 +393,16 @@ public class signup_manager extends JPanel {
 				machine = new search();
 				machine.update_XY(textField_2.getText());
 				machine.search_result(textField_3.getText());
-				ArrayList<String[]> list1 = machine.get_result();
-				for (int i = 0; i < (int) list1.size(); i++) {
-					comboBox.addItem(list1.get(i)[1]);
+				list1 = machine.get_result();
+				for(int i=0;i<(int)list1.size();i++) {
+					comboBox.addItem(list1.get(i)[0]);
 				}
 			}
 		});
 		textField_3.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (textField_3.getText().equals("»óÈ£¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (textField_3.getText().equals("ìƒí˜¸ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					textField_3.setText("");
 					textField_3.setForeground(Color.BLACK);
 				}
@@ -409,7 +412,7 @@ public class signup_manager extends JPanel {
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (textField_3.getText().equals("")) {
-					textField_3.setText("»óÈ£¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					textField_3.setText("ìƒí˜¸ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					textField_3.setForeground(new Color(200, 184, 164));
 				}
 			}
@@ -417,7 +420,7 @@ public class signup_manager extends JPanel {
 		textField_2.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (textField_2.getText().equals("Áö¿ªÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (textField_2.getText().equals("ì§€ì—­ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					textField_2.setForeground(Color.BLACK);
 					textField_2.setText("");
 				}
@@ -428,7 +431,30 @@ public class signup_manager extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (textField_2.getText().equals("")) {
 					textField_2.setForeground(new Color(200, 184, 164));
-					textField_2.setText("Áö¿ªÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					textField_2.setText("ì§€ì—­ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+          }
+			}
+		});
+				
+		signup_bt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!isoverlap) {
+					if (!passwordField_1.getText().equals(passwordField.getText())) {
+						aa.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ê°€ ë™ì¼í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+					} else {
+						String shop="";
+						String id=textField.getText();
+						String pw= passwordField_1.getText();
+						String HP=textField_1.getText();
+						if(comboBox.getSelectedItem()==null||HP.equals("")||pw.equals("")||id.equals("")) {
+							aa.showMessageDialog(null, "ëª¨ë‘ ì…ë ¥í•´ì£¼ì„¸ìš”");	
+						}else {
+							shop=comboBox.getSelectedItem().toString();
+							DAO.new_shop(new DTO_shop(shop,list1.get(comboBox.getSelectedIndex())[4]));
+							DAO.manager_signup(new DTO_manager_login(id,pw,HP,shop));
+							aa.showMessageDialog(null, "í™˜ì˜í•©ë‹ˆë‹¤"+id+"ë‹˜");	
+						}
+					}
 				}
 			}
 		});
