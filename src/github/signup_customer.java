@@ -1,8 +1,12 @@
 package github;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -14,6 +18,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class signup_customer extends JPanel {
 	private JPasswordField pwtxt;
@@ -27,7 +32,7 @@ public class signup_customer extends JPanel {
 	private boolean isoverlap;
 	private JComboBox comboBox;
 	private DAO_signup DAO = new DAO_signup();
-	private JTextField textField;
+	private JTextField txtHp;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
@@ -37,6 +42,8 @@ public class signup_customer extends JPanel {
 	private JLabel lblNewLabel_7;
 	private JLabel lblNewLabel_8;
 	private JLabel lblNewLabel_9;
+	private JLabel lblNewLabel_11;
+	private JLabel lblNewLabel_12;
 
 	/**
 	 * Create the panel.
@@ -44,6 +51,14 @@ public class signup_customer extends JPanel {
 	public signup_customer() {
 		setBackground(new Color(226, 221, 215));
 		setLayout(null);
+		
+		// 2번째
+		JPanel Panel_2 = new JPanel();
+		Panel_2.setBounds(52, 0, 1203, 507);
+		add(Panel_2);
+		Panel_2.setBackground(new Color(226, 221, 215));
+		Panel_2.setLayout(null);
+		Panel_2.setVisible(true);
 
 		// 4번째
 		JPanel Panel_4 = new JPanel();
@@ -60,13 +75,6 @@ public class signup_customer extends JPanel {
 		Panel_3.setBackground(new Color(226, 221, 215));
 		Panel_3.setLayout(null);
 		Panel_3.setVisible(false);
-
-		JPanel Panel_2 = new JPanel();
-		Panel_2.setBounds(52, 0, 1203, 507);
-		add(Panel_2);
-		Panel_2.setBackground(new Color(226, 221, 215));
-		Panel_2.setLayout(null);
-		Panel_2.setVisible(true);
 		
 		// 2단계 이미지
 		lblNewLabel_1 = new JLabel("");
@@ -117,23 +125,63 @@ public class signup_customer extends JPanel {
 		pwtxtc.setBounds(13, 165, 201, 40);
 		Panel_3.add(pwtxtc);
 
-		// 2번째 패널
+		// 2번째 패널 (이름)
 		nametxt = new JTextField();
+		nametxt.setText("이름을 입력해주세요.");
+		nametxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		nametxt.setForeground(Color.LIGHT_GRAY);
 		nametxt.setColumns(10);
-		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Name", TitledBorder.LEADING,
-				TitledBorder.TOP, null, new Color(0, 0, 0)));
-		nametxt.setBackground(Color.WHITE);
-		nametxt.setBounds(13, 15, 160, 40);
+		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		nametxt.setBackground(new Color(226, 221, 215));
+		nametxt.setBounds(273, 169, 500, 54);
 		Panel_2.add(nametxt);
+		nametxt.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (nametxt.getText().equals("이름을 입력해주세요.")) {
+					nametxt.setText("");
+					nametxt.setForeground(Color.BLACK);
+				}
 
-		// 2번째 패널
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (nametxt.getText().equals("")) {
+					nametxt.setForeground(Color.LIGHT_GRAY);
+					nametxt.setText("이름을 입력해주세요.");
+				}
+			}
+		});
+
+		// 2번째 패널 (나이)
 		agetxt = new JTextField();
+		agetxt.setText("AGE");
+		agetxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		agetxt.setForeground(Color.LIGHT_GRAY);
 		agetxt.setColumns(10);
-		agetxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "Age", TitledBorder.LEADING,
-				TitledBorder.TOP, null, new Color(0, 0, 0)));
-		agetxt.setBackground(Color.WHITE);
-		agetxt.setBounds(157, 257, 57, 40);
+		agetxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		agetxt.setBackground(new Color(226, 221, 215));
+		agetxt.setBounds(678, 349, 95, 45);
 		Panel_2.add(agetxt);
+		agetxt.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (agetxt.getText().equals("AGE")) {
+					agetxt.setText("");
+					agetxt.setForeground(Color.BLACK);
+				}
+
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (agetxt.getText().equals("")) {
+					agetxt.setForeground(Color.LIGHT_GRAY);
+					agetxt.setText("AGE");
+				}
+			}
+		});
 
 		// 3번째 패널 (가입)
 		btnNewButton_2 = new JButton("\uAC00\uC785");
@@ -141,26 +189,49 @@ public class signup_customer extends JPanel {
 		btnNewButton_2.setBounds(185, 377, 97, 30);
 		Panel_3.add(btnNewButton_2);
 
-		// 2번째 패널
+		// 2번째 패널 (성별 선택)
 		comboBox = new JComboBox(new Object[] {});
-		comboBox.setBackground(Color.WHITE);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "male", "female" }));
+		comboBox.setBorder(new LineBorder(new Color(0, 0, 0), 2));
+		comboBox.setBackground(new Color(226, 221, 215));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "성별 ", "Male", "Female" }));
+		comboBox.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		comboBox.setForeground(Color.BLACK);
-		comboBox.setBounds(23, 272, 116, 21);
+		comboBox.setBounds(326, 351, 236, 40);
 		Panel_2.add(comboBox);
 
-		// 2번째 패널
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "H.P.", TitledBorder.LEADING,
-				TitledBorder.TOP, null, new Color(0, 0, 0)));
-		textField.setBackground(Color.WHITE);
-		textField.setBounds(13, 215, 201, 40);
-		Panel_2.add(textField);
+		// 2번째 패널 (핸드폰)
+		txtHp = new JTextField();
+		txtHp.setText("HP를 입력해주세요.");
+		txtHp.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		txtHp.setForeground(Color.LIGHT_GRAY);
+		txtHp.setColumns(10);
+		txtHp.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		txtHp.setBackground(new Color(226, 221, 215));
+		txtHp.setBounds(273, 258, 499, 54);
+		Panel_2.add(txtHp);
+		txtHp.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (txtHp.getText().equals("HP를 입력해주세요.")) {
+					txtHp.setText("");
+					txtHp.setForeground(Color.BLACK);
+				}
+
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (txtHp.getText().equals("")) {
+					txtHp.setForeground(Color.LIGHT_GRAY);
+					txtHp.setText("HP를 입력해주세요.");
+				}
+			}
+		});
 
 		// 2번째 패널
-		JLabel lblNewLabel = new JLabel("\uC131\uBCC4");
-		lblNewLabel.setBounds(0, 275, 57, 15);
+		JLabel lblNewLabel = new JLabel("S E X");
+		lblNewLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
+		lblNewLabel.setBounds(273, 351, 50, 40);
 		Panel_2.add(lblNewLabel);
 
 		// 다음단계
@@ -168,6 +239,21 @@ public class signup_customer extends JPanel {
 		btnNewButton_1.setIcon(new ImageIcon("image/next.png"));
 		btnNewButton_1.setBounds(994, 445, 127, 40);
 		Panel_2.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_10 = new JLabel("Name");
+		lblNewLabel_10.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
+		lblNewLabel_10.setBounds(273, 144, 57, 15);
+		Panel_2.add(lblNewLabel_10);
+		
+		lblNewLabel_11 = new JLabel("H.P");
+		lblNewLabel_11.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
+		lblNewLabel_11.setBounds(273, 233, 57, 15);
+		Panel_2.add(lblNewLabel_11);
+		
+		lblNewLabel_12 = new JLabel("AGE");
+		lblNewLabel_12.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
+		lblNewLabel_12.setBounds(676, 324, 57, 15);
+		Panel_2.add(lblNewLabel_12);
 		btnNewButton_1.addActionListener(new ActionListener() {// step3으로 가는 다음단계
 			public void actionPerformed(ActionEvent e) {
 				Panel_3.setVisible(true);
@@ -198,7 +284,7 @@ public class signup_customer extends JPanel {
 						int age=Integer.parseInt(agetxt.getText().toString());
 						String name=nametxt.getText();
 						byte Gender=(byte)Integer.parseInt(comboBox.getSelectedItem().toString());
-						String HP=textField.getText();
+						String HP=txtHp.getText();
 						
 						if(agetxt.getText().toString().equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")) {
 							aa.showMessageDialog(null, "모두 입력해주세요");	
