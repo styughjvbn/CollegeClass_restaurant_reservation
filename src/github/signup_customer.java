@@ -36,17 +36,12 @@ public class signup_customer extends JPanel {
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_6;
-	private JLabel lblNewLabel_7;
-	private JLabel lblNewLabel_8;
-	private JLabel lblNewLabel_9;
 	private JLabel HPLabel;
 	private JLabel AGELabel;
 	private JLabel idLabel;
 	private JLabel pwLabel;
 	private JLabel pwLabel_2;
+	private JLabel WelcomeLabel;
 
 	/**
 	 * Create the panel.
@@ -54,6 +49,14 @@ public class signup_customer extends JPanel {
 	public signup_customer() {
 		setBackground(new Color(226, 221, 215));
 		setLayout(null);
+		
+		// 4번째
+		JPanel Panel_4 = new JPanel();
+		Panel_4.setBounds(12, 0, 1203, 507);
+		add(Panel_4);
+		Panel_4.setBackground(new Color(226, 221, 215));
+		Panel_4.setLayout(null);
+		Panel_4.setVisible(false);
 		
 		// 3번째
 		JPanel Panel_3 = new JPanel();
@@ -70,14 +73,6 @@ public class signup_customer extends JPanel {
 		Panel_2.setBackground(new Color(226, 221, 215));
 		Panel_2.setLayout(null);
 		Panel_2.setVisible(true);
-
-		// 4번째
-		JPanel Panel_4 = new JPanel();
-		Panel_4.setBounds(12, 0, 1203, 507);
-		add(Panel_4);
-		Panel_4.setBackground(new Color(226, 221, 215));
-		Panel_4.setLayout(null);
-		Panel_4.setVisible(false);
 		
 		// 2단계 이미지
 		lblNewLabel_1 = new JLabel("");
@@ -96,6 +91,13 @@ public class signup_customer extends JPanel {
 		lblNewLabel_3.setBounds(283, 0, 574, 83);
 		Panel_4.add(lblNewLabel_3);
 		lblNewLabel_3.setIcon(new ImageIcon("image/signup_step41.PNG"));
+		
+		// 4번째 패널(환영 메세지)
+		WelcomeLabel = new JLabel("");
+		WelcomeLabel.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel.setBackground(new Color(226, 221, 215));
+		WelcomeLabel.setBounds(283, 193, 57, 15);
+		Panel_4.add(WelcomeLabel);
 		
 		// 3번째 패널, 중복검사 버튼
 		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");
@@ -375,8 +377,10 @@ public class signup_customer extends JPanel {
 						if(agetxt.getText().toString().equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")) {
 							aa.showMessageDialog(null, "모두 입력해주세요");	
 						}else {
+							Panel_4.setVisible(true);
+							Panel_3.setVisible(false);
 							DAO.customer_signup(new DTO_customer(id,pw,HP,Gender,name,age));
-							aa.showMessageDialog(null, "환영합니다"+id+"님");	
+							WelcomeLabel.setText("환영합니다" +id+ "님");	
 						}
 					}
 				} else
