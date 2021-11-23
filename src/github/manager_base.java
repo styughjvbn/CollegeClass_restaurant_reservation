@@ -12,17 +12,20 @@ public class manager_base extends JPanel {
 	public CardLayout card=new CardLayout();
 	public DTO_manager cnt_user=null;
 	public JButton btnNewButton_3;
+	public manage_menu manage_menu;
 	/**
 	 * Create the panel.
 	 */
 	public manager_base() {
 		setLayout(card);
-		table_manage=new manager_shop();
-		JPanel panel = new JPanel();
+		table_manage=new manager_shop();//점포관리 패널
+		JPanel panel = new JPanel();//점포관리 패널
 		add(panel, "main");
 		panel.setLayout(null);
 		
-		add(table_manage,"table_manage");
+		add(table_manage,"table_manage");//점포관리 패널
+		manage_menu=new manage_menu();
+		add(manage_menu,"menu_manage");//점포관리 패널
 		JButton btnNewButton = new JButton("\uC810\uD3EC\uAD00\uB9AC");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -36,6 +39,11 @@ public class manager_base extends JPanel {
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("\uBA54\uB274 \uAD00\uB9AC");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(panel.getParent(), "menu_manage");
+			}
+		});
 		btnNewButton_1.setBounds(391, 159, 287, 238);
 		panel.add(btnNewButton_1);
 		
@@ -47,6 +55,11 @@ public class manager_base extends JPanel {
 		btnNewButton_3.setBounds(40, 41, 97, 23);
 		panel.add(btnNewButton_3);
 		table_manage.btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(panel.getParent(), "main");
+			}
+		});
+		manage_menu.btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "main");
 			}
