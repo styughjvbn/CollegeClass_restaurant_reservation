@@ -135,25 +135,31 @@ public class reservation_base extends JPanel {
 					shop_distance.setText(list1.get(index)[2]);
 					shop_adress.setText(list1.get(index)[3]);
 					shop_category.setText(list1.get(index)[4]);
-					if(cnt_shop!=null) {
+					if(cnt_shop!=null) {//입점된 점포라면 영업시간과 공휴일 출력
 						open_time.setText(cnt_shop.get_shop_open()+":00 ~ "+cnt_shop.get_shop_close()+":00");
 						int aa=cnt_shop.get_shop_holyday();
-						String bb="";
+						String temp="";
+						ArrayList<String> bb=new ArrayList();
 						if((aa&64)==64)
-							bb+="월";
+							bb.add("월");
 						if((aa&32)==32)
-							bb+="화";
+							bb.add("화");
 						if((aa&16)==16)
-							bb+="수";
+							bb.add("수");
 						if((aa&8)==8)
-							bb+="목";
+							bb.add("목");
 						if((aa&4)==4)
-							bb+="금";
+							bb.add("금");
 						if((aa&2)==2)
-							bb+="토";
+							bb.add("토");
 						if((aa&1)==1)
-							bb+="일";
-						holyday.setText(bb);
+							bb.add("일");
+						for(int i=0;i<bb.size()-1;i++) {
+							temp+=bb.get(i)+", ";
+						}
+						temp+=bb.get(bb.size()-1);
+						holyday.setText(temp);
+						detail.holyday=bb;
 					}
 					else {
 						open_time.setText("");

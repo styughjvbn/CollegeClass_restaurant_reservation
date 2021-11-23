@@ -35,6 +35,25 @@ public class DAO_reservation {
 		}
 		return null; 
 	}
+	public ArrayList<String> get_enable_time(String shop,String date,int table_num) {//점포 테이블 정보 받아오기
+		conn = getConnection();
+		ArrayList<String> temp=new ArrayList();
+		try {
+			pstmt = conn.prepareStatement("select rc_time from reservation_current where rc_shop = ? and rc_date = ? and rc_table = ?");
+			pstmt.setString(1, shop); //첫번째 ?에 넣음
+			pstmt.setString(2, date); //첫번째 ?에 넣음
+			pstmt.setInt(3, table_num); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻
+				temp.add(rs.getString(1));
+			}
+			return temp;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
 	public DTO_shop get_shop_info(String shop) {//점포 정보 가져오기
 		conn = getConnection();
 		DTO_shop temp;
