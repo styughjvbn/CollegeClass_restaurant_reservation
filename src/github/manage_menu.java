@@ -36,6 +36,8 @@ public class manage_menu extends JPanel {
 	public JPanel panel_1;
 	public JPanel panel;
 	private JButton btnNewButton_2;
+	private DAO_manager DAO=new DAO_manager();
+	public String cnt_user;
 
 	public manage_menu() {
 		setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
@@ -85,20 +87,51 @@ public class manage_menu extends JPanel {
 		add(btnname);
 
 		btnNewButton_1 = new JButton("back");//사장 메뉴 창으로 가는 버튼
-		btnNewButton_1.setBounds(912, 463, 97, 23);
+		btnNewButton_1.setBounds(912, 586, 97, 23);
 		add(btnNewButton_1);
 		
-		btnNewButton_2 = new JButton("New button");
+		btnNewButton_2 = new JButton("save");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for(int i=0; i<shop_menu.size();i++) {
-					System.out.println(shop_menu.get(i).number);
-					System.out.println(shop_menu.get(i).category_name);
+				DAO.delete_category(cnt_user);
+				for(int i=0; i<shop_menu.size();i++) {		
+					DAO.new_category(new DTO_menu_category(shop_menu.get(i).category_name,cnt_user));					
+					for(int j=0;j<shop_menu.get(i).detail.Incategory.size();j++) {
+						DAO.new_menu((new DTO_menu_detail(shop_menu.get(i).detail.Incategory.get(j).name+"_"+cnt_user,shop_menu.get(i).category_name,shop_menu.get(i).detail.Incategory.get(j).price)));
+					}	
 				}
 			}
 		});
 		btnNewButton_2.setBounds(912, 542, 97, 23);
 		add(btnNewButton_2);
+	}
+	void init() {
+		ArrayList<String> category=DAO.get_category(cnt_user);
+		shop_menu.clear();
+		panel.removeAll();
+		for(int k=1;k<panel_1.getComponentCount();k++) {
+			panel_1.remove(k);
+		}
+		num=-1;
+		for(int i=0;i<category.size();i++) {
+			xy init_category = new xy(category.get(i)); // xy class를 만든다. 버튼의 위치를 지정하는 클래스임.
+			num++;
+			shop_menu.add(init_category); // ArrayList에 추가
+			shop_menu.get(num).number = num;
+			shop_menu.get(num).detail = new food(num); // detail에 패널을 추가 detail = xy 클래스에 존재하는 패널
+			shop_menu.get(num).detail.init(DAO.get_detail(category.get(i)));
+			shop_menu.get(num).addMouseListener(new MouseAdapter() {
+				int x = shop_menu.get(num).number;
+				public void mouseClicked(MouseEvent me) {
+						card.show(panel_1, "category" + x);
+				}
+			});
+			panel.add(shop_menu.get(num));
+			panel_1.add(shop_menu.get(num).detail, "category" + num);
+
+			panel.validate();
+			panel_1.repaint();
+		}
 	}
 
 	class xy extends JButton {//카테고리 버튼
@@ -109,6 +142,7 @@ public class manage_menu extends JPanel {
 		public xy(String category_name) {
 			setBorder(new LineBorder(new Color(0, 0, 0)));
 			this.category_name = category_name;
+			setText(this.category_name);
 			setPreferredSize(new Dimension(100, 100));
 		}
 		
@@ -122,6 +156,10 @@ public class manage_menu extends JPanel {
 		int n = -1;
 		private menu tmp;
 		int key;//키값
+		private menu_info menu_info;
+		private JTextField menu_name;
+		private JTextField menu_cost;
+		private JPanel panel_2;
 
 		public food(int num_) {
 			key=num_;
@@ -152,7 +190,7 @@ public class manage_menu extends JPanel {
 			lblNewLabel_1.setBounds(627, 85, 50, 15);
 			add(lblNewLabel_1);
 
-			JPanel panel_2 = new JPanel();//상세메뉴가 생성될 패널
+			panel_2 = new JPanel();//상세메뉴가 생성될 패널
 			panel_2.setBackground(Color.WHITE);
 			panel_2.setBounds(0, 0, 615, 538);
 			add(panel_2);
@@ -174,8 +212,7 @@ public class manage_menu extends JPanel {
 			deletbtn.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					setVisible(false);
-					
+					setVisible(false);					
 					panel.remove(key);
 					panel_1.remove(key+1);
 					panel_1.repaint();
@@ -191,30 +228,127 @@ public class manage_menu extends JPanel {
 			});
 			add(deletbtn);
 			
+			menu_info = new menu_info();
+			menu_info.setBounds(609, 277, 162, 166);
+			menu_info.setVisible(false);
+			add(menu_info);
+			menu_info.setLayout(null);
+			
+			JLabel menu_lab = new JLabel("\uBA54\uB274\uC815\uBCF4");
+			menu_lab.setBounds(12, 10, 118, 15);
+			menu_info.add(menu_lab);
+			
+			menu_name = new JTextField();
+			menu_name.setBounds(22, 35, 116, 21);
+			menu_info.add(menu_name);
+			menu_name.setColumns(10);
+			
+			menu_cost = new JTextField();
+			menu_cost.setBounds(22, 91, 116, 21);
+			menu_info.add(menu_cost);
+			menu_cost.setColumns(10);
+			
+			JButton modify = new JButton("\uC218\uC815");
+			modify.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Incategory.get(menu_info.ide).modify_info(Integer.parseInt(menu_cost.getText()), menu_name.getText());
+					menu_info.setVisible(false);
+				}
+			});
+			modify.setBounds(12, 133, 56, 23);
+			menu_info.add(modify);
+			
+			JButton del = new JButton("\uC0AD\uC81C");
+			del.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					menu_info.setVisible(false);
+					int oo=menu_info.ide;
+					panel_2.remove(oo);
+					Incategory.remove(oo);
+					for(int i=oo;i<Incategory.size();i++){
+						Incategory.get(i).identy-=1;
+					}
+					n--;
+				}
+			});
+			del.setBounds(91, 133, 64, 23);
+			menu_info.add(del);
+			
 			btnNewButton.addActionListener(new ActionListener() {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					n++;
 					tmp = new menu(Integer.parseInt(menucost.getText().toString()), menuname.getText()); // xy
-					tmp.setText("<html>" + menuname.getText() + "<br>" + menucost.getText() + "</html>"); 
+					tmp.identy=n;
 					Incategory.add(tmp);
-
+					Incategory.get(n).addMouseListener(new MouseAdapter() {
+						public void mouseClicked(MouseEvent me) {
+							menu ttmmp=(menu)me.getComponent();
+							menu_info.setVisible(true);
+							menu_info.set_label(ttmmp.identy);
+							menu_name.setText(Incategory.get(menu_info.ide).name);
+							menu_cost.setText(""+Incategory.get(menu_info.ide).price);						
+						}
+					});
+					for(int i=0;i<Incategory.size();i++){
+						System.out.println(Incategory.get(i).identy+Incategory.get(i).name+Incategory.get(i).price+"");
+					}
 					panel_2.add(Incategory.get(n));
 					panel_2.revalidate();
 				}
 			});
 		}
+
+		void init(ArrayList<DTO_menu_detail> detail) {
+			n=-1;
+			Incategory.clear();
+			for(int i=0;i<detail.size();i++) {
+				n++;
+				tmp = new menu(detail.get(i).get_md_price(),detail.get(i).get_md_name()); 
+				tmp.identy=n;
+				Incategory.add(tmp);
+				Incategory.get(n).addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent me) {
+						menu ttmmp=(menu)me.getComponent();
+						menu_info.setVisible(true);
+						menu_info.set_label(ttmmp.identy);
+						menu_name.setText(Incategory.get(menu_info.ide).name.substring(Incategory.get(menu_info.ide).name.lastIndexOf("_")+1));
+						menu_cost.setText(""+Incategory.get(menu_info.ide).price);						
+					}
+				});
+				panel_2.add(Incategory.get(n));
+				panel_2.revalidate();
+			}
+						
+			
+			for(int i=0;i<Incategory.size();i++){
+				System.out.println(Incategory.get(i).identy+Incategory.get(i).name+Incategory.get(i).price+"");
+			}			
+		}
 	}
-	class menu extends JButton {
+	class menu_info extends JPanel{
+		int ide=-1;
+		void set_label(int a) {
+			ide=a;
+		}
+	}
+	class menu extends JLabel {
 		public int price;
 		public String name;
+		int identy;
 
 		public menu(int price, String name) {
-			setBorder(new LineBorder(new Color(0, 0, 0)));
-			setPreferredSize(new Dimension(100, 100));
 			this.price = price;
-			this.name = name;
+			this.name = name;	
+			setText("<html>" + this.name + "<br>" + this.price + "</html>");
+			setBorder(new LineBorder(new Color(0, 0, 0)));
+			setPreferredSize(new Dimension(100, 100));			
+		}
+		void modify_info(int price, String name) {
+			this.price = price;
+			this.name = name;	
+			setText("<html>" + name + "<br>" + price + "</html>");
 		}
 	}
 }

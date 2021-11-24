@@ -11,7 +11,6 @@ public class DTO_menu_detail {
 		this.md_name = md_name;
 		this.md_category = md_category;
 		this.md_price = md_price;
-		
 	}
 	String get_md_name() {
 		return md_name;

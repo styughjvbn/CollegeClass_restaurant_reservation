@@ -125,7 +125,87 @@ public class DAO_manager {
 		}
 		return false; //로그인 실패
 	}
-
+	public boolean delete_category(String shop) {//카테고리 모두삭제
+		conn = getConnection();
+		try {
+			pstmt = conn.prepareStatement("DELETE FROM menu_category WHERE mc_shop = ? ");
+			pstmt.setString(1, shop); //첫번째 ?에 넣음
+			
+			pstmt.executeUpdate();
+			return true;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return false; //로그인 실패
+	}
+	public static int new_category(DTO_menu_category manager) {//카테고리 추가
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO menu_category"
+			     + "(mc_category, mc_shop) "
+			     + "VALUE "
+			     + "('"+manager.get_mc_category()+"','"+manager.get_mc_shop()+"')");
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
+	public static int new_menu(DTO_menu_detail manager) {//메뉴 추가
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO menu_detail"
+			     + "(md_name, md_category,md_price) "
+			     + "VALUE "
+			     + "('"+manager.get_md_name()+"','"+manager.get_md_category()+"','"+manager.get_md_price()+"')");
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
+	public ArrayList<String> get_category(String shop) {//카테고리 받아오기
+		conn = getConnection();
+		ArrayList<String> temp=new ArrayList();
+		try {
+			pstmt = conn.prepareStatement("select * from menu_category where mc_shop = ? ");
+			pstmt.setString(1, shop); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻		
+				String category=rs.getString(1);
+				temp.add(category);
+			}
+			return temp;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
+	public ArrayList<DTO_menu_detail> get_detail(String key) {//점포 테이블 정보 받아오기
+		conn = getConnection();
+		ArrayList<DTO_menu_detail> temp=new ArrayList();
+		try {
+			pstmt = conn.prepareStatement("select * from menu_detail where md_category = ? ");
+			pstmt.setString(1, key); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻		
+				DTO_menu_detail detail=new DTO_menu_detail(rs.getString(1),"",rs.getInt(3));
+				temp.add(detail);
+			}
+			return temp;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
 	public static  Connection getConnection() {//DB와 연결
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
