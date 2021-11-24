@@ -35,7 +35,7 @@ public class reservation_detail extends JPanel {
 	private JTextField nametxt;
 	public JButton detail_back;
 	Calendar calendar = Calendar.getInstance(); //java에서 날짜 + 시간을 받아옴
-	private JButton checkbutton;
+	public JButton checkbutton;
 	public DTO_shop cnt_shop;
 	private ArrayList<fixed_shop_table> shop_table=new ArrayList();
 	private DAO_reservation DAO= new DAO_reservation();
@@ -53,6 +53,7 @@ public class reservation_detail extends JPanel {
 	private JLabel table_size;
 	private JLabel lblNewLabel_3;
 	private JPanel panel;
+
 	
 	/**
 	 * Create the panel.
@@ -142,18 +143,18 @@ public class reservation_detail extends JPanel {
 		table_size.setBounds(0, 126, 160, 15);
 		panel.add(table_size);
 		
-		checkbutton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String name = nametxt.getText();
-				String time = timebox.getSelectedItem().toString();
-				String date = datebox.getSelectedItem().toString();
-						//String Gender=comboBox.getSelectedItem().toString();
-				
-			}
-			
-		});
-		
+	}
+	DTO_reservation_current get_data() {
+		return new DTO_reservation_current(
+				"",
+				cnt_shop.get_shop_name(),
+				Integer.parseInt(table_size.getText().toString()),
+				timebox.getSelectedItem().toString().substring(0,timebox.getSelectedItem().toString().lastIndexOf(" "))+":00:00",
+				datebox.getSelectedItem().toString().substring(0, 10),
+				0,
+				"",
+				Integer.parseInt(table_number.getText().toString())
+				);
 	}
 	void init() {
 		ArrayList<int[]> temp=DAO.get_table_info(cnt_shop.get_shop_name());
@@ -199,7 +200,7 @@ public class reservation_detail extends JPanel {
 										is_in=true;
 								}
 								if(!is_in)
-									timebox.addItem(i+"시");
+									timebox.addItem(i+" 시");
 							}
 						}
 						else {

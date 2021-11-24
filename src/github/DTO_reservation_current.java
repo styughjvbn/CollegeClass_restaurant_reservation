@@ -1,5 +1,7 @@
 package github;
 
+import java.util.ArrayList;
+
 public class DTO_reservation_current {
 	private String rc_id;
 	private String rc_shop;
@@ -27,8 +29,7 @@ public class DTO_reservation_current {
 	
 	String get_rc_shop() {
 		return rc_shop;
-	}
-	
+	}	
 	int get_rc_count() {
 		return rc_count;
 	}
@@ -47,7 +48,16 @@ public class DTO_reservation_current {
 	int get_rc_table() {
 		return rc_table;
 	}
-	
-	
+	void set_rc_id(String str) {
+		rc_id=str;
+	}
+	void set_rc_menu(ArrayList<String> menu) {
+		for(int i=0;i<menu.size();i++) {
+			rc_menu+=menu.get(i)+",";
+		}
+	}
+	void set_rc_money(int money) {
+		rc_money=money;
+	}
 
 }

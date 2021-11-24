@@ -73,6 +73,58 @@ public class DAO_reservation {
 		return null; //로그인 실패
 	}
 
+	public ArrayList<String> get_category(String shop) {//카테고리 받아오기
+		conn = getConnection();
+		ArrayList<String> temp=new ArrayList();
+		try {
+			pstmt = conn.prepareStatement("select * from menu_category where mc_shop = ? ");
+			pstmt.setString(1, shop); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻		
+				String category=rs.getString(1);
+				temp.add(category);
+			}
+			return temp;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
+	public ArrayList<DTO_menu_detail> get_detail(String key) {//점포 테이블 정보 받아오기
+		conn = getConnection();
+		ArrayList<DTO_menu_detail> temp=new ArrayList();
+		try {
+			pstmt = conn.prepareStatement("select * from menu_detail where md_category = ? ");
+			pstmt.setString(1, key); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻		
+				DTO_menu_detail detail=new DTO_menu_detail(rs.getString(1),"",rs.getInt(3));
+				temp.add(detail);
+			}
+			return temp;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
+	public static int new_reservation(DTO_reservation_current current) {//예약 추가
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO reservation_current"
+			     + "(rc_id, rc_shop, rc_count, rc_time, rc_date, rc_money, rc_menu, rc_table) "
+			     + "VALUE "
+			     + "('"+current.get_rc_id()+"','"+current.get_rc_shop()+"','"+current.get_rc_count()+"','"+current.get_rc_time()+"','"+current.get_rc_date()+"','"+current.get_rc_money()+"','"+current.get_rc_menu()+"','"+current.get_rc_table()+"')");
+			   insert1.executeUpdate();
+			   System.out.println("The data has been saved!");
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
 	public static  Connection getConnection() {//DB와 연결
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";

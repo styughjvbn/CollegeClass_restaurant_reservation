@@ -33,6 +33,7 @@ public class reservation_base extends JPanel {
 	private JTextField open_time;
 	private JTextField holyday;
 	private DTO_shop cnt_shop;
+	private reservation_payment payment;
 	/**
 	 * Create the panel.
 	 */
@@ -47,6 +48,8 @@ public class reservation_base extends JPanel {
 		reservation_detail detail=new reservation_detail();
 		add(detail, "detail");
 		
+		payment=new reservation_payment();
+		add(payment,"payment");
 		textField = new JTextField();
 		textField.setBorder(new TitledBorder(null, "rotation", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		textField.setBounds(46, 71, 146, 51);
@@ -200,6 +203,24 @@ public class reservation_base extends JPanel {
 		detail.detail_back.addActionListener(new ActionListener() {//상세페이지의 back버튼 클릭시 
 			public void actionPerformed(ActionEvent e) {
 				card.show(detail.getParent(),"base");
+			}
+		});
+		detail.checkbutton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(cnt_shop!=null) {
+					card.show(detail.getParent(), "payment");
+					payment.refresh(cnt_shop.get_shop_name());
+					DTO_reservation_current temp=detail.get_data();
+					temp.set_rc_id(cnt_user.get_ID());
+					payment.pay=temp;
+				}
+			}
+			
+		});
+		payment.btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(detail.getParent(), "detail");
 			}
 		});
 	}
