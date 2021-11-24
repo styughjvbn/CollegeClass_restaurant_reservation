@@ -132,7 +132,7 @@ public class signin_base extends JPanel {
 			}
 		});
 
-		btnNewButton = new JButton("SIGNIN");
+		btnNewButton = new JButton("SIGN IN");
 		btnNewButton.setBounds(126, 457, 458, 54);
 		panel.add(btnNewButton);
 		btnNewButton.setForeground(Color.BLACK);
@@ -169,7 +169,7 @@ public class signin_base extends JPanel {
 		rdbtnNewRadioButton_1.setBackground(new Color(226, 221, 215));
 		group.add(rdbtnNewRadioButton_1);
 
-		btnSignup = new JButton("SIGNUP");
+		btnSignup = new JButton("SIGN UP");
 		btnSignup.setForeground(Color.BLACK);
 		btnSignup.setFont(new Font("SEBANG Gothic", Font.PLAIN, 26));
 		btnSignup.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 3), "", TitledBorder.LEADING,

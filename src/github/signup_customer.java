@@ -40,10 +40,10 @@ public class signup_customer extends JPanel {
 	private JLabel AGELabel;
 	private JLabel idLabel;
 	private JLabel pwLabel;
-	private JLabel pwLabel_2;
 	private JLabel WelcomeLabel;
 	private CardLayout card=new CardLayout(0, 0);
 	public JButton btnBack_1;
+	private JLabel WelcomeLabel_1;
 
 	/**
 	 * Create the panel.
@@ -57,7 +57,6 @@ public class signup_customer extends JPanel {
 		Panel_4.setBounds(12, 0, 1203, 507);
 		add(Panel_4, "4번쨰");
 		Panel_4.setBackground(new Color(226, 221, 215));
-		Panel_4.setLayout(null);
 		Panel_4.setVisible(false);
 		
 		// 3번째
@@ -78,44 +77,58 @@ public class signup_customer extends JPanel {
 		
 		// 2단계 이미지
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(283, 0, 574, 83);
+		lblNewLabel_1.setBounds(334, 10, 574, 83);
 		Panel_2.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon("image/signup_step21.PNG"));
 		
 		// 3단계 이미지
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(283, 0, 574, 83);
+		lblNewLabel_2.setBounds(334, 10, 574, 83);
 		Panel_3.add(lblNewLabel_2);
 		lblNewLabel_2.setIcon(new ImageIcon("image/signup_step31.PNG"));
+		Panel_4.setLayout(null);
 		
 		// 4단계 이미지
 		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(283, 0, 574, 83);
+		lblNewLabel_3.setBounds(334, 20, 574, 83);
 		Panel_4.add(lblNewLabel_3);
 		lblNewLabel_3.setIcon(new ImageIcon("image/signup_step41.PNG"));
 		
 		// 4번째 패널(환영 메세지)
 		WelcomeLabel = new JLabel("");
-		WelcomeLabel.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel.setIcon(null);
+		WelcomeLabel.setBounds(450, 143, 503, 71);
+		WelcomeLabel.setFont(new Font("Dialog", Font.BOLD, 25));
 		WelcomeLabel.setBackground(new Color(226, 221, 215));
-		WelcomeLabel.setBounds(283, 193, 57, 15);
 		Panel_4.add(WelcomeLabel);
 		
+		JLabel lblNewLabel_12 = new JLabel("\uACC4\uC815 \uAC00\uC785\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
+		lblNewLabel_12.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_12.setBounds(515, 224, 217, 22);
+		Panel_4.add(lblNewLabel_12);
+		
+		WelcomeLabel_1 = new JLabel("");
+		WelcomeLabel_1.setIcon(new ImageIcon("image/cstartbtn.png"));
+		WelcomeLabel_1.setFont(new Font("Dialog", Font.PLAIN, 30));
+		WelcomeLabel_1.setBackground(new Color(226, 221, 215));
+		WelcomeLabel_1.setBounds(357, 291, 503, 42);
+		Panel_4.add(WelcomeLabel_1);
+		
 		// 3번째 패널, 중복검사 버튼
-		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");
+		JButton btnNewButton = new JButton("");
 		btnNewButton.setBorder(null);
 		btnNewButton.setIcon(new ImageIcon("image/check.png"));
-		btnNewButton.setBounds(760, 147, 97, 53);
+		btnNewButton.setBounds(711, 162, 140, 43);
 		Panel_3.add(btnNewButton);
 
 		// 3번째 패널(pw)
 		pwtxt = new JPasswordField();
 		pwtxt.setText("Password를 입력해주세요.");
-		pwtxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		pwtxt.setFont(new Font("Dialog", Font.PLAIN, 15));
 		pwtxt.setForeground(Color.LIGHT_GRAY);
 		pwtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pwtxt.setBackground(new Color(226, 221, 215));
-		pwtxt.setBounds(283, 231, 465, 57);
+		pwtxt.setBounds(356, 250, 495, 43);
 		Panel_3.add(pwtxt);
 		pwtxt.setEchoChar((char) 0);
 		pwtxt.addFocusListener(new FocusAdapter() {
@@ -142,11 +155,11 @@ public class signup_customer extends JPanel {
 		// 3번째 패널(id)
 		idtxt = new JTextField();
 		idtxt.setText("ID를 입력해주세요.");
-		idtxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		idtxt.setFont(new Font("Dialog", Font.PLAIN, 15));
 		idtxt.setForeground(Color.LIGHT_GRAY);
 		idtxt.setBackground(new Color(226, 221, 215));
 		idtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		idtxt.setBounds(283, 142, 465, 58);
+		idtxt.setBounds(356, 162, 355, 43);
 		Panel_3.add(idtxt);
 		idtxt.setColumns(10);
 		idtxt.addFocusListener(new FocusAdapter() {
@@ -171,11 +184,11 @@ public class signup_customer extends JPanel {
 		// 3번째 패널(pwcheck)
 		pwtxtc = new JPasswordField();
 		pwtxtc.setText("Password가 동일한지 한번 더 입력해주세요.");
-		pwtxtc.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		pwtxtc.setFont(new Font("Dialog", Font.PLAIN, 15));
 		pwtxtc.setForeground(Color.LIGHT_GRAY);
 		pwtxtc.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pwtxtc.setBackground(new Color(226, 221, 215));
-		pwtxtc.setBounds(283, 323, 465, 57);
+		pwtxtc.setBounds(356, 307, 496, 43);
 		Panel_3.add(pwtxtc);
 		pwtxtc.setEchoChar((char) 0);
 		pwtxtc.addFocusListener(new FocusAdapter() {
@@ -203,12 +216,12 @@ public class signup_customer extends JPanel {
 		// 2번째 패널 (이름)
 		nametxt = new JTextField();
 		nametxt.setText("이름을 입력해주세요.");
-		nametxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		nametxt.setFont(new Font("Dialog", Font.PLAIN, 15));
 		nametxt.setForeground(Color.LIGHT_GRAY);
 		nametxt.setColumns(10);
 		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		nametxt.setBackground(new Color(226, 221, 215));
-		nametxt.setBounds(273, 169, 500, 54);
+		nametxt.setBounds(356, 155, 500, 40);
 		Panel_2.add(nametxt);
 		nametxt.addFocusListener(new FocusAdapter() {
 			@Override
@@ -231,18 +244,18 @@ public class signup_customer extends JPanel {
 
 		// 2번째 패널 (나이)
 		agetxt = new JTextField();
-		agetxt.setText("AGE");
-		agetxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		agetxt.setText("\uB098\uC774");
+		agetxt.setFont(new Font("Dialog", Font.PLAIN, 15));
 		agetxt.setForeground(Color.LIGHT_GRAY);
 		agetxt.setColumns(10);
 		agetxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		agetxt.setBackground(new Color(226, 221, 215));
-		agetxt.setBounds(678, 349, 95, 45);
+		agetxt.setBounds(654, 321, 202, 40);
 		Panel_2.add(agetxt);
 		agetxt.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (agetxt.getText().equals("AGE")) {
+				if (agetxt.getText().equals("나이")) {
 					agetxt.setText("");
 					agetxt.setForeground(Color.BLACK);
 				}
@@ -253,39 +266,35 @@ public class signup_customer extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (agetxt.getText().equals("")) {
 					agetxt.setForeground(Color.LIGHT_GRAY);
-					agetxt.setText("AGE");
+					agetxt.setText("나이");
 				}
 			}
 		});
 
 		// 3번째 패널 (가입)
-		btnNewButton_2 = new JButton("\uAC00\uC785");
-		btnNewButton_2.setIcon(new ImageIcon("image/signup.png"));
-		btnNewButton_2.setBounds(283, 390, 465, 58);
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("image/cjoinbtn.png"));
+		btnNewButton_2.setBounds(661, 406, 190, 43);
 		Panel_3.add(btnNewButton_2);
 		
 		idLabel = new JLabel("I D");
 		idLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
-		idLabel.setBounds(283, 117, 57, 15);
+		idLabel.setBounds(356, 137, 57, 15);
 		Panel_3.add(idLabel);
 		
 		pwLabel = new JLabel("PASSWORD");
 		pwLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
-		pwLabel.setBounds(283, 206, 104, 15);
+		pwLabel.setBounds(356, 225, 104, 15);
 		Panel_3.add(pwLabel);
 		
-		pwLabel_2 = new JLabel("PASSWORD Check");
-		pwLabel_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
-		pwLabel_2.setBounds(283, 298, 167, 15);
-		Panel_3.add(pwLabel_2);
-		
-		JButton btnBack = new JButton("back");
+		JButton btnBack = new JButton("");
+		btnBack.setIcon(new ImageIcon("image/cprebtn.png"));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(Panel_2.getParent(), "2번째");
 			}
 		});
-		btnBack.setBounds(200, 390, 63, 58);
+		btnBack.setBounds(356, 406, 189, 43);
 		Panel_3.add(btnBack);
 
 		// 2번째 패널 (성별 선택)
@@ -295,23 +304,23 @@ public class signup_customer extends JPanel {
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "성별 ", "Male", "Female" }));
 		comboBox.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		comboBox.setForeground(Color.BLACK);
-		comboBox.setBounds(326, 351, 236, 40);
+		comboBox.setBounds(356, 321, 202, 40);
 		Panel_2.add(comboBox);
 
 		// 2번째 패널 (핸드폰)
 		txtHp = new JTextField();
-		txtHp.setText("HP를 입력해주세요.");
-		txtHp.setFont(new Font("SEBANG Gothic", Font.PLAIN, 20));
+		txtHp.setText("\uC804\uD654\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
+		txtHp.setFont(new Font("Dialog", Font.PLAIN, 15));
 		txtHp.setForeground(Color.LIGHT_GRAY);
 		txtHp.setColumns(10);
 		txtHp.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		txtHp.setBackground(new Color(226, 221, 215));
-		txtHp.setBounds(273, 258, 499, 54);
+		txtHp.setBounds(356, 240, 499, 40);
 		Panel_2.add(txtHp);
 		txtHp.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (txtHp.getText().equals("HP를 입력해주세요.")) {
+				if (txtHp.getText().equals("전화번호를 입력해주세요.")) {
 					txtHp.setText("");
 					txtHp.setForeground(Color.BLACK);
 				}
@@ -322,43 +331,44 @@ public class signup_customer extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (txtHp.getText().equals("")) {
 					txtHp.setForeground(Color.LIGHT_GRAY);
-					txtHp.setText("HP를 입력해주세요.");
+					txtHp.setText("전화번호를 입력해주세요.");
 				}
 			}
 		});
 
 		// 2번째 패널(성별)
-		JLabel SEXLabel = new JLabel("S E X");
+		JLabel SEXLabel = new JLabel("\uC131\uBCC4");
 		SEXLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
-		SEXLabel.setBounds(273, 351, 50, 40);
+		SEXLabel.setBounds(356, 290, 50, 40);
 		Panel_2.add(SEXLabel);
 
 		// 다음단계
-		JButton NextButton = new JButton("\uB2E4\uC74C \uB2E8\uACC4");
-		NextButton.setIcon(new ImageIcon("image/next.png"));
-		NextButton.setBounds(994, 445, 127, 40);
+		JButton NextButton = new JButton("");
+		NextButton.setIcon(new ImageIcon("image/cnextbtn.png"));
+		NextButton.setBounds(654, 405, 202, 40);
 		Panel_2.add(NextButton);
 		
 		// 2번째 패널(이름)
-		JLabel NameLabel = new JLabel("Name");
+		JLabel NameLabel = new JLabel("\uC774\uB984");
 		NameLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
-		NameLabel.setBounds(273, 144, 57, 15);
+		NameLabel.setBounds(356, 132, 57, 15);
 		Panel_2.add(NameLabel);
 		
 		// 2번째 패널(전화번호)
-		HPLabel = new JLabel("H.P");
+		HPLabel = new JLabel("\uC804\uD654\uBC88\uD638");
 		HPLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
-		HPLabel.setBounds(273, 233, 57, 15);
+		HPLabel.setBounds(357, 218, 67, 15);
 		Panel_2.add(HPLabel);
 		
 		// 2번째 패널(나이)
-		AGELabel = new JLabel("AGE");
+		AGELabel = new JLabel("\uB098\uC774");
 		AGELabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
-		AGELabel.setBounds(676, 324, 57, 15);
+		AGELabel.setBounds(654, 303, 57, 15);
 		Panel_2.add(AGELabel);
 		
-		btnBack_1 = new JButton("back");
-		btnBack_1.setBounds(56, 454, 127, 40);
+		btnBack_1 = new JButton("");
+		btnBack_1.setIcon(new ImageIcon("image/cprebtn.png"));
+		btnBack_1.setBounds(356, 405, 202, 40);
 		Panel_2.add(btnBack_1);
 		NextButton.addActionListener(new ActionListener() {// step3으로 가는 다음단계
 			public void actionPerformed(ActionEvent e) {
@@ -400,7 +410,7 @@ public class signup_customer extends JPanel {
 							Panel_4.setVisible(true);
 							Panel_3.setVisible(false);
 							DAO.customer_signup(new DTO_customer(id,pw,HP,Gender,name,age));
-							WelcomeLabel.setText("환영합니다" +id+ "님");	
+							WelcomeLabel.setText("환영합니다!  " +id+ "님");	
 						}
 					}
 				} else
