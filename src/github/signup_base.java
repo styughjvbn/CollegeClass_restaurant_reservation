@@ -40,33 +40,33 @@ public class signup_base extends JPanel {
 		add(panel_1);
 		panel_1.setLayout(card);
 		
-		//íšŒì› ìœ í˜• ì„ íƒ íŒ¨ë„
+		//È¸¿ø À¯Çü ¼±ÅÃ ÆĞ³Î
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(226,221,215));
 		panel_1.add(panel_2, "member_type");
 		panel_2.setLayout(null);
 		
-		panel=new signup_manager();//ì‚¬ì¥ íšŒì›ê°€ì…
+		panel=new signup_manager();//»çÀå È¸¿ø°¡ÀÔ
 		panel.setBounds(-10008, -10031, 1215,500);
 		panel_1.add(panel,"maneger_signup");
 		
-		panel2=new signup_customer();//ê³ ê° íšŒì›ê°€ì…
+		panel2=new signup_customer();//°í°´ È¸¿ø°¡ÀÔ
 		panel2.setBounds(-10008, -10031, 504, 437);
 		panel_1.add(panel2,"customer_signup");
 		
-		JButton rdbtnNewRadioButton_1 = new JButton("");  // customer ë²„íŠ¼
+		JButton rdbtnNewRadioButton_1 = new JButton("");  // customer ¹öÆ°
 		rdbtnNewRadioButton_1.setBorder(null);
 		rdbtnNewRadioButton_1.setIcon(new ImageIcon("image/csignupbutton.png"));
 		rdbtnNewRadioButton_1.setBounds(436, 281, 134, 51);
 		panel_2.add(rdbtnNewRadioButton_1);
 		
-		JButton rdbtnNewRadioButton = new JButton("");  //manager ë²„íŠ¼
+		JButton rdbtnNewRadioButton = new JButton("");  //manager ¹öÆ°
 		rdbtnNewRadioButton.setBorder(null);
 		rdbtnNewRadioButton.setIcon(new ImageIcon("image/msignupbutton.png"));
 		rdbtnNewRadioButton.setBounds(944, 281, 134, 51);
 		panel_2.add(rdbtnNewRadioButton);
 		
-		//manager/customer ì„ íƒ ë²„íŠ¼
+		//manager/customer ¼±ÅÃ ¹öÆ°
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("image/signup_step13.PNG"));
 		lblNewLabel_1.setBounds(299, 58, 666, 101);
@@ -114,7 +114,7 @@ public class signup_base extends JPanel {
 			}
 		});
 
-		btnNewButton = new JButton("");  //ë’¤ë¡œê°€ê¸°
+		btnNewButton = new JButton("");  //µÚ·Î°¡±â
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(new Color(226,221,215));
 		btnNewButton.setIcon(new ImageIcon("image/back.png"));
