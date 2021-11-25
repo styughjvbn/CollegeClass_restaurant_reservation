@@ -40,36 +40,36 @@ public class signup_base extends JPanel {
 		add(panel_1);
 		panel_1.setLayout(card);
 		
-		//È¸¿ø À¯Çü ¼±ÅÃ ÆĞ³Î
+		//íšŒì› ìœ í˜• ì„ íƒ íŒ¨ë„
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(226,221,215));
 		panel_1.add(panel_2, "member_type");
 		panel_2.setLayout(null);
 		
-		panel=new signup_manager();//»çÀå È¸¿ø°¡ÀÔ
+		panel=new signup_manager();//ì‚¬ì¥ íšŒì›ê°€ì…
 		panel.setBounds(-10008, -10031, 1215,500);
 		panel_1.add(panel,"maneger_signup");
 		
-		panel2=new signup_customer();//°í°´ È¸¿ø°¡ÀÔ
+		panel2=new signup_customer();//ê³ ê° íšŒì›ê°€ì…
 		panel2.setBounds(-10008, -10031, 504, 437);
 		panel_1.add(panel2,"customer_signup");
 		
-		JButton rdbtnNewRadioButton_1 = new JButton("");  // customer ¹öÆ°
+		JButton rdbtnNewRadioButton_1 = new JButton("");  // customer ë²„íŠ¼
 		rdbtnNewRadioButton_1.setBorder(null);
-		rdbtnNewRadioButton_1.setIcon(new ImageIcon("image/csignupbtn.PNG"));
-		rdbtnNewRadioButton_1.setBounds(447, 281, 134, 51);
+		rdbtnNewRadioButton_1.setIcon(new ImageIcon("image/csignupbutton.png"));
+		rdbtnNewRadioButton_1.setBounds(436, 281, 134, 51);
 		panel_2.add(rdbtnNewRadioButton_1);
 		
-		JButton rdbtnNewRadioButton = new JButton("");  //manager ¹öÆ°
+		JButton rdbtnNewRadioButton = new JButton("");  //manager ë²„íŠ¼
 		rdbtnNewRadioButton.setBorder(null);
-		rdbtnNewRadioButton.setIcon(new ImageIcon("image/msig.PNG"));
-		rdbtnNewRadioButton.setBounds(963, 281, 134, 57);
+		rdbtnNewRadioButton.setIcon(new ImageIcon("image/msignupbutton.png"));
+		rdbtnNewRadioButton.setBounds(944, 281, 134, 51);
 		panel_2.add(rdbtnNewRadioButton);
 		
-		//manager/customer ¼±ÅÃ ¹öÆ°
+		//manager/customer ì„ íƒ ë²„íŠ¼
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("image/signup_step13.PNG"));
-		lblNewLabel_1.setBounds(303, 58, 666, 101);
+		lblNewLabel_1.setBounds(299, 58, 666, 101);
 		panel_2.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("\uAC1C\uC778\uD68C\uC6D0");
@@ -95,7 +95,7 @@ public class signup_base extends JPanel {
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setFont(new Font("SEBANG Gothic", Font.PLAIN, 12));
 		lblNewLabel_2.setIcon(new ImageIcon("image/signup_select1.PNG"));
-		lblNewLabel_2.setBounds(86, 189, 1057, 194);
+		lblNewLabel_2.setBounds(78, 189, 1057, 194);
 		panel_2.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("* \uD68C\uC6D0 \uC720\uD615\uC5D0 \uB530\uB77C \uAC00\uC785 \uC808\uCC28\uC5D0 \uCC28\uC774\uAC00 \uC788\uC73C\uB2C8 \uAC1C\uC778\uD68C\uC6D0 \uB610\uB294 \uAE30\uC5C5\uD68C\uC6D0\uC744 \uC120\uD0DD\uD574\uC8FC\uC138\uC694.");
@@ -114,11 +114,11 @@ public class signup_base extends JPanel {
 			}
 		});
 
-		btnNewButton = new JButton("");  //µÚ·Î°¡±â
+		btnNewButton = new JButton("");  //ë’¤ë¡œê°€ê¸°
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(new Color(226,221,215));
 		btnNewButton.setIcon(new ImageIcon("image/back.png"));
-		btnNewButton.setBounds(35, 53, 61, 50);
+		btnNewButton.setBounds(59, 62, 55, 50);
 		add(btnNewButton);
 		
 		panel.btnNewButton_1_1.addActionListener(new ActionListener() {

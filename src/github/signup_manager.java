@@ -80,43 +80,43 @@ public class signup_manager extends JPanel {
 		JLabel lblNewLabel_10 = new JLabel("");
 		lblNewLabel_10.setIcon(
 				new ImageIcon("image/signup_step41.PNG"));
-		lblNewLabel_10.setBounds(324, 0, 543, 69);
+		lblNewLabel_10.setBounds(337, 20, 543, 69);
 		panel_1.add(lblNewLabel_10);
 
 		JButton btnNewButton_2 = new JButton(""); // 시작하기
 		btnNewButton_2.setIcon(
-				new ImageIcon("image/startbtn.PNG"));
-		btnNewButton_2.setBounds(355, 306, 492, 52);
+				new ImageIcon("image/mstartbtn.png"));
+		btnNewButton_2.setBounds(369, 301, 492, 46);
 		panel_1.add(btnNewButton_2);
 
 		// 환영합니다
 		JLabel lblNewLabel_11 = new JLabel("\uD658\uC601\uD569\uB2C8\uB2E4 !");
 		lblNewLabel_11.setFont(new Font("Dialog", Font.BOLD, 25));
-		lblNewLabel_11.setBounds(459, 125, 356, 52);
+		lblNewLabel_11.setBounds(465, 147, 356, 52);
 		panel_1.add(lblNewLabel_11);
 
 		JLabel lblNewLabel_12 = new JLabel(
 				"\uACC4\uC815 \uAC00\uC785\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
 		lblNewLabel_12.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblNewLabel_12.setBounds(510, 208, 217, 22);
+		lblNewLabel_12.setBounds(515, 209, 217, 22);
 		panel_1.add(lblNewLabel_12);
 
 		// 점포 입력
 		lblNewLabel = new JLabel("\uC810\uD3EC \uC815\uBCF4\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
-		lblNewLabel.setBounds(62, 113, 231, 27);
+		lblNewLabel.setBounds(356, 114, 231, 27);
 		panel_2.add(lblNewLabel);
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 
 		lblNewLabel_4 = new JLabel("\uC9C0\uC5ED");
-		lblNewLabel_4.setBounds(62, 163, 134, 27);
+		lblNewLabel_4.setBounds(356, 161, 134, 27);
 		panel_2.add(lblNewLabel_4);
 		lblNewLabel_4.setForeground(Color.BLACK);
 		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 15));
 
 		// 지역 입력
 		textField_2 = new JTextField();
-		textField_2.setBounds(62, 186, 500, 40);
+		textField_2.setBounds(356, 184, 500, 40);
 		panel_2.add(textField_2);
 		textField_2.setFont(new Font("Dialog", Font.BOLD, 15));
 		textField_2.setForeground(new Color(200, 184, 164));
@@ -126,14 +126,14 @@ public class signup_manager extends JPanel {
 		textField_2.setBackground(new Color(226, 221, 215));
 
 		lblNewLabel_5 = new JLabel("\uC0C1\uD638\uBA85");
-		lblNewLabel_5.setBounds(62, 249, 134, 27);
+		lblNewLabel_5.setBounds(356, 245, 134, 27);
 		panel_2.add(lblNewLabel_5);
 		lblNewLabel_5.setForeground(Color.BLACK);
 		lblNewLabel_5.setFont(new Font("Dialog", Font.BOLD, 15));
 
 		// 상호명 입력
 		textField_3 = new JTextField();
-		textField_3.setBounds(62, 270, 371, 40);
+		textField_3.setBounds(356, 270, 371, 40);
 		panel_2.add(textField_3);
 		textField_3.setSelectionColor(Color.BLACK);
 		textField_3.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -144,7 +144,7 @@ public class signup_manager extends JPanel {
 		textField_3.setBackground(new Color(226, 221, 215));
 
 		comboBox = new JComboBox();
-		comboBox.setBounds(62, 320, 500, 40);
+		comboBox.setBounds(356, 327, 500, 40);
 		panel_2.add(comboBox);
 		comboBox.setFont(new Font("굴림", Font.PLAIN, 15));
 		comboBox.setBackground(new Color(226, 221, 215));
@@ -152,15 +152,16 @@ public class signup_manager extends JPanel {
 
 		// 검색버튼
 		JButton btnNewButton_2_1 = new JButton("");
-		btnNewButton_2_1.setBounds(430, 270, 129, 40);
+		btnNewButton_2_1.setBounds(727, 270, 129, 40);
 		panel_2.add(btnNewButton_2_1);
 		btnNewButton_2_1.setBorder(null);
 		btnNewButton_2_1.setIcon(
-				new ImageIcon("image/searchbtn.PNG"));
+				new ImageIcon("image/msearchbtn.png"));
 
 		// 다음단계
-		JButton btnNewButton_1 = new JButton("\uB2E4\uC74C \uB2E8\uACC4");
-		btnNewButton_1.setBounds(994, 445, 127, 40);
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("image/mnextbtn.png"));
+		btnNewButton_1.setBounds(688, 434, 168, 40);
 		panel_2.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {// step3으로 가는 다음단계
 			public void actionPerformed(ActionEvent e) {
@@ -169,13 +170,14 @@ public class signup_manager extends JPanel {
 		});
 
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(283, 0, 574, 83);
+		lblNewLabel_1.setBounds(334, 10, 574, 83);
 		panel_2.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(
 				new ImageIcon("image/signup_step21.PNG"));
 		
-		btnNewButton_1_1 = new JButton("\uC774\uC804 \uB2E8\uACC4");//1단계로 가는 이전버튼
-		btnNewButton_1_1.setBounds(101, 445, 127, 40);
+		btnNewButton_1_1 = new JButton("");//1단계로 가는 이전버튼
+		btnNewButton_1_1.setIcon(new ImageIcon("image/mprebtn.png"));
+		btnNewButton_1_1.setBounds(356, 434, 168, 40);
 		panel_2.add(btnNewButton_1_1);
 
 		// 3단계 패널
@@ -184,7 +186,7 @@ public class signup_manager extends JPanel {
 		txtId.setFont(new Font("Dialog", Font.BOLD, 15));
 		txtId.setText("ID\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		txtId.setForeground(new Color(200, 184, 164));
-		txtId.setBounds(301, 150, 356, 40);
+		txtId.setBounds(356, 160, 365, 40);
 		txtId.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		txtId.setBackground(new Color(226, 221, 215));
 		txtId.setColumns(10);
@@ -213,7 +215,7 @@ public class signup_manager extends JPanel {
 		pwdPassword.setText("PASSWORD\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		pwdPassword.setEchoChar((char) 0);
 		pwdPassword.setForeground(new Color(200, 184, 164));
-		pwdPassword.setBounds(301, 228, 485, 40);
+		pwdPassword.setBounds(356, 236, 494, 40);
 		panel.add(pwdPassword);
 		pwdPassword.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		pwdPassword.setBackground(new Color(226, 221, 215));
@@ -232,7 +234,7 @@ public class signup_manager extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (pwdPassword.getText().equals("")) {
 					pwdPassword.setEchoChar((char) 0);
-					pwdPassword_1.setForeground(new Color(200, 184, 164));
+					pwdPassword.setForeground(new Color(200, 184, 164));
 					pwdPassword.setText("PASSWORD를 입력해주세요.");
 				}
 			}
@@ -243,7 +245,7 @@ public class signup_manager extends JPanel {
 		pwdPassword_1.setText("PASSWORD \uC7AC\uC785\uB825");
 		pwdPassword_1.setEchoChar((char) 0);
 		pwdPassword_1.setForeground(new Color(200, 184, 164));
-		pwdPassword_1.setBounds(301, 278, 485, 40);
+		pwdPassword_1.setBounds(356, 286, 494, 40);
 		panel.add(pwdPassword_1);
 		pwdPassword_1.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		pwdPassword_1.setBackground(new Color(226, 221, 215));
@@ -270,16 +272,16 @@ public class signup_manager extends JPanel {
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(
-				new ImageIcon("image/ducheck1.PNG"));
+				new ImageIcon("image/mducheck.png"));
 		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 15));
-		btnNewButton.setBounds(657, 150, 129, 40);
+		btnNewButton.setBounds(721, 160, 129, 40);
 		panel.add(btnNewButton);
 
 		textField_1 = new JTextField();
 		textField_1.setFont(new Font("Dialog", Font.BOLD, 15));
 		textField_1.setForeground(new Color(200, 184, 164));
 		textField_1.setText("\uC804\uD654\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
-		textField_1.setBounds(301, 351, 485, 40);
+		textField_1.setBounds(356, 363, 494, 40);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		textField_1.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
@@ -306,47 +308,48 @@ public class signup_manager extends JPanel {
 		// 가입하기
 		signup_bt = new JButton("");
 		signup_bt.setIcon(
-				new ImageIcon("image/joinbtn.PNG"));
-		signup_bt.setBounds(301, 426, 485, 46);
+				new ImageIcon("image/mjoinbtn.png"));
+		signup_bt.setBounds(685, 436, 165, 40);
 		panel.add(signup_bt);
 
 		lblNewLabel_3 = new JLabel("\uACC4\uC815 \uC815\uBCF4\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		lblNewLabel_3.setForeground(Color.BLACK);
 		lblNewLabel_3.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblNewLabel_3.setBounds(301, 85, 223, 30);
+		lblNewLabel_3.setBounds(356, 91, 223, 30);
 		panel.add(lblNewLabel_3);
 
 		lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setIcon(
 				new ImageIcon("image/signup_step31.PNG"));
-		lblNewLabel_6.setBounds(281, 0, 574, 71);
+		lblNewLabel_6.setBounds(334, 10, 574, 71);
 		panel.add(lblNewLabel_6);
 
 		lblNewLabel_7 = new JLabel("ID");
 		lblNewLabel_7.setForeground(Color.BLACK);
 		lblNewLabel_7.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblNewLabel_7.setBounds(301, 124, 134, 27);
+		lblNewLabel_7.setBounds(356, 131, 134, 27);
 		panel.add(lblNewLabel_7);
 
 		lblNewLabel_8 = new JLabel("PASSWORD");
 		lblNewLabel_8.setForeground(Color.BLACK);
 		lblNewLabel_8.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblNewLabel_8.setBounds(301, 203, 134, 27);
+		lblNewLabel_8.setBounds(356, 210, 134, 27);
 		panel.add(lblNewLabel_8);
 
 		lblNewLabel_9 = new JLabel("\uC804\uD654\uBC88\uD638");
 		lblNewLabel_9.setForeground(Color.BLACK);
 		lblNewLabel_9.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(301, 328, 134, 27);
+		lblNewLabel_9.setBounds(356, 336, 134, 27);
 		panel.add(lblNewLabel_9);
 		
-		JButton btnNewButton_1_1_1 = new JButton("\uC774\uC804 \uB2E8\uACC4");
+		JButton btnNewButton_1_1_1 = new JButton("");
+		btnNewButton_1_1_1.setIcon(new ImageIcon("image/mprebtn.png"));
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel_2.getParent(), "2단계");
 			}
 		});
-		btnNewButton_1_1_1.setBounds(131, 426, 127, 40);
+		btnNewButton_1_1_1.setBounds(356, 436, 165, 40);
 		panel.add(btnNewButton_1_1_1);
 		signup_bt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
