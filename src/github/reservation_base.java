@@ -2,8 +2,13 @@ package github;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -13,8 +18,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.BevelBorder;
+import java.awt.Font;
 
 public class reservation_base extends JPanel {
+	private Image img;
+	private Dimension d;
 	private JTextField textField;
 	private JTextField textField_1;
 	private search machine;
@@ -40,8 +50,8 @@ public class reservation_base extends JPanel {
 	public reservation_base() {
 		setLayout(card);
 		
-		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(226,221,215));
 		add(panel, "base");
 		panel.setLayout(null);
 		
@@ -50,81 +60,165 @@ public class reservation_base extends JPanel {
 		
 		payment=new reservation_payment();
 		add(payment,"payment");
-		textField = new JTextField();
-		textField.setBorder(new TitledBorder(null, "rotation", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		textField.setBounds(46, 71, 146, 51);
-		panel.add(textField);
-		textField.setColumns(10);
-		JComboBox<String> comboBox = new JComboBox();
-		comboBox.setBounds(742, 56, 313, 51);
-		panel.add(comboBox);
-		
-		textField_1 = new JTextField();
-		textField_1.setBorder(new TitledBorder(null, "keyword", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		textField_1.setBounds(228, 71, 146, 51);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JButton btnNewButton = new JButton("\uAC80\uC0C9");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				machine=new search();
-				machine.update_XY(textField.getText());
-				machine.search_result(textField_1.getText());
-				list1 = machine.get_result();
-				System.out.println("list1의 사이즈 : "+list1.size());
-				comboBox.removeAllItems();
-				for(int i=0;i<(int)list1.size();i++) {
-					comboBox.addItem(list1.get(i)[0]);
-				}
-			}
-		});
-		btnNewButton.setBounds(431, 51, 197, 51);
-		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel();
-		lblNewLabel.setBounds(28, 151, 600, 400);
+		lblNewLabel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		lblNewLabel.setBounds(446, 40, 782, 606);
 		panel.add(lblNewLabel);
+
+		back = new JButton("");//back버튼
+		back.setBorder(null);
+		back.setBackground(new Color(226,221,215));
+		back.setIcon(new ImageIcon("image/back.png"));
+		back.setBounds(33, 40, 53, 43);
+		panel.add(back);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
+		panel_1.setBackground(new Color(226,221,215));
+		panel_1.setBounds(33, 90, 413, 556);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
 		
 		shop_name = new JTextField();
+		shop_name.setForeground(new Color(120, 108, 100));
+		shop_name.setBackground(new Color(226,221,215));
+		shop_name.setBorder(null);
+		shop_name.setFont(new Font("굴림", Font.BOLD, 17));
+		shop_name.setText("\uC0C1\uB2F9\uD68C\uAD00");
+		shop_name.setBounds(29, 149, 360, 26);
+		panel_1.add(shop_name);
 		shop_name.setEditable(false);
-		shop_name.setBounds(742, 151, 329, 21);
-		panel.add(shop_name);
 		shop_name.setColumns(10);
 		
 		shop_tel = new JTextField();
+		shop_tel.setBorder(null);
+		shop_tel.setBackground(new Color(226,221,215));
+		shop_tel.setFont(new Font("굴림", Font.PLAIN, 15));
+		shop_tel.setText("043-255-1967");
+		shop_tel.setBounds(29, 228, 360, 21);
+		panel_1.add(shop_tel);
 		shop_tel.setEditable(false);
-		shop_tel.setBounds(742, 197, 329, 21);
-		panel.add(shop_tel);
 		shop_tel.setColumns(10);
 		
 		shop_distance = new JTextField();
+		shop_distance.setBorder(null);
+		shop_distance.setBackground(new Color(226,221,215));
+		shop_distance.setFont(new Font("굴림", Font.PLAIN, 15));
+		shop_distance.setText("417");
+		shop_distance.setBounds(29, 290, 360, 21);
+		panel_1.add(shop_distance);
 		shop_distance.setEditable(false);
-		shop_distance.setBounds(742, 240, 329, 21);
-		panel.add(shop_distance);
 		shop_distance.setColumns(10);
 		
 		shop_adress = new JTextField();
+		shop_adress.setBorder(null);
+		shop_adress.setBackground(new Color(226,221,215));
+		shop_adress.setFont(new Font("굴림", Font.PLAIN, 15));
+		shop_adress.setText("\uCDA9\uBD81 \uCCAD\uC8FC\uC2DC \uC0C1\uB2F9\uAD6C \uBD81\uBB38\uB85C2\uAC00 27-5");
+		shop_adress.setBounds(29, 259, 360, 21);
+		panel_1.add(shop_adress);
 		shop_adress.setEditable(false);
-		shop_adress.setBounds(742, 296, 329, 21);
-		panel.add(shop_adress);
 		shop_adress.setColumns(10);
 		
 		shop_category = new JTextField();
+		shop_category.setBorder(null);
+		shop_category.setBackground(new Color(226,221,215));
+		shop_category.setForeground(Color.GRAY);
+		shop_category.setFont(new Font("굴림", Font.PLAIN, 15));
+		shop_category.setText("\uC74C\uC2DD\uC810>\uD55C\uC2DD>\uC721\uB958, \uACE0\uAE30>\uC0BC\uACB9\uC0B4");
+		shop_category.setBounds(29, 185, 360, 21);
+		panel_1.add(shop_category);
 		shop_category.setEditable(false);
-		shop_category.setBounds(742, 342, 329, 21);
-		panel.add(shop_category);
 		shop_category.setColumns(10);
 		
 		open_time = new JTextField();
-		open_time.setBounds(742, 383, 329, 21);
-		panel.add(open_time);
+		open_time.setBorder(null);
+		open_time.setBackground(new Color(226,221,215));
+		open_time.setFont(new Font("굴림", Font.PLAIN, 15));
+		open_time.setText("8:00 ~22:00");
+		open_time.setBounds(29, 386, 329, 21);
+		panel_1.add(open_time);
 		open_time.setColumns(10);
 		
 		holyday = new JTextField();
-		holyday.setBounds(742, 414, 329, 21);
-		panel.add(holyday);
+		holyday.setBorder(null);
+		holyday.setBackground(new Color(226,221,215));
+		holyday.setText("\uB9E4\uC8FC \uC218\uC694\uC77C");
+		holyday.setBounds(29, 417, 329, 21);
+		panel_1.add(holyday);
 		holyday.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("\uC608\uC57D\uD558\uAE30");
+		btnNewButton_1.setBounds(45, 464, 321, 40);
+		panel_1.add(btnNewButton_1);
+		textField = new JTextField();
+		textField.setForeground(new Color(120, 108, 100));
+		textField.setBackground(new Color(200, 184, 164));
+		textField.setBounds(29, 26, 154, 39);
+		panel_1.add(textField);
+		textField.setFont(new Font("굴림", Font.BOLD, 17));
+		textField.setText("\uC704\uCE58 \uAC80\uC0C9");
+		textField.setBorder(new LineBorder(new Color(120, 108, 100), 0, true));
+		textField.setColumns(10);
+		textField.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (textField.getText().equals("위치 검색")) {
+					textField.setText("");
+					textField.setForeground(new Color(120, 108, 100));
+				}
+
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (textField.getText().equals("")) {
+					textField.setText("위치 검색");
+					textField.setForeground(new Color(120, 108, 100));
+				}
+			}
+		});
+		
+		textField_1 = new JTextField();
+		textField_1.setForeground(new Color(120, 108, 100));
+		textField_1.setBackground(new Color(200, 184, 164));
+		textField_1.setFont(new Font("굴림", Font.BOLD, 17));
+		textField_1.setText("\uD0A4\uC6CC\uB4DC \uAC80\uC0C9");
+		textField_1.setBounds(194, 26, 150, 39);
+		panel_1.add(textField_1);
+		textField_1.setBorder(new LineBorder(new Color(120, 108, 100), 0, true));
+		textField_1.setColumns(10);
+		textField_1.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (textField_1.getText().equals("키워드 검색")) {
+					textField_1.setText("");
+					textField_1.setForeground(new Color(120, 108, 100));
+				}
+
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				if (textField_1.getText().equals("")) {
+					textField_1.setText("키워드 검색");
+					textField_1.setForeground(new Color(120, 108, 100));
+				}
+			}
+		});
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBorder(null);
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\searchiconn.png"));
+		btnNewButton.setBounds(344, 22, 43, 43);
+		panel_1.add(btnNewButton);
+		JComboBox<String> comboBox = new JComboBox();
+		comboBox.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
+		comboBox.setBackground(new Color(226,221,215));
+		comboBox.setFont(new Font("굴림", Font.PLAIN, 15));
+		comboBox.setBounds(29, 75, 358, 39);
+		panel_1.add(comboBox);
 		
 		
 		comboBox.addActionListener(new ActionListener() {
@@ -175,15 +269,19 @@ public class reservation_base extends JPanel {
 				}
 			}
 		});
-
-		back = new JButton("");//back버튼
-		back.setBorder(null);
-		back.setBackground(new Color(226,221,215));
-		back.setIcon(new ImageIcon("image/back.png"));
-		back.setBounds(12, 10, 61, 50);
-		panel.add(back);
-		
-		JButton btnNewButton_1 = new JButton("\uC608\uC57D\uD558\uAE30");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				machine=new search();
+				machine.update_XY(textField.getText());
+				machine.search_result(textField_1.getText());
+				list1 = machine.get_result();
+				System.out.println("list1의 사이즈 : "+list1.size());
+				comboBox.removeAllItems();
+				for(int i=0;i<(int)list1.size();i++) {
+					comboBox.addItem(list1.get(i)[0]);
+				}
+			}
+		});
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(cnt_shop!=null) {
@@ -197,8 +295,6 @@ public class reservation_base extends JPanel {
 				
 			}
 		});
-		btnNewButton_1.setBounds(742, 464, 329, 87);
-		panel.add(btnNewButton_1);
 		
 		detail.detail_back.addActionListener(new ActionListener() {//상세페이지의 back버튼 클릭시 
 			public void actionPerformed(ActionEvent e) {
@@ -223,5 +319,13 @@ public class reservation_base extends JPanel {
 				card.show(detail.getParent(), "detail");
 			}
 		});
+
+		img = new ImageIcon("image/signup.jpg").getImage();
+
+		d = getSize();
 	}
+
+	public void paintComponent(Graphics g) {
+	      g.drawImage(img, 0, 0,d.width,d.height, null);
+	  }
 }
