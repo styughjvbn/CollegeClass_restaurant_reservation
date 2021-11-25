@@ -19,6 +19,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import java.awt.event.KeyEvent;
+import javax.swing.SwingConstants;
 
 public class signup_customer extends JPanel {
 	private JPasswordField pwtxt;
@@ -40,10 +42,13 @@ public class signup_customer extends JPanel {
 	private JLabel AGELabel;
 	private JLabel idLabel;
 	private JLabel pwLabel;
-	private JLabel WelcomeLabel;
+	private JLabel pwLabel_2;
+	private JLabel WelcomeLabel_2;
 	private CardLayout card=new CardLayout(0, 0);
 	public JButton btnBack_1;
-	private JLabel WelcomeLabel_1;
+	private JLabel WelcomeLabel_3;
+	public JButton StartButton;
+	private JPanel Panel_2;
 
 	/**
 	 * Create the panel.
@@ -52,55 +57,73 @@ public class signup_customer extends JPanel {
 		setBackground(new Color(226, 221, 215));
 		setLayout(card);
 		
-		// 4¹øÂ°
+		// 4ë²ˆì§¸
 		JPanel Panel_4 = new JPanel();
 		Panel_4.setBounds(12, 0, 1203, 507);
-		add(Panel_4, "4¹ø¤Š");
+		add(Panel_4, "4ë²ˆì§¸");
 		Panel_4.setBackground(new Color(226, 221, 215));
 		Panel_4.setVisible(false);
 		
-		// 3¹øÂ°
+		// 3ë²ˆì§¸
 		JPanel Panel_3 = new JPanel();
 		Panel_3.setBounds(58, 0, 1203, 507);
-		add(Panel_3, "3¹ø¤Š");
+		add(Panel_3, "3ë²ˆÂŠ");
 		Panel_3.setBackground(new Color(226, 221, 215));
 		Panel_3.setLayout(null);
 		Panel_3.setVisible(false);
 		
-		// 2¹øÂ°
-		JPanel Panel_2 = new JPanel();
+		// 2ë²ˆì§¸
+		Panel_2 = new JPanel();
 		Panel_2.setBounds(52, 0, 1203, 507);
-		add(Panel_2, "2¹øÂ°");
+		add(Panel_2, "2ë²ˆì§¸");
 		Panel_2.setBackground(new Color(226, 221, 215));
 		Panel_2.setLayout(null);
 		Panel_2.setVisible(true);
 		
-		// 2´Ü°è ÀÌ¹ÌÁö
+		// 2ë‹¨ê³„ ì´ë¯¸ì§€
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(334, 10, 574, 83);
+		lblNewLabel_1.setBounds(337, 0, 574, 83);
 		Panel_2.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon("image/signup_step21.PNG"));
 		
-		// 3´Ü°è ÀÌ¹ÌÁö
+		// 3ë‹¨ê³„ ì´ë¯¸ì§€
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(334, 10, 574, 83);
+		lblNewLabel_2.setBounds(337, 0, 574, 83);
 		Panel_3.add(lblNewLabel_2);
 		lblNewLabel_2.setIcon(new ImageIcon("image/signup_step31.PNG"));
 		Panel_4.setLayout(null);
 		
-		// 4´Ü°è ÀÌ¹ÌÁö
+		// 4ë‹¨ê³„ ì´ë¯¸ì§€
 		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(334, 20, 574, 83);
+		lblNewLabel_3.setBounds(337, 0, 574, 83);
 		Panel_4.add(lblNewLabel_3);
 		lblNewLabel_3.setIcon(new ImageIcon("image/signup_step41.PNG"));
 		
-		// 4¹øÂ° ÆĞ³Î(È¯¿µ ¸Ş¼¼Áö)
-		WelcomeLabel = new JLabel("");
-		WelcomeLabel.setIcon(null);
-		WelcomeLabel.setBounds(450, 143, 503, 71);
-		WelcomeLabel.setFont(new Font("Dialog", Font.BOLD, 25));
-		WelcomeLabel.setBackground(new Color(226, 221, 215));
-		Panel_4.add(WelcomeLabel);
+		// 4ë²ˆì§¸ íŒ¨ë„(í™˜ì˜ ë©”ì„¸ì§€)
+		WelcomeLabel_2 = new JLabel("");
+		WelcomeLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		WelcomeLabel_2.setDisplayedMnemonic(KeyEvent.VK_ENTER);
+		WelcomeLabel_2.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel_2.setBounds(412, 170, 425, 66);
+		Panel_4.add(WelcomeLabel_2);
+		
+		JLabel WelcomeLabel_1 = new JLabel("");
+		WelcomeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		WelcomeLabel_1.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel_1.setBounds(412, 116, 425, 66);
+		WelcomeLabel_1.setText("í™˜ì˜í•©ë‹ˆë‹¤!");	
+		Panel_4.add(WelcomeLabel_1);
+		
+		StartButton = new JButton("");
+		StartButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		StartButton.setBounds(359, 369, 504, 45);
+		Panel_4.add(StartButton);
+		StartButton.setIcon(new ImageIcon("image/start.PNG"));
+		
+		WelcomeLabel_3 = new JLabel("\uC544\uB798 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uC2DC\uC791\uD574\uC8FC\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4^^");
+		WelcomeLabel_3.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel_3.setBounds(303, 232, 660, 65);
+		Panel_4.add(WelcomeLabel_3);
 		
 		JLabel lblNewLabel_12 = new JLabel("\uACC4\uC815 \uAC00\uC785\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
 		lblNewLabel_12.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -114,16 +137,16 @@ public class signup_customer extends JPanel {
 		WelcomeLabel_1.setBounds(357, 291, 503, 42);
 		Panel_4.add(WelcomeLabel_1);
 		
-		// 3¹øÂ° ÆĞ³Î, Áßº¹°Ë»ç ¹öÆ°
+		// 3ë²ˆì§¸ íŒ¨ë„, ì¤‘ë³µê²€ì‚¬ ë²„íŠ¼
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBorder(null);
 		btnNewButton.setIcon(new ImageIcon("image/check.png"));
 		btnNewButton.setBounds(711, 162, 140, 43);
 		Panel_3.add(btnNewButton);
 
-		// 3¹øÂ° ÆĞ³Î(pw)
+		// 3ë²ˆì§¸ íŒ¨ë„(pw)
 		pwtxt = new JPasswordField();
-		pwtxt.setText("Password¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		pwtxt.setText("Passwordë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		pwtxt.setFont(new Font("Dialog", Font.PLAIN, 15));
 		pwtxt.setForeground(Color.LIGHT_GRAY);
 		pwtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -134,7 +157,7 @@ public class signup_customer extends JPanel {
 		pwtxt.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (pwtxt.getText().equals("Password¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (pwtxt.getText().equals("Passwordë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					pwtxt.setText("");
 					pwtxt.setEchoChar('*');
 					pwtxt.setForeground(Color.BLACK);
@@ -147,14 +170,14 @@ public class signup_customer extends JPanel {
 				if (pwtxt.getText().equals("")) {
 					pwtxt.setEchoChar((char) 0);
 					pwtxt.setForeground(Color.LIGHT_GRAY);
-					pwtxt.setText("Password¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					pwtxt.setText("Passwordë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
 
-		// 3¹øÂ° ÆĞ³Î(id)
+		// 3ë²ˆì§¸ íŒ¨ë„(id)
 		idtxt = new JTextField();
-		idtxt.setText("ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		idtxt.setText("IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		idtxt.setFont(new Font("Dialog", Font.PLAIN, 15));
 		idtxt.setForeground(Color.LIGHT_GRAY);
 		idtxt.setBackground(new Color(226, 221, 215));
@@ -165,7 +188,7 @@ public class signup_customer extends JPanel {
 		idtxt.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (idtxt.getText().equals("ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (idtxt.getText().equals("IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					idtxt.setText("");
 					idtxt.setForeground(Color.BLACK);
 				}
@@ -176,14 +199,14 @@ public class signup_customer extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (idtxt.getText().equals("")) {
 					idtxt.setForeground(Color.LIGHT_GRAY);
-					idtxt.setText("ID¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					idtxt.setText("IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
 
-		// 3¹øÂ° ÆĞ³Î(pwcheck)
+		// 3ë²ˆì§¸ íŒ¨ë„(pwcheck)
 		pwtxtc = new JPasswordField();
-		pwtxtc.setText("Password°¡ µ¿ÀÏÇÑÁö ÇÑ¹ø ´õ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		pwtxtc.setText("Passwordê°€ ë™ì¼í•œì§€ í•œë²ˆ ë” ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		pwtxtc.setFont(new Font("Dialog", Font.PLAIN, 15));
 		pwtxtc.setForeground(Color.LIGHT_GRAY);
 		pwtxtc.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -194,7 +217,7 @@ public class signup_customer extends JPanel {
 		pwtxtc.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (pwtxtc.getText().equals("Password°¡ µ¿ÀÏÇÑÁö ÇÑ¹ø ´õ ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (pwtxtc.getText().equals("Passwordê°€ ë™ì¼í•œì§€ í•œë²ˆ ë” ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					pwtxtc.setText("");
 					pwtxtc.setEchoChar('*');
 					pwtxtc.setForeground(Color.BLACK);
@@ -207,15 +230,15 @@ public class signup_customer extends JPanel {
 				if (pwtxtc.getText().equals("")) {
 					pwtxtc.setEchoChar((char) 0);
 					pwtxtc.setForeground(Color.LIGHT_GRAY);
-					pwtxtc.setText("Password°¡ µ¿ÀÏÇÑÁö ÇÑ¹ø ´õ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					pwtxtc.setText("Passwordê°€ ë™ì¼í•œì§€ í•œë²ˆ ë” ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
 		
 
-		// 2¹øÂ° ÆĞ³Î (ÀÌ¸§)
+		// 2ë²ˆì§¸ íŒ¨ë„ (ì´ë¦„)
 		nametxt = new JTextField();
-		nametxt.setText("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		nametxt.setText("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		nametxt.setFont(new Font("Dialog", Font.PLAIN, 15));
 		nametxt.setForeground(Color.LIGHT_GRAY);
 		nametxt.setColumns(10);
@@ -226,7 +249,7 @@ public class signup_customer extends JPanel {
 		nametxt.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (nametxt.getText().equals("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (nametxt.getText().equals("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					nametxt.setText("");
 					nametxt.setForeground(Color.BLACK);
 				}
@@ -237,12 +260,12 @@ public class signup_customer extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (nametxt.getText().equals("")) {
 					nametxt.setForeground(Color.LIGHT_GRAY);
-					nametxt.setText("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					nametxt.setText("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
 
-		// 2¹øÂ° ÆĞ³Î (³ªÀÌ)
+		// 2ë²ˆì§¸ íŒ¨ë„ (ë‚˜ì´)
 		agetxt = new JTextField();
 		agetxt.setText("\uB098\uC774");
 		agetxt.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -255,7 +278,7 @@ public class signup_customer extends JPanel {
 		agetxt.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (agetxt.getText().equals("³ªÀÌ")) {
+				if (agetxt.getText().equals("ë‚˜ì´")) {
 					agetxt.setText("");
 					agetxt.setForeground(Color.BLACK);
 				}
@@ -266,12 +289,12 @@ public class signup_customer extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (agetxt.getText().equals("")) {
 					agetxt.setForeground(Color.LIGHT_GRAY);
-					agetxt.setText("³ªÀÌ");
+					agetxt.setText("ë‚˜ì´");
 				}
 			}
 		});
 
-		// 3¹øÂ° ÆĞ³Î (°¡ÀÔ)
+		// 3ë²ˆì§¸ íŒ¨ë„ (ê°€ì…)
 		btnNewButton_2 = new JButton("");
 		btnNewButton_2.setIcon(new ImageIcon("image/cjoinbtn.png"));
 		btnNewButton_2.setBounds(661, 406, 190, 43);
@@ -291,23 +314,23 @@ public class signup_customer extends JPanel {
 		btnBack.setIcon(new ImageIcon("image/cprebtn.png"));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				card.show(Panel_2.getParent(), "2¹øÂ°");
+				card.show(Panel_2.getParent(), "2ë²ˆì§¸");
 			}
 		});
 		btnBack.setBounds(356, 406, 189, 43);
 		Panel_3.add(btnBack);
 
-		// 2¹øÂ° ÆĞ³Î (¼ºº° ¼±ÅÃ)
+		// 2ë²ˆì§¸ íŒ¨ë„ (ì„±ë³„ ì„ íƒ)
 		comboBox = new JComboBox(new Object[] {});
 		comboBox.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		comboBox.setBackground(new Color(226, 221, 215));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "¼ºº° ", "Male", "Female" }));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "ì„±ë³„ ", "Male", "Female" }));
 		comboBox.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		comboBox.setForeground(Color.BLACK);
 		comboBox.setBounds(356, 321, 202, 40);
 		Panel_2.add(comboBox);
 
-		// 2¹øÂ° ÆĞ³Î (ÇÚµåÆù)
+		// 2ë²ˆì§¸ íŒ¨ë„ (í•¸ë“œí°)
 		txtHp = new JTextField();
 		txtHp.setText("\uC804\uD654\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		txtHp.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -320,7 +343,7 @@ public class signup_customer extends JPanel {
 		txtHp.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (txtHp.getText().equals("ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.")) {
+				if (txtHp.getText().equals("ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.")) {
 					txtHp.setText("");
 					txtHp.setForeground(Color.BLACK);
 				}
@@ -331,36 +354,36 @@ public class signup_customer extends JPanel {
 			public void focusLost(FocusEvent e) {
 				if (txtHp.getText().equals("")) {
 					txtHp.setForeground(Color.LIGHT_GRAY);
-					txtHp.setText("ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					txtHp.setText("ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
 			}
 		});
 
-		// 2¹øÂ° ÆĞ³Î(¼ºº°)
+		// 2ë²ˆì§¸ íŒ¨ë„(ì„±ë³„)
 		JLabel SEXLabel = new JLabel("\uC131\uBCC4");
 		SEXLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		SEXLabel.setBounds(356, 290, 50, 40);
 		Panel_2.add(SEXLabel);
 
-		// ´ÙÀ½´Ü°è
+		// ë‹¤ìŒë‹¨ê³„
 		JButton NextButton = new JButton("");
 		NextButton.setIcon(new ImageIcon("image/cnextbtn.png"));
 		NextButton.setBounds(654, 405, 202, 40);
 		Panel_2.add(NextButton);
 		
-		// 2¹øÂ° ÆĞ³Î(ÀÌ¸§)
+		// 2ë²ˆì§¸ íŒ¨ë„(ì´ë¦„)
 		JLabel NameLabel = new JLabel("\uC774\uB984");
 		NameLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		NameLabel.setBounds(356, 132, 57, 15);
 		Panel_2.add(NameLabel);
 		
-		// 2¹øÂ° ÆĞ³Î(ÀüÈ­¹øÈ£)
+		// 2ë²ˆì§¸ íŒ¨ë„(ì „í™”ë²ˆí˜¸)
 		HPLabel = new JLabel("\uC804\uD654\uBC88\uD638");
 		HPLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		HPLabel.setBounds(357, 218, 67, 15);
 		Panel_2.add(HPLabel);
 		
-		// 2¹øÂ° ÆĞ³Î(³ªÀÌ)
+		// 2ë²ˆì§¸ íŒ¨ë„(ë‚˜ì´)
 		AGELabel = new JLabel("\uB098\uC774");
 		AGELabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		AGELabel.setBounds(654, 303, 57, 15);
@@ -370,51 +393,50 @@ public class signup_customer extends JPanel {
 		btnBack_1.setIcon(new ImageIcon("image/cprebtn.png"));
 		btnBack_1.setBounds(356, 405, 202, 40);
 		Panel_2.add(btnBack_1);
-		NextButton.addActionListener(new ActionListener() {// step3À¸·Î °¡´Â ´ÙÀ½´Ü°è
+		NextButton.addActionListener(new ActionListener() {// step3ìœ¼ë¡œ ê°€ëŠ” ë‹¤ìŒë‹¨ê³„
 			public void actionPerformed(ActionEvent e) {
-				card.show(Panel_2.getParent(), "3¹ø¤Š");
+				card.show(Panel_2.getParent(), "3ë²ˆÂŠ");
 			}
 		});
-		// Áßº¹È®ÀÎ ¹öÆ° Á¶°Ç¹®
+		// ì¤‘ë³µí™•ì¸ ë²„íŠ¼ ì¡°ê±´ë¬¸
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (DAO.overlap_id_customer(idtxt.getText()) == 0) {
-					aa.showMessageDialog(null, "»ç¿ëÇÒ ¼ö ÀÖ´Â ¾ÆÀÌµğÀÔ´Ï´Ù.");
+					aa.showMessageDialog(null, "ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤.");
 					isoverlap = false;
 				} else {
-					aa.showMessageDialog(null, "¾ÆÀÌµğ°¡ Áßº¹µË´Ï´Ù.");
+					aa.showMessageDialog(null, "ì•„ì´ë””ê°€ ì¤‘ë³µë©ë‹ˆë‹¤.");
 					isoverlap = true;
 				}
 			}
 		});
-		// °¡ÀÔÇÏ±â ¹öÆ° Á¶°Ç¹®
+		// ê°€ì…í•˜ê¸° ë²„íŠ¼ ì¡°ê±´ë¬¸
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!isoverlap) {
 					if (!pwtxt.getText().equals(pwtxtc.getText())) {
-						aa.showMessageDialog(null, "ºñ¹Ğ¹øÈ£°¡ µ¿ÀÏÇÏÁö ¾Ê½À´Ï´Ù.");
+						aa.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ê°€ ë™ì¼í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 					} else {
 						String id=idtxt.getText();
 						String pw= pwtxt.getText();
 						int age=Integer.parseInt(agetxt.getText().toString());
 						String name=nametxt.getText();
-						byte Gender=(byte)(comboBox.getSelectedIndex());//³²ÀÚ´Â 1 ¿©ÀÚ´Â 2
+						byte Gender=(byte)(comboBox.getSelectedIndex());//ë‚¨ìëŠ” 1 ì—¬ìëŠ” 2
 						String HP=txtHp.getText();
 						
 						if(agetxt.getText().toString().equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")) {
-							aa.showMessageDialog(null, "¸ğµÎ ÀÔ·ÂÇØÁÖ¼¼¿ä");	
+							aa.showMessageDialog(null, "ëª¨ë‘ ì…ë ¥í•´ì£¼ì„¸ìš”");	
 						}else if(Gender==0)	{
-							aa.showMessageDialog(null, "¼ºº°À» ¿Ã¹Ù¸£°Ô ¼±ÅÃÇØÁÖ¼¼¿ä");	
+							aa.showMessageDialog(null, "ì„±ë³„ì„ ì˜¬ë°”ë¥´ê²Œ ì„ íƒí•´ì£¼ì„¸ìš”");	
 						}
 						else {
-							Panel_4.setVisible(true);
-							Panel_3.setVisible(false);
+							card.show(Panel_2.getParent(), "4ë²ˆì§¸");
 							DAO.customer_signup(new DTO_customer(id,pw,HP,Gender,name,age));
-							WelcomeLabel.setText("È¯¿µÇÕ´Ï´Ù!  " +id+ "´Ô");	
+							WelcomeLabel_2.setText(id + "  ë‹˜!");	
 						}
 					}
 				} else
-					aa.showMessageDialog(null, "¾ÆÀÌµğ°¡ Áßº¹µË´Ï´Ù.");
+					aa.showMessageDialog(null, "ì•„ì´ë””ê°€ ì¤‘ë³µë©ë‹ˆë‹¤.");
 
 			}
 		});
