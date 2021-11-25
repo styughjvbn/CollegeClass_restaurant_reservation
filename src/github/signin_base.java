@@ -133,10 +133,6 @@ public class signin_base extends JPanel {
 		});
 
 		btnNewButton = new JButton("SIGNIN");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnNewButton.setBounds(126, 457, 458, 54);
 		panel.add(btnNewButton);
 		btnNewButton.setForeground(Color.BLACK);

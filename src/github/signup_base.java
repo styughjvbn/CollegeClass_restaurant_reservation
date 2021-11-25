@@ -22,6 +22,9 @@ public class signup_base extends JPanel {
 	private Image img;
 	private Dimension d;
 	public JButton btnNewButton;
+	public signup_manager panel;
+	public signup_customer panel2;
+	private JPanel panel_1;
 	/**
 	 * Create the panel.
 	 */
@@ -32,7 +35,7 @@ public class signup_base extends JPanel {
 		setVisible(true);
 		setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
+		panel_1 = new JPanel();
 		panel_1.setBounds(35, 140, 1215, 500);
 		add(panel_1);
 		panel_1.setLayout(card);
@@ -43,11 +46,11 @@ public class signup_base extends JPanel {
 		panel_1.add(panel_2, "member_type");
 		panel_2.setLayout(null);
 		
-		signup_manager panel=new signup_manager();//사장 회원가입
+		panel=new signup_manager();//사장 회원가입
 		panel.setBounds(-10008, -10031, 1215,500);
 		panel_1.add(panel,"maneger_signup");
 		
-		signup_customer panel2=new signup_customer();//고객 회원가입
+		panel2=new signup_customer();//고객 회원가입
 		panel2.setBounds(-10008, -10031, 504, 437);
 		panel_1.add(panel2,"customer_signup");
 		
@@ -131,6 +134,9 @@ public class signup_base extends JPanel {
 		img = new ImageIcon("image/signup.jpg").getImage();
 
 		d = getSize();
+	}
+	void init() {
+		card.show(panel_1, "member_type");
 	}
 	public void paintComponent(Graphics g) {
 	      g.drawImage(img, 0, 0,d.width,d.height, null);

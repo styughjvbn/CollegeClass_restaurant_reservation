@@ -211,7 +211,7 @@ public class DAO_manager {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
-			String pass = "1q2w3e4r!";//비밀번호 수정 필요
+			String pass = "11111111";//비밀번호 수정 필요
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			System.out.println("The Connection successful");

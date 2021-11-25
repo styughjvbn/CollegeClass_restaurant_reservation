@@ -47,6 +47,8 @@ public class signup_customer extends JPanel {
 	private CardLayout card=new CardLayout(0, 0);
 	public JButton btnBack_1;
 	private JLabel WelcomeLabel_3;
+	public JButton StartButton;
+	private JPanel Panel_2;
 
 	/**
 	 * Create the panel.
@@ -58,7 +60,7 @@ public class signup_customer extends JPanel {
 		// 4번째
 		JPanel Panel_4 = new JPanel();
 		Panel_4.setBounds(12, 0, 1203, 507);
-		add(Panel_4, "4번쨰");
+		add(Panel_4, "4번째");
 		Panel_4.setBackground(new Color(226, 221, 215));
 		Panel_4.setLayout(null);
 		Panel_4.setVisible(false);
@@ -72,7 +74,7 @@ public class signup_customer extends JPanel {
 		Panel_3.setVisible(false);
 		
 		// 2번째
-		JPanel Panel_2 = new JPanel();
+		Panel_2 = new JPanel();
 		Panel_2.setBounds(52, 0, 1203, 507);
 		add(Panel_2, "2번째");
 		Panel_2.setBackground(new Color(226, 221, 215));
@@ -112,7 +114,7 @@ public class signup_customer extends JPanel {
 		WelcomeLabel_1.setText("환영합니다!");	
 		Panel_4.add(WelcomeLabel_1);
 		
-		JButton StartButton = new JButton("");
+		StartButton = new JButton("");
 		StartButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		StartButton.setBounds(359, 369, 504, 45);
 		Panel_4.add(StartButton);
@@ -120,7 +122,7 @@ public class signup_customer extends JPanel {
 		
 		WelcomeLabel_3 = new JLabel("\uC544\uB798 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uC2DC\uC791\uD574\uC8FC\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4^^");
 		WelcomeLabel_3.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
-		WelcomeLabel_3.setBounds(337, 234, 583, 65);
+		WelcomeLabel_3.setBounds(303, 232, 660, 65);
 		Panel_4.add(WelcomeLabel_3);
 		
 		// 3번째 패널, 중복검사 버튼
@@ -419,8 +421,7 @@ public class signup_customer extends JPanel {
 							aa.showMessageDialog(null, "성별을 올바르게 선택해주세요");	
 						}
 						else {
-							Panel_4.setVisible(true);
-							Panel_3.setVisible(false);
+							card.show(Panel_2.getParent(), "4번째");
 							DAO.customer_signup(new DTO_customer(id,pw,HP,Gender,name,age));
 							WelcomeLabel_2.setText(id + "  님!");	
 						}
