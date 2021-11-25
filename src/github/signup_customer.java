@@ -19,6 +19,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import java.awt.event.KeyEvent;
+import javax.swing.SwingConstants;
 
 public class signup_customer extends JPanel {
 	private JPasswordField pwtxt;
@@ -41,9 +43,10 @@ public class signup_customer extends JPanel {
 	private JLabel idLabel;
 	private JLabel pwLabel;
 	private JLabel pwLabel_2;
-	private JLabel WelcomeLabel;
+	private JLabel WelcomeLabel_2;
 	private CardLayout card=new CardLayout(0, 0);
 	public JButton btnBack_1;
+	private JLabel WelcomeLabel_3;
 
 	/**
 	 * Create the panel.
@@ -78,28 +81,47 @@ public class signup_customer extends JPanel {
 		
 		// 2단계 이미지
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(283, 0, 574, 83);
+		lblNewLabel_1.setBounds(337, 0, 574, 83);
 		Panel_2.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon("image/signup_step21.PNG"));
 		
 		// 3단계 이미지
 		lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(283, 0, 574, 83);
+		lblNewLabel_2.setBounds(337, 0, 574, 83);
 		Panel_3.add(lblNewLabel_2);
 		lblNewLabel_2.setIcon(new ImageIcon("image/signup_step31.PNG"));
 		
 		// 4단계 이미지
 		lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(283, 0, 574, 83);
+		lblNewLabel_3.setBounds(337, 0, 574, 83);
 		Panel_4.add(lblNewLabel_3);
 		lblNewLabel_3.setIcon(new ImageIcon("image/signup_step41.PNG"));
 		
 		// 4번째 패널(환영 메세지)
-		WelcomeLabel = new JLabel("");
-		WelcomeLabel.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
-		WelcomeLabel.setBackground(new Color(226, 221, 215));
-		WelcomeLabel.setBounds(283, 193, 57, 15);
-		Panel_4.add(WelcomeLabel);
+		WelcomeLabel_2 = new JLabel("");
+		WelcomeLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		WelcomeLabel_2.setDisplayedMnemonic(KeyEvent.VK_ENTER);
+		WelcomeLabel_2.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel_2.setBounds(412, 170, 425, 66);
+		Panel_4.add(WelcomeLabel_2);
+		
+		JLabel WelcomeLabel_1 = new JLabel("");
+		WelcomeLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		WelcomeLabel_1.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel_1.setBounds(412, 116, 425, 66);
+		WelcomeLabel_1.setText("환영합니다!");	
+		Panel_4.add(WelcomeLabel_1);
+		
+		JButton StartButton = new JButton("");
+		StartButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		StartButton.setBounds(359, 369, 504, 45);
+		Panel_4.add(StartButton);
+		StartButton.setIcon(new ImageIcon("image/start.PNG"));
+		
+		WelcomeLabel_3 = new JLabel("\uC544\uB798 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uC2DC\uC791\uD574\uC8FC\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4^^");
+		WelcomeLabel_3.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
+		WelcomeLabel_3.setBounds(337, 234, 583, 65);
+		Panel_4.add(WelcomeLabel_3);
 		
 		// 3번째 패널, 중복검사 버튼
 		JButton btnNewButton = new JButton("\uC911\uBCF5\uD655\uC778");
@@ -400,7 +422,7 @@ public class signup_customer extends JPanel {
 							Panel_4.setVisible(true);
 							Panel_3.setVisible(false);
 							DAO.customer_signup(new DTO_customer(id,pw,HP,Gender,name,age));
-							WelcomeLabel.setText("환영합니다" +id+ "님");	
+							WelcomeLabel_2.setText(id + "  님!");	
 						}
 					}
 				} else
