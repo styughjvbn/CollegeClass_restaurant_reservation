@@ -67,7 +67,7 @@ public class signup_customer extends JPanel {
 		// 3번째
 		JPanel Panel_3 = new JPanel();
 		Panel_3.setBounds(58, 0, 1203, 507);
-		add(Panel_3, "3번");
+		add(Panel_3, "3번");
 		Panel_3.setBackground(new Color(226, 221, 215));
 		Panel_3.setLayout(null);
 		Panel_3.setVisible(false);
@@ -395,7 +395,8 @@ public class signup_customer extends JPanel {
 		Panel_2.add(btnBack_1);
 		NextButton.addActionListener(new ActionListener() {// step3으로 가는 다음단계
 			public void actionPerformed(ActionEvent e) {
-				card.show(Panel_2.getParent(), "3번");
+				card.show(Panel_2.getParent(), "3번");
+				
 			}
 		});
 		// 중복확인 버튼 조건문

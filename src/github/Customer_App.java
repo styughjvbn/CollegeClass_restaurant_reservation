@@ -49,7 +49,6 @@ public class Customer_App {
 			    e.getStackTrace();
 			}        
 	    }
-
 		signin_base Wpanel=new signin_base();//로그인 패널
 		frame.getContentPane().add(Wpanel,"login");
 		card.show(frame.getContentPane(), "login");
