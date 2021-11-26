@@ -72,20 +72,20 @@ public class reservation_base extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel();
 		lblNewLabel.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
-		lblNewLabel.setBounds(446, 40, 782, 606);
+		lblNewLabel.setBounds(446, 45, 809, 606);
 		panel.add(lblNewLabel);
 
 		back = new JButton("");//back¹öÆ°
 		back.setBorder(null);
 		back.setBackground(new Color(226,221,215));
 		back.setIcon(new ImageIcon("image/back.png"));
-		back.setBounds(33, 40, 45, 43);
+		back.setBounds(42, 51, 45, 43);
 		panel.add(back);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
 		panel_1.setBackground(new Color(226,221,215));
-		panel_1.setBounds(33, 90, 413, 556);
+		panel_1.setBounds(32, 96, 413, 556);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -107,28 +107,29 @@ public class reservation_base extends JPanel {
 		
 		shop_tel = new JTextField();
 		shop_tel.setBorder(null);
+		shop_tel.setForeground(new Color(236, 99, 94));
 		shop_tel.setBackground(new Color(226,221,215));
 		shop_tel.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		shop_tel.setBounds(68, 226, 321, 21);
+		shop_tel.setBounds(146, 297, 236, 21);
 		panel_1.add(shop_tel);
 		shop_tel.setEditable(false);
 		shop_tel.setColumns(10);
 		
 		shop_distance = new JTextField();
-		shop_distance.setForeground(new Color(236, 99, 94));
 		shop_distance.setBorder(null);
 		shop_distance.setBackground(new Color(226,221,215));
 		shop_distance.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		shop_distance.setBounds(151, 297, 236, 21);
+		shop_distance.setBounds(68, 226, 321, 21);
 		panel_1.add(shop_distance);
 		shop_distance.setEditable(false);
 		shop_distance.setColumns(10);
 		
 		shop_adress = new JTextField();
 		shop_adress.setBorder(null);
+		shop_adress.setForeground(Color.GRAY);
 		shop_adress.setBackground(new Color(226,221,215));
 		shop_adress.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		shop_adress.setBounds(68, 268, 319, 21);
+		shop_adress.setBounds(29, 185, 358, 21);
 		panel_1.add(shop_adress);
 		shop_adress.setEditable(false);
 		shop_adress.setColumns(10);
@@ -136,9 +137,8 @@ public class reservation_base extends JPanel {
 		shop_category = new JTextField();
 		shop_category.setBorder(null);
 		shop_category.setBackground(new Color(226,221,215));
-		shop_category.setForeground(Color.GRAY);
 		shop_category.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		shop_category.setBounds(29, 185, 358, 21);
+		shop_category.setBounds(68, 268, 319, 21);
 		panel_1.add(shop_category);
 		shop_category.setEditable(false);
 		shop_category.setColumns(10);
@@ -249,7 +249,7 @@ public class reservation_base extends JPanel {
 		lblNewLabel_3.setBounds(29, 340, 32, 30);
 		panel_1.add(lblNewLabel_3);
 		
-		lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4 = new JLabel("\uAC80\uC0C9\uC9C0\uC5D0\uC11C");
 		lblNewLabel_4.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		lblNewLabel_4.setBounds(68, 297, 81, 21);
 		panel_1.add(lblNewLabel_4);
@@ -285,6 +285,12 @@ public class reservation_base extends JPanel {
 		lblNewLabel_10.setBounds(68, 365, 69, 21);
 		panel_1.add(lblNewLabel_10);
 		
+		JLabel lblNewLabel_11 = new JLabel("");
+		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\panel_base.png"));
+		lblNewLabel_11.setBackground(Color.PINK);
+		lblNewLabel_11.setBounds(0, 0, 1280, 720);
+		panel.add(lblNewLabel_11);
+		
 		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -294,8 +300,8 @@ public class reservation_base extends JPanel {
 					panel_2.setVisible(false);
 					shop_name.setText(list1.get(index)[0]);
 					cnt_shop=DAO.get_shop_info(shop_name.getText());
-					shop_tel.setText(list1.get(index)[1]);
-					shop_distance.setText(list1.get(index)[2]+"m");
+					shop_tel.setText(list1.get(index)[1]+"m");
+					shop_distance.setText(list1.get(index)[2]);
 					shop_adress.setText(list1.get(index)[3]);
 					shop_category.setText(list1.get(index)[4]);
 					if(cnt_shop!=null) {//ÀÔÁ¡µÈ Á¡Æ÷¶ó¸é ¿µ¾÷½Ã°£°ú °øÈÞÀÏ Ãâ·Â
