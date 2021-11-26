@@ -60,7 +60,7 @@ public class reservation_payment extends JPanel {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setPreferredSize(new Dimension(100, 100));
-		panel_1.setBounds(12, 42, 800, 600);
+		panel_1.setBounds(37, 49, 800, 600);
 		add(panel_1);
 		panel_1.setLayout(card);
 		
@@ -72,6 +72,7 @@ public class reservation_payment extends JPanel {
 		panel_1.add(panel_3, "detail");
 		panel_3.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		
+		//메뉴선택화면으로 돌아가기
 		btnNewButton_1 = new JButton("back");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -80,21 +81,21 @@ public class reservation_payment extends JPanel {
 			}
 		});
 		btnNewButton_1.setVisible(false);
-		btnNewButton_1.setBounds(770, 10, 42, 30);
+		btnNewButton_1.setBounds(955, 405, 82, 43);
 		add(btnNewButton_1);
 		
 		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(992, 329, 92, 21);
+		lblNewLabel.setBounds(1025, 339, 92, 21);
 		add(lblNewLabel);
 		
 		textArea = new JTextArea();
-		textArea.setBounds(992, 47, 114, 256);
+		textArea.setBounds(1016, 63, 114, 256);
 		add(textArea);
 		textArea.setEditable(false);
 		
 		textArea_1 = new JTextArea();
 		textArea_1.setEditable(false);
-		textArea_1.setBounds(841, 47, 114, 256);
+		textArea_1.setBounds(866, 62, 114, 256);
 		add(textArea_1);
 		
 		btnNewButton_2 = new JButton("\uAC00\uC7A5 \uCD5C\uADFC \uBA54\uB274 \uC0AD\uC81C");
@@ -113,7 +114,7 @@ public class reservation_payment extends JPanel {
 				lblNewLabel.setText(Integer.toString(sum));
 			}
 		});
-		btnNewButton_2.setBounds(841, 328, 97, 23);
+		btnNewButton_2.setBounds(867, 338, 129, 23);
 		add(btnNewButton_2);
 		
 		btnNewButton_3 = new JButton("back");

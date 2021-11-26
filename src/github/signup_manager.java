@@ -103,20 +103,20 @@ public class signup_manager extends JPanel {
 
 		// 점포 입력
 		lblNewLabel = new JLabel("\uC810\uD3EC \uC815\uBCF4\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
-		lblNewLabel.setBounds(356, 114, 231, 27);
+		lblNewLabel.setBounds(356, 109, 231, 27);
 		panel_2.add(lblNewLabel);
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 
 		lblNewLabel_4 = new JLabel("\uC9C0\uC5ED");
-		lblNewLabel_4.setBounds(356, 161, 134, 27);
+		lblNewLabel_4.setBounds(356, 151, 134, 27);
 		panel_2.add(lblNewLabel_4);
 		lblNewLabel_4.setForeground(Color.BLACK);
 		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 15));
 
 		// 지역 입력
 		textField_2 = new JTextField();
-		textField_2.setBounds(356, 184, 500, 40);
+		textField_2.setBounds(356, 174, 500, 40);
 		panel_2.add(textField_2);
 		textField_2.setFont(new Font("Dialog", Font.BOLD, 15));
 		textField_2.setForeground(new Color(200, 184, 164));
@@ -126,14 +126,14 @@ public class signup_manager extends JPanel {
 		textField_2.setBackground(new Color(226, 221, 215));
 
 		lblNewLabel_5 = new JLabel("\uC0C1\uD638\uBA85");
-		lblNewLabel_5.setBounds(356, 245, 134, 27);
+		lblNewLabel_5.setBounds(356, 230, 134, 27);
 		panel_2.add(lblNewLabel_5);
 		lblNewLabel_5.setForeground(Color.BLACK);
 		lblNewLabel_5.setFont(new Font("Dialog", Font.BOLD, 15));
 
 		// 상호명 입력
 		textField_3 = new JTextField();
-		textField_3.setBounds(356, 270, 371, 40);
+		textField_3.setBounds(356, 255, 371, 40);
 		panel_2.add(textField_3);
 		textField_3.setSelectionColor(Color.BLACK);
 		textField_3.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -144,7 +144,7 @@ public class signup_manager extends JPanel {
 		textField_3.setBackground(new Color(226, 221, 215));
 
 		comboBox = new JComboBox();
-		comboBox.setBounds(356, 327, 500, 40);
+		comboBox.setBounds(356, 307, 500, 40);
 		panel_2.add(comboBox);
 		comboBox.setFont(new Font("굴림", Font.PLAIN, 15));
 		comboBox.setBackground(new Color(226, 221, 215));
@@ -152,7 +152,7 @@ public class signup_manager extends JPanel {
 
 		// 검색버튼
 		JButton btnNewButton_2_1 = new JButton("");
-		btnNewButton_2_1.setBounds(727, 270, 129, 40);
+		btnNewButton_2_1.setBounds(727, 255, 129, 40);
 		panel_2.add(btnNewButton_2_1);
 		btnNewButton_2_1.setBorder(null);
 		btnNewButton_2_1.setIcon(

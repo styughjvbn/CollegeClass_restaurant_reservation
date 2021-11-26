@@ -53,6 +53,8 @@ public class reservation_base extends JPanel {
 	private JLabel lblNewLabel_8;
 	private JLabel lblNewLabel_9;
 	private JLabel lblNewLabel_10;
+	private JLabel lblNewLabel_12;
+	private JLabel lblNewLabel_13;
 	/**
 	 * Create the panel.
 	 */
@@ -65,7 +67,16 @@ public class reservation_base extends JPanel {
 		panel.setLayout(null);
 		
 		reservation_detail detail=new reservation_detail();
+		detail.detail_back.setFont(new Font("±º∏≤", Font.PLAIN, 15));
+		detail.checkbutton.setLocation(942, 509);
+		detail.detail_back.setSize(133, 43);
+		detail.detail_back.setLocation(861, 405);
 		add(detail, "detail");
+		
+		lblNewLabel_12 = new JLabel("");
+		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\panel_base.png"));
+		lblNewLabel_12.setBounds(0, 0, 1280, 720);
+		detail.add(lblNewLabel_12);
 		
 		payment=new reservation_payment();
 		add(payment,"payment");
@@ -90,17 +101,43 @@ public class reservation_base extends JPanel {
 		panel_1.setLayout(null);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(226,221,215));
 		panel_2.setBounds(12, 124, 389, 422);
 		panel_1.add(panel_2);
+		panel_2.setBackground(new Color(226,221,215));
 		panel_2.setLayout(null);
+		
+		JComboBox<String> comboBox = new JComboBox();
+		comboBox.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
+		comboBox.setBackground(new Color(226,221,215));
+		comboBox.setFont(new Font("±º∏≤", Font.PLAIN, 15));
+		comboBox.setBounds(29, 75, 358, 39);
+		panel_1.add(comboBox);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBorder(null);
+		btnNewButton.setIcon(new ImageIcon("image/search_icon1.png"));
+		btnNewButton.setBounds(342, 26, 42, 40);
+		panel_1.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				machine=new search();
+				machine.update_XY(textField.getText());
+				machine.search_result(textField_1.getText());
+				list1 = machine.get_result();
+				System.out.println("list1¿« ªÁ¿Ã¡Ó : "+list1.size());
+				comboBox.removeAllItems();
+				for(int i=0;i<(int)list1.size();i++) {
+					comboBox.addItem(list1.get(i)[0]);
+				}
+			}
+		});
 		
 		shop_name = new JTextField();
 		shop_name.setForeground(new Color(120, 108, 100));
 		shop_name.setBackground(new Color(226,221,215));
 		shop_name.setBorder(null);
 		shop_name.setFont(new Font("±º∏≤", Font.BOLD, 20));
-		shop_name.setBounds(29, 149, 358, 26);
+		shop_name.setBounds(34, 149, 353, 26);
 		panel_1.add(shop_name);
 		shop_name.setEditable(false);
 		shop_name.setColumns(10);
@@ -110,7 +147,7 @@ public class reservation_base extends JPanel {
 		shop_tel.setForeground(new Color(236, 99, 94));
 		shop_tel.setBackground(new Color(226,221,215));
 		shop_tel.setFont(new Font("±º∏≤", Font.PLAIN, 15));
-		shop_tel.setBounds(146, 297, 236, 21);
+		shop_tel.setBounds(151, 297, 236, 21);
 		panel_1.add(shop_tel);
 		shop_tel.setEditable(false);
 		shop_tel.setColumns(10);
@@ -119,7 +156,7 @@ public class reservation_base extends JPanel {
 		shop_distance.setBorder(null);
 		shop_distance.setBackground(new Color(226,221,215));
 		shop_distance.setFont(new Font("±º∏≤", Font.PLAIN, 15));
-		shop_distance.setBounds(68, 226, 321, 21);
+		shop_distance.setBounds(73, 226, 314, 21);
 		panel_1.add(shop_distance);
 		shop_distance.setEditable(false);
 		shop_distance.setColumns(10);
@@ -129,7 +166,7 @@ public class reservation_base extends JPanel {
 		shop_adress.setForeground(Color.GRAY);
 		shop_adress.setBackground(new Color(226,221,215));
 		shop_adress.setFont(new Font("±º∏≤", Font.PLAIN, 15));
-		shop_adress.setBounds(29, 185, 358, 21);
+		shop_adress.setBounds(34, 185, 353, 21);
 		panel_1.add(shop_adress);
 		shop_adress.setEditable(false);
 		shop_adress.setColumns(10);
@@ -138,7 +175,7 @@ public class reservation_base extends JPanel {
 		shop_category.setBorder(null);
 		shop_category.setBackground(new Color(226,221,215));
 		shop_category.setFont(new Font("±º∏≤", Font.PLAIN, 15));
-		shop_category.setBounds(68, 268, 319, 21);
+		shop_category.setBounds(73, 268, 314, 21);
 		panel_1.add(shop_category);
 		shop_category.setEditable(false);
 		shop_category.setColumns(10);
@@ -147,7 +184,7 @@ public class reservation_base extends JPanel {
 		open_time.setBorder(null);
 		open_time.setBackground(new Color(228,221,215));
 		open_time.setFont(new Font("±º∏≤", Font.PLAIN, 15));
-		open_time.setBounds(142, 337, 249, 21);
+		open_time.setBounds(147, 337, 240, 21);
 		panel_1.add(open_time);
 		open_time.setColumns(10);
 		
@@ -155,7 +192,7 @@ public class reservation_base extends JPanel {
 		holyday.setFont(new Font("±º∏≤", Font.PLAIN, 15));
 		holyday.setBorder(null);
 		holyday.setBackground(new Color(228,221,215));
-		holyday.setBounds(142, 365, 249, 21);
+		holyday.setBounds(147, 365, 240, 21);
 		panel_1.add(holyday);
 		holyday.setColumns(10);
 		
@@ -199,7 +236,7 @@ public class reservation_base extends JPanel {
 		textField_1.setBackground(new Color(226,221,215));
 		textField_1.setFont(new Font("±º∏≤", Font.BOLD, 17));
 		textField_1.setText("\uD0A4\uC6CC\uB4DC \uAC80\uC0C9");
-		textField_1.setBounds(192, 26, 155, 40);
+		textField_1.setBounds(192, 26, 150, 40);
 		panel_1.add(textField_1);
 		textField_1.setBorder(new LineBorder(new Color(120, 108, 100), 0, true));
 		textField_1.setColumns(10);
@@ -222,36 +259,24 @@ public class reservation_base extends JPanel {
 			}
 		});
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBorder(null);
-		btnNewButton.setIcon(new ImageIcon("image/search_icon1.png"));
-		btnNewButton.setBounds(347, 26, 42, 40);
-		panel_1.add(btnNewButton);
-		JComboBox<String> comboBox = new JComboBox();
-		comboBox.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
-		comboBox.setBackground(new Color(226,221,215));
-		comboBox.setFont(new Font("±º∏≤", Font.PLAIN, 15));
-		comboBox.setBounds(29, 75, 358, 39);
-		panel_1.add(comboBox);
-		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("image/call_icon.png"));
-		lblNewLabel_1.setBounds(29, 221, 40, 26);
+		lblNewLabel_1.setBounds(34, 221, 40, 26);
 		panel_1.add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("image/location_icon.png"));
-		lblNewLabel_2.setBounds(25, 268, 30, 40);
+		lblNewLabel_2.setBounds(31, 268, 30, 40);
 		panel_1.add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("image/time_icon.png"));
-		lblNewLabel_3.setBounds(29, 340, 32, 30);
+		lblNewLabel_3.setBounds(34, 340, 32, 30);
 		panel_1.add(lblNewLabel_3);
 		
 		lblNewLabel_4 = new JLabel("\uAC80\uC0C9\uC9C0\uC5D0\uC11C");
 		lblNewLabel_4.setFont(new Font("±º∏≤", Font.PLAIN, 15));
-		lblNewLabel_4.setBounds(68, 297, 81, 21);
+		lblNewLabel_4.setBounds(73, 297, 81, 21);
 		panel_1.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
@@ -276,18 +301,17 @@ public class reservation_base extends JPanel {
 		
 		lblNewLabel_9 = new JLabel("\uC601\uC5C5 \uC2DC\uAC04");
 		lblNewLabel_9.setFont(new Font("±º∏≤", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(68, 337, 69, 21);
+		lblNewLabel_9.setBounds(73, 337, 69, 21);
 		panel_1.add(lblNewLabel_9);
 		
 		lblNewLabel_10 = new JLabel("\uC815\uAE30 \uD734\uBB34");
 		lblNewLabel_10.setForeground(new Color(236, 99, 94));
 		lblNewLabel_10.setFont(new Font("±º∏≤", Font.BOLD, 15));
-		lblNewLabel_10.setBounds(68, 365, 69, 21);
+		lblNewLabel_10.setBounds(73, 365, 69, 21);
 		panel_1.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("");
 		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\panel_base.png"));
-		lblNewLabel_11.setBackground(Color.PINK);
 		lblNewLabel_11.setBounds(0, 0, 1280, 720);
 		panel.add(lblNewLabel_11);
 		
@@ -327,7 +351,7 @@ public class reservation_base extends JPanel {
 							temp+=bb.get(i)+", ";
 						}
 						temp+=bb.get(bb.size()-1);
-						holyday.setText(temp);
+						holyday.setText("∏≈¡÷ "+temp+"ø‰¿œ");
 						detail.holyday=bb;
 					}
 					else {
@@ -341,19 +365,6 @@ public class reservation_base extends JPanel {
 					
 				}
 				
-			}
-		});
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				machine=new search();
-				machine.update_XY(textField.getText());
-				machine.search_result(textField_1.getText());
-				list1 = machine.get_result();
-				System.out.println("list1¿« ªÁ¿Ã¡Ó : "+list1.size());
-				comboBox.removeAllItems();
-				for(int i=0;i<(int)list1.size();i++) {
-					comboBox.addItem(list1.get(i)[0]);
-				}
 			}
 		});
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -393,13 +404,10 @@ public class reservation_base extends JPanel {
 				card.show(detail.getParent(), "detail");
 			}
 		});
-
-		img = new ImageIcon("image/signup.jpg").getImage();
-
-		d = getSize();
+		
+		lblNewLabel_13 = new JLabel("");
+		lblNewLabel_13.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\panel_base.png"));
+		lblNewLabel_13.setBounds(0, 0, 1280, 720);
+		payment.add(lblNewLabel_13);
 	}
-
-	public void paintComponent(Graphics g) {
-	      g.drawImage(img, 0, 0,d.width,d.height, null);
-	  }
 }

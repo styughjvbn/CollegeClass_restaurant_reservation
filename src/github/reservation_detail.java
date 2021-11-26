@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.DebugGraphics;
+import java.awt.Font;
 
 class fixed_shop_table extends JLabel{//드래그로 배치가 가능한 테이블 라벨
 	int x,y;
@@ -62,84 +63,95 @@ public class reservation_detail extends JPanel {
 		setLayout(null);
 		
 		panel_1 = new JPanel();
-		panel_1.setBounds(29, 83, 800, 600);
-		panel_1.setVisible(false);
+		panel_1.setBounds(37, 49, 800, 600);
 		add(panel_1);
 		panel_1.setLayout(null);
+		panel_1.setVisible(true);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(0, 0, 800, 600);
 		panel_1.add(lblNewLabel);
 		
 		datebox = new JComboBox();
-		datebox.setBounds(907, 110, 141, 23);
+		datebox.setFont(new Font("굴림", Font.PLAIN, 15));
+		datebox.setBounds(895, 143, 160, 33);
 		add(datebox);
+		//날짜 선택하면 시간선택화면 나옴
 		datebox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox) e.getSource();
 				int index = cb.getSelectedIndex();
 				System.out.println(index);
 				if(index<1) {
-					panel_1.setVisible(false);
+					//panel_1.setVisible(false);
 					panel.setVisible(false);
 				}
 				else {
-					panel_1.setVisible(true);
+					//panel_1.setVisible(true);
+					panel.setVisible(true);
 				}
 				repaint();
 			}
 		});
 
-		detail_back = new JButton("");//back버튼
-		detail_back.setBounds(29, 23, 61, 50);
+		detail_back = new JButton("\uC774\uC804\uD654\uBA74");//back버튼
+		detail_back.setBounds(958, 507, 113, 33);
 		add(detail_back);
 		detail_back.setBorder(null);
 		detail_back.setBackground(new Color(226,221,215));
-		detail_back.setIcon(new ImageIcon("image/back.png"));
+		detail_back.setIcon(null);
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("\uB0A0\uC9DC");
-		lblNewLabel_2.setBounds(897, 85, 57, 15);
+		lblNewLabel_2.setFont(new Font("굴림", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(895, 110, 60, 23);
 		add(lblNewLabel_2);
 		
 		nametxt = new JTextField();
-		nametxt.setBounds(888, 23, 160, 40);
+		nametxt.setBounds(923, 440, 160, 40);
 		add(nametxt);
 		nametxt.setColumns(10);
 		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "\uC608\uC57D\uC790\uBA85", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		nametxt.setBackground(Color.WHITE);
 		
-		checkbutton = new JButton("Check");
-		checkbutton.setBounds(986, 455, 97, 23);
+		checkbutton = new JButton("\uC88C\uC11D \uC120\uD0DD \uC644\uB8CC");
+		checkbutton.setFont(new Font("굴림", Font.PLAIN, 15));
+		checkbutton.setBounds(986, 566, 176, 50);
 		add(checkbutton);
 		
 		panel = new JPanel();
 		panel.setVisible(false);
-		panel.setBounds(907, 175, 176, 232);
+		panel.setBounds(895, 198, 176, 232);
 		add(panel);
 		panel.setLayout(null);
 		
 		time_label = new JLabel("\uC2DC\uAC04");
-		time_label.setBounds(0, 0, 57, 15);
+		time_label.setFont(new Font("굴림", Font.PLAIN, 15));
+		time_label.setBounds(0, 0, 57, 23);
 		panel.add(time_label);
 		
 		timebox = new JComboBox();
+		timebox.setFont(new Font("굴림", Font.PLAIN, 15));
 		timebox.setBounds(0, 25, 141, 23);
 		panel.add(timebox);
 		
-		lblNewLabel_1 = new JLabel("\uC120\uD0DD\uB41C \uD14C\uC774\uBE14");
-		lblNewLabel_1.setBounds(0, 47, 151, 23);
+		lblNewLabel_1 = new JLabel("\uC120\uD0DD\uD55C \uD14C\uC774\uBE14");
+		lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 15));
+		lblNewLabel_1.setBounds(0, 60, 151, 23);
 		panel.add(lblNewLabel_1);
 		
 		table_number = new JLabel("");
+		table_number.setFont(new Font("굴림", Font.PLAIN, 15));
 		table_number.setBounds(0, 68, 151, 15);
 		panel.add(table_number);
 		
 		lblNewLabel_3 = new JLabel("\uD14C\uC774\uBE14 \uD5C8\uC6A9 \uC778\uC6D0");
-		lblNewLabel_3.setBounds(0, 93, 92, 23);
+		lblNewLabel_3.setFont(new Font("굴림", Font.PLAIN, 15));
+		lblNewLabel_3.setBounds(0, 93, 119, 23);
 		panel.add(lblNewLabel_3);
 		
 		table_size = new JLabel("");
+		table_size.setFont(new Font("굴림", Font.PLAIN, 15));
 		table_size.setBounds(0, 126, 160, 15);
 		panel.add(table_size);
 		
@@ -179,10 +191,10 @@ public class reservation_detail extends JPanel {
 			fixed_shop_table tmp=new fixed_shop_table(temp.get(i)[1],++table_num+1,temp.get(i)[2],temp.get(i)[3]);
 			tmp.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseClicked(MouseEvent e) {
-					panel.setVisible(true);
+				public void mouseClicked(MouseEvent e) {  //테이블 선택 후
+					//panel.setVisible(true);
 					timebox.removeAllItems();
-					timebox.addItem("시간선택");
+					timebox.addItem("시간 선택");
 					table_number.setText(Integer.toString(tmp.table_num));
 					table_size.setText(Integer.toString(tmp.size));
 					String date=datebox.getSelectedItem().toString().substring(0,10);
@@ -199,8 +211,13 @@ public class reservation_detail extends JPanel {
 									if(is[j]==i)
 										is_in=true;
 								}
-								if(!is_in)
-									timebox.addItem(i+" 시");
+								if(!is_in) {
+									if(0<i && i<10) {
+										timebox.addItem("0"+i+"시 00분");
+									}else {
+										timebox.addItem(i+"시 00분");
+									}
+								}
 							}
 						}
 						else {
@@ -211,7 +228,7 @@ public class reservation_detail extends JPanel {
 										is_in=true;
 								}
 								if(!is_in)
-									timebox.addItem(i+"시");
+									timebox.addItem(i+"시 00분");
 							}
 							for(int i=0;i<close;i++){
 								boolean is_in=false;
@@ -220,19 +237,19 @@ public class reservation_detail extends JPanel {
 										is_in=true;
 								}
 								if(!is_in)
-									timebox.addItem(i+"시");
+									timebox.addItem(i+"시 00분");
 							}
 						}
 					}else {
 						if(open<close) {
 							for(int i=open;i<close;i++)
-									timebox.addItem(i+"시");		
+									timebox.addItem(i+"시 00분");		
 						}
 						else {
 							for(int i=open;i<=23;i++)
-								timebox.addItem(i+"시");
+								timebox.addItem(i+"시 00분");
 							for(int i=0;i<close;i++)
-								timebox.addItem(i+"시");
+								timebox.addItem(i+"시 00분");
 						}
 					}					
 					//DB에서 예약 내역 가져와서 빈 시간 추가 
@@ -249,7 +266,7 @@ public class reservation_detail extends JPanel {
 	void set_reservationdate() {
 		// JAVA util을 써서 월과 일을 가져옴
 		datebox.removeAllItems();
-		datebox.addItem("날짜선택");
+		datebox.addItem("날짜 선택");
 		for (int i = 0; i < 7; i++) {
 			boolean is_holyday = false;
 			int year = calendar.get(calendar.YEAR);
@@ -287,7 +304,11 @@ public class reservation_detail extends JPanel {
 				}
 			}
 			if (!is_holyday)
-				datebox.addItem(year + "-" + Month + "-" + Day + "(" + week_ + ")");
+				if(0<Day && Day<10) {
+					datebox.addItem(year + "-" + Month + "-0"+ Day + " (" + week_ + ")");
+				}else {
+					datebox.addItem(year + "-" + Month + "-" + Day + " (" + week_ + ")");
+				}
 			calendar.add(calendar.DAY_OF_MONTH, 1);
 		}
 	}
