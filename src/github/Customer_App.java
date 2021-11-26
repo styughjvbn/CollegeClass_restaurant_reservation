@@ -73,11 +73,16 @@ public class Customer_App {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "signup");
+				member.init();
 			}
 		});
-		
 		member.btnNewButton.addActionListener(new ActionListener() {//회원가입 패널의 back버튼
 			@Override
+			public void actionPerformed(ActionEvent e) {
+				card.show(frame.getContentPane(), "login");
+			}
+		});
+		member.panel2.StartButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(frame.getContentPane(), "login");
 			}
