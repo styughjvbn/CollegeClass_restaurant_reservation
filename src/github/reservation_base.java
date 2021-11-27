@@ -67,10 +67,14 @@ public class reservation_base extends JPanel {
 		panel.setLayout(null);
 		
 		reservation_detail detail=new reservation_detail();
-		detail.detail_back.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		detail.checkbutton.setLocation(942, 509);
-		detail.detail_back.setSize(133, 43);
-		detail.detail_back.setLocation(861, 405);
+		detail.checkbutton.setForeground(Color.WHITE);
+		detail.detail_back.setText("\uC774\uC804 \uD654\uBA74");
+		detail.detail_back.setForeground(new Color(120, 108, 100));
+		detail.checkbutton.setSize(284, 49);
+		detail.detail_back.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		detail.checkbutton.setLocation(900, 548);
+		detail.detail_back.setSize(284, 49);
+		detail.detail_back.setLocation(900, 480);
 		add(detail, "detail");
 		
 		lblNewLabel_12 = new JLabel("");
@@ -79,6 +83,10 @@ public class reservation_base extends JPanel {
 		detail.add(lblNewLabel_12);
 		
 		payment=new reservation_payment();
+		payment.btnNewButton.setSize(284, 49);
+		payment.btnNewButton.setLocation(900, 548);
+		payment.btnNewButton_3.setSize(284, 49);
+		payment.btnNewButton_3.setLocation(900, 480);
 		add(payment,"payment");
 		
 		JLabel lblNewLabel = new JLabel();
@@ -201,7 +209,7 @@ public class reservation_base extends JPanel {
 		btnNewButton_1.setBackground(new Color(200, 184, 164));
 		btnNewButton_1.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		btnNewButton_1.setFont(new Font("±¼¸²", Font.BOLD, 20));
-		btnNewButton_1.setBounds(45, 458, 321, 46);
+		btnNewButton_1.setBounds(49, 444, 321, 46);
 		panel_1.add(btnNewButton_1);
 		textField = new JTextField();
 		textField.setForeground(new Color(120, 108, 100));
@@ -236,7 +244,7 @@ public class reservation_base extends JPanel {
 		textField_1.setBackground(new Color(226,221,215));
 		textField_1.setFont(new Font("±¼¸²", Font.BOLD, 17));
 		textField_1.setText("\uD0A4\uC6CC\uB4DC \uAC80\uC0C9");
-		textField_1.setBounds(192, 26, 150, 40);
+		textField_1.setBounds(197, 26, 140, 40);
 		panel_1.add(textField_1);
 		textField_1.setBorder(new LineBorder(new Color(120, 108, 100), 0, true));
 		textField_1.setColumns(10);

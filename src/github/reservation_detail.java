@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.DebugGraphics;
 import java.awt.Font;
+import javax.swing.border.EmptyBorder;
 
 class fixed_shop_table extends JLabel{//µå·¡±×·Î ¹èÄ¡°¡ °¡´ÉÇÑ Å×ÀÌºí ¶óº§
 	int x,y;
@@ -52,8 +53,9 @@ public class reservation_detail extends JPanel {
 	private JLabel lblNewLabel_1;
 	private JLabel table_number;
 	private JLabel table_size;
-	private JLabel lblNewLabel_3;
 	private JPanel panel;
+	private JLabel lblNewLabel_3;
+	private JLabel table_size_1;
 
 	
 	/**
@@ -73,8 +75,9 @@ public class reservation_detail extends JPanel {
 		panel_1.add(lblNewLabel);
 		
 		datebox = new JComboBox();
+		datebox.setBackground(new Color(226,221,215));
 		datebox.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		datebox.setBounds(895, 143, 160, 33);
+		datebox.setBounds(895, 121, 289, 33);
 		add(datebox);
 		//³¯Â¥ ¼±ÅÃÇÏ¸é ½Ã°£¼±ÅÃÈ­¸é ³ª¿È
 		datebox.addActionListener(new ActionListener() {
@@ -95,65 +98,87 @@ public class reservation_detail extends JPanel {
 		});
 
 		detail_back = new JButton("\uC774\uC804\uD654\uBA74");//back¹öÆ°
-		detail_back.setBounds(958, 507, 113, 33);
+		detail_back.setForeground(new Color(120, 108, 100));
+		detail_back.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		detail_back.setBounds(900, 480, 284, 49);
 		add(detail_back);
-		detail_back.setBorder(null);
-		detail_back.setBackground(new Color(226,221,215));
+		detail_back.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
+		detail_back.setBackground(new Color(200, 184, 164));
 		detail_back.setIcon(null);
 		
 		
-		JLabel lblNewLabel_2 = new JLabel("\uB0A0\uC9DC");
+		JLabel lblNewLabel_2 = new JLabel("\uB0A0\uC9DC \uC120\uD0DD");
 		lblNewLabel_2.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(895, 110, 60, 23);
+		lblNewLabel_2.setBounds(895, 88, 80, 23);
 		add(lblNewLabel_2);
 		
-		nametxt = new JTextField();
-		nametxt.setBounds(923, 440, 160, 40);
-		add(nametxt);
-		nametxt.setColumns(10);
-		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "\uC608\uC57D\uC790\uBA85", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		nametxt.setBackground(Color.WHITE);
-		
 		checkbutton = new JButton("\uC88C\uC11D \uC120\uD0DD \uC644\uB8CC");
-		checkbutton.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		checkbutton.setBounds(986, 566, 176, 50);
+		checkbutton.setForeground(Color.WHITE);
+		checkbutton.setBackground(new Color(120, 108, 100));
+		checkbutton.setBorder(new LineBorder(new Color(120, 108, 100), 2, true));
+		checkbutton.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		checkbutton.setBounds(900, 548, 284, 49);
 		add(checkbutton);
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(226,221,215));
 		panel.setVisible(false);
-		panel.setBounds(895, 198, 176, 232);
+		panel.setBounds(895, 166, 289, 269);
 		add(panel);
 		panel.setLayout(null);
 		
-		time_label = new JLabel("\uC2DC\uAC04");
+		table_size = new JLabel("");
+		table_size.setForeground(new Color(120, 108, 100));
+		table_size.setBackground(new Color(200, 184, 164));
+		table_size.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		table_size.setBounds(10, 132, 267, 47);
+		panel.add(table_size);
+		
+		time_label = new JLabel("\uC2DC\uAC04 \uC120\uD0DD");
 		time_label.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		time_label.setBounds(0, 0, 57, 23);
+		time_label.setBounds(0, 10, 119, 23);
 		panel.add(time_label);
 		
 		timebox = new JComboBox();
+		timebox.setBackground(new Color(226,221,215));
 		timebox.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		timebox.setBounds(0, 25, 141, 23);
+		timebox.setBounds(0, 38, 289, 33);
 		panel.add(timebox);
 		
-		lblNewLabel_1 = new JLabel("\uC120\uD0DD\uD55C \uD14C\uC774\uBE14");
-		lblNewLabel_1.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(0, 60, 151, 23);
-		panel.add(lblNewLabel_1);
-		
 		table_number = new JLabel("");
-		table_number.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		table_number.setBounds(0, 68, 151, 15);
+		table_number.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		table_number.setBounds(110, 99, 81, 23);
 		panel.add(table_number);
 		
-		lblNewLabel_3 = new JLabel("\uD14C\uC774\uBE14 \uD5C8\uC6A9 \uC778\uC6D0");
-		lblNewLabel_3.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(0, 93, 119, 23);
+		JLabel time_label_1 = new JLabel("\uC608\uC57D\uC790\uBA85 \uC785\uB825");
+		time_label_1.setForeground(new Color(120, 108, 100));
+		time_label_1.setBounds(0, 210, 97, 19);
+		panel.add(time_label_1);
+		time_label_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		
+		nametxt = new JTextField();
+		nametxt.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		nametxt.setBounds(110, 210, 159, 19);
+		panel.add(nametxt);
+		nametxt.setColumns(10);
+		nametxt.setBorder(null);
+		nametxt.setBackground(new Color(226,221,215));
+		
+		lblNewLabel_1 = new JLabel("\uC120\uD0DD\uD55C \uD14C\uC774\uBE14");
+		lblNewLabel_1.setBounds(0, 99, 103, 23);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(120, 108, 100));
+		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		
+		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
+		lblNewLabel_3.setBounds(103, 224, 186, 15);
 		panel.add(lblNewLabel_3);
 		
-		table_size = new JLabel("");
-		table_size.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		table_size.setBounds(0, 126, 160, 15);
-		panel.add(table_size);
+		table_size_1 = new JLabel("");
+		table_size_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\shadowicon.png"));
+		table_size_1.setBounds(0, 127, 289, 57);
+		panel.add(table_size_1);
 		
 	}
 	DTO_reservation_current get_data() {
@@ -195,8 +220,8 @@ public class reservation_detail extends JPanel {
 					//panel.setVisible(true);
 					timebox.removeAllItems();
 					timebox.addItem("½Ã°£ ¼±ÅÃ");
-					table_number.setText(Integer.toString(tmp.table_num));
-					table_size.setText(Integer.toString(tmp.size));
+					table_number.setText(Integer.toString(tmp.table_num)+"¹ø");
+					table_size.setText("<html>* ¼±ÅÃÇÏ½Å Å×ÀÌºíÀÇ Çã¿ë ÀÎ¿øÀº "+Integer.toString(tmp.size)+"¸í<br/> ÀÔ´Ï´Ù.</html>");
 					String date=datebox.getSelectedItem().toString().substring(0,10);
 					ArrayList<String> qq=DAO.get_enable_time(cnt_shop.get_shop_name(),date,tmp.table_num);
 					int[] is;
