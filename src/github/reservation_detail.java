@@ -56,6 +56,9 @@ public class reservation_detail extends JPanel {
 	private JPanel panel;
 	private JLabel lblNewLabel_3;
 	private JLabel table_size_1;
+	private JLabel table_size_2;
+	private JLabel table_size_3;
+	private JLabel table_number_1;
 
 	
 	/**
@@ -127,11 +130,22 @@ public class reservation_detail extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
+		table_size_3 = new JLabel("\uBA85 \uC785\uB2C8\uB2E4.");
+		table_size_3.setForeground(new Color(120, 108, 100));
+		table_size_3.setFont(new Font("굴림", Font.BOLD, 15));
+		table_size_3.setBounds(25, 156, 233, 23);
+		panel.add(table_size_3);
+		
+		table_size_2 = new JLabel("* \uC120\uD0DD\uD558\uC2E0 \uD14C\uC774\uBE14\uC758 \uCD5C\uB300 \uD5C8\uC6A9 \uC778\uC6D0\uC218\uB294");
+		table_size_2.setForeground(new Color(120, 108, 100));
+		table_size_2.setFont(new Font("굴림", Font.BOLD, 15));
+		table_size_2.setBounds(5, 134, 279, 23);
+		panel.add(table_size_2);
+		
 		table_size = new JLabel("");
 		table_size.setForeground(new Color(120, 108, 100));
-		table_size.setBackground(new Color(200, 184, 164));
 		table_size.setFont(new Font("굴림", Font.BOLD, 15));
-		table_size.setBounds(10, 132, 267, 47);
+		table_size.setBounds(7, 156, 23, 23);
 		panel.add(table_size);
 		
 		time_label = new JLabel("\uC2DC\uAC04 \uC120\uD0DD");
@@ -147,7 +161,7 @@ public class reservation_detail extends JPanel {
 		
 		table_number = new JLabel("");
 		table_number.setFont(new Font("굴림", Font.BOLD, 15));
-		table_number.setBounds(110, 99, 81, 23);
+		table_number.setBounds(110, 99, 23, 23);
 		panel.add(table_number);
 		
 		JLabel time_label_1 = new JLabel("\uC608\uC57D\uC790\uBA85 \uC785\uB825");
@@ -179,6 +193,11 @@ public class reservation_detail extends JPanel {
 		table_size_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\shadowicon.png"));
 		table_size_1.setBounds(0, 127, 289, 57);
 		panel.add(table_size_1);
+		
+		table_number_1 = new JLabel("\uBC88");
+		table_number_1.setFont(new Font("굴림", Font.BOLD, 15));
+		table_number_1.setBounds(128, 99, 23, 23);
+		panel.add(table_number_1);
 		
 	}
 	DTO_reservation_current get_data() {
@@ -220,8 +239,8 @@ public class reservation_detail extends JPanel {
 					//panel.setVisible(true);
 					timebox.removeAllItems();
 					timebox.addItem("시간 선택");
-					table_number.setText(Integer.toString(tmp.table_num)+"번");
-					table_size.setText("<html>* 선택하신 테이블의 허용 인원은 "+Integer.toString(tmp.size)+"명<br/> 입니다.</html>");
+					table_number.setText(Integer.toString(tmp.table_num));
+					table_size.setText(Integer.toString(tmp.size));
 					String date=datebox.getSelectedItem().toString().substring(0,10);
 					ArrayList<String> qq=DAO.get_enable_time(cnt_shop.get_shop_name(),date,tmp.table_num);
 					int[] is;
