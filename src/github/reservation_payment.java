@@ -18,6 +18,9 @@ import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;
+import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
 
 public class reservation_payment extends JPanel {
 	private DAO_reservation DAO=new DAO_reservation();
@@ -40,6 +43,8 @@ public class reservation_payment extends JPanel {
 	public JButton btnNewButton_3;
 	public DTO_reservation_current pay;
 	int sum=0;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_1_1_2;
 	/**
 	 * Create the panel.
 	 */
@@ -55,7 +60,7 @@ public class reservation_payment extends JPanel {
 				DAO.new_reservation(pay);
 			}
 		});
-		btnNewButton.setBounds(868, 512, 262, 36);
+		btnNewButton.setBounds(900, 548, 284, 49);
 		add(btnNewButton);
 		
 		JPanel panel_1 = new JPanel();
@@ -72,33 +77,27 @@ public class reservation_payment extends JPanel {
 		panel_1.add(panel_3, "detail");
 		panel_3.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		
-		//메뉴선택화면으로 돌아가기
-		btnNewButton_1 = new JButton("back");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				card.show(panel_1, "category");
-				btnNewButton_1.setVisible(false);
-			}
-		});
-		btnNewButton_1.setVisible(false);
-		btnNewButton_1.setBounds(955, 405, 82, 43);
-		add(btnNewButton_1);
-		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(1025, 339, 92, 21);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel.setBounds(998, 383, 191, 21);
 		add(lblNewLabel);
 		
 		textArea = new JTextArea();
-		textArea.setBounds(1016, 63, 114, 256);
+		textArea.setBackground(new Color(226,221,215));
+		textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
+		textArea.setBounds(900, 108, 159, 256);
 		add(textArea);
 		textArea.setEditable(false);
 		
 		textArea_1 = new JTextArea();
+		textArea_1.setBackground(new Color(226,221,215));
+		textArea_1.setFont(new Font("Monospaced", Font.PLAIN, 15));
 		textArea_1.setEditable(false);
-		textArea_1.setBounds(866, 62, 114, 256);
+		textArea_1.setBounds(1060, 108, 124, 256);
 		add(textArea_1);
 		
-		btnNewButton_2 = new JButton("\uAC00\uC7A5 \uCD5C\uADFC \uBA54\uB274 \uC0AD\uC81C");
+		btnNewButton_2 = new JButton("\uCD5C\uADFC \uC120\uD0DD \uBA54\uB274 \uC0AD\uC81C");
+		btnNewButton_2.setFont(new Font("굴림", Font.PLAIN, 15));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				sele_price.remove(sele_price.size()-1);
@@ -106,21 +105,76 @@ public class reservation_payment extends JPanel {
 				textArea.setText("");
 				textArea_1.setText("");
 				sum=0;
-				for(int i=0;i<sele_price.size();i++) {
+				for(int i=0;i<sele_price.size();i++) { 
 					sum+=sele_price.get(i);
 					textArea.append(sele_menu.get(i)+"\n");
-					textArea_1.append(Integer.toString(sele_price.get(i))+"\n");
+					//돈 단위대로 출력
+					if(sele_price.get(i)>=1000) { 
+						String rightl= "%14s";
+						String nprice= Integer.toString(sele_price.get(i));
+						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"원";
+						textArea_1.append(String.format(rightl,  nprice)+"\n");
+					}else {
+						String rightl= "%14s";
+						String nprice= Integer.toString(sele_price.get(i))+"원";
+						lblNewLabel.setText(String.format(rightl,nprice));
+						textArea_1.append(String.format(rightl,nprice)+"\n");
+					}
 				}
-				lblNewLabel.setText(Integer.toString(sum));
+				//돈 단위대로 출력
+				if(sum>=1000) {  
+					String rightl= "%30s";
+					String nprice= Integer.toString(sum);
+					nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"원";
+					lblNewLabel.setText(String.format(rightl,nprice));
+				}else {
+					String rightl= "%30s";
+					String nprice= Integer.toString(sum)+"원";
+					lblNewLabel.setText(String.format(rightl,nprice));
+				}
 			}
 		});
-		btnNewButton_2.setBounds(867, 338, 129, 23);
+		btnNewButton_2.setBounds(900, 414, 284, 27);
 		add(btnNewButton_2);
 		
 		btnNewButton_3 = new JButton("back");
 		
-		btnNewButton_3.setBounds(841, 469, 97, 23);
+		btnNewButton_3.setBounds(900, 489, 284, 49);
 		add(btnNewButton_3);
+		
+		lblNewLabel_1 = new JLabel("\uCD1D \uC8FC\uBB38\uAE08\uC561");
+		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(900, 384, 86, 21);
+		add(lblNewLabel_1);
+		
+		//메뉴선택화면으로 돌아가기
+		btnNewButton_1 = new JButton("back");
+		btnNewButton_1.setBounds(762, 16, 59, 23);
+		add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("\uBA54\uB274 \uC120\uD0DD");
+		lblNewLabel_1_1.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(900, 68, 65, 21);
+		add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("");
+		lblNewLabel_1_1_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
+		lblNewLabel_1_1_1.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setBounds(894, 86, 290, 21);
+		add(lblNewLabel_1_1_1);
+		
+		lblNewLabel_1_1_2 = new JLabel("");
+		lblNewLabel_1_1_2.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
+		lblNewLabel_1_1_2.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_1_1_2.setBounds(894, 359, 290, 21);
+		add(lblNewLabel_1_1_2);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(panel_1, "category");
+				btnNewButton_1.setVisible(false);
+			}
+		});
+		btnNewButton_1.setVisible(false);
 
 	}
 	public void refresh(String cnt_shop) {
@@ -150,6 +204,7 @@ public class reservation_payment extends JPanel {
 		detaillist.clear();
 		panel_3.removeAll();
 
+		panel_3.add(btnNewButton_1);
 		for(int i=0;i<source.size();i++) {
 			detail temp=new detail(source.get(i).get_md_price(),source.get(i).get_md_name());
 			detaillist.add(temp);
@@ -188,12 +243,34 @@ public class reservation_payment extends JPanel {
 					sele_price.add(price);
 					sele_menu.add(name);
 					textArea.append(name+"\n");
-					textArea_1.append(Integer.toString(price)+"\n");
+					 //돈 단위대로 출력
+					if(price>=1000) { 
+						String rightl= "%14s";
+						String nprice= Integer.toString(price);
+						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"원";
+						textArea_1.append(String.format(rightl,  nprice)+"\n");
+					}else {
+						String rightl= "%14s";
+						String nprice= Integer.toString(price)+"원";
+						lblNewLabel.setText(String.format(rightl,nprice));
+						textArea_1.append(String.format(rightl,nprice)+"\n");
+					}
 					sum=0;
 					for(int i=0;i<sele_price.size();i++) {
 						sum+=sele_price.get(i);
 					}
-					lblNewLabel.setText(Integer.toString(sum));
+					//돈 단위대로 출력, 오른쪽 정렬
+					if(sum>=1000) {  
+						String rightl= "%30s";
+						String nprice= Integer.toString(sum);
+						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"원";
+						lblNewLabel.setText(String.format(rightl,nprice));
+					}else {
+						String rightl= "%30s";
+						String nprice= Integer.toString(sum)+"원";
+						lblNewLabel.setText(String.format(rightl,nprice));
+						//lblNewLabel.setText(Integer.toString(sum)+"원");
+					}
 				}
 			});
 		}

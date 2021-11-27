@@ -59,6 +59,8 @@ public class reservation_detail extends JPanel {
 	private JLabel table_size_2;
 	private JLabel table_size_3;
 	private JLabel table_number_1;
+	private JLabel lblNewLabel_1_1;
+	private JLabel lblNewLabel_1_1_1;
 
 	
 	/**
@@ -80,7 +82,7 @@ public class reservation_detail extends JPanel {
 		datebox = new JComboBox();
 		datebox.setBackground(new Color(226,221,215));
 		datebox.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		datebox.setBounds(895, 121, 289, 33);
+		datebox.setBounds(895, 150, 289, 33);
 		add(datebox);
 		//³¯Â¥ ¼±ÅÃÇÏ¸é ½Ã°£¼±ÅÃÈ­¸é ³ª¿È
 		datebox.addActionListener(new ActionListener() {
@@ -103,7 +105,7 @@ public class reservation_detail extends JPanel {
 		detail_back = new JButton("\uC774\uC804\uD654\uBA74");//back¹öÆ°
 		detail_back.setForeground(new Color(120, 108, 100));
 		detail_back.setFont(new Font("±¼¸²", Font.BOLD, 17));
-		detail_back.setBounds(900, 480, 284, 49);
+		detail_back.setBounds(900, 489, 284, 49);
 		add(detail_back);
 		detail_back.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		detail_back.setBackground(new Color(200, 184, 164));
@@ -112,7 +114,7 @@ public class reservation_detail extends JPanel {
 		
 		JLabel lblNewLabel_2 = new JLabel("\uB0A0\uC9DC \uC120\uD0DD");
 		lblNewLabel_2.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(895, 88, 80, 23);
+		lblNewLabel_2.setBounds(895, 122, 80, 23);
 		add(lblNewLabel_2);
 		
 		checkbutton = new JButton("\uC88C\uC11D \uC120\uD0DD \uC644\uB8CC");
@@ -126,11 +128,11 @@ public class reservation_detail extends JPanel {
 		panel = new JPanel();
 		panel.setBackground(new Color(226,221,215));
 		panel.setVisible(false);
-		panel.setBounds(895, 166, 289, 269);
+		panel.setBounds(895, 184, 289, 269);
 		add(panel);
 		panel.setLayout(null);
 		
-		table_size_3 = new JLabel("\uBA85 \uC785\uB2C8\uB2E4.");
+		table_size_3 = new JLabel("\uBA85\uC785\uB2C8\uB2E4.");
 		table_size_3.setForeground(new Color(120, 108, 100));
 		table_size_3.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		table_size_3.setBounds(25, 156, 233, 23);
@@ -198,6 +200,17 @@ public class reservation_detail extends JPanel {
 		table_number_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		table_number_1.setBounds(128, 99, 23, 23);
 		panel.add(table_number_1);
+		
+		lblNewLabel_1_1 = new JLabel("\uC608\uC57D \uC815\uBCF4 \uC785\uB825");
+		lblNewLabel_1_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(895, 68, 128, 21);
+		add(lblNewLabel_1_1);
+		
+		lblNewLabel_1_1_1 = new JLabel("");
+		lblNewLabel_1_1_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
+		lblNewLabel_1_1_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setBounds(895, 86, 289, 21);
+		add(lblNewLabel_1_1_1);
 		
 	}
 	DTO_reservation_current get_data() {

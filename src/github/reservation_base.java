@@ -21,6 +21,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
+import javax.swing.UIManager;
 
 public class reservation_base extends JPanel {
 	private Image img;
@@ -72,9 +73,9 @@ public class reservation_base extends JPanel {
 		detail.detail_back.setForeground(new Color(120, 108, 100));
 		detail.checkbutton.setSize(284, 49);
 		detail.detail_back.setFont(new Font("±º∏≤", Font.BOLD, 17));
-		detail.checkbutton.setLocation(900, 548);
+		detail.checkbutton.setLocation(900, 552);
 		detail.detail_back.setSize(284, 49);
-		detail.detail_back.setLocation(900, 480);
+		detail.detail_back.setLocation(900, 489);
 		add(detail, "detail");
 		
 		lblNewLabel_12 = new JLabel("");
@@ -83,10 +84,20 @@ public class reservation_base extends JPanel {
 		detail.add(lblNewLabel_12);
 		
 		payment=new reservation_payment();
+		payment.btnNewButton.setBackground(new Color(120, 108, 100));
+		payment.btnNewButton_3.setBackground(new Color(200, 184, 164) );
+		payment.btnNewButton.setBorder(new LineBorder(new Color(120, 108, 100) , 2, true));
+		payment.btnNewButton_3.setBorder(new LineBorder(new Color(200, 184, 164) , 2, true));
+		payment.btnNewButton_3.setForeground(new Color(120, 108, 100));
+		payment.btnNewButton.setForeground(Color.WHITE);
+		payment.btnNewButton_3.setFont(new Font("±º∏≤", Font.BOLD, 17));
+		payment.btnNewButton.setFont(new Font("±º∏≤", Font.BOLD, 17));
+		payment.btnNewButton.setText("\uC608\uC57D\uD558\uAE30");
+		payment.btnNewButton_3.setText("\uC774\uC804 \uD654\uBA74");
 		payment.btnNewButton.setSize(284, 49);
-		payment.btnNewButton.setLocation(900, 548);
+		payment.btnNewButton.setLocation(900, 552);
 		payment.btnNewButton_3.setSize(284, 49);
-		payment.btnNewButton_3.setLocation(900, 480);
+		payment.btnNewButton_3.setLocation(900, 489);
 		add(payment,"payment");
 		
 		JLabel lblNewLabel = new JLabel();
@@ -209,7 +220,7 @@ public class reservation_base extends JPanel {
 		btnNewButton_1.setBackground(new Color(200, 184, 164));
 		btnNewButton_1.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		btnNewButton_1.setFont(new Font("±º∏≤", Font.BOLD, 20));
-		btnNewButton_1.setBounds(49, 444, 321, 46);
+		btnNewButton_1.setBounds(45, 444, 321, 46);
 		panel_1.add(btnNewButton_1);
 		textField = new JTextField();
 		textField.setForeground(new Color(120, 108, 100));
@@ -319,7 +330,7 @@ public class reservation_base extends JPanel {
 		panel_1.add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("");
-		lblNewLabel_11.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\panel_base.png"));
+		lblNewLabel_11.setIcon(new ImageIcon("image/panel_base.png"));
 		lblNewLabel_11.setBounds(0, 0, 1280, 720);
 		panel.add(lblNewLabel_11);
 		
@@ -330,6 +341,7 @@ public class reservation_base extends JPanel {
 				int index = cb.getSelectedIndex();
 				if (index > -1) {
 					panel_2.setVisible(false);
+					btnNewButton_1.setText("øπæ‡«œ±‚");
 					shop_name.setText(list1.get(index)[0]);
 					cnt_shop=DAO.get_shop_info(shop_name.getText());
 					shop_tel.setText(list1.get(index)[1]+"m");
@@ -365,6 +377,8 @@ public class reservation_base extends JPanel {
 					else {
 						open_time.setText("");
 						holyday.setText("");
+						//btnNewButton_1.setBackground();
+						btnNewButton_1.setText("¿‘¡° øπ¡§");
 					}
 						
 					create_image.create_map_image(machine.get_center_x(), machine.get_center_y(), list1.get(index)[5],list1.get(index)[6], shop, list1.get(index)[0]);
