@@ -1,9 +1,12 @@
 package github;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -13,6 +16,8 @@ public class manager_base extends JPanel {
 	public DTO_manager cnt_user=null;
 	public JButton btnNewButton_3;
 	public manage_menu manage_menu;
+	private Image img;
+	private Dimension d;
 	/**
 	 * Create the panel.
 	 */
@@ -66,5 +71,13 @@ public class manager_base extends JPanel {
 				card.show(panel.getParent(), "main");
 			}
 		});
+		img = new ImageIcon("image/managebase.png").getImage();
+		
+		d = getSize();
+		
+	}
+	public void paintComponent(Graphics g)
+	{
+		g.drawImage(img, 0, 0, d.width, d.height, null);
 	}
 }
