@@ -118,7 +118,7 @@ public class signup_base extends JPanel {
 		btnNewButton.setBorder(null);
 		btnNewButton.setBackground(new Color(226,221,215));
 		btnNewButton.setIcon(new ImageIcon("image/back.png"));
-		btnNewButton.setBounds(59, 62, 55, 50);
+		btnNewButton.setBounds(59, 62, 48, 50);
 		add(btnNewButton);
 		
 		panel.btnNewButton_1_1.addActionListener(new ActionListener() {

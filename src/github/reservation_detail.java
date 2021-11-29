@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.DebugGraphics;
+import java.awt.Font;
+import javax.swing.border.EmptyBorder;
 
 class fixed_shop_table extends JLabel{//드래그로 배치가 가능한 테이블 라벨
 	int x,y;
@@ -51,8 +53,14 @@ public class reservation_detail extends JPanel {
 	private JLabel lblNewLabel_1;
 	private JLabel table_number;
 	private JLabel table_size;
-	private JLabel lblNewLabel_3;
 	private JPanel panel;
+	private JLabel lblNewLabel_3;
+	private JLabel table_size_1;
+	private JLabel table_size_2;
+	private JLabel table_size_3;
+	private JLabel table_number_1;
+	private JLabel lblNewLabel_1_1;
+	private JLabel lblNewLabel_1_1_1;
 
 	
 	/**
@@ -62,86 +70,147 @@ public class reservation_detail extends JPanel {
 		setLayout(null);
 		
 		panel_1 = new JPanel();
-		panel_1.setBounds(29, 83, 800, 600);
-		panel_1.setVisible(false);
+		panel_1.setBounds(37, 49, 800, 600);
 		add(panel_1);
 		panel_1.setLayout(null);
+		panel_1.setVisible(true);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(0, 0, 800, 600);
 		panel_1.add(lblNewLabel);
 		
 		datebox = new JComboBox();
-		datebox.setBounds(907, 110, 141, 23);
+		datebox.setBackground(new Color(226,221,215));
+		datebox.setFont(new Font("굴림", Font.PLAIN, 15));
+		datebox.setBounds(895, 150, 289, 33);
 		add(datebox);
+		//날짜 선택하면 시간선택화면 나옴
 		datebox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox) e.getSource();
 				int index = cb.getSelectedIndex();
 				System.out.println(index);
 				if(index<1) {
-					panel_1.setVisible(false);
+					//panel_1.setVisible(false);
 					panel.setVisible(false);
 				}
 				else {
-					panel_1.setVisible(true);
+					//panel_1.setVisible(true);
+					panel.setVisible(true);
 				}
 				repaint();
 			}
 		});
 
-		detail_back = new JButton("");//back버튼
-		detail_back.setBounds(29, 23, 61, 50);
+		detail_back = new JButton("\uC774\uC804\uD654\uBA74");//back버튼
+		detail_back.setForeground(new Color(120, 108, 100));
+		detail_back.setFont(new Font("굴림", Font.BOLD, 17));
+		detail_back.setBounds(900, 489, 284, 49);
 		add(detail_back);
-		detail_back.setBorder(null);
-		detail_back.setBackground(new Color(226,221,215));
-		detail_back.setIcon(new ImageIcon("image/back.png"));
+		detail_back.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
+		detail_back.setBackground(new Color(200, 184, 164));
+		detail_back.setIcon(null);
 		
 		
-		JLabel lblNewLabel_2 = new JLabel("\uB0A0\uC9DC");
-		lblNewLabel_2.setBounds(897, 85, 57, 15);
+		JLabel lblNewLabel_2 = new JLabel("\uB0A0\uC9DC \uC120\uD0DD");
+		lblNewLabel_2.setFont(new Font("굴림", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(895, 122, 80, 23);
 		add(lblNewLabel_2);
 		
-		nametxt = new JTextField();
-		nametxt.setBounds(888, 23, 160, 40);
-		add(nametxt);
-		nametxt.setColumns(10);
-		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "\uC608\uC57D\uC790\uBA85", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		nametxt.setBackground(Color.WHITE);
-		
-		checkbutton = new JButton("Check");
-		checkbutton.setBounds(986, 455, 97, 23);
+		checkbutton = new JButton("\uC88C\uC11D \uC120\uD0DD \uC644\uB8CC");
+		checkbutton.setForeground(Color.WHITE);
+		checkbutton.setBackground(new Color(120, 108, 100));
+		checkbutton.setBorder(new LineBorder(new Color(120, 108, 100), 2, true));
+		checkbutton.setFont(new Font("굴림", Font.BOLD, 17));
+		checkbutton.setBounds(900, 548, 284, 49);
 		add(checkbutton);
 		
 		panel = new JPanel();
+		panel.setBackground(new Color(226,221,215));
 		panel.setVisible(false);
-		panel.setBounds(907, 175, 176, 232);
+		panel.setBounds(895, 184, 289, 269);
 		add(panel);
 		panel.setLayout(null);
 		
-		time_label = new JLabel("\uC2DC\uAC04");
-		time_label.setBounds(0, 0, 57, 15);
+		table_size_3 = new JLabel("\uBA85\uC785\uB2C8\uB2E4.");
+		table_size_3.setForeground(new Color(120, 108, 100));
+		table_size_3.setFont(new Font("굴림", Font.BOLD, 15));
+		table_size_3.setBounds(25, 156, 233, 23);
+		panel.add(table_size_3);
+		
+		table_size_2 = new JLabel("* \uC120\uD0DD\uD558\uC2E0 \uD14C\uC774\uBE14\uC758 \uCD5C\uB300 \uD5C8\uC6A9 \uC778\uC6D0\uC218\uB294");
+		table_size_2.setForeground(new Color(120, 108, 100));
+		table_size_2.setFont(new Font("굴림", Font.BOLD, 15));
+		table_size_2.setBounds(5, 134, 279, 23);
+		panel.add(table_size_2);
+		
+		table_size = new JLabel("");
+		table_size.setForeground(new Color(120, 108, 100));
+		table_size.setFont(new Font("굴림", Font.BOLD, 15));
+		table_size.setBounds(7, 156, 23, 23);
+		panel.add(table_size);
+		
+		time_label = new JLabel("\uC2DC\uAC04 \uC120\uD0DD");
+		time_label.setFont(new Font("굴림", Font.PLAIN, 15));
+		time_label.setBounds(0, 10, 119, 23);
 		panel.add(time_label);
 		
 		timebox = new JComboBox();
-		timebox.setBounds(0, 25, 141, 23);
+		timebox.setBackground(new Color(226,221,215));
+		timebox.setFont(new Font("굴림", Font.PLAIN, 15));
+		timebox.setBounds(0, 38, 289, 33);
 		panel.add(timebox);
 		
-		lblNewLabel_1 = new JLabel("\uC120\uD0DD\uB41C \uD14C\uC774\uBE14");
-		lblNewLabel_1.setBounds(0, 47, 151, 23);
-		panel.add(lblNewLabel_1);
-		
 		table_number = new JLabel("");
-		table_number.setBounds(0, 68, 151, 15);
+		table_number.setFont(new Font("굴림", Font.BOLD, 15));
+		table_number.setBounds(110, 99, 23, 23);
 		panel.add(table_number);
 		
-		lblNewLabel_3 = new JLabel("\uD14C\uC774\uBE14 \uD5C8\uC6A9 \uC778\uC6D0");
-		lblNewLabel_3.setBounds(0, 93, 92, 23);
+		JLabel time_label_1 = new JLabel("\uC608\uC57D\uC790\uBA85 \uC785\uB825");
+		time_label_1.setForeground(new Color(120, 108, 100));
+		time_label_1.setBounds(0, 210, 97, 19);
+		panel.add(time_label_1);
+		time_label_1.setFont(new Font("굴림", Font.BOLD, 15));
+		
+		nametxt = new JTextField();
+		nametxt.setFont(new Font("굴림", Font.BOLD, 15));
+		nametxt.setBounds(110, 210, 159, 19);
+		panel.add(nametxt);
+		nametxt.setColumns(10);
+		nametxt.setBorder(null);
+		nametxt.setBackground(new Color(226,221,215));
+		
+		lblNewLabel_1 = new JLabel("\uC120\uD0DD\uD55C \uD14C\uC774\uBE14");
+		lblNewLabel_1.setBounds(0, 99, 103, 23);
+		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(new Color(120, 108, 100));
+		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 15));
+		
+		lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
+		lblNewLabel_3.setBounds(103, 224, 186, 15);
 		panel.add(lblNewLabel_3);
 		
-		table_size = new JLabel("");
-		table_size.setBounds(0, 126, 160, 15);
-		panel.add(table_size);
+		table_size_1 = new JLabel("");
+		table_size_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\shadowicon.png"));
+		table_size_1.setBounds(0, 127, 289, 57);
+		panel.add(table_size_1);
+		
+		table_number_1 = new JLabel("\uBC88");
+		table_number_1.setFont(new Font("굴림", Font.BOLD, 15));
+		table_number_1.setBounds(128, 99, 23, 23);
+		panel.add(table_number_1);
+		
+		lblNewLabel_1_1 = new JLabel("\uC608\uC57D \uC815\uBCF4 \uC785\uB825");
+		lblNewLabel_1_1.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(895, 68, 128, 21);
+		add(lblNewLabel_1_1);
+		
+		lblNewLabel_1_1_1 = new JLabel("");
+		lblNewLabel_1_1_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
+		lblNewLabel_1_1_1.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setBounds(895, 86, 289, 21);
+		add(lblNewLabel_1_1_1);
 		
 	}
 	DTO_reservation_current get_data() {
@@ -179,10 +248,10 @@ public class reservation_detail extends JPanel {
 			fixed_shop_table tmp=new fixed_shop_table(temp.get(i)[1],++table_num+1,temp.get(i)[2],temp.get(i)[3]);
 			tmp.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseClicked(MouseEvent e) {
-					panel.setVisible(true);
+				public void mouseClicked(MouseEvent e) {  //테이블 선택 후
+					//panel.setVisible(true);
 					timebox.removeAllItems();
-					timebox.addItem("시간선택");
+					timebox.addItem("시간 선택");
 					table_number.setText(Integer.toString(tmp.table_num));
 					table_size.setText(Integer.toString(tmp.size));
 					String date=datebox.getSelectedItem().toString().substring(0,10);
@@ -199,8 +268,13 @@ public class reservation_detail extends JPanel {
 									if(is[j]==i)
 										is_in=true;
 								}
-								if(!is_in)
-									timebox.addItem(i+" 시");
+								if(!is_in) {
+									if(0<i && i<10) {
+										timebox.addItem("0"+i+"시 00분");
+									}else {
+										timebox.addItem(i+"시 00분");
+									}
+								}
 							}
 						}
 						else {
@@ -211,7 +285,7 @@ public class reservation_detail extends JPanel {
 										is_in=true;
 								}
 								if(!is_in)
-									timebox.addItem(i+"시");
+									timebox.addItem(i+"시 00분");
 							}
 							for(int i=0;i<close;i++){
 								boolean is_in=false;
@@ -220,19 +294,19 @@ public class reservation_detail extends JPanel {
 										is_in=true;
 								}
 								if(!is_in)
-									timebox.addItem(i+"시");
+									timebox.addItem(i+"시 00분");
 							}
 						}
 					}else {
 						if(open<close) {
 							for(int i=open;i<close;i++)
-									timebox.addItem(i+"시");		
+									timebox.addItem(i+"시 00분");		
 						}
 						else {
 							for(int i=open;i<=23;i++)
-								timebox.addItem(i+"시");
+								timebox.addItem(i+"시 00분");
 							for(int i=0;i<close;i++)
-								timebox.addItem(i+"시");
+								timebox.addItem(i+"시 00분");
 						}
 					}					
 					//DB에서 예약 내역 가져와서 빈 시간 추가 
@@ -249,7 +323,7 @@ public class reservation_detail extends JPanel {
 	void set_reservationdate() {
 		// JAVA util을 써서 월과 일을 가져옴
 		datebox.removeAllItems();
-		datebox.addItem("날짜선택");
+		datebox.addItem("날짜 선택");
 		for (int i = 0; i < 7; i++) {
 			boolean is_holyday = false;
 			int year = calendar.get(calendar.YEAR);
@@ -287,7 +361,11 @@ public class reservation_detail extends JPanel {
 				}
 			}
 			if (!is_holyday)
-				datebox.addItem(year + "-" + Month + "-" + Day + "(" + week_ + ")");
+				if(0<Day && Day<10) {
+					datebox.addItem(year + "-" + Month + "-0"+ Day + " (" + week_ + ")");
+				}else {
+					datebox.addItem(year + "-" + Month + "-" + Day + " (" + week_ + ")");
+				}
 			calendar.add(calendar.DAY_OF_MONTH, 1);
 		}
 	}

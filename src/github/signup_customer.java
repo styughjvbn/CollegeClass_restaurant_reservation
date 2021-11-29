@@ -118,24 +118,12 @@ public class signup_customer extends JPanel {
 		StartButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		StartButton.setBounds(359, 369, 504, 45);
 		Panel_4.add(StartButton);
-		StartButton.setIcon(new ImageIcon("image/start.PNG"));
+		StartButton.setIcon(new ImageIcon("image/cstartbtn.png"));
 		
 		WelcomeLabel_3 = new JLabel("\uC544\uB798 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uC2DC\uC791\uD574\uC8FC\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4^^");
 		WelcomeLabel_3.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
 		WelcomeLabel_3.setBounds(303, 232, 660, 65);
 		Panel_4.add(WelcomeLabel_3);
-		
-		JLabel lblNewLabel_12 = new JLabel("\uACC4\uC815 \uAC00\uC785\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
-		lblNewLabel_12.setFont(new Font("Dialog", Font.BOLD, 15));
-		lblNewLabel_12.setBounds(515, 224, 217, 22);
-		Panel_4.add(lblNewLabel_12);
-		
-		WelcomeLabel_1 = new JLabel("");
-		WelcomeLabel_1.setIcon(new ImageIcon("image/cstartbtn.png"));
-		WelcomeLabel_1.setFont(new Font("Dialog", Font.PLAIN, 30));
-		WelcomeLabel_1.setBackground(new Color(226, 221, 215));
-		WelcomeLabel_1.setBounds(357, 291, 503, 42);
-		Panel_4.add(WelcomeLabel_1);
 		
 		// 3번째 패널, 중복검사 버튼
 		JButton btnNewButton = new JButton("");
@@ -324,7 +312,7 @@ public class signup_customer extends JPanel {
 		comboBox = new JComboBox(new Object[] {});
 		comboBox.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		comboBox.setBackground(new Color(226, 221, 215));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "성별 ", "Male", "Female" }));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "성별 ", "남자", "여자" }));
 		comboBox.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		comboBox.setForeground(Color.BLACK);
 		comboBox.setBounds(356, 321, 202, 40);
