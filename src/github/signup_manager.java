@@ -361,6 +361,7 @@ public class signup_manager extends JPanel {
 						String id = txtId.getText();
 						String pw = pwdPassword.getText();
 						String HP = textField_1.getText();
+						HP=HP.replace("-","");
 						if (comboBox.getSelectedItem() == null || HP.equals("") || pw.equals("") || id.equals("")) {
 							aa.showMessageDialog(null, "모두 입력해주세요");
 						} else {

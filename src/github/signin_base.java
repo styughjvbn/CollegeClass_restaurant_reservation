@@ -74,8 +74,6 @@ public class signin_base extends JPanel {
 		textField_1.setForeground(Color.BLACK);
 		textField_1.setBounds(126, 191, 458, 54);
 		panel.add(textField_1);
-		textField_1.setAlignmentX(5.0f);
-		textField_1.setColumns(10);
 		textField_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 3, true), "", TitledBorder.LEADING,
 				TitledBorder.TOP, null, new Color(0, 0, 0)));
 		textField_1.setText("ID를 입력해주세요.");
