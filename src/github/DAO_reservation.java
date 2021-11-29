@@ -27,7 +27,6 @@ public class DAO_reservation {
 				a[2]=rs.getInt(4);
 				a[3]=rs.getInt(5);
 				temp.add(a);
-				System.out.println("불러오기 완료");
 			}
 			return temp;
 		}catch(SQLException e) {
@@ -118,7 +117,6 @@ public class DAO_reservation {
 			     + "VALUE "
 			     + "('"+current.get_rc_id()+"','"+current.get_rc_shop()+"','"+current.get_rc_count()+"','"+current.get_rc_time()+"','"+current.get_rc_date()+"','"+current.get_rc_money()+"','"+current.get_rc_menu()+"','"+current.get_rc_table()+"')");
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
@@ -133,7 +131,6 @@ public class DAO_reservation {
 			String pass = "11111111";//비밀번호 수정 필요
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
-			System.out.println("The Connection successful");
 			return con;
 		}catch(Exception e) {
 			System.out.println(e.getMessage());

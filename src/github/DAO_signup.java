@@ -21,7 +21,6 @@ public class DAO_signup {
 			     + "VALUE "
 			     + "('"+manager.get_ID()+"','"+manager.get_PW()+"','"+manager.get_HP()+"','"+manager.get_Shop()+"')");
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
@@ -37,7 +36,6 @@ public class DAO_signup {
 			     + "VALUE "
 			     + "('"+manager.get_shop_name()+"','"+manager.get_shop_address()+"')");
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
@@ -53,7 +51,6 @@ public class DAO_signup {
 			     + "VALUE "
 			     + "('"+customer.get_ID()+"','"+customer.get_PW()+"','"+customer.get_HP()+"','"+customer.get_Gender()+"','"+customer.get_Name()+"','"+customer.get_Age()+"')");
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
@@ -146,7 +143,6 @@ public class DAO_signup {
 		      " Phone "+ results.getString("phone") + 
 		      " Gender : "+ results.getString("gender"));
 		   }
-		   System.out.println("The data has been fetched");
 		   return list;
 		   
 		  }catch(Exception e){
@@ -170,7 +166,6 @@ public class DAO_signup {
 		     + "  PRIMARY KEY (customer_id),"
 		     + "  UNIQUE INDEX customer_id_UNIQUE (customer_id ASC) VISIBLE);");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -189,7 +184,6 @@ public class DAO_signup {
 		     + "  shop_iner VARCHAR(45) NULL DEFAULT 'null',"
 		     + "  PRIMARY KEY (shop_name));");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -212,7 +206,6 @@ public class DAO_signup {
 		     + "    ON DELETE CASCADE\r\n"
 		     + "    ON UPDATE CASCADE);");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -235,7 +228,6 @@ public class DAO_signup {
 		     + "    ON DELETE CASCADE\r\n"
 		     + "    ON UPDATE CASCADE);");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -255,7 +247,6 @@ public class DAO_signup {
 		     + "    ON DELETE CASCADE\r\n"
 		     + "    ON UPDATE CASCADE);");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -276,7 +267,6 @@ public class DAO_signup {
 		     + "    ON DELETE CASCADE\r\n"
 		     + "    ON UPDATE CASCADE);");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -314,7 +304,6 @@ public class DAO_signup {
 		     + "    ON DELETE CASCADE\r\n"
 		     + "    ON UPDATE CASCADE);");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -335,7 +324,6 @@ public class DAO_signup {
 		     + "  gender TINYINT UNSIGNED NOT NULL,\r\n"
 		     + "  PRIMARY KEY (id, shop));");
 		   create.execute();
-		   System.out.println("Table successfully created");
 		  }catch(Exception e){
 		   System.out.println(e.getMessage());
 		   }
@@ -358,7 +346,6 @@ public class DAO_signup {
 			String pass = "11111111";//비밀번호 수정 필요
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
-			System.out.println("The Connection successful");
 			return con;
 		}catch(Exception e) {
 			System.out.println(e.getMessage());

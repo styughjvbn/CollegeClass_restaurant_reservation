@@ -150,9 +150,7 @@ public class signup_customer extends JPanel {
 					pwtxt.setEchoChar('*');
 					pwtxt.setForeground(Color.BLACK);
 				}
-
 			}
-
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (pwtxt.getText().equals("")) {
@@ -412,6 +410,7 @@ public class signup_customer extends JPanel {
 						String name=nametxt.getText();
 						byte Gender=(byte)(comboBox.getSelectedIndex());//남자는 1 여자는 2
 						String HP=txtHp.getText();
+						HP=HP.replace("-","");
 						
 						if(agetxt.getText().toString().equals("")||name.equals("")||HP.equals("")||pw.equals("")||id.equals("")) {
 							aa.showMessageDialog(null, "모두 입력해주세요");	
@@ -429,5 +428,9 @@ public class signup_customer extends JPanel {
 
 			}
 		});
+		
+	}
+	void init(){
+		card.show(Panel_2.getParent(), "2번째");
 	}
 }

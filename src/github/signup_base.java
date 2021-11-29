@@ -10,12 +10,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.border.BevelBorder;
 
 public class signup_base extends JPanel {
 	private CardLayout card=new CardLayout();
@@ -110,6 +107,7 @@ public class signup_base extends JPanel {
 		});
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panel2.init();
 				card.show(panel_1, "customer_signup");
 			}
 		});
@@ -123,6 +121,7 @@ public class signup_base extends JPanel {
 		
 		panel.btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				card.show(panel_1, "member_type");
 			}
 		});
