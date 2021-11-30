@@ -42,8 +42,7 @@ public class reservation_list extends JPanel {
 		lblNewLabel_1.setBounds(33, 326, 139, 15);
 		add(lblNewLabel_1);
 		//과거 예약 손님
-		//String[] [] data = DAO_oldreservation.getOldReservation(DTO_reservation_old.get_shop());
-		String [][] olddata = new String [][] {{"1","2","3","4","5","6","7","8","9"}};
+		String[] [] olddata = DAO_oldreservation.getOldReservation(shop_name);
 		String [] head = new String[]{"id","shop","count","time","date","money","menu","table","book_time"};
 		JTable table_o = new JTable(olddata,head);
 		table_o.setBounds(22, 340, 150, 20);

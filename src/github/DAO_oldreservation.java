@@ -41,7 +41,7 @@ public class DAO_oldreservation {
 	public static String[][] getCurrentReservation(String shop){
 		try {
 			Connection con = getConnection();
-			pstmt = con.prepareStatement("select * from reservation_current where shop = ?");
+			pstmt = con.prepareStatement("select * from reservation_current where rc_shop = ?");
 			pstmt.setString(1, shop);
 			
 			rs = pstmt.executeQuery();
