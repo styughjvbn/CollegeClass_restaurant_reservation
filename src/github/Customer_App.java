@@ -5,11 +5,9 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.JFrame;
 
 public class Customer_App {
-
 	private JFrame frame;
 	private CardLayout card = new CardLayout();
 
@@ -25,11 +23,9 @@ public class Customer_App {
 			}
 		});
 	}
-
 	public Customer_App() {
 		initialize();
 	}
-
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
@@ -49,7 +45,6 @@ public class Customer_App {
 			    e.getStackTrace();
 			}        
 	    }
-
 		signin_base Wpanel=new signin_base();//로그인 패널
 		frame.getContentPane().add(Wpanel,"login");
 		card.show(frame.getContentPane(), "login");
@@ -118,8 +113,6 @@ public class Customer_App {
 				}
 			}
 		});
-		
-		
 		frame.setLocationRelativeTo(null);//포로그램 실행시 화면 가운데 띄우기
 	}
 }

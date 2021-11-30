@@ -23,13 +23,10 @@ public class DAO_manager {
 			     + " shop_table_num = '"+manager.get_shop_table_num()+"',"
 			     + " shop_iner = '"+manager.get_shop_iner()+"'"
 			     +" WHERE (shop_name = '"+manager.get_shop_name()+"');");
-			   System.out.println(insert1);
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
-		
 		return 0;
 	}
 	public static int new_table(DTO_manage_table manager) {//점포의 테이블 추가
@@ -41,7 +38,6 @@ public class DAO_manager {
 			     + "VALUE "
 			     + "('"+manager.get_mt_table()+"','"+manager.get_mt_shop()+"','"+manager.get_mt_size()+"','"+manager.get_mt_x()+"','"+manager.get_mt_y()+"')");
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
@@ -63,7 +59,6 @@ public class DAO_manager {
 				a[2]=rs.getInt(4);
 				a[3]=rs.getInt(5);
 				temp.add(a);
-				System.out.println("불러오기 완료");
 			}
 			return temp;
 		}catch(SQLException e) {
@@ -84,7 +79,6 @@ public class DAO_manager {
 				a[1]=rs.getInt(3);
 				a[2]=rs.getInt(4);
 				a[3]=rs.getInt(5);
-				System.out.println("불러오기 완료");
 				return a;
 			}
 			return null;
@@ -103,7 +97,6 @@ public class DAO_manager {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻
 				a=rs.getString(1);
-				System.out.println("불러오기 완료");
 				return a;
 			}	
 		}catch(SQLException e) {
@@ -147,7 +140,6 @@ public class DAO_manager {
 			     + "VALUE "
 			     + "('"+manager.get_mc_category()+"','"+manager.get_mc_shop()+"')");
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
@@ -163,7 +155,6 @@ public class DAO_manager {
 			     + "VALUE "
 			     + "('"+manager.get_md_name()+"','"+manager.get_md_category()+"','"+manager.get_md_price()+"')");
 			   insert1.executeUpdate();
-			   System.out.println("The data has been saved!");
 			  }catch(Exception e){
 			   System.out.println(e.getMessage());
 			  }
@@ -214,7 +205,6 @@ public class DAO_manager {
 			String pass = "1q2w3e4r!";//비밀번호 수정 필요
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
-			System.out.println("The Connection successful");
 			return con;
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
