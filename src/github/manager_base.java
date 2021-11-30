@@ -13,6 +13,8 @@ public class manager_base extends JPanel {
 	public DTO_manager cnt_user=null;
 	public JButton btnNewButton_3;
 	public manage_menu manage_menu;
+	public reservation_list reservation_list;
+	public String shopname;
 	/**
 	 * Create the panel.
 	 */
@@ -56,7 +58,8 @@ public class manager_base extends JPanel {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "manage_reservation");
-				manage_reservation.cnt_shop=cnt_user.get_Shop();
+				shopname = cnt_user.get_Shop();
+				reservation_list.init(shopname);
 			}
 		});
 		btnNewButton_2.setBounds(702, 159, 287, 238);
