@@ -218,7 +218,7 @@ public class reservation_detail extends JPanel {
 				"",
 				cnt_shop.get_shop_name(),
 				Integer.parseInt(table_size.getText().toString()),
-				timebox.getSelectedItem().toString().substring(0,timebox.getSelectedItem().toString().lastIndexOf(" "))+":00:00",
+				timebox.getSelectedItem().toString().substring(0,timebox.getSelectedItem().toString().lastIndexOf("½Ã"))+":00:00",
 				datebox.getSelectedItem().toString().substring(0, 10),
 				0,
 				"",
@@ -258,14 +258,17 @@ public class reservation_detail extends JPanel {
 					ArrayList<String> qq=DAO.get_enable_time(cnt_shop.get_shop_name(),date,tmp.table_num);
 					int[] is;
 					if(qq!=null) {//
+						int hour = calendar.get(calendar.HOUR);
 						is=new int[qq.size()];
-						for(int i=0;i<is.length;i++)
+						System.out.println(hour);
+						for(int i=0;i<is.length;i++) {
 							is[i]=Integer.parseInt(qq.get(i).substring(0,2));
+						}
 						if(open<close) {
 							for(int i=open;i<close;i++) {
 								boolean is_in=false;
 								for(int j=0;j<is.length;j++) {
-									if(is[j]==i)
+									if(is[j]==i||i<hour) 
 										is_in=true;
 								}
 								if(!is_in) {

@@ -100,37 +100,41 @@ public class reservation_payment extends JPanel {
 		btnNewButton_2.setFont(new Font("굴림", Font.PLAIN, 15));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				sele_price.remove(sele_price.size()-1);
-				sele_menu.remove(sele_menu.size()-1);
-				textArea.setText("");
-				textArea_1.setText("");
-				sum=0;
-				for(int i=0;i<sele_price.size();i++) { 
-					sum+=sele_price.get(i);
-					textArea.append(sele_menu.get(i)+"\n");
-					//돈 단위대로 출력
-					if(sele_price.get(i)>=1000) { 
-						String rightl= "%14s";
-						String nprice= Integer.toString(sele_price.get(i));
-						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"원";
-						textArea_1.append(String.format(rightl,  nprice)+"\n");
-					}else {
-						String rightl= "%14s";
-						String nprice= Integer.toString(sele_price.get(i))+"원";
-						lblNewLabel.setText(String.format(rightl,nprice));
-						textArea_1.append(String.format(rightl,nprice)+"\n");
+				if (sele_price.size() > 0) {
+					sele_price.remove(sele_price.size() - 1);
+					sele_menu.remove(sele_menu.size() - 1);
+					textArea.setText("");
+					textArea_1.setText("");
+					sum = 0;
+					for (int i = 0; i < sele_price.size(); i++) {
+						sum += sele_price.get(i);
+						textArea.append(sele_menu.get(i) + "\n");
+						// 돈 단위대로 출력
+						if (sele_price.get(i) >= 1000) {
+							String rightl = "%14s";
+							String nprice = Integer.toString(sele_price.get(i));
+							nprice = nprice.substring(0, nprice.length() - 3) + ","
+									+ nprice.substring(nprice.length() - 3, nprice.length()) + "원";
+							textArea_1.append(String.format(rightl, nprice) + "\n");
+						} else {
+							String rightl = "%14s";
+							String nprice = Integer.toString(sele_price.get(i)) + "원";
+							lblNewLabel.setText(String.format(rightl, nprice));
+							textArea_1.append(String.format(rightl, nprice) + "\n");
+						}
 					}
-				}
-				//돈 단위대로 출력
-				if(sum>=1000) {  
-					String rightl= "%30s";
-					String nprice= Integer.toString(sum);
-					nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"원";
-					lblNewLabel.setText(String.format(rightl,nprice));
-				}else {
-					String rightl= "%30s";
-					String nprice= Integer.toString(sum)+"원";
-					lblNewLabel.setText(String.format(rightl,nprice));
+					// 돈 단위대로 출력
+					if (sum >= 1000) {
+						String rightl = "%30s";
+						String nprice = Integer.toString(sum);
+						nprice = nprice.substring(0, nprice.length() - 3) + ","
+								+ nprice.substring(nprice.length() - 3, nprice.length()) + "원";
+						lblNewLabel.setText(String.format(rightl, nprice));
+					} else {
+						String rightl = "%30s";
+						String nprice = Integer.toString(sum) + "원";
+						lblNewLabel.setText(String.format(rightl, nprice));
+					}
 				}
 			}
 		});
