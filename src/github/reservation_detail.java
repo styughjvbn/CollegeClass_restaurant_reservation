@@ -73,7 +73,7 @@ public class reservation_detail extends JPanel {
 		panel_1.setBounds(37, 49, 800, 600);
 		add(panel_1);
 		panel_1.setLayout(null);
-		panel_1.setVisible(true);
+		panel_1.setVisible(false);
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(0, 0, 800, 600);
@@ -91,11 +91,11 @@ public class reservation_detail extends JPanel {
 				int index = cb.getSelectedIndex();
 				System.out.println(index);
 				if(index<1) {
-					//panel_1.setVisible(false);
+					panel_1.setVisible(false);
 					panel.setVisible(false);
 				}
 				else {
-					//panel_1.setVisible(true);
+					panel_1.setVisible(true);
 					panel.setVisible(true);
 				}
 				repaint();
@@ -324,49 +324,51 @@ public class reservation_detail extends JPanel {
 		// JAVA util을 써서 월과 일을 가져옴
 		datebox.removeAllItems();
 		datebox.addItem("날짜 선택");
-		for (int i = 0; i < 7; i++) {
-			boolean is_holyday = false;
-			int year = calendar.get(calendar.YEAR);
-			int Month = calendar.get(calendar.MONTH) + 1;
-			int Day = calendar.get(calendar.DAY_OF_MONTH);
-			int week = calendar.get(calendar.DAY_OF_WEEK);
-			String week_ = "";
-			switch (week) {
-			case 1:
-				week_ = "월";
-				break;
-			case 2:
-				week_ = "화";
-				break;
-			case 3:
-				week_ = "수";
-				break;
-			case 4:
-				week_ = "목";
-				break;
-			case 5:
-				week_ = "금";
-				break;
-			case 6:
-				week_ = "토";
-				break;
-			case 7:
-				week_ = "일";
-				break;
-			}
-			for (int j = 0; j < holyday.size(); j++) {
-				if (week_.equals(holyday.get(j))) {
-					is_holyday = true;
+			for (int i = 0; i < 7; i++) {
+				boolean is_holyday = false;
+				int year = calendar.get(calendar.YEAR);
+				int Month = calendar.get(calendar.MONTH) + 1;
+				int Day = calendar.get(calendar.DAY_OF_MONTH);
+				int week = calendar.get(calendar.DAY_OF_WEEK);
+				String week_ = "";
+				switch (week) {
+				case 1:
+					week_ = "일";
+					break;
+				case 2:
+					week_ = "월";
+					break;
+				case 3:
+					week_ = "화";
+					break;
+				case 4:
+					week_ = "수";
+					break;
+				case 5:
+					week_ = "목";
+					break;
+				case 6:
+					week_ = "금";
+					break;
+				case 7:
+					week_ = "토";
 					break;
 				}
-			}
-			if (!is_holyday)
-				if(0<Day && Day<10) {
-					datebox.addItem(year + "-" + Month + "-0"+ Day + " (" + week_ + ")");
-				}else {
-					datebox.addItem(year + "-" + Month + "-" + Day + " (" + week_ + ")");
+				for (int j = 0; j < holyday.size(); j++) {
+					if (week_.equals(holyday.get(j))) {
+						is_holyday = true;
+						break;
+					}
 				}
-			calendar.add(calendar.DAY_OF_MONTH, 1);
-		}
+				if (!is_holyday)
+					if (0 < Day && Day < 10) {
+						datebox.addItem(year + "-" + Month + "-0" + Day + " (" + week_ + ")");
+					} else {
+						datebox.addItem(year + "-" + Month + "-" + Day + " (" + week_ + ")");
+					}
+				calendar.add(calendar.DAY_OF_MONTH, 1);
+			}
+			calendar.add(calendar.DAY_OF_MONTH, -7);
+		
 	}
 }

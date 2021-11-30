@@ -353,6 +353,11 @@ public class reservation_base extends JPanel {
 						int aa=cnt_shop.get_shop_holyday();
 						String temp="";
 						ArrayList<String> bb=new ArrayList();
+						if(aa==0) {
+							holyday.setText("휴무일 없음");
+							detail.holyday=bb;
+						}
+						else {
 						if((aa&64)==64)
 							bb.add("월");
 						if((aa&32)==32)
@@ -373,6 +378,7 @@ public class reservation_base extends JPanel {
 						temp+=bb.get(bb.size()-1);
 						holyday.setText("매주 "+temp+"요일");
 						detail.holyday=bb;
+						}
 					}
 					else {
 						open_time.setText("");
