@@ -56,6 +56,7 @@ public class manager_base extends JPanel {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "manage_reservation");
+				manage_reservation.cnt_shop=cnt_user.get_Shop();
 			}
 		});
 		btnNewButton_2.setBounds(702, 159, 287, 238);

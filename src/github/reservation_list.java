@@ -9,17 +9,17 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 
 public class reservation_list extends JPanel {
-
+	public String cnt_shop;//현재 로그인된 사장의 점포를 저장
 	/**
 	 * Create the panel.
 	 */
 	public reservation_list() {
 		//현재 예약 손님
-		String[] [] data = DAO_oldreservation.getCurrentReservation(DTO_reservation_current.get_shop());
+		String [][] olddata = new String [][] {{"1","2","3","4","5","6","7","8","9"},{"1","2","3","4","5","6","7","8","9"}};
 		String[] headings = new String[] {"id","shop","count","time","date","money","menu","table","book_time"};
 		setLayout(null);
 		//String[] [] data = DAO_oldreservation.getCurrentReservation(DTO_reservation_current.get_shop()); 위에문장은 예시임 지우고 이거 쓰면됌.. DAO에서 List를 반환하게 해놨음 그거 하면 될거같은데 모르겠네
-		JTable table_c = new JTable(data,headings);
+		JTable table_c = new JTable(olddata,headings);
 		table_c.setBounds(22, 95, 966, 192);
 		table_c.setPreferredScrollableViewportSize(new Dimension(800,100));
 		table_c.setAlignmentX(0);
@@ -36,7 +36,6 @@ public class reservation_list extends JPanel {
 		add(lblNewLabel_1);
 		//과거 예약 손님
 		//String[] [] data = DAO_oldreservation.getOldReservation(DTO_reservation_old.get_shop());
-		String [][] olddata = new String [][] {{"1","2","3","4","5","6","7","8","9"}};
 		String [] head = new String[]{"id","shop","count","time","date","money","menu","table","book_time"};
 		JTable table_o = new JTable(olddata,head);
 		table_o.setBounds(22, 340, 150, 20);
@@ -45,9 +44,9 @@ public class reservation_list extends JPanel {
 		JScrollPane scrollPane_o = new JScrollPane(table_o);
 		scrollPane_o.setBounds(36, 351, 802, 206);
 		add(scrollPane_o);
+	}
+	void init() {//이 함수가 예약관리 버튼을 누를때마다 실행되니깐 여기서 Jtable들의 값을 바꿔주면 됨 저렇게 만들지 말고 Jtable의 add메쏘드를 써서 하나하나 행을 추가하게 만들어줘
 		
 		
-		
-
 	}
 }
