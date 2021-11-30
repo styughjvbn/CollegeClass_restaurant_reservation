@@ -26,6 +26,9 @@ public class manager_base extends JPanel {
 		add(table_manage,"table_manage");//점포관리 패널
 		manage_menu=new manage_menu();
 		add(manage_menu,"menu_manage");//점포관리 패널
+		reservation_list manage_reservation=new reservation_list();
+		add(manage_reservation,"manage_reservation");
+		
 		JButton btnNewButton = new JButton("\uC810\uD3EC\uAD00\uB9AC");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -50,6 +53,11 @@ public class manager_base extends JPanel {
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("\uC608\uC57D \uAD00\uB9AC");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(panel.getParent(), "manage_reservation");
+			}
+		});
 		btnNewButton_2.setBounds(702, 159, 287, 238);
 		panel.add(btnNewButton_2);
 		

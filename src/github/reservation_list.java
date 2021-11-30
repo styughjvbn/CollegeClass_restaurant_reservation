@@ -2,7 +2,6 @@ package github;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JList;
 import javax.swing.JTable;
 
 import java.awt.Dimension;
@@ -16,11 +15,11 @@ public class reservation_list extends JPanel {
 	 */
 	public reservation_list() {
 		//현재 예약 손님
-		String [][] currentdata = new String [][] {{"1","2","3","4","5","6","7","8","9"}};
+		String[] [] data = DAO_oldreservation.getCurrentReservation(DTO_reservation_current.get_shop());
 		String[] headings = new String[] {"id","shop","count","time","date","money","menu","table","book_time"};
 		setLayout(null);
 		//String[] [] data = DAO_oldreservation.getCurrentReservation(DTO_reservation_current.get_shop()); 위에문장은 예시임 지우고 이거 쓰면됌.. DAO에서 List를 반환하게 해놨음 그거 하면 될거같은데 모르겠네
-		JTable table_c = new JTable(currentdata,headings);
+		JTable table_c = new JTable(data,headings);
 		table_c.setBounds(22, 95, 966, 192);
 		table_c.setPreferredScrollableViewportSize(new Dimension(800,100));
 		table_c.setAlignmentX(0);

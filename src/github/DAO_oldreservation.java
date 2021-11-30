@@ -1,12 +1,10 @@
 package github;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-
-import github.DTO_shop;
 
 public class DAO_oldreservation {
 	private static Connection conn;
@@ -68,5 +66,20 @@ public class DAO_oldreservation {
 			return null;
 		}
 	}
+	public static  Connection getConnection() {//DB와 연결
+		try {
+			String driver = "com.mysql.cj.jdbc.Driver";
+			String url = "jdbc:mysql://localhost:3306/reservation";
+			String user = "root";
+			String pass = "11111111";//비밀번호 수정 필요
+			Class.forName(driver);
+			Connection con = DriverManager.getConnection(url,user,pass);
+			return con;
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
+}
 	
 	
