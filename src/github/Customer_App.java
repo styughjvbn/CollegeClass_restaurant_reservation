@@ -113,7 +113,6 @@ public class Customer_App {
 				}
 			}
 		});
-			
 		frame.setLocationRelativeTo(null);//포로그램 실행시 화면 가운데 띄우기
 	}
 }
