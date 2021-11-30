@@ -1,16 +1,24 @@
 package github;
 
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
+import javax.swing.SwingConstants;
 
 public class manager_base extends JPanel {
 	public manager_shop table_manage;
-	public CardLayout card=new CardLayout();
-	public DTO_manager cnt_user=null;
+	public CardLayout card = new CardLayout();
+	public DTO_manager cnt_user = null;
 	public JButton btnNewButton_3;
 	public manage_menu manage_menu;
 	public reservation_list reservation_list;
@@ -20,41 +28,52 @@ public class manager_base extends JPanel {
 	 */
 	public manager_base() {
 		setLayout(card);
-		table_manage=new manager_shop();//Á¡Æ÷°ü¸® ÆĞ³Î
-		JPanel panel = new JPanel();//Á¡Æ÷°ü¸® ÆĞ³Î
+		table_manage = new manager_shop();// ì í¬ê´€ë¦¬ íŒ¨ë„
+		JPanel panel = new JPanel();// ì í¬ê´€ë¦¬ íŒ¨ë„
 		add(panel, "main");
 		panel.setLayout(null);
-		
-		add(table_manage,"table_manage");//Á¡Æ÷°ü¸® ÆĞ³Î
-		manage_menu=new manage_menu();
-		add(manage_menu,"menu_manage");//Á¡Æ÷°ü¸® ÆĞ³Î
-		reservation_list manage_reservation=new reservation_list();
+
+		add(table_manage, "table_manage");// ì í¬ê´€ë¦¬ íŒ¨ë„
+		manage_menu = new manage_menu();
+		add(manage_menu, "menu_manage");// ì í¬ê´€ë¦¬ íŒ¨ë„
+    reservation_list manage_reservation=new reservation_list();
 		add(manage_reservation,"manage_reservation");
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("image/manage1.png"));
+		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		btnNewButton.setBackground(new Color(204, 153, 102));
+		btnNewButton.setFont(new Font("SEBANG Gothic", Font.BOLD, 25));
+
 		
-		JButton btnNewButton = new JButton("\uC810\uD3EC\uAD00\uB9AC");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "table_manage");
-				table_manage.shop=cnt_user.get_Shop();//ÇöÀç ·Î±×ÀÎ µÈ »çÀåÀÇ Á¡Æ÷¸¦ ÀúÀå
-				table_manage.lblNewLabel_5.setText(table_manage.shop+"Á¡Æ÷°ü¸®");
-				table_manage.init();//ÇöÀç ·Î±×ÀÎµÈ »çÀå Á¡Æ÷ÀÇ Å×ÀÌºí ³»¿ª ºÒ·¯¿È
+				table_manage.shop = cnt_user.get_Shop();// í˜„ì¬ ë¡œê·¸ì¸ ëœ ì‚¬ì¥ì˜ ì í¬ë¥¼ ì €ì¥
+				table_manage.lblNewLabel_5.setFont(new Font("SEBANG Gothic", Font.BOLD, 20));
+				table_manage.lblNewLabel_5.setText(table_manage.shop + " ì í¬ê´€ë¦¬");
+				table_manage.init();// í˜„ì¬ ë¡œê·¸ì¸ëœ ì‚¬ì¥ ì í¬ì˜ í…Œì´ë¸” ë‚´ì—­ ë¶ˆëŸ¬ì˜´
 			}
 		});
-		btnNewButton.setBounds(94, 159, 275, 238);
+		btnNewButton.setBounds(60, 230, 350, 300);
 		panel.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("\uBA54\uB274 \uAD00\uB9AC");
+
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("image/manage2.png"));
+		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "menu_manage");
-				manage_menu.cnt_user=cnt_user.get_Shop();
+				manage_menu.cnt_user = cnt_user.get_Shop();
 				manage_menu.init();
 			}
 		});
-		btnNewButton_1.setBounds(391, 159, 287, 238);
+		btnNewButton_1.setBounds(465, 230, 350, 300);
 		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("\uC608\uC57D \uAD00\uB9AC");
+
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		btnNewButton_2.setIcon(new ImageIcon("image/manage3.png"));
+		btnNewButton_2.setBounds(870, 230, 350, 300);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "manage_reservation");
@@ -62,12 +81,26 @@ public class manager_base extends JPanel {
 				reservation_list.init(shopname);
 			}
 		});
-		btnNewButton_2.setBounds(702, 159, 287, 238);
 		panel.add(btnNewButton_2);
-		
-		btnNewButton_3 = new JButton("logout");
-		btnNewButton_3.setBounds(40, 41, 97, 23);
+
+		btnNewButton_3 = new JButton("");
+		btnNewButton_3.setBorder(new LineBorder(new Color(226, 221, 215), 1, true));
+		btnNewButton_3.setForeground(Color.WHITE);
+		btnNewButton_3.setIcon(new ImageIcon("image/logout.png"));
+		btnNewButton_3.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
+		btnNewButton_3.setBackground(new Color(226,221,215));
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_3.setBounds(36, 45, 150, 90);
 		panel.add(btnNewButton_3);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("image/managebase.png"));
+		lblNewLabel.setBounds(0, 0, 1280, 720);
+		panel.add(lblNewLabel);
+		
 		table_manage.btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "main");
@@ -78,5 +111,6 @@ public class manager_base extends JPanel {
 				card.show(panel.getParent(), "main");
 			}
 		});
+
 	}
 }
