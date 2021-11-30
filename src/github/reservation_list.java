@@ -13,9 +13,16 @@ public class reservation_list extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+
+	public String shop_name;
+	
+	void init(String shop) {
+		shop_name = shop;
+	}
+	
 	public reservation_list() {
 		//현재 예약 손님
-		String[] [] data = DAO_oldreservation.getCurrentReservation(DTO_reservation_current.get_shop());
+		String[] [] data = DAO_oldreservation.getCurrentReservation(shop_name);
 		String[] headings = new String[] {"id","shop","count","time","date","money","menu","table","book_time"};
 		setLayout(null);
 		//String[] [] data = DAO_oldreservation.getCurrentReservation(DTO_reservation_current.get_shop()); 위에문장은 예시임 지우고 이거 쓰면됌.. DAO에서 List를 반환하게 해놨음 그거 하면 될거같은데 모르겠네
@@ -50,4 +57,5 @@ public class reservation_list extends JPanel {
 		
 
 	}
+
 }
