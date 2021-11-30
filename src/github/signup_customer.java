@@ -115,12 +115,12 @@ public class signup_customer extends JPanel {
 		Panel_4.add(WelcomeLabel_1);
 		
 		StartButton = new JButton("");
-		StartButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		StartButton.setBorder(null);
 		StartButton.setBounds(359, 369, 504, 45);
 		Panel_4.add(StartButton);
 		StartButton.setIcon(new ImageIcon("image/cstartbtn.png"));
 		
-		WelcomeLabel_3 = new JLabel("\uC544\uB798 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uC2DC\uC791\uD574\uC8FC\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4^^");
+		WelcomeLabel_3 = new JLabel("\uC544\uB798 \uBC84\uD2BC\uC744 \uD074\uB9AD\uD558\uC5EC \uC2DC\uC791\uD574\uC8FC\uC2DC\uAE38 \uBC14\uB78D\uB2C8\uB2E4.");
 		WelcomeLabel_3.setFont(new Font("SEBANG Gothic", Font.PLAIN, 30));
 		WelcomeLabel_3.setBounds(303, 232, 660, 65);
 		Panel_4.add(WelcomeLabel_3);

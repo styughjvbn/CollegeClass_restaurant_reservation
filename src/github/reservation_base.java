@@ -403,7 +403,7 @@ public class reservation_base extends JPanel {
 			}
 		});
 		
-		detail.detail_back.addActionListener(new ActionListener() {//상세페이지의 back버튼 클릭시 
+		detail.detail_back.addActionListener(new ActionListener() { //상세페이지의 back버튼 클릭시 
 			public void actionPerformed(ActionEvent e) {
 				card.show(detail.getParent(),"base");
 			}
