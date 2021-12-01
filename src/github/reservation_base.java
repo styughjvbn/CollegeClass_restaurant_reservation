@@ -102,7 +102,7 @@ public class reservation_base extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel();
 		lblNewLabel.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
-		lblNewLabel.setBounds(446, 45, 809, 606);
+		lblNewLabel.setBounds(446, 50, 800, 600);
 		panel.add(lblNewLabel);
 
 		back = new JButton("");//back버튼
@@ -115,7 +115,7 @@ public class reservation_base extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
 		panel_1.setBackground(new Color(226,221,215));
-		panel_1.setBounds(32, 96, 413, 556);
+		panel_1.setBounds(32, 96, 407, 556);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -353,6 +353,11 @@ public class reservation_base extends JPanel {
 						int aa=cnt_shop.get_shop_holyday();
 						String temp="";
 						ArrayList<String> bb=new ArrayList();
+						if(aa==0) {
+							holyday.setText("휴무일 없음");
+							detail.holyday=bb;
+						}
+						else {
 						if((aa&64)==64)
 							bb.add("월");
 						if((aa&32)==32)
@@ -373,6 +378,7 @@ public class reservation_base extends JPanel {
 						temp+=bb.get(bb.size()-1);
 						holyday.setText("매주 "+temp+"요일");
 						detail.holyday=bb;
+						}
 					}
 					else {
 						open_time.setText("");
@@ -384,7 +390,6 @@ public class reservation_base extends JPanel {
 					create_image.create_map_image(machine.get_center_x(), machine.get_center_y(), list1.get(index)[5],list1.get(index)[6], shop, list1.get(index)[0]);
 					lblNewLabel.setIcon(new ImageIcon("image/shop/" + list1.get(index)[0] + ".png"));
 					shop = list1.get(index)[0];
-					
 				}
 				
 			}
