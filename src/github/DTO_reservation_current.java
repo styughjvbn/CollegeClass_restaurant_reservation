@@ -11,8 +11,9 @@ public class DTO_reservation_current {
 	private int rc_money;
 	private String rc_menu;
 	private int rc_table;
+	private String rc_booK_time;
 	
-	DTO_reservation_current(String rc_id, String rc_shop , int rc_count, String rc_time,String rc_date, int rc_money,String rc_menu, int rc_table ){
+	DTO_reservation_current(String rc_id, String rc_shop , int rc_count, String rc_time,String rc_date, int rc_money,String rc_menu, int rc_table){
 		this.rc_id = rc_id;
 		this.rc_shop = rc_shop;
 		this.rc_count = rc_count;
@@ -21,7 +22,17 @@ public class DTO_reservation_current {
 		this.rc_money = rc_money;
 		this.rc_menu = rc_menu;
 		this.rc_table = rc_table;
-		
+	}
+	DTO_reservation_current(String rc_id, String rc_shop , int rc_count, String rc_time,String rc_date, int rc_money,String rc_menu, int rc_table,String book_time ){
+		this.rc_id = rc_id;
+		this.rc_shop = rc_shop;
+		this.rc_count = rc_count;
+		this.rc_time = rc_time;
+		this.rc_date = rc_date;
+		this.rc_money = rc_money;
+		this.rc_menu = rc_menu;
+		this.rc_table = rc_table;
+		rc_booK_time=book_time;	
 	}
 	String get_rc_id() {
 		return rc_id;

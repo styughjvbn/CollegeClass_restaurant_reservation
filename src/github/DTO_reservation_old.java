@@ -11,7 +11,7 @@ public class DTO_reservation_old {
 	private String menu;
 	private byte gender;
 	
-	DTO_reservation_old(String id, String shop, String time, String date, int count, int money, int age, String menu, byte gender){
+	DTO_reservation_old(String id, String shop, String time, String date, int count, int money, String menu,int age, byte gender){
 		this.id = id;
 		this.shop = shop;
 		this.time = time;
@@ -49,7 +49,6 @@ public class DTO_reservation_old {
 	byte get_gender() {
 		return gender;
 	}
-	
 	
 
 }

@@ -123,6 +123,120 @@ public class DAO_reservation {
 		
 		return 0;
 	}
+	public static int new_old_reservation(DTO_reservation_old old) {//이전 예약 추가
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "INSERT INTO reservation_old"
+			     + "(id, shop, time, date, count, money, menu, age, gender) "
+			     + "VALUE "
+			     + "('"+old.get_id()+"','"+old.get_shop()+"','"+old.get_time()+"','"+old.get_date()+"','"+old.get_count()+"','"+old.get_money()+"','"+old.get_menu()+"','"+old.get_age()+"','"+old.get_gender()+"')");
+			   System.out.println(insert1);
+			   insert1.executeUpdate();
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		
+		return 0;
+	}
+	public static int delete_reservation(String ID,String shop,String time) {//예약 취소
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "DELETE FROM reservation_current WHERE (rc_id = '"
+			     + ID
+			     + "') and (rc_shop = '"
+			     + shop
+			     + "') and (rc_book_time = '"
+			     + time
+			     + "');");
+			   insert1.executeUpdate();
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		return 0;
+	}
+	public static int update_pw(String cnt_id,String new_pw) {//예약 추가
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "UPDATE customer SET"
+			     + " customer_pw = '"
+			     + new_pw
+			     + "' WHERE (customer_id = '"
+			     + cnt_id
+			     + "');");
+			   insert1.executeUpdate();
+			   System.out.println(insert1);
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		return 0;
+	}
+	public ArrayList<String[]> get_reservation_cnt(String id) {//점포 테이블 정보 받아오기
+		conn = getConnection();
+		ArrayList<String[]> temp=new ArrayList<String[]>();
+		try {
+			pstmt = conn.prepareStatement("select * from reservation_current where rc_id = ? ");
+			pstmt.setString(1, id); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻	
+				String[] reservation=new String[8];
+				for(int i=0;i<8;i++) {
+					reservation[i]=rs.getString(i+2);
+				}
+				temp.add(reservation);
+			}
+			return temp;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
+	public ArrayList<String[]> get_reservation_old(String id) {//점포 테이블 정보 받아오기
+		conn = getConnection();
+		ArrayList<String[]> temp=new ArrayList<String[]>();
+		try {
+			pstmt = conn.prepareStatement("select * from reservation_old where id = ? ");
+			pstmt.setString(1, id); //첫번째 ?에 넣음
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻	
+				String[] reservation=new String[6];
+				for(int i=0;i<6;i++) {
+					reservation[i]=rs.getString(i+2);
+				}
+				temp.add(reservation);
+			}
+			return temp;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
+	public int cnt_2_old(DTO_customer cnt_user) {//점포 테이블 정보 받아오기
+		conn = getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement("select * from reservation_current where rc_id='"
+					+ cnt_user.get_ID()
+					+"' and (rc_date >date_format(now(),'%Y-%m-%d') or (rc_date = date_format(now(),'%Y-%m-%d') and rc_time>time_format(now(),'%H:%i:%s')));");
+			rs = pstmt.executeQuery();
+			System.out.println(pstmt);
+			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻	
+				new_old_reservation(new DTO_reservation_old(rs.getString(1),rs.getString(2),rs.getString(4),rs.getString(5),rs.getInt(3),rs.getInt(6),rs.getString(7),cnt_user.get_Age(),cnt_user.get_Gender()));	
+			}
+			pstmt = conn.prepareStatement("delete from reservation_current where rc_id='"
+					+ cnt_user.get_ID()
+					+"' and (rc_date >date_format(now(),'%Y-%m-%d') or (rc_date = date_format(now(),'%Y-%m-%d') and rc_time>time_format(now(),'%H:%i:%s')));");
+			pstmt.executeUpdate();
+			return 1;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return 0; 
+	}
 	public static  Connection getConnection() {//DB와 연결
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
