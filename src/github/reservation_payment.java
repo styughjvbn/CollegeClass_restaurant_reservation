@@ -200,28 +200,53 @@ public class reservation_payment extends JPanel {
 				String str=temp.category_name;  //카테고리 이름 받아서
 				set_detail(DAO.get_detail(str));  //메뉴들 받아옴
 				panel_3.setVisible(true);
+				
+				temp.setOpaque(true);
+				temp.setBackground(new Color(120, 108, 100));
+				temp.setForeground(Color.WHITE);
 			}
+			
 			temp.addMouseListener(new MouseAdapter() {  //카테고리 하나 누르면
 				@Override
-				public void mousePressed(MouseEvent e) {
+				public void mouseClicked(MouseEvent e) {
 					String str=((category)e.getComponent()).category_name;  //카테고리 이름 받아서
 					panel_3.setVisible(false);
-					set_detail(DAO.get_detail(str));  //메뉴들 받아옴
+					set_detail(DAO.get_detail(str));  //메뉴들을 받아옴
 					panel_3.setVisible(true);
-
-					JLabel tjsxor=(JLabel)e.getComponent();  //선택 카테고리 표시
-					tjsxor.setOpaque(true);
-					tjsxor.setBackground(new Color(120, 108, 100));
-					tjsxor.setForeground(Color.WHITE);
-				}
-				public void mouseReleased(MouseEvent e) {
-					JLabel tjsxor=(JLabel)e.getComponent();  //선택 카테고리 표시
-					tjsxor.setOpaque(false);
-					tjsxor.setForeground(Color.BLACK);
+					
+					set_category(list, str);  //선택 카테고리 표시
 				}
 			});
 			categorylist.add(temp);
 			panel_2.add(categorylist.get(i));		
+		}
+		panel_2.revalidate();
+	}
+	
+	public void set_category(ArrayList<String> list, String str) {  //panel_3 카테고리 세팅
+		panel_2.removeAll();
+		categorylist.clear();  
+
+		for(int i=0;i<list.size();i++) {
+			category temp=new category(list.get(i));
+			if(temp.category_name==str) {
+				temp.setOpaque(true);
+				temp.setBackground(new Color(120, 108, 100));
+				temp.setForeground(Color.WHITE);
+			}
+			temp.addMouseListener(new MouseAdapter() {  //카테고리 하나 누르면
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					String str=((category)e.getComponent()).category_name;  //카테고리 이름 받아서
+					panel_3.setVisible(false);
+					set_detail(DAO.get_detail(str));  //메뉴들을 받아옴
+					panel_3.setVisible(true);
+					
+					set_category(list, str);  //선택 카테고리 표시
+				}
+			});
+			categorylist.add(temp);
+			panel_2.add(categorylist.get(i));			
 		}
 		panel_2.revalidate();
 	}
@@ -258,7 +283,17 @@ public class reservation_payment extends JPanel {
 		public detail(int price_, String name_) {
 			this.price = price_;
 			this.name = name_.substring(0,name_.lastIndexOf("_"));	
-			setText("<html>" + this.name + "<br>" + this.price + "</html>");
+			//돈 단위대로 출력
+			if(this.price>=1000) { 
+				String rightl= "%14s";
+				String nprice= Integer.toString(this.price);
+				nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"원";
+				setText("<html>" + this.name + "<br>" + nprice + "</html>");
+			}else {
+				String rightl= "%14s";
+				String nprice= Integer.toString(this.price)+"원";
+				setText("<html>" + this.name + "<br>" + nprice + "</html>");
+			}
 			setHorizontalAlignment(JLabel.CENTER);
 			setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
 			setPreferredSize(new Dimension(100, 100));	
