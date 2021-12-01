@@ -16,11 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.DebugGraphics;
 import java.awt.Font;
-import javax.swing.border.EmptyBorder;
 
-class fixed_shop_table extends JLabel{//ÎìúÎûòÍ∑∏Î°ú Î∞∞ÏπòÍ∞Ä Í∞ÄÎä•Ìïú ÌÖåÏù¥Î∏î ÎùºÎ≤®
+class fixed_shop_table extends JLabel{//µÂ∑°±◊∑Œ πËƒ°∞° ∞°¥…«— ≈◊¿Ã∫Ì ∂Û∫ß
 	int x,y;
 	int size;
 	int table_num;
@@ -36,7 +34,7 @@ class fixed_shop_table extends JLabel{//ÎìúÎûòÍ∑∏Î°ú Î∞∞ÏπòÍ∞Ä Í∞ÄÎä•Ìïú ÌÖåÏù¥Î
 public class reservation_detail extends JPanel {
 	private JTextField nametxt;
 	public JButton detail_back;
-	Calendar calendar = Calendar.getInstance(); //javaÏóêÏÑú ÎÇ†Ïßú + ÏãúÍ∞ÑÏùÑ Î∞õÏïÑÏò¥
+	Calendar calendar = Calendar.getInstance(); //javaø°º≠ ≥Ø¬• + Ω√∞£¿ª πﬁæ∆ø»
 	public JButton checkbutton;
 	public DTO_shop cnt_shop;
 	private ArrayList<fixed_shop_table> shop_table=new ArrayList();
@@ -81,10 +79,10 @@ public class reservation_detail extends JPanel {
 		
 		datebox = new JComboBox();
 		datebox.setBackground(new Color(226,221,215));
-		datebox.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï Î≥¥ÌÜµ", Font.PLAIN, 15));
+		datebox.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
 		datebox.setBounds(895, 150, 289, 33);
 		add(datebox);
-		//ÎÇ†Ïßú ÏÑ†ÌÉùÌïòÎ©¥ ÏãúÍ∞ÑÏÑ†ÌÉùÌôîÎ©¥ ÎÇòÏò¥
+		//≥Ø¬• º±≈√«œ∏È Ω√∞£º±≈√»≠∏È ≥™ø»
 		datebox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox) e.getSource();
@@ -102,9 +100,9 @@ public class reservation_detail extends JPanel {
 			}
 		});
 
-		detail_back = new JButton("\uC774\uC804\uD654\uBA74");//backÎ≤ÑÌäº
+		detail_back = new JButton("\uC774\uC804\uD654\uBA74");//backπˆ∆∞
 		detail_back.setForeground(new Color(120, 108, 100));
-		detail_back.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 17));
+		detail_back.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 17));
 		detail_back.setBounds(900, 489, 284, 49);
 		add(detail_back);
 		detail_back.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
@@ -113,7 +111,7 @@ public class reservation_detail extends JPanel {
 		
 		
 		JLabel lblNewLabel_2 = new JLabel("\uB0A0\uC9DC \uC120\uD0DD");
-		lblNewLabel_2.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï Î≥¥ÌÜµ", Font.PLAIN, 15));
+		lblNewLabel_2.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
 		lblNewLabel_2.setBounds(895, 122, 80, 23);
 		add(lblNewLabel_2);
 		
@@ -121,7 +119,7 @@ public class reservation_detail extends JPanel {
 		checkbutton.setForeground(Color.WHITE);
 		checkbutton.setBackground(new Color(120, 108, 100));
 		checkbutton.setBorder(new LineBorder(new Color(120, 108, 100), 2, true));
-		checkbutton.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 17));
+		checkbutton.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 17));
 		checkbutton.setBounds(900, 548, 284, 49);
 		add(checkbutton);
 		
@@ -134,35 +132,35 @@ public class reservation_detail extends JPanel {
 		
 		table_size_3 = new JLabel("\uBA85\uC785\uB2C8\uB2E4.");
 		table_size_3.setForeground(new Color(120, 108, 100));
-		table_size_3.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		table_size_3.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		table_size_3.setBounds(25, 156, 233, 23);
 		panel.add(table_size_3);
 		
 		table_size_2 = new JLabel("* \uC120\uD0DD\uD558\uC2E0 \uD14C\uC774\uBE14\uC758 \uCD5C\uB300 \uD5C8\uC6A9 \uC778\uC6D0\uC218\uB294");
 		table_size_2.setForeground(new Color(120, 108, 100));
-		table_size_2.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		table_size_2.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		table_size_2.setBounds(5, 134, 279, 23);
 		panel.add(table_size_2);
 		
 		table_size = new JLabel("");
 		table_size.setForeground(new Color(120, 108, 100));
-		table_size.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		table_size.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		table_size.setBounds(7, 156, 23, 23);
 		panel.add(table_size);
 		
 		time_label = new JLabel("\uC2DC\uAC04 \uC120\uD0DD");
-		time_label.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï Î≥¥ÌÜµ", Font.PLAIN, 15));
+		time_label.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
 		time_label.setBounds(0, 10, 119, 23);
 		panel.add(time_label);
 		
 		timebox = new JComboBox();
 		timebox.setBackground(new Color(226,221,215));
-		timebox.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï Î≥¥ÌÜµ", Font.PLAIN, 15));
+		timebox.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
 		timebox.setBounds(0, 38, 289, 33);
 		panel.add(timebox);
 		
 		table_number = new JLabel("");
-		table_number.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		table_number.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		table_number.setBounds(110, 99, 23, 23);
 		panel.add(table_number);
 		
@@ -170,10 +168,10 @@ public class reservation_detail extends JPanel {
 		time_label_1.setForeground(new Color(120, 108, 100));
 		time_label_1.setBounds(0, 210, 97, 19);
 		panel.add(time_label_1);
-		time_label_1.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		time_label_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		
 		nametxt = new JTextField();
-		nametxt.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		nametxt.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		nametxt.setBounds(110, 210, 159, 19);
 		panel.add(nametxt);
 		nametxt.setColumns(10);
@@ -184,7 +182,7 @@ public class reservation_detail extends JPanel {
 		lblNewLabel_1.setBounds(0, 99, 103, 23);
 		panel.add(lblNewLabel_1);
 		lblNewLabel_1.setForeground(new Color(120, 108, 100));
-		lblNewLabel_1.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		lblNewLabel_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
@@ -197,18 +195,18 @@ public class reservation_detail extends JPanel {
 		panel.add(table_size_1);
 		
 		table_number_1 = new JLabel("\uBC88");
-		table_number_1.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		table_number_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		table_number_1.setBounds(128, 99, 23, 23);
 		panel.add(table_number_1);
 		
 		lblNewLabel_1_1 = new JLabel("\uC608\uC57D \uC815\uBCF4 \uC785\uB825");
-		lblNewLabel_1_1.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		lblNewLabel_1_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		lblNewLabel_1_1.setBounds(895, 68, 128, 21);
 		add(lblNewLabel_1_1);
 		
 		lblNewLabel_1_1_1 = new JLabel("");
 		lblNewLabel_1_1_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
-		lblNewLabel_1_1_1.setFont(new Font("ÏÑ∏Î∞©Í≥†Îîï ÍµµÍ≤å", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
 		lblNewLabel_1_1_1.setBounds(895, 86, 289, 21);
 		add(lblNewLabel_1_1_1);
 		
@@ -218,7 +216,7 @@ public class reservation_detail extends JPanel {
 				"",
 				cnt_shop.get_shop_name(),
 				Integer.parseInt(table_size.getText().toString()),
-				timebox.getSelectedItem().toString().substring(0,timebox.getSelectedItem().toString().lastIndexOf("Ïãú"))+":00:00",
+				timebox.getSelectedItem().toString().substring(0,timebox.getSelectedItem().toString().lastIndexOf("Ω√"))+":00:00",
 				datebox.getSelectedItem().toString().substring(0, 10),
 				0,
 				"",
@@ -248,10 +246,10 @@ public class reservation_detail extends JPanel {
 			fixed_shop_table tmp=new fixed_shop_table(temp.get(i)[1],++table_num+1,temp.get(i)[2],temp.get(i)[3]);
 			tmp.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseClicked(MouseEvent e) {  //ÌÖåÏù¥Î∏î ÏÑ†ÌÉù ÌõÑ
+				public void mouseClicked(MouseEvent e) {  //≈◊¿Ã∫Ì º±≈√ »ƒ
 					//panel.setVisible(true);
 					timebox.removeAllItems();
-					timebox.addItem("ÏãúÍ∞Ñ ÏÑ†ÌÉù");
+					timebox.addItem("Ω√∞£ º±≈√");
 					table_number.setText(Integer.toString(tmp.table_num));
 					table_size.setText(Integer.toString(tmp.size));
 					String date=datebox.getSelectedItem().toString().substring(0,10);
@@ -273,9 +271,9 @@ public class reservation_detail extends JPanel {
 								}
 								if(!is_in) {
 									if(0<i && i<10) {
-										timebox.addItem("0"+i+"Ïãú 00Î∂Ñ");
+										timebox.addItem("0"+i+"Ω√ 00∫–");
 									}else {
-										timebox.addItem(i+"Ïãú 00Î∂Ñ");
+										timebox.addItem(i+"Ω√ 00∫–");
 									}
 								}
 							}
@@ -288,7 +286,7 @@ public class reservation_detail extends JPanel {
 										is_in=true;
 								}
 								if(!is_in)
-									timebox.addItem(i+"Ïãú 00Î∂Ñ");
+									timebox.addItem(i+"Ω√ 00∫–");
 							}
 							for(int i=0;i<close;i++){
 								boolean is_in=false;
@@ -297,22 +295,22 @@ public class reservation_detail extends JPanel {
 										is_in=true;
 								}
 								if(!is_in)
-									timebox.addItem(i+"Ïãú 00Î∂Ñ");
+									timebox.addItem(i+"Ω√ 00∫–");
 							}
 						}
 					}else {
 						if(open<close) {
 							for(int i=open;i<close;i++)
-									timebox.addItem(i+"Ïãú 00Î∂Ñ");		
+									timebox.addItem(i+"Ω√ 00∫–");		
 						}
 						else {
 							for(int i=open;i<=23;i++)
-								timebox.addItem(i+"Ïãú 00Î∂Ñ");
+								timebox.addItem(i+"Ω√ 00∫–");
 							for(int i=0;i<close;i++)
-								timebox.addItem(i+"Ïãú 00Î∂Ñ");
+								timebox.addItem(i+"Ω√ 00∫–");
 						}
 					}					
-					//DBÏóêÏÑú ÏòàÏïΩ ÎÇ¥Ïó≠ Í∞ÄÏ†∏ÏôÄÏÑú Îπà ÏãúÍ∞Ñ Ï∂îÍ∞Ä 
+					//DBø°º≠ øπæ‡ ≥ªø™ ∞°¡ÆøÕº≠ ∫Û Ω√∞£ √ﬂ∞° 
 					
 				}
 			});
@@ -324,9 +322,9 @@ public class reservation_detail extends JPanel {
 	}
 
 	void set_reservationdate() {
-		// JAVA utilÏùÑ Ïç®ÏÑú ÏõîÍ≥º ÏùºÏùÑ Í∞ÄÏ†∏Ïò¥
+		// JAVA util¿ª Ω·º≠ ø˘∞˙ ¿œ¿ª ∞°¡Æø»
 		datebox.removeAllItems();
-		datebox.addItem("ÎÇ†Ïßú ÏÑ†ÌÉù");
+		datebox.addItem("≥Ø¬• º±≈√");
 			for (int i = 0; i < 7; i++) {
 				boolean is_holyday = false;
 				int year = calendar.get(calendar.YEAR);
@@ -336,25 +334,25 @@ public class reservation_detail extends JPanel {
 				String week_ = "";
 				switch (week) {
 				case 1:
-					week_ = "Ïùº";
+					week_ = "¿œ";
 					break;
 				case 2:
-					week_ = "Ïõî";
+					week_ = "ø˘";
 					break;
 				case 3:
-					week_ = "Ìôî";
+					week_ = "»≠";
 					break;
 				case 4:
-					week_ = "Ïàò";
+					week_ = "ºˆ";
 					break;
 				case 5:
-					week_ = "Î™©";
+					week_ = "∏Ò";
 					break;
 				case 6:
-					week_ = "Í∏à";
+					week_ = "±›";
 					break;
 				case 7:
-					week_ = "ÌÜ†";
+					week_ = "≈‰";
 					break;
 				}
 				for (int j = 0; j < holyday.size(); j++) {

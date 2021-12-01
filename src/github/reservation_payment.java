@@ -15,12 +15,9 @@ import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
-import java.awt.BorderLayout;
-import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;
 import java.awt.Font;
 import javax.swing.ImageIcon;
-import javax.swing.UIManager;
 
 public class reservation_payment extends JPanel {
 	private DAO_reservation DAO=new DAO_reservation();
@@ -51,7 +48,7 @@ public class reservation_payment extends JPanel {
 	public reservation_payment() {
 		setLayout(null);
 		
-		//ë©”ë‰´ ë‹¤ ê³ ë¥´ê³ ì„œ ì˜ˆì•½ë²„íŠ¼
+		//¸Ş´º ´Ù °í¸£°í¼­ ¿¹¾à¹öÆ°
 		btnNewButton = new JButton("reservation ");		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,13 +68,13 @@ public class reservation_payment extends JPanel {
 		add(panel_1);
 		panel_1.setLayout(null);
 		
-		//detail íŒ¨ë„
+		//detail ÆĞ³Î
 		panel_3 = new JPanel();
 		panel_3.setBounds(0, 99, 797, 495);
 		panel_1.add(panel_3);
 		panel_3.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 		
-		//category íŒ¨ë„
+		//category ÆĞ³Î
 				panel_2 = new JPanel();
 				panel_2.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10)); 
 				
@@ -89,13 +86,13 @@ public class reservation_payment extends JPanel {
 		
 		scrollPane.setViewportView(panel_2);
 		
-		//ì´ ì£¼ë¬¸ ê¸ˆì•¡
+		//ÃÑ ÁÖ¹® ±İ¾×
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setFont(new Font("êµ´ë¦¼", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		lblNewLabel.setBounds(998, 383, 191, 21);
 		add(lblNewLabel);
 		
-		//ì„ íƒ ë©”ë‰´ ì´ë¦„
+		//¼±ÅÃ ¸Ş´º ÀÌ¸§
 		textArea = new JTextArea();
 		textArea.setBackground(new Color(226,221,215));
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
@@ -103,7 +100,7 @@ public class reservation_payment extends JPanel {
 		add(textArea);
 		textArea.setEditable(false);
 		
-		//ê°€ê²©
+		//°¡°İ
 		textArea_1 = new JTextArea();
 		textArea_1.setBackground(new Color(226,221,215));
 		textArea_1.setFont(new Font("Monospaced", Font.PLAIN, 15));
@@ -111,12 +108,12 @@ public class reservation_payment extends JPanel {
 		textArea_1.setBounds(1060, 108, 124, 256);
 		add(textArea_1);
 		
-		//ìµœê·¼ ì„ íƒ ë©”ë‰´ ì‚­ì œ : ìµœê·¼ ë©”ë‰´ ì‚­ì œí•˜ê³  ë©”ë‰´íŒ ë‹¤ì‹œ ì¶œë ¥
+		//ÃÖ±Ù ¼±ÅÃ ¸Ş´º »èÁ¦ : ÃÖ±Ù ¸Ş´º »èÁ¦ÇÏ°í ¸Ş´ºÆÇ ´Ù½Ã Ãâ·Â
 		btnNewButton_2 = new JButton("\uCD5C\uADFC \uC120\uD0DD \uBA54\uB274 \uC0AD\uC81C");
 		btnNewButton_2.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
 		btnNewButton_2.setForeground( new Color(120, 108, 100));
 		btnNewButton_2.setBackground(new Color(200, 184, 164));
-		btnNewButton_2.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 15));
+		btnNewButton_2.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (sele_price.size() > 0) {
@@ -128,42 +125,42 @@ public class reservation_payment extends JPanel {
 					for (int i = 0; i < sele_price.size(); i++) {
 						sum += sele_price.get(i);
 						textArea.append(sele_menu.get(i) + "\n");
-						// ëˆ ë‹¨ìœ„ëŒ€ë¡œ ì¶œë ¥
+						// µ· ´ÜÀ§´ë·Î Ãâ·Â
 						if (sele_price.get(i) >= 1000) {
 							String rightl = "%14s";
 							String nprice = Integer.toString(sele_price.get(i));
 							nprice = nprice.substring(0, nprice.length() - 3) + ","
-									+ nprice.substring(nprice.length() - 3, nprice.length()) + "ì›";
+									+ nprice.substring(nprice.length() - 3, nprice.length()) + "¿ø";
 							textArea_1.append(String.format(rightl, nprice) + "\n");
 						} else {
 							String rightl = "%14s";
-							String nprice = Integer.toString(sele_price.get(i)) + "ì›";
+							String nprice = Integer.toString(sele_price.get(i)) + "¿ø";
 							lblNewLabel.setText(String.format(rightl, nprice));
 							textArea_1.append(String.format(rightl, nprice) + "\n");
 						}
 					}
-					// ëˆ ë‹¨ìœ„ëŒ€ë¡œ ì¶œë ¥
+					// µ· ´ÜÀ§´ë·Î Ãâ·Â
 					if (sum >= 1000) {
 						String rightl = "%30s";
 						String nprice = Integer.toString(sum);
 						nprice = nprice.substring(0, nprice.length() - 3) + ","
-								+ nprice.substring(nprice.length() - 3, nprice.length()) + "ì›";
+								+ nprice.substring(nprice.length() - 3, nprice.length()) + "¿ø";
 						lblNewLabel.setText(String.format(rightl, nprice));
 					} else {
 						String rightl = "%30s";
-						String nprice = Integer.toString(sum) + "ì›";
+						String nprice = Integer.toString(sum) + "¿ø";
 						lblNewLabel.setText(String.format(rightl, nprice));
 					}
 				}
-				//ì´ ì£¼ë¬¸ê¸ˆì•¡ ëˆ ë‹¨ìœ„ëŒ€ë¡œ ì¶œë ¥
+				//ÃÑ ÁÖ¹®±İ¾× µ· ´ÜÀ§´ë·Î Ãâ·Â
 				if(sum>=1000) {  
 					String rightl= "%30s";
 					String nprice= Integer.toString(sum);
-					nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"ì›";
+					nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"¿ø";
 					lblNewLabel.setText(String.format(rightl,nprice));
 				}else {
 					String rightl= "%30s";
-					String nprice= Integer.toString(sum)+"ì›";
+					String nprice= Integer.toString(sum)+"¿ø";
 					lblNewLabel.setText(String.format(rightl,nprice));
 				}
 			}
@@ -171,49 +168,49 @@ public class reservation_payment extends JPanel {
 		btnNewButton_2.setBounds(900, 414, 284, 27);
 		add(btnNewButton_2);
 		
-		//ì¢Œì„ ì„ íƒí™”ë©´ìœ¼ë¡œ ëŒì•„ê°
+		//ÁÂ¼® ¼±ÅÃÈ­¸éÀ¸·Î µ¹¾Æ°¨
 		btnNewButton_3 = new JButton("back");
 		btnNewButton_3.setBounds(900, 489, 284, 49);
 		add(btnNewButton_3);
 		
-		lblNewLabel_1 = new JLabel("\uCD1D \uC8FC\uBB38\uAE08\uC561");  //ì´ ì£¼ë¬¸ê¸ˆì•¡ ê¸€ì”¨
-		lblNewLabel_1.setFont(new Font("êµ´ë¦¼", Font.BOLD, 15));
+		lblNewLabel_1 = new JLabel("\uCD1D \uC8FC\uBB38\uAE08\uC561");  //ÃÑ ÁÖ¹®±İ¾× ±Û¾¾
+		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(900, 384, 86, 21);
 		add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("\uBA54\uB274 \uC120\uD0DD");
-		lblNewLabel_1_1.setFont(new Font("êµ´ë¦¼", Font.BOLD, 15));
+		lblNewLabel_1_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		lblNewLabel_1_1.setBounds(900, 68, 65, 21);
 		add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("");
 		lblNewLabel_1_1_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
-		lblNewLabel_1_1_1.setFont(new Font("êµ´ë¦¼", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		lblNewLabel_1_1_1.setBounds(894, 86, 290, 21);
 		add(lblNewLabel_1_1_1);
 		
 		lblNewLabel_1_1_2 = new JLabel("");
 		lblNewLabel_1_1_2.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\hsection_icon.png"));
-		lblNewLabel_1_1_2.setFont(new Font("êµ´ë¦¼", Font.BOLD, 15));
+		lblNewLabel_1_1_2.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		lblNewLabel_1_1_2.setBounds(894, 359, 290, 21);
 		add(lblNewLabel_1_1_2);
 		
 
 	}
 	
-	public void refresh(String cnt_shop) {  //í™”ë©´ ì´ˆê¸°í™”
+	public void refresh(String cnt_shop) {  //È­¸é ÃÊ±âÈ­
 		this.shop=cnt_shop;
 		categorylist.clear();  
 		panel_2.removeAll();
 		
 		textArea.setText("");
 		textArea_1.setText("");
-		ArrayList<String> list=DAO.get_category(this.shop);  //ì¹´í…Œê³ ë¦¬ ë¦¬ìŠ¤íŠ¸
+		ArrayList<String> list=DAO.get_category(this.shop);  //Ä«Å×°í¸® ¸®½ºÆ®
 		for(int i=0; i<list.size();i++) {
 			category temp=new category(list.get(i)); 
-			if(i==0) { //ì²˜ìŒí™”ë©´
-				String str=temp.category_name;  //ì¹´í…Œê³ ë¦¬ ì´ë¦„ ë°›ì•„ì„œ
-				set_detail(DAO.get_detail(str));  //ë©”ë‰´ë“¤ ë°›ì•„ì˜´
+			if(i==0) { //Ã³À½È­¸é
+				String str=temp.category_name;  //Ä«Å×°í¸® ÀÌ¸§ ¹Ş¾Æ¼­
+				set_detail(DAO.get_detail(str));  //¸Ş´ºµé ¹Ş¾Æ¿È
 				panel_3.setVisible(true);
 				
 				temp.setOpaque(true);
@@ -221,15 +218,15 @@ public class reservation_payment extends JPanel {
 				temp.setForeground(Color.WHITE);
 			}
 			
-			temp.addMouseListener(new MouseAdapter() {  //ì¹´í…Œê³ ë¦¬ í•˜ë‚˜ ëˆ„ë¥´ë©´
+			temp.addMouseListener(new MouseAdapter() {  //Ä«Å×°í¸® ÇÏ³ª ´©¸£¸é
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					String str=((category)e.getComponent()).category_name;  //ì¹´í…Œê³ ë¦¬ ì´ë¦„ ë°›ì•„ì„œ
+					String str=((category)e.getComponent()).category_name;  //Ä«Å×°í¸® ÀÌ¸§ ¹Ş¾Æ¼­
 					panel_3.setVisible(false);
-					set_detail(DAO.get_detail(str));  //ë©”ë‰´ë“¤ì„ ë°›ì•„ì˜´
+					set_detail(DAO.get_detail(str));  //¸Ş´ºµéÀ» ¹Ş¾Æ¿È
 					panel_3.setVisible(true);
 					
-					set_category(list, str);  //ì„ íƒ ì¹´í…Œê³ ë¦¬ í‘œì‹œ
+					set_category(list, str);  //¼±ÅÃ Ä«Å×°í¸® Ç¥½Ã
 				}
 			});
 			categorylist.add(temp);
@@ -238,7 +235,7 @@ public class reservation_payment extends JPanel {
 		panel_2.revalidate();
 	}
 	
-	public void set_category(ArrayList<String> list, String str) {  //panel_3 ì¹´í…Œê³ ë¦¬ ì„¸íŒ…
+	public void set_category(ArrayList<String> list, String str) {  //panel_3 Ä«Å×°í¸® ¼¼ÆÃ
 		panel_2.removeAll();
 		categorylist.clear();  
 
@@ -249,15 +246,15 @@ public class reservation_payment extends JPanel {
 				temp.setBackground(new Color(120, 108, 100));
 				temp.setForeground(Color.WHITE);
 			}
-			temp.addMouseListener(new MouseAdapter() {  //ì¹´í…Œê³ ë¦¬ í•˜ë‚˜ ëˆ„ë¥´ë©´
+			temp.addMouseListener(new MouseAdapter() {  //Ä«Å×°í¸® ÇÏ³ª ´©¸£¸é
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					String str=((category)e.getComponent()).category_name;  //ì¹´í…Œê³ ë¦¬ ì´ë¦„ ë°›ì•„ì„œ
+					String str=((category)e.getComponent()).category_name;  //Ä«Å×°í¸® ÀÌ¸§ ¹Ş¾Æ¼­
 					panel_3.setVisible(false);
-					set_detail(DAO.get_detail(str));  //ë©”ë‰´ë“¤ì„ ë°›ì•„ì˜´
+					set_detail(DAO.get_detail(str));  //¸Ş´ºµéÀ» ¹Ş¾Æ¿È
 					panel_3.setVisible(true);
 					
-					set_category(list, str);  //ì„ íƒ ì¹´í…Œê³ ë¦¬ í‘œì‹œ
+					set_category(list, str);  //¼±ÅÃ Ä«Å×°í¸® Ç¥½Ã
 				}
 			});
 			categorylist.add(temp);
@@ -266,7 +263,7 @@ public class reservation_payment extends JPanel {
 		panel_2.revalidate();
 	}
 	
-	public void set_detail(ArrayList<DTO_menu_detail> source) {  //panel_3 ë©”ë‰´ ì„¸íŒ…
+	public void set_detail(ArrayList<DTO_menu_detail> source) {  //panel_3 ¸Ş´º ¼¼ÆÃ
 		detaillist.clear();
 		panel_3.removeAll();
 
@@ -279,8 +276,8 @@ public class reservation_payment extends JPanel {
 	}
 	
 	class category extends JLabel{
-		int number;//í‚¤ ê°’
-		public String category_name;//ì¹´í…Œê³ ë¦¬ ì´ë¦„
+		int number;//Å° °ª
+		public String category_name;//Ä«Å×°í¸® ÀÌ¸§
 
 		public category(String category_name) {
 			setBorder(null);
@@ -298,15 +295,15 @@ public class reservation_payment extends JPanel {
 		public detail(int price_, String name_) {
 			this.price = price_;
 			this.name = name_.substring(0,name_.lastIndexOf("_"));	
-			//ëˆ ë‹¨ìœ„ëŒ€ë¡œ ì¶œë ¥
+			//µ· ´ÜÀ§´ë·Î Ãâ·Â
 			if(this.price>=1000) { 
 				String rightl= "%14s";
 				String nprice= Integer.toString(this.price);
-				nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"ì›";
+				nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"¿ø";
 				setText("<html>" + this.name + "<br>" + nprice + "</html>");
 			}else {
 				String rightl= "%14s";
-				String nprice= Integer.toString(this.price)+"ì›";
+				String nprice= Integer.toString(this.price)+"¿ø";
 				setText("<html>" + this.name + "<br>" + nprice + "</html>");
 			}
 			setHorizontalAlignment(JLabel.CENTER);
@@ -315,9 +312,9 @@ public class reservation_payment extends JPanel {
 			addMouseListener(new MouseAdapter() {
 				
 				@Override
-				public void mousePressed(MouseEvent e) { //ìµœëŒ€ 10ê°œë§Œ
+				public void mousePressed(MouseEvent e) { //ÃÖ´ë 10°³¸¸
 					
-					JLabel tjsxor=(JLabel)e.getComponent();  //ì„ íƒ ì¹´í…Œê³ ë¦¬ í‘œì‹œ
+					JLabel tjsxor=(JLabel)e.getComponent();  //¼±ÅÃ Ä«Å×°í¸® Ç¥½Ã
 					tjsxor.setOpaque(true);
 					tjsxor.setBackground(new Color(120, 108, 100));
 					tjsxor.setForeground(Color.WHITE);
@@ -325,15 +322,15 @@ public class reservation_payment extends JPanel {
 					sele_price.add(price);
 					sele_menu.add(name);
 					textArea.append(name+"\n");
-					 //ëˆ ë‹¨ìœ„ëŒ€ë¡œ ì¶œë ¥
+					 //µ· ´ÜÀ§´ë·Î Ãâ·Â
 					if(price>=1000) { 
 						String rightl= "%14s";
 						String nprice= Integer.toString(price);
-						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"ì›";
+						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"¿ø";
 						textArea_1.append(String.format(rightl,  nprice)+"\n");
 					}else {
 						String rightl= "%14s";
-						String nprice= Integer.toString(price)+"ì›";
+						String nprice= Integer.toString(price)+"¿ø";
 						lblNewLabel.setText(String.format(rightl,nprice));
 						textArea_1.append(String.format(rightl,nprice)+"\n");
 					}
@@ -341,20 +338,20 @@ public class reservation_payment extends JPanel {
 					for(int i=0;i<sele_price.size();i++) {
 						sum+=sele_price.get(i);
 					}
-					//ëˆ ë‹¨ìœ„ëŒ€ë¡œ ì¶œë ¥, ì˜¤ë¥¸ìª½ ì •ë ¬
+					//µ· ´ÜÀ§´ë·Î Ãâ·Â, ¿À¸¥ÂÊ Á¤·Ä
 					if(sum>=1000) {  
 						String rightl= "%30s";
 						String nprice= Integer.toString(sum);
-						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"ì›";
+						nprice= nprice.substring(0, nprice.length()-3)+","+nprice.substring(nprice.length()-3, nprice.length())+"¿ø";
 						lblNewLabel.setText(String.format(rightl,nprice));
 					}else {
 						String rightl= "%30s";
-						String nprice= Integer.toString(sum)+"ì›";
+						String nprice= Integer.toString(sum)+"¿ø";
 						lblNewLabel.setText(String.format(rightl,nprice));
 					}
 				}
 				public void mouseReleased(MouseEvent e) {
-					JLabel tjsxor=(JLabel)e.getComponent();  //ì„ íƒ ì¹´í…Œê³ ë¦¬ í‘œì‹œ
+					JLabel tjsxor=(JLabel)e.getComponent();  //¼±ÅÃ Ä«Å×°í¸® Ç¥½Ã
 					tjsxor.setOpaque(false);
 					tjsxor.setForeground(Color.BLACK);
 				}
@@ -362,4 +359,3 @@ public class reservation_payment extends JPanel {
 		}
 	}
 }
-
