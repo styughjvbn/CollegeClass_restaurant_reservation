@@ -3,7 +3,6 @@ package github;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,11 +16,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.border.BevelBorder;
 import java.awt.Font;
-import javax.swing.UIManager;
 
 public class reservation_base extends JPanel {
 	private Image img;
@@ -56,6 +52,10 @@ public class reservation_base extends JPanel {
 	private JLabel lblNewLabel_10;
 	private JLabel lblNewLabel_12;
 	private JLabel lblNewLabel_13;
+	private JPanel panel_3;
+	private JButton btnNewButton_3;
+	private JButton btnNewButton_4;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -77,6 +77,47 @@ public class reservation_base extends JPanel {
 		detail.detail_back.setSize(284, 49);
 		detail.detail_back.setLocation(900, 489);
 		add(detail, "detail");
+		
+		//
+		reservation temp=new reservation();
+		temp.setBounds(446, 50, 800, 600);
+		temp.setVisible(false);
+		
+		panel_3 = new JPanel();
+		panel_3.setBounds(433, 50, 111, 80);
+		panel.add(panel_3);
+		panel_3.setVisible(false);
+		//
+		
+		btnNewButton_3 = new JButton("\uC608\uC57D\uD655\uC778");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DAO.cnt_2_old(cnt_user);
+				temp.setVisible(true);
+				temp.nextcard(0);
+				temp.cnt_user=cnt_user;
+				temp.init2(cnt_user.get_ID());
+				temp.init(cnt_user.get_ID());
+				panel_3.setVisible(false);
+			}
+		});
+		panel_3.add(btnNewButton_3);
+		
+		btnNewButton_4 = new JButton("PW \uBCC0\uACBD");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				temp.nextcard(1);
+				temp.cnt_user=cnt_user;
+				temp.setVisible(true);
+				
+				panel_3.setVisible(false);
+			}
+		});
+		panel_3.add(btnNewButton_4);
+		panel.add(temp);
+		
+		
+		
 		
 		lblNewLabel_12 = new JLabel("");
 		lblNewLabel_12.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\panel_base.png"));
@@ -143,11 +184,11 @@ public class reservation_base extends JPanel {
 				machine.update_XY(textField.getText());
 				machine.search_result(textField_1.getText());
 				list1 = machine.get_result();
-				System.out.println("list1의 사이즈 : "+list1.size());
 				comboBox.removeAllItems();
 				for(int i=0;i<(int)list1.size();i++) {
 					comboBox.addItem(list1.get(i)[0]);
 				}
+				temp.setVisible(false);
 			}
 		});
 		
@@ -329,6 +370,15 @@ public class reservation_base extends JPanel {
 		lblNewLabel_10.setBounds(73, 365, 69, 21);
 		panel_1.add(lblNewLabel_10);
 		
+		JButton btnNewButton_2 = new JButton("mypage");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel_3.setVisible(true);
+			}
+		});
+		btnNewButton_2.setBounds(389, 50, 45, 41);
+		panel.add(btnNewButton_2);
+		
 		JLabel lblNewLabel_11 = new JLabel("");
 		lblNewLabel_11.setIcon(new ImageIcon("image/panel_base.png"));
 		lblNewLabel_11.setBounds(0, 0, 1280, 720);
@@ -390,6 +440,7 @@ public class reservation_base extends JPanel {
 					create_image.create_map_image(machine.get_center_x(), machine.get_center_y(), list1.get(index)[5],list1.get(index)[6], shop, list1.get(index)[0]);
 					lblNewLabel.setIcon(new ImageIcon("image/shop/" + list1.get(index)[0] + ".png"));
 					shop = list1.get(index)[0];
+					temp.setVisible(false);
 				}
 				
 			}
@@ -408,7 +459,7 @@ public class reservation_base extends JPanel {
 			}
 		});
 		
-		detail.detail_back.addActionListener(new ActionListener() {//상세페이지의 back버튼 클릭시 
+		detail.detail_back.addActionListener(new ActionListener() { //상세페이지의 back버튼 클릭시 
 			public void actionPerformed(ActionEvent e) {
 				card.show(detail.getParent(),"base");
 			}
@@ -436,5 +487,6 @@ public class reservation_base extends JPanel {
 		lblNewLabel_13.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\panel_base.png"));
 		lblNewLabel_13.setBounds(0, 0, 1280, 720);
 		payment.add(lblNewLabel_13);
+
 	}
 }
