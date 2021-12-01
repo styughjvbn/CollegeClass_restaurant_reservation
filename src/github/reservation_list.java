@@ -48,12 +48,7 @@ public class reservation_list extends JPanel {
 	}
 	public reservation_list() {
 		setLayout(null);
-		//���� ���� �մ�
 
-		//String[][] data = {{"1","2","3","4","5","6","7","8"}};
-		//String[] headings = new String[] {"id","count","time","date","money","menu","table","book_time"};
-		//setLayout(null);
-		//String[] [] data = DAO_oldreservation.getCurrentReservation(DTO_reservation_current.get_shop()); ���������� ������ ����� �̰� �����.. DAO���� List�� ��ȯ�ϰ� �س��� �װ� �ϸ� �ɰŰ����� �𸣰ڳ�
 		table_c = new JTable();
 		table_c.setModel(new DefaultTableModel(
 				new Object[][] {
@@ -66,19 +61,15 @@ public class reservation_list extends JPanel {
 		JScrollPane scrollPane = new JScrollPane(table_c);
 		scrollPane.setBounds(80, 45, 802, 128);
 		add(scrollPane);
-		//�ؽ�Ʈ ���� ����
+
 		JLabel lblNewLabel = new JLabel("\uD604\uC7AC \uC608\uC57D");
 		lblNewLabel.setBounds(80, 30, 126, 15);
 		add(lblNewLabel);
-		//�ؽ�Ʈ ���� ����
+
 		JLabel lblNewLabel_1 = new JLabel("\uC9C0\uB09C\uC608\uC57D");
 		lblNewLabel_1.setBounds(80, 283, 114, 15);
 		add(lblNewLabel_1);
-		//���� ���� �մ�
-		//String[][] olddata = DAO_oldreservation.getOldReservation(shop_name);
-		//String[][] olddata = {{"1","2","3","4","5","6","7","8","9"},
-				//{"1","2","3","4","5","6","7","8","9"}};
-		//String [] head = new String[]{"id","shop","count","time","date","money","menu","table","book_time"};
+		
 	    table_o = new JTable();
 	    table_o.setModel(new DefaultTableModel(
 				new Object[][] {

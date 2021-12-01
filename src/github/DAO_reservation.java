@@ -12,15 +12,15 @@ public class DAO_reservation {
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
 
-	public ArrayList<int[]> get_table_info(String shop) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
+	public ArrayList<int[]> get_table_info(String shop) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
 		conn = getConnection();
 		ArrayList<int[]> temp=new ArrayList();
 		try {
 			pstmt = conn.prepareStatement("select * from manage_table where mt_shop = ? ");
-			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
+			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»
+			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
 				int a[]=new int[4];
 				a[0]=rs.getInt(1);
 				a[1]=rs.getInt(3);
@@ -34,17 +34,17 @@ public class DAO_reservation {
 		}
 		return null; 
 	}
-	public ArrayList<String> get_enable_time(String shop,String date,int table_num) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
+	public ArrayList<String> get_enable_time(String shop,String date,int table_num) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
 		conn = getConnection();
 		ArrayList<String> temp=new ArrayList();
 		try {
 			pstmt = conn.prepareStatement("select rc_time from reservation_current where rc_shop = ? and rc_date = ? and rc_table = ?");
-			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
-			pstmt.setString(2, date); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
-			pstmt.setInt(3, table_num); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
+			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(2, date); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setInt(3, table_num); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»
+			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
 				temp.add(rs.getString(1));
 			}
 			return temp;
@@ -53,15 +53,15 @@ public class DAO_reservation {
 		}
 		return null; 
 	}
-	public DTO_shop get_shop_info(String shop) {//ì í¬ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+	public DTO_shop get_shop_info(String shop) {//Á¡Æ÷ Á¤º¸ °¡Á®¿À±â
 		conn = getConnection();
 		DTO_shop temp;
 		try {
 			pstmt = conn.prepareStatement("select * from shop where shop_name = ? ");
-			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
+			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
-			if(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»
+			if(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
 				temp=new DTO_shop(rs.getString(1),rs.getByte(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getString(6),rs.getString(7));
 				return temp;
 			}
@@ -69,18 +69,18 @@ public class DAO_reservation {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null; //ë¡œê·¸ì¸ ì‹¤íŒ¨
+		return null; //·Î±×ÀÎ ½ÇÆĞ
 	}
 
-	public ArrayList<String> get_category(String shop) {//ì¹´í…Œê³ ë¦¬ ë°›ì•„ì˜¤ê¸°
+	public ArrayList<String> get_category(String shop) {//Ä«Å×°í¸® ¹Ş¾Æ¿À±â
 		conn = getConnection();
 		ArrayList<String> temp=new ArrayList();
 		try {
 			pstmt = conn.prepareStatement("select * from menu_category where mc_shop = ? ");
-			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
+			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»		
+			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ		
 				String category=rs.getString(1);
 				temp.add(category);
 			}
@@ -90,15 +90,15 @@ public class DAO_reservation {
 		}
 		return null; 
 	}
-	public ArrayList<DTO_menu_detail> get_detail(String key) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
+	public ArrayList<DTO_menu_detail> get_detail(String key) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
 		conn = getConnection();
 		ArrayList<DTO_menu_detail> temp=new ArrayList();
 		try {
 			pstmt = conn.prepareStatement("select * from menu_detail where md_category = ? ");
-			pstmt.setString(1, key); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
+			pstmt.setString(1, key); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»		
+			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ		
 				DTO_menu_detail detail=new DTO_menu_detail(rs.getString(1),"",rs.getInt(3));
 				temp.add(detail);
 			}
@@ -108,7 +108,7 @@ public class DAO_reservation {
 		}
 		return null; 
 	}
-	public static int new_reservation(DTO_reservation_current current) {//ì˜ˆì•½ ì¶”ê°€
+	public static int new_reservation(DTO_reservation_current current) {//¿¹¾à Ãß°¡
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -123,7 +123,7 @@ public class DAO_reservation {
 		
 		return 0;
 	}
-	public static int new_old_reservation(DTO_reservation_old old) {//ì´ì „ ì˜ˆì•½ ì¶”ê°€
+	public static int new_old_reservation(DTO_reservation_old old) {//ÀÌÀü ¿¹¾à Ãß°¡
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -139,7 +139,7 @@ public class DAO_reservation {
 		
 		return 0;
 	}
-	public static int delete_reservation(String ID,String shop,String time) {//ì˜ˆì•½ ì·¨ì†Œ
+	public static int delete_reservation(String ID,String shop,String time) {//¿¹¾à Ãë¼Ò
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -156,7 +156,7 @@ public class DAO_reservation {
 			  }
 		return 0;
 	}
-	public static int update_pw(String cnt_id,String new_pw) {//ì˜ˆì•½ ì¶”ê°€
+	public static int update_pw(String cnt_id,String new_pw) {//¿¹¾à Ãß°¡
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -173,15 +173,15 @@ public class DAO_reservation {
 			  }
 		return 0;
 	}
-	public ArrayList<String[]> get_reservation_cnt(String id) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
+	public ArrayList<String[]> get_reservation_cnt(String id) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
 		conn = getConnection();
 		ArrayList<String[]> temp=new ArrayList<String[]>();
 		try {
 			pstmt = conn.prepareStatement("select * from reservation_current where rc_id = ? ");
-			pstmt.setString(1, id); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
+			pstmt.setString(1, id); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»	
+			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ	
 				String[] reservation=new String[8];
 				for(int i=0;i<8;i++) {
 					reservation[i]=rs.getString(i+2);
@@ -194,15 +194,15 @@ public class DAO_reservation {
 		}
 		return null; 
 	}
-	public ArrayList<String[]> get_reservation_old(String id) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
+	public ArrayList<String[]> get_reservation_old(String id) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
 		conn = getConnection();
 		ArrayList<String[]> temp=new ArrayList<String[]>();
 		try {
 			pstmt = conn.prepareStatement("select * from reservation_old where id = ? ");
-			pstmt.setString(1, id); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
+			pstmt.setString(1, id); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»	
+			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ	
 				String[] reservation=new String[6];
 				for(int i=0;i<6;i++) {
 					reservation[i]=rs.getString(i+2);
@@ -215,7 +215,7 @@ public class DAO_reservation {
 		}
 		return null; 
 	}
-	public int cnt_2_old(DTO_customer cnt_user) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
+	public int cnt_2_old(DTO_customer cnt_user) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
 		conn = getConnection();
 		
 		try {
@@ -224,7 +224,7 @@ public class DAO_reservation {
 					+"' and (rc_date >date_format(now(),'%Y-%m-%d') or (rc_date = date_format(now(),'%Y-%m-%d') and rc_time>time_format(now(),'%H:%i:%s')));");
 			rs = pstmt.executeQuery();
 			System.out.println(pstmt);
-			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»	
+			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ	
 				new_old_reservation(new DTO_reservation_old(rs.getString(1),rs.getString(2),rs.getString(4),rs.getString(5),rs.getInt(3),rs.getInt(6),rs.getString(7),cnt_user.get_Age(),cnt_user.get_Gender()));	
 			}
 			pstmt = conn.prepareStatement("delete from reservation_current where rc_id='"
@@ -237,12 +237,12 @@ public class DAO_reservation {
 		}
 		return 0; 
 	}
-	public static  Connection getConnection() {//DBì™€ ì—°ê²°
+	public static  Connection getConnection() {//DB¿Í ¿¬°á
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
-			String pass = "11111111";//ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì • í•„ìš”
+			String pass = "11111111";//ºñ¹Ğ¹øÈ£ ¼öÁ¤ ÇÊ¿ä
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			return con;

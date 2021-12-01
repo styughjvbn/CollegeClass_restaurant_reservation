@@ -12,7 +12,7 @@ public class DAO_signup {
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
 	
-	public static int manager_signup(DTO_manager manager) {//ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public static int manager_signup(DTO_manager manager) {//»çÀå È¸¿ø°¡ÀÔ
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -27,7 +27,7 @@ public class DAO_signup {
 		
 		return 0;
 	}
-	public static int new_shop(DTO_shop manager) {//ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public static int new_shop(DTO_shop manager) {//»õ·Î¿î Á¡Æ÷ ÀÔÁ¡
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -42,12 +42,12 @@ public class DAO_signup {
 		
 		return 0;
 	}
-	public static int customer_signup(DTO_customer customer) {//ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public static int customer_signup(DTO_customer customer) {//°í°´ È¸¿ø°¡ÀÔ
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
 			     + "INSERT INTO customer"
-			     + "(customer_id, customer_pw, customer_hp, customer_gender, customer_name, customer_age) " //customer DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½Éµï¿½
+			     + "(customer_id, customer_pw, customer_hp, customer_gender, customer_name, customer_age) " //customer DB µû·Î ¸¸µé´øÁö ±âÁ¸²¨ ¾²´øÁö ÇÏ¸éµÉµí
 			     + "VALUE "
 			     + "('"+customer.get_ID()+"','"+customer.get_PW()+"','"+customer.get_HP()+"','"+customer.get_Gender()+"','"+customer.get_Name()+"','"+customer.get_Age()+"')");
 			   insert1.executeUpdate();
@@ -57,16 +57,16 @@ public class DAO_signup {
 		
 		return 0;
 	}
-	public static int overlap_id_manager(String id) {//ï¿½ßºï¿½È®ï¿½ï¿½
+	public static int overlap_id_manager(String id) {//Áßº¹È®ÀÎ
 		conn = getConnection();
 		try {
 			pstmt = conn.prepareStatement("select * from manager where manager_id = ?");
-			pstmt.setString(1, id); //Ã¹ï¿½ï¿½Â° ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			pstmt.setString(1, id); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) { //rsï¿½ï¿½ nextï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½
-				return 1; //ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½
+			if(rs.next()) { //rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
+				return 1; //¾ÆÀÌµð Áßº¹
 			}
 			else
 				return 0;
@@ -76,16 +76,16 @@ public class DAO_signup {
 		
 		return 0;
 	}
-	public static int overlap_id_customer(String id) {//ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½È®ï¿½ï¿½
+	public static int overlap_id_customer(String id) {//°í°´ ¾ÆÀÌµð Áßº¹È®ÀÎ
 		conn = getConnection();
 		try {
 			pstmt = conn.prepareStatement("select * from customer where customer_id = ?");
-			pstmt.setString(1, id); //Ã¹ï¿½ï¿½Â° ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			pstmt.setString(1, id); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) { //rsï¿½ï¿½ nextï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½
-				return 1; //ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½
+			if(rs.next()) { //rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
+				return 1; //¾ÆÀÌµð Áßº¹
 			}
 			else
 				return 0;
@@ -95,48 +95,48 @@ public class DAO_signup {
 		
 		return 0;
 	}
-	public DTO_manager login_manager(DTO_manager manager) {//ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½
+	public DTO_manager login_manager(DTO_manager manager) {//»çÀå ·Î±×ÀÎ
 		DTO_manager temp;
 		conn = getConnection();
 		try {
-			pstmt = conn.prepareStatement("select * from manager where manager_id = ? and manager_pw= ? "); //dbï¿½ï¿½ï¿½ï¿½ idcodeï¿½ï¿½ pw ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
-			pstmt.setString(1, manager.get_ID()); //Ã¹ï¿½ï¿½Â° ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-			pstmt.setString(2, manager.get_PW()); //Ã¹ï¿½ï¿½Â° ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			pstmt = conn.prepareStatement("select * from manager where manager_id = ? and manager_pw= ? "); //db¿¡¼­ idcode¿Í pw Å×ÀÌºí¿¡ °ªÀÌ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+			pstmt.setString(1, manager.get_ID()); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(2, manager.get_PW()); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) { //rsï¿½ï¿½ nextï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½
+			if(rs.next()) { //rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
 				System.out.println(rs.getString(1)+rs.getString(2)+rs.getString(3)+rs.getString(4));
-				return new DTO_manager(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				return new DTO_manager(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4));//·Î±×ÀÎ ¼º°ø
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null; //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		return null; //·Î±×ÀÎ ½ÇÆÐ
 	}
-	public DTO_customer login_customer(DTO_customer customer) {//ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½
+	public DTO_customer login_customer(DTO_customer customer) {//°í°´ ·Î±×ÀÎ
 		conn = getConnection();
 		try {
-			pstmt = conn.prepareStatement("select * from customer where customer_id = ? and customer_pw = ?"); //dbï¿½ï¿½ï¿½ï¿½ idcodeï¿½ï¿½ pw ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
-			pstmt.setString(1, customer.get_ID()); //Ã¹ï¿½ï¿½Â° ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-			pstmt.setString(2, customer.get_PW()); //ï¿½Î¹ï¿½Â° ?ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			pstmt = conn.prepareStatement("select * from customer where customer_id = ? and customer_pw = ?"); //db¿¡¼­ idcode¿Í pw Å×ÀÌºí¿¡ °ªÀÌ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+			pstmt.setString(1, customer.get_ID()); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(2, customer.get_PW()); //µÎ¹øÂ° ?¿¡ ³ÖÀ½
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) { //rsï¿½ï¿½ nextï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½
-				return new DTO_customer(rs.getString(1),rs.getString(2),rs.getString(3),(byte)rs.getInt(4),rs.getString(5),rs.getInt(6),rs.getInt(7)); //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			if(rs.next()) { //rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
+				return new DTO_customer(rs.getString(1),rs.getString(2),rs.getString(3),(byte)rs.getInt(4),rs.getString(5),rs.getInt(6),rs.getInt(7)); //·Î±×ÀÎ ¼º°ø
 			}
 			return null;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null; //ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		return null; //·Î±×ÀÎ ½ÇÆÐ
 	}
 
-	public static ArrayList<String> getCustomers(){ //ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ dbï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ È°ï¿½ë°¡ï¿½ï¿½ dbï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!
+	public static ArrayList<String> getCustomers(){ //µ¥ÀÌÅÍ¸¦ db¿¡¼­ ºÒ·¯¿È, ½ÇÁúÀûÀ¸·Î ¾²ÀÌÁø¾ÊÁö¸¸ ¿¹½Ã·Î È°¿ë°¡´É db¿¡¼­ µ¥ÀÌÅÍ ºÒ·¯¿À´Â ¿¹½Ã!
 		  try{
 		   Connection con = getConnection();
 		   PreparedStatement statement = con.prepareStatement("Select name, phone, gender FROM customer");
-		   ResultSet results = statement.executeQuery();//Queryï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½
+		   ResultSet results = statement.executeQuery();//Query¸¦ ºÒ·¯¿È
 		   ArrayList<String> list = new ArrayList<String>();
 		   while(results.next()){
 		    list.add("Name : "+ results.getString("name") +
@@ -328,7 +328,7 @@ public class DAO_signup {
 		   System.out.println(e.getMessage());
 		   }
 		 }
-	public static void init(){//DBï¿½ï¿½ï¿½ï¿½
+	public static void init(){//DB»ý¼º
 		create_customer_Table();
 		create_shop_Table();
 		create_manage_table_Table();
@@ -338,14 +338,12 @@ public class DAO_signup {
 		create_reservation_current_Table();
 		create_reservation_old_Table();
 	}
-	public static  Connection getConnection() {//DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public static  Connection getConnection() {//DB¿Í ¿¬°á
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
-
-			String pass = "12345678";//ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
-
+			String pass = "11111111";//ºñ¹Ð¹øÈ£ ¼öÁ¤ ÇÊ¿ä
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			return con;

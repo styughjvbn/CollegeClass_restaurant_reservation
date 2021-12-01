@@ -67,12 +67,12 @@ public class DAO_oldreservation {
 			return null;
 		}
 	}
-	public static  Connection getConnection() {//DB�� ����
+	public static  Connection getConnection() {
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
-			String pass = "12345678";//��й�ȣ ���� �ʿ�
+			String pass = "11111111";
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			return con;
