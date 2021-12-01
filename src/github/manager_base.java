@@ -25,30 +25,29 @@ public class manager_base extends JPanel {
 	 */
 	public manager_base() {
 		setLayout(card);
-		table_manage = new manager_shop();// Á¡Æ÷°ü¸® ÆĞ³Î
-		JPanel panel = new JPanel();// Á¡Æ÷°ü¸® ÆĞ³Î
+		table_manage = new manager_shop();// ì í¬ê´€ë¦¬ íŒ¨ë„
+		JPanel panel = new JPanel();// ì í¬ê´€ë¦¬ íŒ¨ë„
 		add(panel, "main");
 		panel.setLayout(null);
 
-		add(table_manage, "table_manage");// Á¡Æ÷°ü¸® ÆĞ³Î
+		add(table_manage, "table_manage");// ì í¬ê´€ë¦¬ íŒ¨ë„
 		manage_menu = new manage_menu();
-		add(manage_menu, "menu_manage");// Á¡Æ÷°ü¸® ÆĞ³Î
-    reservation_list manage_reservation=new reservation_list();
-		add(manage_reservation,"manage_reservation");
+		add(manage_menu, "menu_manage");// ì í¬ê´€ë¦¬ íŒ¨ë„
+    reservation_list=new reservation_list();
+		add(reservation_list,"manage_reservation");
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon("image/manage1.png"));
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
 		btnNewButton.setBackground(new Color(204, 153, 102));
 		btnNewButton.setFont(new Font("SEBANG Gothic", Font.BOLD, 25));
-
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "table_manage");
-				table_manage.shop = cnt_user.get_Shop();// ÇöÀç ·Î±×ÀÎ µÈ »çÀåÀÇ Á¡Æ÷¸¦ ÀúÀå
+				table_manage.shop = cnt_user.get_Shop();// í˜„ì¬ ë¡œê·¸ì¸ ëœ ì‚¬ì¥ì˜ ì í¬ë¥¼ ì €ì¥
 				table_manage.lblNewLabel_5.setFont(new Font("SEBANG Gothic", Font.BOLD, 20));
-				table_manage.lblNewLabel_5.setText(table_manage.shop + " Á¡Æ÷°ü¸®");
-				table_manage.init();// ÇöÀç ·Î±×ÀÎµÈ »çÀå Á¡Æ÷ÀÇ Å×ÀÌºí ³»¿ª ºÒ·¯¿È
+				table_manage.lblNewLabel_5.setText(table_manage.shop + " ì í¬ê´€ë¦¬");
+				table_manage.init();// í˜„ì¬ ë¡œê·¸ì¸ëœ ì‚¬ì¥ ì í¬ì˜ í…Œì´ë¸” ë‚´ì—­ ë¶ˆëŸ¬ì˜´
 			}
 		});
 		btnNewButton.setBounds(60, 230, 350, 300);
@@ -74,8 +73,9 @@ public class manager_base extends JPanel {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "manage_reservation");
-				shopname = cnt_user.get_Shop();
-				reservation_list.init(shopname);
+				System.out.println(cnt_user.get_Shop() + "dddfdf");
+				reservation_list.init(cnt_user.get_Shop());
+				
 			}
 		});
 		panel.add(btnNewButton_2);
