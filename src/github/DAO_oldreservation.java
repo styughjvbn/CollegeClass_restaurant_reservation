@@ -10,7 +10,8 @@ public class DAO_oldreservation {
 	private static Connection conn;
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
-	public static String[][] getOldReservation(String shop){
+	
+	public static ArrayList<String []> getOldReservation(String shop){
 		try {
 			Connection conn = getConnection();
 			pstmt = conn.prepareStatement("select * from reservation_old where shop = ?");
@@ -31,14 +32,13 @@ public class DAO_oldreservation {
 				});
 				
 			}
-			String [][] arr = new String[list.size()][8];
-			return list.toArray(arr);
+			return list;
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 			return null;
 		}
 	}
-	public static String[][] getCurrentReservation(String shop){
+	public static ArrayList<String []> getCurrentReservation(String shop){
 		try {
 			Connection con = getConnection();
 			pstmt = con.prepareStatement("select * from reservation_current where rc_shop = ?");
@@ -46,6 +46,7 @@ public class DAO_oldreservation {
 			
 			rs = pstmt.executeQuery();
 			ArrayList<String []> list = new ArrayList<String[]>();
+
 			while(rs.next()) {
 				list.add(new String[] {
 						rs.getString(1),
@@ -57,21 +58,21 @@ public class DAO_oldreservation {
 						rs.getString(8),
 						rs.getString(9)
 				});
+				System.out.println(rs.next());
 				
 			}
-			String [][] arr = new String[list.size()][8];
-			return list.toArray(arr);
+			return list;
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 			return null;
 		}
 	}
-	public static  Connection getConnection() {//DB¿Í ¿¬°á
+	public static  Connection getConnection() {//DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
-			String pass = "11111111";//ºñ¹Ð¹øÈ£ ¼öÁ¤ ÇÊ¿ä
+			String pass = "12345678";//ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			return con;

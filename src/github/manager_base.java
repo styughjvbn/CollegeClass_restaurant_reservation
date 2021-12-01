@@ -20,24 +20,32 @@ public class manager_base extends JPanel {
 	 */
 	public manager_base() {
 		setLayout(card);
-		table_manage=new manager_shop();//Á¡Æ÷°ü¸® ÆĞ³Î
-		JPanel panel = new JPanel();//Á¡Æ÷°ü¸® ÆĞ³Î
+
+		table_manage = new manager_shop();// ï¿½ì ï¿½ë£·æ„¿ï¿½ç”±ï¿½ ï¿½ë™£ï¿½ê¼¸
+		JPanel panel = new JPanel();// ï¿½ì ï¿½ë£·æ„¿ï¿½ç”±ï¿½ ï¿½ë™£ï¿½ê¼¸
 		add(panel, "main");
 		panel.setLayout(null);
-		
-		add(table_manage,"table_manage");//Á¡Æ÷°ü¸® ÆĞ³Î
-		manage_menu=new manage_menu();
-		add(manage_menu,"menu_manage");//Á¡Æ÷°ü¸® ÆĞ³Î
-		reservation_list manage_reservation=new reservation_list();
-		add(manage_reservation,"manage_reservation");
+
+		add(table_manage, "table_manage");// ï¿½ì ï¿½ë£·æ„¿ï¿½ç”±ï¿½ ï¿½ë™£ï¿½ê¼¸
+		manage_menu = new manage_menu();
+		add(manage_menu, "menu_manage");// ï¿½ì ï¿½ë£·æ„¿ï¿½ç”±ï¿½ ï¿½ë™£ï¿½ê¼¸
+		reservation_list=new reservation_list();
+
+		add(reservation_list,"manage_reservation");
 		
 		JButton btnNewButton = new JButton("\uC810\uD3EC\uAD00\uB9AC");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "table_manage");
-				table_manage.shop=cnt_user.get_Shop();//ÇöÀç ·Î±×ÀÎ µÈ »çÀåÀÇ Á¡Æ÷¸¦ ÀúÀå
-				table_manage.lblNewLabel_5.setText(table_manage.shop+"Á¡Æ÷°ü¸®");
-				table_manage.init();//ÇöÀç ·Î±×ÀÎµÈ »çÀå Á¡Æ÷ÀÇ Å×ÀÌºí ³»¿ª ºÒ·¯¿È
+
+				table_manage.shop=cnt_user.get_Shop();//ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				table_manage.lblNewLabel_5.setText(table_manage.shop+"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+				table_manage.init();//ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½
+
+				table_manage.shop = cnt_user.get_Shop();// ï¿½ì½ï¿½ì˜± æ¿¡ì’“ë ‡ï¿½ì”¤ ï¿½ë§‚ ï¿½ê¶—ï¿½ì˜£ï¿½ì“½ ï¿½ì ï¿½ë£·ç‘œï¿½ ï¿½ï¿½ï¿½ì˜£
+				table_manage.lblNewLabel_5.setText(table_manage.shop + " ï¿½ì ï¿½ë£·æ„¿ï¿½ç”±ï¿½");
+				table_manage.init();// ï¿½ì½ï¿½ì˜± æ¿¡ì’“ë ‡ï¿½ì”¤ï¿½ë§‚ ï¿½ê¶—ï¿½ì˜£ ï¿½ì ï¿½ë£·ï¿½ì“½ ï¿½ë€’ï¿½ì” é‡‰ï¿½ ï¿½ê¶¡ï¿½ë¿­ éºëˆìœ­ï¿½ìƒ‚
+
 			}
 		});
 		btnNewButton.setBounds(94, 159, 275, 238);
@@ -58,8 +66,9 @@ public class manager_base extends JPanel {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(panel.getParent(), "manage_reservation");
-				shopname = cnt_user.get_Shop();
-				reservation_list.init(shopname);
+				System.out.println(cnt_user.get_Shop() + "dddfdf");
+				reservation_list.init(cnt_user.get_Shop());
+				
 			}
 		});
 		btnNewButton_2.setBounds(702, 159, 287, 238);

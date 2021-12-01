@@ -56,7 +56,7 @@ public class reservation_payment extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				pay.set_rc_menu(sele_menu);
 				pay.set_rc_money(sum);
-				System.out.println(pay.get_rc_count()+"  "+pay.get_rc_date()+"  "+pay.get_rc_id()+"  "+pay.get_rc_menu()+"  "+pay.get_rc_money()+"  "+pay.get_rc_shop()+"  "+pay.get_rc_table()+"  "+pay.get_rc_time());
+				System.out.println(pay.get_rc_count()+"  "+pay.get_rc_date()+"  "+pay.get_rc_id()+"  "+pay.get_rc_menu()+"  "+pay.get_rc_money()+"  "+pay.get_rc_shop()+"  "+pay.get_rc_table()+"  "+pay.get_rc_time().substring(0, 2));
 				DAO.new_reservation(pay);
 			}
 		});

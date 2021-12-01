@@ -12,7 +12,7 @@ public class DAO_manager {
 	private static ResultSet rs;
 	private static PreparedStatement pstmt;
 
-	public static int update_shop(DTO_shop manager) {//Á¡Æ÷ °ü¸®
+	public static int update_shop(DTO_shop manager) {//ì í¬ ê´€ë¦¬
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -29,7 +29,7 @@ public class DAO_manager {
 			  }
 		return 0;
 	}
-	public static int new_table(DTO_manage_table manager) {//Á¡Æ÷ÀÇ Å×ÀÌºí Ãß°¡
+	public static int new_table(DTO_manage_table manager) {//ì í¬ì˜ í…Œì´ë¸” ì¶”ê°€
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -44,15 +44,15 @@ public class DAO_manager {
 		
 		return 0;
 	}
-	public ArrayList<int[]> get_table_info(String shop) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
+	public ArrayList<int[]> get_table_info(String shop) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
 		conn = getConnection();
 		ArrayList<int[]> temp=new ArrayList();
 		try {
 			pstmt = conn.prepareStatement("select * from manage_table where mt_shop = ? ");
-			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
+			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»
 				int a[]=new int[4];
 				a[0]=rs.getInt(1);
 				a[1]=rs.getInt(3);
@@ -66,15 +66,15 @@ public class DAO_manager {
 		}
 		return null; 
 	}
-	public int[] get_shop_info(String shop) {//Á¡Æ÷ Á¤º¸ °¡Á®¿À±â
+	public int[] get_shop_info(String shop) {//ì í¬ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 		conn = getConnection();
 		int[] a=new int[4];
 		try {
 			pstmt = conn.prepareStatement("select * from shop where shop_name = ? ");
-			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
 			
 			rs = pstmt.executeQuery();
-			if(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
+			if(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»
 				a[0]=rs.getInt(2);
 				a[1]=rs.getInt(3);
 				a[2]=rs.getInt(4);
@@ -85,53 +85,53 @@ public class DAO_manager {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null; //·Î±×ÀÎ ½ÇÆĞ
+		return null; //ë¡œê·¸ì¸ ì‹¤íŒ¨
 	}
-	public String get_shop_image(String shop) {//Á¡Æ÷ ÀÌ¹ÌÁö °¡Á®¿À±â
+	public String get_shop_image(String shop) {//ì í¬ ì´ë¯¸ì§€ ê°€ì ¸ì˜¤ê¸°
 		conn = getConnection();
 		String a;
 		try {
 			pstmt = conn.prepareStatement("select shop_iner from shop where shop_name = ? ");
-			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
 			
 			rs = pstmt.executeQuery();
-			if(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ
+			if(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»
 				a=rs.getString(1);
 				return a;
 			}	
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null; //·Î±×ÀÎ ½ÇÆĞ
+		return null; //ë¡œê·¸ì¸ ì‹¤íŒ¨
 	}
-	public boolean delete_table(String shop) {//Á¡Æ÷ Å×ÀÌºí ¸ğµÎ »èÁ¦
+	public boolean delete_table(String shop) {//ì í¬ í…Œì´ë¸” ëª¨ë‘ ì‚­ì œ
 		conn = getConnection();
 		int[] a=new int[4];
 		try {
 			pstmt = conn.prepareStatement("DELETE FROM manage_table WHERE mt_shop = ? ");
-			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
 			
 			pstmt.executeUpdate();
 			return true;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return false; //·Î±×ÀÎ ½ÇÆĞ
+		return false; //ë¡œê·¸ì¸ ì‹¤íŒ¨
 	}
-	public boolean delete_category(String shop) {//Ä«Å×°í¸® ¸ğµÎ»èÁ¦
+	public boolean delete_category(String shop) {//ì¹´í…Œê³ ë¦¬ ëª¨ë‘ì‚­ì œ
 		conn = getConnection();
 		try {
 			pstmt = conn.prepareStatement("DELETE FROM menu_category WHERE mc_shop = ? ");
-			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
 			
 			pstmt.executeUpdate();
 			return true;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return false; //·Î±×ÀÎ ½ÇÆĞ
+		return false; //ë¡œê·¸ì¸ ì‹¤íŒ¨
 	}
-	public static int new_category(DTO_menu_category manager) {//Ä«Å×°í¸® Ãß°¡
+	public static int new_category(DTO_menu_category manager) {//ì¹´í…Œê³ ë¦¬ ì¶”ê°€
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -146,7 +146,7 @@ public class DAO_manager {
 		
 		return 0;
 	}
-	public static int new_menu(DTO_menu_detail manager) {//¸Ş´º Ãß°¡
+	public static int new_menu(DTO_menu_detail manager) {//ë©”ë‰´ ì¶”ê°€
 		try{
 			   Connection con = getConnection();
 			   PreparedStatement insert1 = con.prepareStatement(""
@@ -161,15 +161,15 @@ public class DAO_manager {
 		
 		return 0;
 	}
-	public ArrayList<String> get_category(String shop) {//Ä«Å×°í¸® ¹Ş¾Æ¿À±â
+	public ArrayList<String> get_category(String shop) {//ì¹´í…Œê³ ë¦¬ ë°›ì•„ì˜¤ê¸°
 		conn = getConnection();
 		ArrayList<String> temp=new ArrayList();
 		try {
 			pstmt = conn.prepareStatement("select * from menu_category where mc_shop = ? ");
-			pstmt.setString(1, shop); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(1, shop); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ		
+			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»		
 				String category=rs.getString(1);
 				temp.add(category);
 			}
@@ -179,15 +179,15 @@ public class DAO_manager {
 		}
 		return null; 
 	}
-	public ArrayList<DTO_menu_detail> get_detail(String key) {//Á¡Æ÷ Å×ÀÌºí Á¤º¸ ¹Ş¾Æ¿À±â
+	public ArrayList<DTO_menu_detail> get_detail(String key) {//ì í¬ í…Œì´ë¸” ì •ë³´ ë°›ì•„ì˜¤ê¸°
 		conn = getConnection();
 		ArrayList<DTO_menu_detail> temp=new ArrayList();
 		try {
 			pstmt = conn.prepareStatement("select * from menu_detail where md_category = ? ");
-			pstmt.setString(1, key); //Ã¹¹øÂ° ?¿¡ ³ÖÀ½
+			pstmt.setString(1, key); //ì²«ë²ˆì§¸ ?ì— ë„£ìŒ
 			
 			rs = pstmt.executeQuery();
-			while(rs.next()) {//rsÀÇ next¿¡ °ªÀÌ ÀÖÀ¸¸é ÀÏÄ¡ÇÑ´Ù´Â ¶æ		
+			while(rs.next()) {//rsì˜ nextì— ê°’ì´ ìˆìœ¼ë©´ ì¼ì¹˜í•œë‹¤ëŠ” ëœ»		
 				DTO_menu_detail detail=new DTO_menu_detail(rs.getString(1),"",rs.getInt(3));
 				temp.add(detail);
 			}
@@ -197,12 +197,14 @@ public class DAO_manager {
 		}
 		return null; 
 	}
-	public static  Connection getConnection() {//DB¿Í ¿¬°á
+	public static  Connection getConnection() {//DBì™€ ì—°ê²°
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/reservation";
 			String user = "root";
-			String pass = "11111111";//ºñ¹Ğ¹øÈ£ ¼öÁ¤ ÇÊ¿ä
+
+			String pass = "12345678";//ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì • í•„ìš”
+
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url,user,pass);
 			return con;
