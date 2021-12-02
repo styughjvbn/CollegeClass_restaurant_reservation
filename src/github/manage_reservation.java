@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
-public class reservation_list extends JPanel {
+public class manage_reservation extends JPanel {
 
 	/**
 	 * Create the panel.
@@ -21,7 +21,6 @@ public class reservation_list extends JPanel {
 
 	public String shop_name;
 	public JButton manage_reservation_back;
-	public int i =0;
 	private JTable table_c;
 	private JTable table_o;
 	private DAO_oldreservation DAO=new DAO_oldreservation();
@@ -41,12 +40,12 @@ public class reservation_list extends JPanel {
 		//지난 예약
 		data2 = DAO.getOldReservation(shop);
 		temp1 = (DefaultTableModel)table_o.getModel();
-		for(int i=0;i<data1.size();i++) {
+		for(int i=0;i<data2.size();i++) {
 			temp1.addRow(data2.get(i));
 		}
 
 	}
-	public reservation_list() {
+	public manage_reservation() {
 		setLayout(null);
 
 		table_c = new JTable();
@@ -91,11 +90,13 @@ public class reservation_list extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				for(int i=0;i<data1.size();i++) {
-					temp.removeRow(i);
+				int count1=temp.getRowCount();
+				for(int i=0;i<count1;i++) {
+					temp.removeRow(0);
 				}
-				for(int i=0;i<data1.size();i++) {
-					temp1.removeRow(i);
+				int count2=temp1.getRowCount();
+				for(int i=0;i<count2;i++) {
+					temp1.removeRow(0);
 				}
 				
 			}

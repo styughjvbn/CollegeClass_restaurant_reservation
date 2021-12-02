@@ -221,7 +221,7 @@ public class DAO_reservation {
 		try {
 			pstmt = conn.prepareStatement("select * from reservation_current where rc_id='"
 					+ cnt_user.get_ID()
-					+"' and (rc_date >date_format(now(),'%Y-%m-%d') or (rc_date = date_format(now(),'%Y-%m-%d') and rc_time>time_format(now(),'%H:%i:%s')));");
+					+"' and (rc_date <date_format(now(),'%Y-%m-%d') or (rc_date = date_format(now(),'%Y-%m-%d') and rc_time<time_format(now(),'%H:%i:%s')));");
 			rs = pstmt.executeQuery();
 			System.out.println(pstmt);
 			while(rs.next()) {//rs의 next에 값이 있으면 일치한다는 뜻	
@@ -229,7 +229,7 @@ public class DAO_reservation {
 			}
 			pstmt = conn.prepareStatement("delete from reservation_current where rc_id='"
 					+ cnt_user.get_ID()
-					+"' and (rc_date >date_format(now(),'%Y-%m-%d') or (rc_date = date_format(now(),'%Y-%m-%d') and rc_time>time_format(now(),'%H:%i:%s')));");
+					+"' and (rc_date <date_format(now(),'%Y-%m-%d') or (rc_date = date_format(now(),'%Y-%m-%d') and rc_time<time_format(now(),'%H:%i:%s')));");
 			pstmt.executeUpdate();
 			return 1;
 		}catch(SQLException e) {

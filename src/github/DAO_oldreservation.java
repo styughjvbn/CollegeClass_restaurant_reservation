@@ -58,7 +58,6 @@ public class DAO_oldreservation {
 						rs.getString(8),
 						rs.getString(9)
 				});
-				System.out.println(rs.next());
 				
 			}
 			return list;
