@@ -4,8 +4,10 @@ DB와 JAVA를 이용한 식당 에약 프로그램
 
 각자 브런치를 만들고 브런치에 커밋해주세요 
 
+# 사용된 API
+kakao rest-api, Vworld rest-api
 
-## 14주차 진행상황
+## 14주차 진행상황 - DB 연결 완전 구현
 
 + 로그인 패널 GUI 및 기능 완전 구현
 ![1](https://user-images.githubusercontent.com/80380576/144361201-1fa16629-7c84-4b20-8f1e-9a179fb23c16.PNG)
