@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -37,11 +38,12 @@ public class manage_menu extends JPanel {
 	public String cnt_user;
 
 	public manage_menu() {
+		
 		setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		setLayout(null);
 		// card 패널 바깥에 존재함
 		panel_1 = new JPanel();
-		panel_1.setBounds(33, 45, 800, 600);
+		panel_1.setBounds(45, 125, 1000, 518);
 		add(panel_1);
 		panel_1.setLayout(card); // 바깥 카드 패널
 
@@ -76,15 +78,16 @@ public class manage_menu extends JPanel {
 				panel_1.repaint();
 			}
 		});
-		btnNewButton.setBounds(877, 108, 97, 23);
+		btnNewButton.setBounds(1075, 186, 116, 23);
 		add(btnNewButton);
 
 		btnname = new JTextField();
-		btnname.setBounds(865, 77, 116, 21);
+		btnname.setBounds(1075, 143, 116, 21);
 		add(btnname);
 
-		btnNewButton_1 = new JButton("back");//사장 메뉴 창으로 가는 버튼
-		btnNewButton_1.setBounds(912, 586, 97, 23);
+		btnNewButton_1 = new JButton("");//사장 메뉴 창으로 가는 버튼
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\back2.png"));
+		btnNewButton_1.setBounds(45, 65, 110, 45);
 		add(btnNewButton_1);
 		
 		btnNewButton_2 = new JButton("save");
@@ -99,8 +102,12 @@ public class manage_menu extends JPanel {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(912, 542, 97, 23);
+		btnNewButton_2.setBounds(1094, 609, 97, 23);
 		add(btnNewButton_2);
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setIcon(new ImageIcon("C:\\Users\\kmj\\Documents\\GitHub\\restaurant_reservation\\image\\managebase.png"));
+		lblNewLabel_7.setBounds(0, 0, 1280, 720);
+		add(lblNewLabel_7);
 	}
 	void init() {
 		ArrayList<String> category=DAO.get_category(cnt_user);
@@ -163,38 +170,41 @@ public class manage_menu extends JPanel {
 			setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 			setLayout(null);
 			
+			JLabel lblNewLabel0 = new JLabel("메뉴 추가");
+			lblNewLabel0.setBounds(650, 30, 50, 15);
+			add(lblNewLabel0);
 			
-			JButton btnNewButton = new JButton("New button");
+			JButton btnNewButton = new JButton("확인");
 
-			btnNewButton.setBounds(627, 113, 91, 23);
+			btnNewButton.setBounds(650, 113, 91, 23);
 			add(btnNewButton);
 
 			menucost = new JTextField();
-			menucost.setBounds(675, 82, 96, 21);
+			menucost.setBounds(700, 82, 96, 21);
 			add(menucost);
 			menucost.setColumns(10);
 
 			menuname = new JTextField();
-			menuname.setBounds(675, 51, 96, 21);
+			menuname.setBounds(700, 51, 96, 21);
 			add(menuname);
 			menuname.setColumns(10);
 
 			JLabel lblNewLabel = new JLabel("Name");
-			lblNewLabel.setBounds(627, 54, 50, 15);
+			lblNewLabel.setBounds(650, 54, 50, 15);
 			add(lblNewLabel);
 
 			JLabel lblNewLabel_1 = new JLabel("Cost");
-			lblNewLabel_1.setBounds(627, 85, 50, 15);
+			lblNewLabel_1.setBounds(650, 85, 50, 15);
 			add(lblNewLabel_1);
 
 			panel_2 = new JPanel();//상세메뉴가 생성될 패널
 			panel_2.setBackground(Color.WHITE);
-			panel_2.setBounds(0, 0, 615, 538);
+			panel_2.setBounds(5, 5, 615, 528);
 			add(panel_2);
 			panel_2.setLayout(new FlowLayout(FlowLayout.LEFT,5,5));
 
 			JButton Backbtn = new JButton("Back");
-			Backbtn.setBounds(654, 494, 91, 23);
+			Backbtn.setBounds(700, 494, 91, 23);
 			Backbtn.addActionListener(new ActionListener() {
 
 				@Override
