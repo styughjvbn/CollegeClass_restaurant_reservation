@@ -197,6 +197,23 @@ public class DAO_manager {
 		}
 		return null; 
 	}
+	public static int update_pw(String cnt_id,String new_pw) {//예약 추가
+		try{
+			   Connection con = getConnection();
+			   PreparedStatement insert1 = con.prepareStatement(""
+			     + "UPDATE manager SET"
+			     + " manager_pw = '"
+			     + new_pw
+			     + "' WHERE (manager_id = '"
+			     + cnt_id
+			     + "');");
+			   insert1.executeUpdate();
+			   System.out.println(insert1);
+			  }catch(Exception e){
+			   System.out.println(e.getMessage());
+			  }
+		return 0;
+	}
 	public static  Connection getConnection() {//DB와 연결
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";

@@ -134,9 +134,10 @@ public class manager_shop extends JPanel {
 		panel_1.setLayout(null);
 		
 		lblNewLabel_6 = new JLabel();//드래그가 가능한 공간의 배경화면
+		lblNewLabel_6.setBounds(0, 0, 734, 518);
+		panel_1.add(lblNewLabel_6);
 		lblNewLabel_6.setBackground(new Color(226,221,215));
 		lblNewLabel_6.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		lblNewLabel_6.setBounds(0, 0, 800, 600);
 		
 		comboBox_1 = new JComboBox();//영업시작 시작 콤보박스
 		comboBox_1.setFont(new Font("SEBANG Gothic", Font.PLAIN, 12));
@@ -341,7 +342,7 @@ public class manager_shop extends JPanel {
 			lblNewLabel_6.repaint();
 		}
 		else {
-			lblNewLabel_6.setBackground(new Color(226,221,215));
+			lblNewLabel_6.setIcon(new ImageIcon("image/drag.jpg"));
 			lblNewLabel_6.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 			lblNewLabel_6.repaint();
 		}

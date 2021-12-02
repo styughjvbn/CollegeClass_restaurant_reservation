@@ -13,7 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.Font;
@@ -32,7 +31,6 @@ class fixed_shop_table extends JLabel{//µå·¡±×·Î ¹èÄ¡°¡ °¡´ÉÇÑ Å×ÀÌºí ¶óº§
 	}
 }
 public class reservation_detail extends JPanel {
-	private JTextField nametxt;
 	public JButton detail_back;
 	Calendar calendar = Calendar.getInstance(); //java¿¡¼­ ³¯Â¥ + ½Ã°£À» ¹Þ¾Æ¿È
 	public JButton checkbutton;
@@ -68,13 +66,14 @@ public class reservation_detail extends JPanel {
 		setLayout(null);
 		
 		panel_1 = new JPanel();
-		panel_1.setBounds(37, 49, 800, 600);
+		panel_1.setBounds(88, 86, 734, 518);
+		panel_1.setBackground(new Color(226,221,215));
 		add(panel_1);
 		panel_1.setLayout(null);
 		panel_1.setVisible(false);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(0, 0, 800, 600);
+		lblNewLabel.setBounds(0, 0, 734, 518);
 		panel_1.add(lblNewLabel);
 		
 		datebox = new JComboBox();
@@ -133,7 +132,7 @@ public class reservation_detail extends JPanel {
 		table_size_3 = new JLabel("\uBA85\uC785\uB2C8\uB2E4.");
 		table_size_3.setForeground(new Color(120, 108, 100));
 		table_size_3.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
-		table_size_3.setBounds(25, 156, 233, 23);
+		table_size_3.setBounds(68, 167, 109, 23);
 		panel.add(table_size_3);
 		
 		table_size_2 = new JLabel("* \uC120\uD0DD\uD558\uC2E0 \uD14C\uC774\uBE14\uC758 \uCD5C\uB300 \uD5C8\uC6A9 \uC778\uC6D0\uC218\uB294");
@@ -145,7 +144,7 @@ public class reservation_detail extends JPanel {
 		table_size = new JLabel("");
 		table_size.setForeground(new Color(120, 108, 100));
 		table_size.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
-		table_size.setBounds(7, 156, 23, 23);
+		table_size.setBounds(25, 167, 41, 23);
 		panel.add(table_size);
 		
 		time_label = new JLabel("\uC2DC\uAC04 \uC120\uD0DD");
@@ -161,25 +160,11 @@ public class reservation_detail extends JPanel {
 		
 		table_number = new JLabel("");
 		table_number.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
-		table_number.setBounds(110, 99, 23, 23);
+		table_number.setBounds(129, 99, 23, 23);
 		panel.add(table_number);
 		
-		JLabel time_label_1 = new JLabel("\uC608\uC57D\uC790\uBA85 \uC785\uB825");
-		time_label_1.setForeground(new Color(120, 108, 100));
-		time_label_1.setBounds(0, 210, 97, 19);
-		panel.add(time_label_1);
-		time_label_1.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
-		
-		nametxt = new JTextField();
-		nametxt.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
-		nametxt.setBounds(110, 210, 159, 19);
-		panel.add(nametxt);
-		nametxt.setColumns(10);
-		nametxt.setBorder(null);
-		nametxt.setBackground(new Color(226,221,215));
-		
 		lblNewLabel_1 = new JLabel("\uC120\uD0DD\uD55C \uD14C\uC774\uBE14");
-		lblNewLabel_1.setBounds(0, 99, 103, 23);
+		lblNewLabel_1.setBounds(0, 99, 119, 23);
 		panel.add(lblNewLabel_1);
 		lblNewLabel_1.setForeground(new Color(120, 108, 100));
 		lblNewLabel_1.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
@@ -196,7 +181,7 @@ public class reservation_detail extends JPanel {
 		
 		table_number_1 = new JLabel("\uBC88");
 		table_number_1.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
-		table_number_1.setBounds(128, 99, 23, 23);
+		table_number_1.setBounds(154, 99, 23, 23);
 		panel.add(table_number_1);
 		
 		lblNewLabel_1_1 = new JLabel("\uC608\uC57D \uC815\uBCF4 \uC785\uB825");

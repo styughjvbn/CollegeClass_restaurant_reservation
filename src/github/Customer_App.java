@@ -1,6 +1,7 @@
 package github;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -99,6 +100,11 @@ public class Customer_App {
 					}
 					else{
 						card.show(frame.getContentPane(), "manage");
+						Wpanel.textField_1.setForeground(Color.LIGHT_GRAY);
+						Wpanel.textField_1.setText("ID를 입력해주세요.");
+						Wpanel.PasswordField.setEchoChar((char) 0);
+						Wpanel.PasswordField.setForeground(Color.LIGHT_GRAY);
+						Wpanel.PasswordField.setText("Password를 입력해주세요.");
 						manage.cnt_user=temp;
 					}
 				}
@@ -106,7 +112,13 @@ public class Customer_App {
 					DTO_customer temp=DAO.login_customer(new DTO_customer(Wpanel.textField_1.getText(),Wpanel.PasswordField.getText()));
 					if(temp!=null) {
 						card.show(frame.getContentPane(), "reservation");
+						Wpanel.textField_1.setForeground(Color.LIGHT_GRAY);
+						Wpanel.textField_1.setText("ID를 입력해주세요.");
+						Wpanel.PasswordField.setEchoChar((char) 0);
+						Wpanel.PasswordField.setForeground(Color.LIGHT_GRAY);
+						Wpanel.PasswordField.setText("Password를 입력해주세요.");
 						reservation.cnt_user=temp;
+						reservation.init();
 					}
 					else
 						Wpanel.error_panel.setVisible(true);

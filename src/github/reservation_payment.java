@@ -48,18 +48,30 @@ public class reservation_payment extends JPanel {
 	public reservation_payment() {
 		setLayout(null);
 		
-		//메뉴 다 고르고서 예약버튼
-		btnNewButton = new JButton("reservation ");		
-		btnNewButton.addActionListener(new ActionListener() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(226,221,215));
+		panel.setVisible(false);
+		panel.setBounds(490, 252, 300, 100);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("\uC608\uC57D\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4");
+		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(24, 20, 244, 35);
+		panel.add(lblNewLabel_2);
+		
+		JButton btnNewButton_4 = new JButton("\uD655\uC778");
+		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pay.set_rc_menu(sele_menu);
-				pay.set_rc_money(sum);
-				System.out.println(pay.get_rc_count()+"  "+pay.get_rc_date()+"  "+pay.get_rc_id()+"  "+pay.get_rc_menu()+"  "+pay.get_rc_money()+"  "+pay.get_rc_shop()+"  "+pay.get_rc_table()+"  "+pay.get_rc_time().substring(0, 2));
-				DAO.new_reservation(pay);
+				panel.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(900, 548, 284, 49);
-		add(btnNewButton);
+		btnNewButton_4.setBounds(100, 65, 100, 25);
+		panel.add(btnNewButton_4);
+		btnNewButton_4.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
+		btnNewButton_4.setForeground( new Color(120, 108, 100));
+		btnNewButton_4.setBackground(new Color(200, 184, 164));
+		btnNewButton_4.setFont(new Font("굴림", Font.PLAIN, 15));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(226,221,215));
@@ -178,9 +190,9 @@ public class reservation_payment extends JPanel {
 		lblNewLabel_1.setBounds(900, 384, 86, 21);
 		add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("\uBA54\uB274 \uC120\uD0DD");
+		JLabel lblNewLabel_1_1 = new JLabel("\uBA54\uB274 \uC120\uD0DD (10\uAC1C\uAE4C\uC9C0)");
 		lblNewLabel_1_1.setFont(new Font("굴림", Font.BOLD, 15));
-		lblNewLabel_1_1.setBounds(900, 68, 65, 21);
+		lblNewLabel_1_1.setBounds(900, 68, 174, 21);
 		add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("");
@@ -195,7 +207,18 @@ public class reservation_payment extends JPanel {
 		lblNewLabel_1_1_2.setBounds(894, 359, 290, 21);
 		add(lblNewLabel_1_1_2);
 		
-
+		//메뉴 다 고르고서 예약버튼
+				btnNewButton = new JButton("reservation ");		
+				btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						pay.set_rc_menu(sele_menu);
+						pay.set_rc_money(sum);
+						DAO.new_reservation(pay);
+						panel.setVisible(true);
+					}
+				});
+				btnNewButton.setBounds(900, 548, 284, 49);
+				add(btnNewButton);
 	}
 	
 	public void refresh(String cnt_shop) {  //화면 초기화
@@ -356,6 +379,8 @@ public class reservation_payment extends JPanel {
 					tjsxor.setForeground(Color.BLACK);
 				}
 			});
+			
 		}
+		
 	}
 }

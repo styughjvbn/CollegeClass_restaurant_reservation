@@ -5,13 +5,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class manage_reservation extends JPanel {
 
@@ -37,7 +40,6 @@ public class manage_reservation extends JPanel {
 			temp.addRow(data1.get(i));
 		}
 		
-		//ì§€ë‚œ ì˜ˆì•½
 		data2 = DAO.getOldReservation(shop);
 		temp1 = (DefaultTableModel)table_o.getModel();
 		for(int i=0;i<data2.size();i++) {
@@ -49,6 +51,8 @@ public class manage_reservation extends JPanel {
 		setLayout(null);
 
 		table_c = new JTable();
+		table_c.setFont(new Font("¼¼¹æ°íµñ º¸Åë", Font.PLAIN, 15));
+		table_c.setBackground(new Color(226,221,215));
 		table_c.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
@@ -58,33 +62,45 @@ public class manage_reservation extends JPanel {
 		table_c.setPreferredScrollableViewportSize(new Dimension(800,100));
 		table_c.setAlignmentX(0);
 		JScrollPane scrollPane = new JScrollPane(table_c);
-		scrollPane.setBounds(80, 45, 802, 128);
+		scrollPane.setBounds(140, 145, 1000, 200);
 		add(scrollPane);
 
 		JLabel lblNewLabel = new JLabel("\uD604\uC7AC \uC608\uC57D");
-		lblNewLabel.setBounds(80, 30, 126, 15);
+		lblNewLabel.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
+		lblNewLabel.setBounds(140, 98, 189, 37);
 		add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("\uC9C0\uB09C\uC608\uC57D");
-		lblNewLabel_1.setBounds(80, 283, 114, 15);
+		lblNewLabel_1.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(140, 376, 149, 23);
 		add(lblNewLabel_1);
 		
 	    table_o = new JTable();
+	    table_o.setFont(new Font("¼¼¹æ°íµñ º¸Åë", Font.PLAIN, 15));
+		table_o.setBackground(new Color(226,221,215));
 	    table_o.setModel(new DefaultTableModel(
+	    		
 				new Object[][] {
 				},
-				new String[]{"id","count","time","date","money","menu","table","book_time"}
+				new String[]{"id","time","date","count","money","menu","age","gender(1=male 2=female)"}
 				));
 		table_o.setBounds(22, 340, 150, 20);
 		table_o.setPreferredScrollableViewportSize(new Dimension(800,100));
 		table_o.setAlignmentX(0);
 		JScrollPane scrollPane_o = new JScrollPane(table_o);
-		scrollPane_o.setBounds(80, 304, 802, 128);
+		scrollPane_o.setBounds(140, 409, 1000, 200);
 		add(scrollPane_o);
 		
-		JButton manage_reservation_back = new JButton("Back");
-		manage_reservation_back.setBounds(972, 553, 59, 23);
+		JButton manage_reservation_back = new JButton("");
+		manage_reservation_back.setBorder(null);
+		manage_reservation_back.setIcon(new ImageIcon("C:\\Users\\33387\\Desktop\\2\uD559\uB144 2\uD559\uAE30\\\uC624\uD508\uC18C\uC2A4\uD504\uB85C\uC81D\uD2B8\\restaurant_reservation\\image\\back2.png"));
+		manage_reservation_back.setBounds(44, 54, 120, 50);
 		add(manage_reservation_back);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\33387\\Desktop\\2\uD559\uB144 2\uD559\uAE30\\\uC624\uD508\uC18C\uC2A4\uD504\uB85C\uC81D\uD2B8\\restaurant_reservation\\image\\managebase.png"));
+		lblNewLabel_2.setBounds(0, 0, 1280, 720);
+		add(lblNewLabel_2);
 		manage_reservation_back.addActionListener(new ActionListener() {
 
 			@Override
