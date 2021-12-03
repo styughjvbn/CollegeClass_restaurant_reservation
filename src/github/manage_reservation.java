@@ -26,7 +26,7 @@ public class manage_reservation extends JPanel {
 	public JButton manage_reservation_back;
 	private JTable table_c;
 	private JTable table_o;
-	private DAO_oldreservation DAO=new DAO_oldreservation();
+	private DAO_manager DAO=new DAO_manager();
 	public ArrayList<String []> data1;
 	public ArrayList<String []> data2;
 	DefaultTableModel temp;
@@ -54,10 +54,12 @@ public class manage_reservation extends JPanel {
 		table_c.setFont(new Font("세방고딕 보통", Font.PLAIN, 15));
 		table_c.setBackground(new Color(226,221,215));
 		table_c.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[]{"id","count","time","date","money","menu","table","book_time"}
-				));
+			new Object[][] {
+			},
+			new String[] {
+				"\uC774\uB984", "\uC804\uD654\uBC88\uD638", "\uC778\uC6D0\uC218", "\uC608\uC57D\uC2DC\uAC04", "\uC608\uC57D\uB0A0\uC9DC", "\uC608\uC57D\uAE08", "\uC608\uC57D\uBA54\uB274", "\uC608\uC57D\uD14C\uC774\uBE14", "\uC694\uCCAD\uC2DC\uAC04"
+			}
+		));
 		table_c.setBounds(22, 95, 966, 192);
 		table_c.setPreferredScrollableViewportSize(new Dimension(800,100));
 		table_c.setAlignmentX(0);
@@ -79,11 +81,12 @@ public class manage_reservation extends JPanel {
 	    table_o.setFont(new Font("세방고딕 보통", Font.PLAIN, 15));
 		table_o.setBackground(new Color(226,221,215));
 	    table_o.setModel(new DefaultTableModel(
-	    		
-				new Object[][] {
-				},
-				new String[]{"id","time","date","count","money","menu","age","gender(1=male 2=female)"}
-				));
+	    	new Object[][] {
+	    	},
+	    	new String[] {
+	    		"\uC774\uB984", "\uC804\uD654\uBC88\uD638", "\uC608\uC57D\uC2DC\uAC04", "\uC608\uC57D\uB0A0\uC9DC", "\uC778\uC6D0\uC218", "\uC608\uC57D\uAE08", "\uC608\uC57D\uBA54\uB274", "\uB098\uC774", "\uC131\uBCC4(1=male 2=female)"
+	    	}
+	    ));
 		table_o.setBounds(22, 340, 150, 20);
 		table_o.setPreferredScrollableViewportSize(new Dimension(800,100));
 		table_o.setAlignmentX(0);
@@ -93,12 +96,12 @@ public class manage_reservation extends JPanel {
 		
 		JButton manage_reservation_back = new JButton("");
 		manage_reservation_back.setBorder(null);
-		manage_reservation_back.setIcon(new ImageIcon("C:\\Users\\33387\\Desktop\\2\uD559\uB144 2\uD559\uAE30\\\uC624\uD508\uC18C\uC2A4\uD504\uB85C\uC81D\uD2B8\\restaurant_reservation\\image\\back2.png"));
+		manage_reservation_back.setIcon(new ImageIcon("image/back2.png"));
 		manage_reservation_back.setBounds(44, 54, 120, 50);
 		add(manage_reservation_back);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\33387\\Desktop\\2\uD559\uB144 2\uD559\uAE30\\\uC624\uD508\uC18C\uC2A4\uD504\uB85C\uC81D\uD2B8\\restaurant_reservation\\image\\managebase.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("image/managebase.png"));
 		lblNewLabel_2.setBounds(0, 0, 1280, 720);
 		add(lblNewLabel_2);
 		manage_reservation_back.addActionListener(new ActionListener() {

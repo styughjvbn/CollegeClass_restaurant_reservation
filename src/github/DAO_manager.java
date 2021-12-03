@@ -214,6 +214,93 @@ public class DAO_manager {
 			  }
 		return 0;
 	}
+	public String[] get_name(String ID) {//점포 테이블 정보 받아오기
+		conn = getConnection();
+		try {
+			pstmt = conn.prepareStatement("select customer_name, customer_hp from customer where customer_id = ? ");
+			pstmt.setString(1, ID); //첫번째 ?에 넣음
+			
+			ResultSet RS = pstmt.executeQuery();
+			if(RS.next()) {//rs의 next에 값이 있으면 일치한다는 뜻	
+				
+				return new String[] {RS.getString(1),RS.getString(2)};
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null; 
+	}
+	public ArrayList<String []> getOldReservation(String shop){
+		try {
+			Connection conn = getConnection();
+			String[] ary;
+			pstmt = conn.prepareStatement("select * from reservation_old where shop = ?");
+			pstmt.setString(1, shop);
+			
+			rs = pstmt.executeQuery();
+			ArrayList<String []> list = new ArrayList<String[]>();
+			
+			while(rs.next()) {
+				String[] temp=get_name(rs.getString(1));
+				
+				ary=new String[] {
+						temp[0],
+						temp[1],
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9)
+				};
+				
+				list.add(ary);
+			}
+			return list;
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
+	public ArrayList<String []> getCurrentReservation(String shop){
+		try {
+			Connection con = getConnection();
+			pstmt = con.prepareStatement("select * from reservation_current where rc_shop = ?");
+			pstmt.setString(1, shop);
+			
+			rs = pstmt.executeQuery();
+			ArrayList<String []> list = new ArrayList<String[]>();
+			System.out.println("시방");
+			while(rs.next()) {
+				String[] temp=get_name(rs.getString(1));
+				for(int i=0;i<2;i++) {
+					System.out.println(temp[i]);
+				}
+				String[] ary = new String[9];
+				ary[0] = temp[0];
+				ary[1] = temp[1];
+				ary[2] = rs.getString(3);
+				ary[3] = rs.getString(4);
+				ary[4] = rs.getString(5);
+				ary[5] = rs.getString(6);
+				ary[6] = rs.getString(7);
+				ary[7] = rs.getString(8);
+				ary[8] = rs.getString(9);
+
+				for(int i=0;i<9;i++) {
+					System.out.println(ary[i]);
+				}
+				list.add(ary);
+				
+			}
+			return list;
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
 	public static  Connection getConnection() {//DB와 연결
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";

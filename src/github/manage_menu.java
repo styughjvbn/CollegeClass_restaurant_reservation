@@ -337,6 +337,7 @@ public class manage_menu extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					n++;
 					tmp = new menu(Integer.parseInt(menucost.getText().toString()), menuname.getText()); // xy
+					System.out.println(menucost.getText().toString()+menuname.getText());;
 					tmp.identy=n;
 					Incategory.add(tmp);
 					Incategory.get(n).addMouseListener(new MouseAdapter() {
@@ -344,13 +345,10 @@ public class manage_menu extends JPanel {
 							menu ttmmp=(menu)me.getComponent();
 							menu_info.setVisible(true);
 							menu_info.set_label(ttmmp.identy);
-							menu_name.setText(Incategory.get(menu_info.ide).name.substring(Incategory.get(menu_info.ide).name.lastIndexOf("_")+1));
+							menu_name.setText(Incategory.get(menu_info.ide).name);
 							menu_cost.setText(""+Incategory.get(menu_info.ide).price);						
 						}
 					});
-					for(int i=0;i<Incategory.size();i++){
-						System.out.println(Incategory.get(i).identy+Incategory.get(i).name+Incategory.get(i).price+"");
-					}
 					panel_2.add(Incategory.get(n));
 					panel_2.revalidate();
 				}
@@ -362,7 +360,7 @@ public class manage_menu extends JPanel {
 			Incategory.clear();
 			for(int i=0;i<detail.size();i++) {
 				n++;
-				tmp = new menu(detail.get(i).get_md_price(),detail.get(i).get_md_name()); 
+				tmp = new menu(detail.get(i).get_md_price(),detail.get(i).get_md_name().substring(0,detail.get(i).get_md_name().lastIndexOf("_"))); 
 				tmp.identy=n;
 				Incategory.add(tmp);
 				Incategory.get(n).addMouseListener(new MouseAdapter() {
@@ -370,7 +368,7 @@ public class manage_menu extends JPanel {
 						menu ttmmp=(menu)me.getComponent();
 						menu_info.setVisible(true);
 						menu_info.set_label(ttmmp.identy);
-						menu_name.setText(Incategory.get(menu_info.ide).name.substring(Incategory.get(menu_info.ide).name.lastIndexOf("_")+1));
+						menu_name.setText(Incategory.get(menu_info.ide).name);
 						menu_cost.setText(""+Incategory.get(menu_info.ide).price);						
 					}
 				});
@@ -435,6 +433,7 @@ public class manage_menu extends JPanel {
 		void modify_info(int price, String name) {
 			this.price = price;
 			this.name = name;	
+			
 			// 돈 단위대로 출력
 						if (price >= 1000) {
 							String rightl = "%14s";
