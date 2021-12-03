@@ -189,33 +189,33 @@ public class manage_menu extends JPanel {
 			
 			JLabel lblNewLabel0 = new JLabel("* 메뉴 추가");
 			lblNewLabel0.setFont(new Font("굴림", Font.BOLD, 15));
-			lblNewLabel0.setBounds(650, 30, 230, 35);
+			lblNewLabel0.setBounds(650, 20, 230, 35);
 			add(lblNewLabel0);
 			
 			JLabel lblNewLabel = new JLabel("이름 :");
 			lblNewLabel.setFont(new Font("굴림", Font.BOLD, 15));
-			lblNewLabel.setBounds(650, 64, 50, 35);
+			lblNewLabel.setBounds(650, 54, 50, 35);
 			add(lblNewLabel);
 
 			JLabel lblNewLabel_1 = new JLabel("가격 :");
 			lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 15));
-			lblNewLabel_1.setBounds(650, 94, 50, 35);
+			lblNewLabel_1.setBounds(650, 84, 50, 35);
 			add(lblNewLabel_1);
 			
 			JButton btnNewButton = new JButton("확인");
 			btnNewButton.setFont(new Font("굴림", Font.BOLD, 17));
 			btnNewButton.setBorder(new LineBorder(new Color(0,0,0)));
 			btnNewButton.setBackground(new Color(189, 182, 174));
-			btnNewButton.setBounds(650, 138,226, 35);
+			btnNewButton.setBounds(650, 128,226, 35);
 			add(btnNewButton);
 
 			menuname = new JTextField();
-			menuname.setBounds(695, 66, 180, 23);
+			menuname.setBounds(695, 56, 180, 23);
 			add(menuname);
 			menuname.setColumns(10);
 			
 			menucost = new JTextField();
-			menucost.setBounds(695, 96, 180, 23);
+			menucost.setBounds(695, 86, 180, 23);
 			add(menucost);
 			menucost.setColumns(10);
 
@@ -230,7 +230,7 @@ public class manage_menu extends JPanel {
 			Backbtn.setFont(new Font("굴림", Font.BOLD, 17));
 			Backbtn.setBorder(new LineBorder(new Color(0,0,0)));
 			Backbtn.setBackground(new Color(189, 182, 174));
-			Backbtn.setBounds(650, 435,226, 35);
+			Backbtn.setBounds(650, 405,226, 35);
 			Backbtn.addActionListener(new ActionListener() {
 
 				@Override
@@ -240,8 +240,12 @@ public class manage_menu extends JPanel {
 			});
 			add(Backbtn);
 
-			JButton deletbtn = new JButton("delet");  //이거 왜 또잇지
-			deletbtn.setBounds(654, 530, 91, 23);
+			JButton deletbtn = new JButton("카테고리 삭제"); 
+			deletbtn.setFont(new Font("굴림", Font.BOLD, 17));
+			deletbtn.setBorder(new LineBorder(new Color(0,0,0)));
+			deletbtn.setBackground(new Color(189, 182, 174));
+			deletbtn.setForeground(new Color(236,99,94));
+			deletbtn.setBounds(650, 445, 226, 35);
 			deletbtn.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -264,7 +268,7 @@ public class manage_menu extends JPanel {
 			
 			//메뉴정보패널
 			menu_info = new menu_info();
-			menu_info.setBounds(650, 200, 235, 190);
+			menu_info.setBounds(650, 180, 235, 190);
 			menu_info.setBackground(new Color(226,221,215));
 			menu_info.setVisible(false);
 			add(menu_info);
@@ -324,7 +328,7 @@ public class manage_menu extends JPanel {
 					n--;
 				}
 			});
-			del.setBounds(0, 155,226, 35);
+			del.setBounds(0, 150,226, 35);
 			menu_info.add(del);
 			
 			btnNewButton.addActionListener(new ActionListener() {  //세부 메뉴 생성
