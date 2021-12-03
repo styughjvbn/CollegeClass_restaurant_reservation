@@ -58,7 +58,7 @@ public class reservation_payment extends JPanel {
 		panel.setLayout(null);
 
 		JLabel lblNewLabel_2 = new JLabel("\uC608\uC57D\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
-		lblNewLabel_2.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(69, 20, 199, 35);
 		panel.add(lblNewLabel_2);
 
@@ -73,7 +73,7 @@ public class reservation_payment extends JPanel {
 		btnNewButton_4.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
 		btnNewButton_4.setForeground(new Color(120, 108, 100));
 		btnNewButton_4.setBackground(new Color(200, 184, 164));
-		btnNewButton_4.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		btnNewButton_4.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 
 		// ¸Þ´ºÆÇ ÆÐ³Î
 		JPanel panel_1 = new JPanel();
@@ -104,14 +104,14 @@ public class reservation_payment extends JPanel {
 
 		// ÃÑ ÁÖ¹® ±Ý¾×
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel.setBounds(998, 383, 191, 21);
 		add(lblNewLabel);
 
 		// ¼±ÅÃ ¸Þ´º ÀÌ¸§
 		textArea = new JTextArea();
 		textArea.setBackground(new Color(226, 221, 215));
-		textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
+		textArea.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		textArea.setBounds(900, 108, 159, 256);
 		add(textArea);
 		textArea.setEditable(false);
@@ -119,7 +119,7 @@ public class reservation_payment extends JPanel {
 		// °¡°Ý
 		textArea_1 = new JTextArea();
 		textArea_1.setBackground(new Color(226, 221, 215));
-		textArea_1.setFont(new Font("Monospaced", Font.PLAIN, 15));
+		textArea_1.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		textArea_1.setEditable(false);
 		textArea_1.setBounds(1060, 108, 124, 256);
 		add(textArea_1);
@@ -129,7 +129,7 @@ public class reservation_payment extends JPanel {
 		btnNewButton_2.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
 		btnNewButton_2.setForeground(new Color(120, 108, 100));
 		btnNewButton_2.setBackground(new Color(200, 184, 164));
-		btnNewButton_2.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		btnNewButton_2.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (sele_price.size() > 0) {
@@ -191,25 +191,25 @@ public class reservation_payment extends JPanel {
 		add(btnNewButton_3);
 
 		lblNewLabel_1 = new JLabel("\uCD1D \uC8FC\uBB38\uAE08\uC561"); // ÃÑ ÁÖ¹®±Ý¾× ±Û¾¾
-		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(900, 384, 86, 21);
 		add(lblNewLabel_1);
 
 		JLabel lblNewLabel_1_1 = new JLabel("\uBA54\uB274 \uC120\uD0DD (10\uAC1C\uAE4C\uC9C0)");
-		lblNewLabel_1_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_1_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_1_1.setBounds(900, 68, 174, 21);
 		add(lblNewLabel_1_1);
 
 		JLabel lblNewLabel_1_1_1 = new JLabel("");
 		lblNewLabel_1_1_1.setIcon(
 				new ImageIcon("image/hsection_icon.png"));
-		lblNewLabel_1_1_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_1_1_1.setBounds(894, 86, 290, 21);
 		add(lblNewLabel_1_1_1);
 
 		lblNewLabel_1_1_2 = new JLabel("");
 		lblNewLabel_1_1_2.setIcon(new ImageIcon("image/hsection_icon.png"));
-		lblNewLabel_1_1_2.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_1_1_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_1_1_2.setBounds(894, 359, 290, 21);
 		add(lblNewLabel_1_1_2);
 
@@ -311,7 +311,7 @@ public class reservation_payment extends JPanel {
 		public category(String category_name) {
 			setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 			this.category_name = category_name;
-			setFont(new Font("±¼¸²", Font.BOLD, 15));
+			setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			setText(this.category_name);
 			setHorizontalAlignment(JLabel.CENTER);
 			setPreferredSize(new Dimension(100, 50));

@@ -70,7 +70,7 @@ public class reservation extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("\uBC29\uBB38\uC608\uC57D \uC810\uD3EC");
-		lblNewLabel.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel.setBounds(51, 102, 212, 21);
 		panel.add(lblNewLabel);
 		
@@ -79,7 +79,7 @@ public class reservation extends JPanel {
 		panel.add(scrollPane);
 		
 		table = new JTable();
-		table.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
+		table.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		table.setBorder(null);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -97,7 +97,7 @@ public class reservation extends JPanel {
 		panel.add(scrollPane_1);
 		
 		table_1 = new JTable();
-		table_1.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
+		table_1.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		table_1.setBorder(null);
 		table_1.setModel(new DefaultTableModel(
 				
@@ -111,12 +111,12 @@ public class reservation extends JPanel {
 		scrollPane_1.setViewportView(table_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("\uBC29\uBB38\uD55C \uC810\uD3EC");
-		lblNewLabel_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
+		lblNewLabel_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(51, 334, 199, 21);
 		panel.add(lblNewLabel_1);
 		
 		JButton btnNewButton_1 = new JButton("\uC608\uC57D\r\n\uCDE8\uC18C");
-		btnNewButton_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 14));
+		btnNewButton_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 14));
 		btnNewButton_1.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		btnNewButton_1.setBackground(new Color(200, 184, 164));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -174,13 +174,13 @@ public class reservation extends JPanel {
 		
 		JButton btnNewButton = new JButton("\uD655\uC778");
 		btnNewButton.setBounds(606, 84, 97, 32);
-		btnNewButton.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 14));
+		btnNewButton.setFont(new Font("SEBANG Gothic", Font.BOLD, 14));
 		btnNewButton.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		btnNewButton.setBackground(new Color(200, 184, 164));
 		panel_1.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("\uD604\uC7AC \uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_2.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
+		lblNewLabel_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(139, 75, 212, 21);
 		lblNewLabel_2.setBounds(139, 48, 121, 15);
 		panel_1.add(lblNewLabel_2);
@@ -224,12 +224,12 @@ public class reservation extends JPanel {
 		});
 		
 		JLabel lblNewLabel_3 = new JLabel("\uC0C8\uB85C\uC6B4 \uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_3.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
+		lblNewLabel_3.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(36, 52, 212, 21);
 		panel_2.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("\uC0C8\uB85C\uC6B4 \uBE44\uBC00\uBC88\uD638 \uD655\uC778");
-		lblNewLabel_4.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
+		lblNewLabel_4.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_4.setBounds(36, 128, 200, 15);
 		panel_2.add(lblNewLabel_4);
 		
@@ -265,7 +265,7 @@ public class reservation extends JPanel {
 		});
 		
 		JButton btnNewButton_2 = new JButton("\uBCC0\uACBD");
-		btnNewButton_2.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 14));
+		btnNewButton_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 14));
 		btnNewButton_2.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		btnNewButton_2.setBackground(new Color(200, 184, 164));
 		btnNewButton_2.addActionListener(new ActionListener() {
