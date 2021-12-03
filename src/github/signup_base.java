@@ -79,12 +79,12 @@ public class signup_base extends JPanel {
 		lblNewLabel_4_2.setBounds(146, 299, 289, 33);
 		panel_2.add(lblNewLabel_4_2);
 		
-		JLabel lblNewLabel_4_3 = new JLabel("\uAE30\uC5C5 \uD68C\uC6D0\uAC00\uC785\uC744 \uC6D0\uD558\uC2DC\uBA74 \uC120\uD0DD\uD574\uC8FC\uC138\uC694.");
+		JLabel lblNewLabel_4_3 = new JLabel("\uC810\uD3EC \uD68C\uC6D0\uAC00\uC785\uC744 \uC6D0\uD558\uC2DC\uBA74 \uC120\uD0DD\uD574\uC8FC\uC138\uC694.");
 		lblNewLabel_4_3.setFont(new Font("SEBANG Gothic", Font.PLAIN, 14));
 		lblNewLabel_4_3.setBounds(664, 299, 266, 33);
 		panel_2.add(lblNewLabel_4_3);
 		
-		JLabel lblNewLabel_4_4 = new JLabel("\uAE30\uC5C5\uD68C\uC6D0");
+		JLabel lblNewLabel_4_4 = new JLabel("\uC810\uD3EC\uD68C\uC6D0");
 		lblNewLabel_4_4.setFont(new Font("SEBANG Gothic", Font.BOLD, 25));
 		lblNewLabel_4_4.setBounds(664, 255, 113, 33);
 		panel_2.add(lblNewLabel_4_4);
