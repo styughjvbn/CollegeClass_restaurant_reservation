@@ -44,7 +44,7 @@ public class manage_menu extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("\uBA54\uB274 \uCE74\uD14C\uACE0\uB9AC \uC774\uB984 \uC785\uB825");
-		lblNewLabel_2.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		lblNewLabel_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 		lblNewLabel_2.setBounds(973, 372, 253, 34);
 		add(lblNewLabel_2);
 		// card ÆÐ³Î ¹Ù±ù¿¡ Á¸ÀçÇÔ
@@ -64,7 +64,7 @@ public class manage_menu extends JPanel {
 		JButton btnNewButton = new JButton("\uD655\uC778");
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton.setBackground(new Color(189, 182, 174));
-		btnNewButton.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		btnNewButton.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -92,7 +92,7 @@ public class manage_menu extends JPanel {
 		add(btnNewButton);
 
 		btnname = new JTextField();
-		btnname.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		btnname.setFont(new Font("SEBANG Gothic", Font.PLAIN, 17));
 		btnname.setBounds(973, 405, 253, 28);
 		add(btnname);
 
@@ -161,7 +161,7 @@ public class manage_menu extends JPanel {
 			setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 			setBackground(new Color(226,221,215));
 			this.category_name = category_name;
-			setFont(new Font("±¼¸²", Font.BOLD, 15));
+			setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			setText(this.category_name);
 			setPreferredSize(new Dimension(100, 100));
 		}
@@ -188,22 +188,22 @@ public class manage_menu extends JPanel {
 			setLayout(null);
 			
 			JLabel lblNewLabel0 = new JLabel("* ¸Þ´º Ãß°¡");
-			lblNewLabel0.setFont(new Font("±¼¸²", Font.BOLD, 15));
+			lblNewLabel0.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			lblNewLabel0.setBounds(650, 20, 230, 35);
 			add(lblNewLabel0);
 			
 			JLabel lblNewLabel = new JLabel("ÀÌ¸§ :");
-			lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 15));
+			lblNewLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			lblNewLabel.setBounds(650, 54, 50, 35);
 			add(lblNewLabel);
 
 			JLabel lblNewLabel_1 = new JLabel("°¡°Ý :");
-			lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+			lblNewLabel_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			lblNewLabel_1.setBounds(650, 84, 50, 35);
 			add(lblNewLabel_1);
 			
 			JButton btnNewButton = new JButton("È®ÀÎ");
-			btnNewButton.setFont(new Font("±¼¸²", Font.BOLD, 17));
+			btnNewButton.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 			btnNewButton.setBorder(new LineBorder(new Color(0,0,0)));
 			btnNewButton.setBackground(new Color(189, 182, 174));
 			btnNewButton.setBounds(650, 128,226, 35);
@@ -227,7 +227,7 @@ public class manage_menu extends JPanel {
 			panel_2.setLayout(new FlowLayout(FlowLayout.LEFT,5,5));
 
 			JButton Backbtn = new JButton("Ä«Å×°í¸® º¸±â");
-			Backbtn.setFont(new Font("±¼¸²", Font.BOLD, 17));
+			Backbtn.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 			Backbtn.setBorder(new LineBorder(new Color(0,0,0)));
 			Backbtn.setBackground(new Color(189, 182, 174));
 			Backbtn.setBounds(650, 405,226, 35);
@@ -241,7 +241,7 @@ public class manage_menu extends JPanel {
 			add(Backbtn);
 
 			JButton deletbtn = new JButton("Ä«Å×°í¸® »èÁ¦"); 
-			deletbtn.setFont(new Font("±¼¸²", Font.BOLD, 17));
+			deletbtn.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 			deletbtn.setBorder(new LineBorder(new Color(0,0,0)));
 			deletbtn.setBackground(new Color(189, 182, 174));
 			deletbtn.setForeground(new Color(236,99,94));
@@ -275,17 +275,17 @@ public class manage_menu extends JPanel {
 			menu_info.setLayout(null);
 			
 			JLabel menu_lab = new JLabel("* ¸Þ´ºÁ¤º¸");
-			menu_lab.setFont(new Font("±¼¸²", Font.BOLD, 15));
+			menu_lab.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			menu_lab.setBounds(0, 0, 230, 35);
 			menu_info.add(menu_lab);
 			
 			JLabel lblNewLabelab = new JLabel("ÀÌ¸§ :");
-			lblNewLabelab.setFont(new Font("±¼¸²", Font.BOLD, 15));
+			lblNewLabelab.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			lblNewLabelab.setBounds(0, 34, 50, 35);
 			menu_info.add(lblNewLabelab);
 
 			JLabel lblNewLabelab_1 = new JLabel("°¡°Ý :");
-			lblNewLabelab_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+			lblNewLabelab_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			lblNewLabelab_1.setBounds(0, 64, 50, 35);
 			menu_info.add(lblNewLabelab_1);
 			
@@ -300,7 +300,7 @@ public class manage_menu extends JPanel {
 			menu_cost.setColumns(10);
 			
 			JButton modify = new JButton("\uC218\uC815");  //¼öÁ¤
-			modify.setFont(new Font("±¼¸²", Font.BOLD, 17));
+			modify.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 			modify.setBorder(new LineBorder(new Color(0,0,0)));
 			modify.setBackground(new Color(189, 182, 174));
 			modify.addActionListener(new ActionListener() {
@@ -313,7 +313,7 @@ public class manage_menu extends JPanel {
 			menu_info.add(modify);
 			
 			JButton del = new JButton("\uC0AD\uC81C");  //»èÁ¦
-			del.setFont(new Font("±¼¸²", Font.BOLD, 17));
+			del.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 			del.setBorder(new LineBorder(new Color(0,0,0)));
 			del.setBackground(new Color(189, 182, 174));
 			del.addActionListener(new ActionListener() {
@@ -409,7 +409,7 @@ public class manage_menu extends JPanel {
 				setText("<html>" + this.name + "<br>" + nprice + "</html>");
 			}
 			setHorizontalAlignment(JLabel.CENTER);
-			setFont(new Font("±¼¸²", Font.BOLD, 15));
+			setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 			setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 			setPreferredSize(new Dimension(100, 100));	
 			addMouseListener(new MouseAdapter() {

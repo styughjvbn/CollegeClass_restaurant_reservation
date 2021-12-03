@@ -135,7 +135,7 @@ public class signup_customer extends JPanel {
 		// 3번째 패널(pw)
 		pwtxt = new JPasswordField();
 		pwtxt.setText("Password를 입력해주세요.");
-		pwtxt.setFont(new Font("Dialog", Font.PLAIN, 15));
+		pwtxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		pwtxt.setForeground(Color.LIGHT_GRAY);
 		pwtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pwtxt.setBackground(new Color(226, 221, 215));
@@ -164,7 +164,7 @@ public class signup_customer extends JPanel {
 		// 3번째 패널(id)
 		idtxt = new JTextField();
 		idtxt.setText("ID를 입력해주세요.");
-		idtxt.setFont(new Font("Dialog", Font.PLAIN, 15));
+		idtxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		idtxt.setForeground(Color.LIGHT_GRAY);
 		idtxt.setBackground(new Color(226, 221, 215));
 		idtxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -193,7 +193,7 @@ public class signup_customer extends JPanel {
 		// 3번째 패널(pwcheck)
 		pwtxtc = new JPasswordField();
 		pwtxtc.setText("Password가 동일한지 한번 더 입력해주세요.");
-		pwtxtc.setFont(new Font("Dialog", Font.PLAIN, 15));
+		pwtxtc.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		pwtxtc.setForeground(Color.LIGHT_GRAY);
 		pwtxtc.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		pwtxtc.setBackground(new Color(226, 221, 215));
@@ -225,7 +225,7 @@ public class signup_customer extends JPanel {
 		// 2번째 패널 (이름)
 		nametxt = new JTextField();
 		nametxt.setText("이름을 입력해주세요.");
-		nametxt.setFont(new Font("Dialog", Font.PLAIN, 15));
+		nametxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		nametxt.setForeground(Color.LIGHT_GRAY);
 		nametxt.setColumns(10);
 		nametxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -254,7 +254,7 @@ public class signup_customer extends JPanel {
 		// 2번째 패널 (나이)
 		agetxt = new JTextField();
 		agetxt.setText("\uB098\uC774");
-		agetxt.setFont(new Font("Dialog", Font.PLAIN, 15));
+		agetxt.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		agetxt.setForeground(Color.LIGHT_GRAY);
 		agetxt.setColumns(10);
 		agetxt.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -319,7 +319,7 @@ public class signup_customer extends JPanel {
 		// 2번째 패널 (핸드폰)
 		txtHp = new JTextField();
 		txtHp.setText("\uC804\uD654\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
-		txtHp.setFont(new Font("Dialog", Font.PLAIN, 15));
+		txtHp.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		txtHp.setForeground(Color.LIGHT_GRAY);
 		txtHp.setColumns(10);
 		txtHp.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2, true), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));

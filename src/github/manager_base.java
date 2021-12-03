@@ -92,7 +92,7 @@ public class manager_base extends JPanel {
 		panel_3.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("\uBE44\uBC00\uBC88\uD638 \uBCC0\uACBD\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
-		lblNewLabel_1.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 25));
+		lblNewLabel_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 25));
 		lblNewLabel_1.setBounds(97, 68, 382, 36);
 		panel_3.add(lblNewLabel_1);
 
@@ -129,13 +129,13 @@ public class manager_base extends JPanel {
 
 		JButton check = new JButton("\uD655\uC778");
 		check.setBounds(819, 161, 100, 35);
-		check.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 14));
+		check.setFont(new Font("SEBANG Gothic", Font.BOLD, 14));
 		check.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		check.setBackground(new Color(200, 184, 164));
 		panel_1.add(check);
 
 		JLabel lblNewLabel_2 = new JLabel("\uD604\uC7AC \uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_2.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
+		lblNewLabel_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(370, 134, 121, 15);
 		panel_1.add(lblNewLabel_2);
 
@@ -177,12 +177,12 @@ public class manager_base extends JPanel {
 		});
 
 		JLabel lblNewLabel_3 = new JLabel("\uC0C8\uB85C\uC6B4 \uBE44\uBC00\uBC88\uD638");
-		lblNewLabel_3.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
+		lblNewLabel_3.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_3.setBounds(36, 52, 131, 21);
 		panel_2.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("\uC0C8\uB85C\uC6B4 \uBE44\uBC00\uBC88\uD638 \uD655\uC778");
-		lblNewLabel_4.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 15));
+		lblNewLabel_4.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_4.setBounds(36, 128, 200, 15);
 		panel_2.add(lblNewLabel_4);
 
@@ -217,7 +217,7 @@ public class manager_base extends JPanel {
 		});
 
 		JButton update = new JButton("\uBCC0\uACBD");
-		update.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 14));
+		update.setFont(new Font("SEBANG Gothic", Font.BOLD, 14));
 		update.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		update.setBackground(new Color(200, 184, 164));
 		update.addActionListener(new ActionListener() {
@@ -239,7 +239,7 @@ public class manager_base extends JPanel {
 			}
 		});
 		btnNewButton_3_1.setForeground(Color.WHITE);
-		btnNewButton_3_1.setFont(new Font("Dialog", Font.PLAIN, 15));
+		btnNewButton_3_1.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		btnNewButton_3_1.setBorder(null);
 		btnNewButton_3_1.setIcon(new ImageIcon("image/back2.png"));
 		btnNewButton_3_1.setBackground(new Color(226, 221, 215));

@@ -59,7 +59,6 @@ public class reservation_base extends JPanel {
 	JPanel panel_2;
 	JLabel lblNewLabel;
 	JComboBox<String> comboBox;
-	private JLabel lblNewLabel_14;
 	
 	/**
 	 * Create the panel.
@@ -87,7 +86,7 @@ public class reservation_base extends JPanel {
 		detail.detail_back.setText("\uC774\uC804 \uD654\uBA74");
 		detail.detail_back.setForeground(new Color(120, 108, 100));
 		detail.checkbutton.setSize(284, 49);
-		detail.detail_back.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		detail.detail_back.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 		detail.checkbutton.setLocation(900, 552);
 		detail.detail_back.setSize(284, 49);
 		detail.detail_back.setLocation(900, 489);
@@ -98,12 +97,6 @@ public class reservation_base extends JPanel {
 		temp.setBounds(446, 50, 800, 600);
 		temp.setVisible(false);
 		
-		lblNewLabel_14 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
-		lblNewLabel_14.setForeground(new Color(120, 108, 100));
-		lblNewLabel_14.setFont(new Font("±¼¸²", Font.BOLD, 17));
-		lblNewLabel_14.setBounds(85, 62, 70, 29);
-		panel.add(lblNewLabel_14);
-		
 		panel_3 = new JPanel();
 		panel_3.setBounds(433, 50, 83, 67);
 		panel.add(panel_3);
@@ -111,7 +104,7 @@ public class reservation_base extends JPanel {
 		//
 		
 		btnNewButton_3 = new JButton(" \uC608\uC57D\uD655\uC778 ");
-		btnNewButton_3.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 14));
+		btnNewButton_3.setFont(new Font("SEBANG Gothic", Font.BOLD, 14));
 		btnNewButton_3.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		btnNewButton_3.setBackground(new Color(200, 184, 164));
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -128,7 +121,7 @@ public class reservation_base extends JPanel {
 		panel_3.add(btnNewButton_3);
 		
 		btnNewButton_4 = new JButton(" PW \uBCC0\uACBD ");
-		btnNewButton_4.setFont(new Font("¼¼¹æ°íµñ ±½°Ô", Font.BOLD, 14));
+		btnNewButton_4.setFont(new Font("SEBANG Gothic", Font.BOLD, 14));
 		btnNewButton_4.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 		btnNewButton_4.setBackground(new Color(200, 184, 164));
 		btnNewButton_4.addActionListener(new ActionListener() {
@@ -158,8 +151,8 @@ public class reservation_base extends JPanel {
 		payment.btnNewButton_3.setBorder(new LineBorder(new Color(200, 184, 164) , 2, true));
 		payment.btnNewButton_3.setForeground(new Color(120, 108, 100));
 		payment.btnNewButton.setForeground(Color.WHITE);
-		payment.btnNewButton_3.setFont(new Font("±¼¸²", Font.BOLD, 17));
-		payment.btnNewButton.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		payment.btnNewButton_3.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
+		payment.btnNewButton.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 		payment.btnNewButton.setText("\uC608\uC57D\uD558\uAE30");
 		payment.btnNewButton_3.setText("\uC774\uC804 \uD654\uBA74");
 		payment.btnNewButton.setSize(284, 49);
@@ -174,11 +167,13 @@ public class reservation_base extends JPanel {
 		lblNewLabel.setBounds(446, 50, 800, 600);
 		panel.add(lblNewLabel);
 
-		back = new JButton("");//back¹öÆ°
+		back = new JButton("\uB85C\uADF8\uC544\uC6C3");//back¹öÆ°
 		back.setBorder(null);
 		back.setBackground(new Color(226,221,215));
 		back.setIcon(new ImageIcon("image/back.png"));
-		back.setBounds(42, 51, 45, 43);
+		back.setBounds(32, 50, 151, 43);
+		back.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
+		back.setForeground(new Color(120, 108, 100));
 		panel.add(back);
 		
 		JPanel panel_1 = new JPanel();
@@ -200,7 +195,7 @@ public class reservation_base extends JPanel {
 		shop_name.setForeground(new Color(120, 108, 100));
 		shop_name.setBackground(new Color(226,221,215));
 		shop_name.setBorder(null);
-		shop_name.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		shop_name.setFont(new Font("SEBANG Gothic", Font.BOLD, 20));
 		shop_name.setEditable(false);
 		shop_name.setColumns(10);
 		
@@ -210,7 +205,7 @@ public class reservation_base extends JPanel {
 		shop_tel.setBorder(null);
 		shop_tel.setForeground(new Color(236, 99, 94));
 		shop_tel.setBackground(new Color(226,221,215));
-		shop_tel.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		shop_tel.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		shop_tel.setEditable(false);
 		shop_tel.setColumns(10);
 		
@@ -219,7 +214,7 @@ public class reservation_base extends JPanel {
 		panel_2.add(shop_distance);
 		shop_distance.setBorder(null);
 		shop_distance.setBackground(new Color(226,221,215));
-		shop_distance.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		shop_distance.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		shop_distance.setEditable(false);
 		shop_distance.setColumns(10);
 		
@@ -229,7 +224,7 @@ public class reservation_base extends JPanel {
 		shop_adress.setBorder(null);
 		shop_adress.setForeground(Color.GRAY);
 		shop_adress.setBackground(new Color(226,221,215));
-		shop_adress.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		shop_adress.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		shop_adress.setEditable(false);
 		shop_adress.setColumns(10);
 		
@@ -238,13 +233,13 @@ public class reservation_base extends JPanel {
 		panel_2.add(open_time);
 		open_time.setBorder(null);
 		open_time.setBackground(new Color(228,221,215));
-		open_time.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		open_time.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		open_time.setColumns(10);
 		
 		holyday = new JTextField();
 		holyday.setBounds(137, 245, 240, 21);
 		panel_2.add(holyday);
-		holyday.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		holyday.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		holyday.setBorder(null);
 		holyday.setBackground(new Color(228,221,215));
 		holyday.setColumns(10);
@@ -254,7 +249,7 @@ public class reservation_base extends JPanel {
 		panel_2.add(shop_category);
 		shop_category.setBorder(null);
 		shop_category.setBackground(new Color(226,221,215));
-		shop_category.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		shop_category.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		shop_category.setEditable(false);
 		shop_category.setColumns(10);
 		
@@ -264,7 +259,7 @@ public class reservation_base extends JPanel {
 		btnNewButton_1.setForeground(new Color(120, 108, 100));
 		btnNewButton_1.setBackground(new Color(200, 184, 164));
 		btnNewButton_1.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
-		btnNewButton_1.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		btnNewButton_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 20));
 		
 		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(24, 94, 40, 26);
@@ -279,7 +274,7 @@ public class reservation_base extends JPanel {
 		lblNewLabel_4 = new JLabel("\uAC80\uC0C9\uC9C0\uC5D0\uC11C");
 		lblNewLabel_4.setBounds(63, 173, 81, 21);
 		panel_2.add(lblNewLabel_4);
-		lblNewLabel_4.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		lblNewLabel_4.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		
 		lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setBounds(24, 216, 32, 30);
@@ -295,12 +290,12 @@ public class reservation_base extends JPanel {
 		lblNewLabel_10.setBounds(63, 245, 69, 21);
 		panel_2.add(lblNewLabel_10);
 		lblNewLabel_10.setForeground(new Color(236, 99, 94));
-		lblNewLabel_10.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_10.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		
 		lblNewLabel_9 = new JLabel("\uC601\uC5C5 \uC2DC\uAC04");
 		lblNewLabel_9.setBounds(63, 214, 69, 21);
 		panel_2.add(lblNewLabel_9);
-		lblNewLabel_9.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_9.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		
 		lblNewLabel_8 = new JLabel("");
 		lblNewLabel_8.setBounds(12, 194, 361, 15);
@@ -330,7 +325,7 @@ public class reservation_base extends JPanel {
 		comboBox = new JComboBox();
 		comboBox.setBorder(new LineBorder(new Color(200, 184, 164), 1, true));
 		comboBox.setBackground(new Color(226,221,215));
-		comboBox.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		comboBox.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		comboBox.setBounds(29, 75, 358, 39);
 		panel_1.add(comboBox);
 		
@@ -362,7 +357,7 @@ public class reservation_base extends JPanel {
 		textField.setBackground(new Color(226,221,215));
 		textField.setBounds(36, 26, 140, 40);
 		panel_1.add(textField);
-		textField.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		textField.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 		textField.setText("\uC704\uCE58 \uAC80\uC0C9");
 		textField.setBorder(new LineBorder(new Color(120, 108, 100), 0, true));
 		textField.setColumns(10);
@@ -388,7 +383,7 @@ public class reservation_base extends JPanel {
 		textField_1 = new JTextField();
 		textField_1.setForeground(new Color(120, 108, 100));
 		textField_1.setBackground(new Color(226,221,215));
-		textField_1.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		textField_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 17));
 		textField_1.setText("\uD0A4\uC6CC\uB4DC \uAC80\uC0C9");
 		textField_1.setBounds(197, 26, 140, 40);
 		panel_1.add(textField_1);

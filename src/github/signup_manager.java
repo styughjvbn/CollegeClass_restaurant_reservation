@@ -91,13 +91,13 @@ public class signup_manager extends JPanel {
 
 		// 환영합니다
 		JLabel lblNewLabel_11 = new JLabel("\uD658\uC601\uD569\uB2C8\uB2E4 !");
-		lblNewLabel_11.setFont(new Font("Dialog", Font.BOLD, 25));
+		lblNewLabel_11.setFont(new Font("SEBANG Gothic", Font.BOLD, 25));
 		lblNewLabel_11.setBounds(465, 147, 356, 52);
 		panel_1.add(lblNewLabel_11);
 
 		JLabel lblNewLabel_12 = new JLabel(
 				"\uACC4\uC815 \uAC00\uC785\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.");
-		lblNewLabel_12.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_12.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_12.setBounds(515, 209, 217, 22);
 		panel_1.add(lblNewLabel_12);
 
@@ -106,19 +106,19 @@ public class signup_manager extends JPanel {
 		lblNewLabel.setBounds(356, 109, 231, 27);
 		panel_2.add(lblNewLabel);
 		lblNewLabel.setForeground(Color.BLACK);
-		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblNewLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 18));
 
 		lblNewLabel_4 = new JLabel("\uC9C0\uC5ED");
 		lblNewLabel_4.setBounds(356, 151, 134, 27);
 		panel_2.add(lblNewLabel_4);
 		lblNewLabel_4.setForeground(Color.BLACK);
-		lblNewLabel_4.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_4.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 
 		// 지역 입력
 		textField_2 = new JTextField();
 		textField_2.setBounds(356, 174, 500, 40);
 		panel_2.add(textField_2);
-		textField_2.setFont(new Font("Dialog", Font.BOLD, 15));
+		textField_2.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		textField_2.setForeground(new Color(200, 184, 164));
 		textField_2.setText("\uC9C0\uC5ED\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		textField_2.setColumns(10);
@@ -129,14 +129,14 @@ public class signup_manager extends JPanel {
 		lblNewLabel_5.setBounds(356, 230, 134, 27);
 		panel_2.add(lblNewLabel_5);
 		lblNewLabel_5.setForeground(Color.BLACK);
-		lblNewLabel_5.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_5.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 
 		// 상호명 입력
 		textField_3 = new JTextField();
 		textField_3.setBounds(356, 255, 371, 40);
 		panel_2.add(textField_3);
 		textField_3.setSelectionColor(Color.BLACK);
-		textField_3.setFont(new Font("Dialog", Font.BOLD, 15));
+		textField_3.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		textField_3.setForeground(new Color(200, 184, 164));
 		textField_3.setText("\uC0C1\uD638\uBA85\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		textField_3.setColumns(10);
@@ -146,7 +146,7 @@ public class signup_manager extends JPanel {
 		comboBox = new JComboBox();
 		comboBox.setBounds(356, 307, 500, 40);
 		panel_2.add(comboBox);
-		comboBox.setFont(new Font("굴림", Font.PLAIN, 15));
+		comboBox.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		comboBox.setBackground(new Color(226, 221, 215));
 		comboBox.setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
 
@@ -183,7 +183,7 @@ public class signup_manager extends JPanel {
 		// 3단계 패널
 		// 아이디
 		txtId = new JTextField();
-		txtId.setFont(new Font("Dialog", Font.BOLD, 15));
+		txtId.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		txtId.setText("ID\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		txtId.setForeground(new Color(200, 184, 164));
 		txtId.setBounds(356, 160, 365, 40);
@@ -211,7 +211,7 @@ public class signup_manager extends JPanel {
 		panel.add(txtId);
 
 		pwdPassword = new JPasswordField();
-		pwdPassword.setFont(new Font("Dialog", Font.BOLD, 15));
+		pwdPassword.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		pwdPassword.setText("PASSWORD\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		pwdPassword.setEchoChar((char) 0);
 		pwdPassword.setForeground(new Color(200, 184, 164));
@@ -241,7 +241,7 @@ public class signup_manager extends JPanel {
 		});
 
 		pwdPassword_1 = new JPasswordField();
-		pwdPassword_1.setFont(new Font("Dialog", Font.BOLD, 15));
+		pwdPassword_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		pwdPassword_1.setText("PASSWORD \uC7AC\uC785\uB825");
 		pwdPassword_1.setEchoChar((char) 0);
 		pwdPassword_1.setForeground(new Color(200, 184, 164));
@@ -273,12 +273,12 @@ public class signup_manager extends JPanel {
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(
 				new ImageIcon("image/mducheck.png"));
-		btnNewButton.setFont(new Font("Dialog", Font.PLAIN, 15));
+		btnNewButton.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		btnNewButton.setBounds(721, 160, 129, 40);
 		panel.add(btnNewButton);
 
 		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Dialog", Font.BOLD, 15));
+		textField_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		textField_1.setForeground(new Color(200, 184, 164));
 		textField_1.setText("\uC804\uD654\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		textField_1.setBounds(356, 363, 494, 40);
@@ -314,7 +314,7 @@ public class signup_manager extends JPanel {
 
 		lblNewLabel_3 = new JLabel("\uACC4\uC815 \uC815\uBCF4\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.");
 		lblNewLabel_3.setForeground(Color.BLACK);
-		lblNewLabel_3.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblNewLabel_3.setFont(new Font("SEBANG Gothic", Font.BOLD, 18));
 		lblNewLabel_3.setBounds(356, 91, 223, 30);
 		panel.add(lblNewLabel_3);
 
@@ -326,19 +326,19 @@ public class signup_manager extends JPanel {
 
 		lblNewLabel_7 = new JLabel("ID");
 		lblNewLabel_7.setForeground(Color.BLACK);
-		lblNewLabel_7.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_7.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_7.setBounds(356, 131, 134, 27);
 		panel.add(lblNewLabel_7);
 
 		lblNewLabel_8 = new JLabel("PASSWORD");
 		lblNewLabel_8.setForeground(Color.BLACK);
-		lblNewLabel_8.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_8.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_8.setBounds(356, 210, 134, 27);
 		panel.add(lblNewLabel_8);
 
 		lblNewLabel_9 = new JLabel("\uC804\uD654\uBC88\uD638");
 		lblNewLabel_9.setForeground(Color.BLACK);
-		lblNewLabel_9.setFont(new Font("Dialog", Font.BOLD, 15));
+		lblNewLabel_9.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_9.setBounds(356, 336, 134, 27);
 		panel.add(lblNewLabel_9);
 		

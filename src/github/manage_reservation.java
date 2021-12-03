@@ -51,7 +51,7 @@ public class manage_reservation extends JPanel {
 		setLayout(null);
 
 		table_c = new JTable();
-		table_c.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
+		table_c.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		table_c.setBackground(new Color(226,221,215));
 		table_c.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -68,17 +68,17 @@ public class manage_reservation extends JPanel {
 		add(scrollPane);
 
 		JLabel lblNewLabel = new JLabel("\uD604\uC7AC \uC608\uC57D");
-		lblNewLabel.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel.setBounds(140, 98, 189, 37);
 		add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("\uC9C0\uB09C\uC608\uC57D");
-		lblNewLabel_1.setFont(new Font("ººπÊ∞ÌµÒ ±Ω∞‘", Font.BOLD, 15));
+		lblNewLabel_1.setFont(new Font("SEBANG Gothic", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(140, 376, 149, 23);
 		add(lblNewLabel_1);
 		
 	    table_o = new JTable();
-	    table_o.setFont(new Font("ººπÊ∞ÌµÒ ∫∏≈Î", Font.PLAIN, 15));
+	    table_o.setFont(new Font("SEBANG Gothic", Font.PLAIN, 15));
 		table_o.setBackground(new Color(226,221,215));
 	    table_o.setModel(new DefaultTableModel(
 	    	new Object[][] {
