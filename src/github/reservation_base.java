@@ -59,6 +59,7 @@ public class reservation_base extends JPanel {
 	JPanel panel_2;
 	JLabel lblNewLabel;
 	JComboBox<String> comboBox;
+	private JLabel lblNewLabel_14;
 	
 	/**
 	 * Create the panel.
@@ -96,6 +97,12 @@ public class reservation_base extends JPanel {
 		temp=new reservation();
 		temp.setBounds(446, 50, 800, 600);
 		temp.setVisible(false);
+		
+		lblNewLabel_14 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lblNewLabel_14.setForeground(new Color(120, 108, 100));
+		lblNewLabel_14.setFont(new Font("±¼¸²", Font.BOLD, 17));
+		lblNewLabel_14.setBounds(85, 62, 70, 29);
+		panel.add(lblNewLabel_14);
 		
 		panel_3 = new JPanel();
 		panel_3.setBounds(433, 50, 83, 67);

@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+import java.awt.Font;
 
 public class manage_menu extends JPanel {
 	/**
@@ -37,22 +39,32 @@ public class manage_menu extends JPanel {
 	public String cnt_user;
 
 	public manage_menu() {
+		
 		setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("\uBA54\uB274 \uCE74\uD14C\uACE0\uB9AC \uC774\uB984 \uC785\uB825");
+		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 17));
+		lblNewLabel_2.setBounds(973, 372, 253, 34);
+		add(lblNewLabel_2);
 		// card 패널 바깥에 존재함
 		panel_1 = new JPanel();
-		panel_1.setBounds(33, 45, 800, 600);
+		panel_1.setBounds(45, 125, 900, 518);
 		add(panel_1);
 		panel_1.setLayout(card); // 바깥 카드 패널
 
 		// 카테고리 만드는 패널 card아님
 		panel = new JPanel();
 		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel.setBackground(new Color(226,221,215));
 		panel_1.add(panel, "category_main");
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));//왼쪽 정렬 옆 간격 10px 위아래 간격 10px
 
 		// 카테고리 만드는 버튼임.
-		JButton btnNewButton = new JButton("make category");
+		JButton btnNewButton = new JButton("\uD655\uC778");
+		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		btnNewButton.setBackground(new Color(189, 182, 174));
+		btnNewButton.setFont(new Font("굴림", Font.BOLD, 17));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -76,18 +88,23 @@ public class manage_menu extends JPanel {
 				panel_1.repaint();
 			}
 		});
-		btnNewButton.setBounds(877, 108, 97, 23);
+		btnNewButton.setBounds(973, 443, 253, 35);
 		add(btnNewButton);
 
 		btnname = new JTextField();
-		btnname.setBounds(865, 77, 116, 21);
+		btnname.setFont(new Font("굴림", Font.PLAIN, 17));
+		btnname.setBounds(973, 405, 253, 28);
 		add(btnname);
 
-		btnNewButton_1 = new JButton("back");//사장 메뉴 창으로 가는 버튼
-		btnNewButton_1.setBounds(912, 586, 97, 23);
+		btnNewButton_1 = new JButton("");//사장 메뉴 창으로 가는 버튼
+		btnNewButton_1.setBorder(new LineBorder(new Color(200, 184, 164)));
+		btnNewButton_1.setIcon(new ImageIcon("image/back2.png"));
+		btnNewButton_1.setBounds(45, 65, 110, 45);
 		add(btnNewButton_1);
 		
-		btnNewButton_2 = new JButton("save");
+		btnNewButton_2 = new JButton("");
+		btnNewButton_2.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		btnNewButton_2.setIcon(new ImageIcon("image/store.png"));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DAO.delete_category(cnt_user);
@@ -99,8 +116,12 @@ public class manage_menu extends JPanel {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(912, 542, 97, 23);
+		btnNewButton_2.setBounds(973, 543, 253, 52);
 		add(btnNewButton_2);
+		JLabel lblNewLabel_7 = new JLabel("");
+		lblNewLabel_7.setIcon(new ImageIcon("image/managebase.png"));
+		lblNewLabel_7.setBounds(0, 0, 1280, 720);
+		add(lblNewLabel_7);
 	}
 	void init() {
 		ArrayList<String> category=DAO.get_category(cnt_user);
@@ -137,8 +158,10 @@ public class manage_menu extends JPanel {
 		public String category_name;//카테고리 이름
 
 		public xy(String category_name) {
-			setBorder(new LineBorder(new Color(0, 0, 0)));
+			setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
+			setBackground(new Color(226,221,215));
 			this.category_name = category_name;
+			setFont(new Font("굴림", Font.BOLD, 15));
 			setText(this.category_name);
 			setPreferredSize(new Dimension(100, 100));
 		}
@@ -161,40 +184,53 @@ public class manage_menu extends JPanel {
 		public food(int num_) {
 			key=num_;
 			setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+			setBackground(new Color(226,221,215));
 			setLayout(null);
 			
+			JLabel lblNewLabel0 = new JLabel("* 메뉴 추가");
+			lblNewLabel0.setFont(new Font("굴림", Font.BOLD, 15));
+			lblNewLabel0.setBounds(650, 30, 230, 35);
+			add(lblNewLabel0);
 			
-			JButton btnNewButton = new JButton("New button");
+			JLabel lblNewLabel = new JLabel("이름 :");
+			lblNewLabel.setFont(new Font("굴림", Font.BOLD, 15));
+			lblNewLabel.setBounds(650, 64, 50, 35);
+			add(lblNewLabel);
 
-			btnNewButton.setBounds(627, 113, 91, 23);
+			JLabel lblNewLabel_1 = new JLabel("가격 :");
+			lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 15));
+			lblNewLabel_1.setBounds(650, 94, 50, 35);
+			add(lblNewLabel_1);
+			
+			JButton btnNewButton = new JButton("확인");
+			btnNewButton.setFont(new Font("굴림", Font.BOLD, 17));
+			btnNewButton.setBorder(new LineBorder(new Color(0,0,0)));
+			btnNewButton.setBackground(new Color(189, 182, 174));
+			btnNewButton.setBounds(650, 138,226, 35);
 			add(btnNewButton);
 
+			menuname = new JTextField();
+			menuname.setBounds(695, 66, 180, 23);
+			add(menuname);
+			menuname.setColumns(10);
+			
 			menucost = new JTextField();
-			menucost.setBounds(675, 82, 96, 21);
+			menucost.setBounds(695, 96, 180, 23);
 			add(menucost);
 			menucost.setColumns(10);
 
-			menuname = new JTextField();
-			menuname.setBounds(675, 51, 96, 21);
-			add(menuname);
-			menuname.setColumns(10);
-
-			JLabel lblNewLabel = new JLabel("Name");
-			lblNewLabel.setBounds(627, 54, 50, 15);
-			add(lblNewLabel);
-
-			JLabel lblNewLabel_1 = new JLabel("Cost");
-			lblNewLabel_1.setBounds(627, 85, 50, 15);
-			add(lblNewLabel_1);
 
 			panel_2 = new JPanel();//상세메뉴가 생성될 패널
 			panel_2.setBackground(Color.WHITE);
-			panel_2.setBounds(0, 0, 615, 538);
+			panel_2.setBounds(10, 10, 615, 498);
 			add(panel_2);
 			panel_2.setLayout(new FlowLayout(FlowLayout.LEFT,5,5));
 
-			JButton Backbtn = new JButton("Back");
-			Backbtn.setBounds(654, 494, 91, 23);
+			JButton Backbtn = new JButton("카테고리 보기");
+			Backbtn.setFont(new Font("굴림", Font.BOLD, 17));
+			Backbtn.setBorder(new LineBorder(new Color(0,0,0)));
+			Backbtn.setBackground(new Color(189, 182, 174));
+			Backbtn.setBounds(650, 435,226, 35);
 			Backbtn.addActionListener(new ActionListener() {
 
 				@Override
@@ -204,7 +240,7 @@ public class manage_menu extends JPanel {
 			});
 			add(Backbtn);
 
-			JButton deletbtn = new JButton("delet");
+			JButton deletbtn = new JButton("delet");  //이거 왜 또잇지
 			deletbtn.setBounds(654, 530, 91, 23);
 			deletbtn.addActionListener(new ActionListener() {
 				@Override
@@ -225,37 +261,57 @@ public class manage_menu extends JPanel {
 			});
 			add(deletbtn);
 			
+			
+			//메뉴정보패널
 			menu_info = new menu_info();
-			menu_info.setBounds(609, 277, 162, 166);
+			menu_info.setBounds(650, 200, 235, 190);
+			menu_info.setBackground(new Color(226,221,215));
 			menu_info.setVisible(false);
 			add(menu_info);
 			menu_info.setLayout(null);
 			
-			JLabel menu_lab = new JLabel("\uBA54\uB274\uC815\uBCF4");
-			menu_lab.setBounds(12, 10, 118, 15);
+			JLabel menu_lab = new JLabel("* 메뉴정보");
+			menu_lab.setFont(new Font("굴림", Font.BOLD, 15));
+			menu_lab.setBounds(0, 0, 230, 35);
 			menu_info.add(menu_lab);
 			
+			JLabel lblNewLabelab = new JLabel("이름 :");
+			lblNewLabelab.setFont(new Font("굴림", Font.BOLD, 15));
+			lblNewLabelab.setBounds(0, 34, 50, 35);
+			menu_info.add(lblNewLabelab);
+
+			JLabel lblNewLabelab_1 = new JLabel("가격 :");
+			lblNewLabelab_1.setFont(new Font("굴림", Font.BOLD, 15));
+			lblNewLabelab_1.setBounds(0, 64, 50, 35);
+			menu_info.add(lblNewLabelab_1);
+			
 			menu_name = new JTextField();
-			menu_name.setBounds(22, 35, 116, 21);
+			menu_name.setBounds(45, 36, 180, 23);
 			menu_info.add(menu_name);
 			menu_name.setColumns(10);
 			
 			menu_cost = new JTextField();
-			menu_cost.setBounds(22, 91, 116, 21);
+			menu_cost.setBounds(45, 66, 180, 23);
 			menu_info.add(menu_cost);
 			menu_cost.setColumns(10);
 			
-			JButton modify = new JButton("\uC218\uC815");
+			JButton modify = new JButton("\uC218\uC815");  //수정
+			modify.setFont(new Font("굴림", Font.BOLD, 17));
+			modify.setBorder(new LineBorder(new Color(0,0,0)));
+			modify.setBackground(new Color(189, 182, 174));
 			modify.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					Incategory.get(menu_info.ide).modify_info(Integer.parseInt(menu_cost.getText()), menu_name.getText());
 					menu_info.setVisible(false);
 				}
 			});
-			modify.setBounds(12, 133, 56, 23);
+			modify.setBounds(0, 110,226, 35);
 			menu_info.add(modify);
 			
-			JButton del = new JButton("\uC0AD\uC81C");
+			JButton del = new JButton("\uC0AD\uC81C");  //삭제
+			del.setFont(new Font("굴림", Font.BOLD, 17));
+			del.setBorder(new LineBorder(new Color(0,0,0)));
+			del.setBackground(new Color(189, 182, 174));
 			del.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					menu_info.setVisible(false);
@@ -268,10 +324,10 @@ public class manage_menu extends JPanel {
 					n--;
 				}
 			});
-			del.setBounds(91, 133, 64, 23);
+			del.setBounds(0, 155,226, 35);
 			menu_info.add(del);
 			
-			btnNewButton.addActionListener(new ActionListener() {
+			btnNewButton.addActionListener(new ActionListener() {  //세부 메뉴 생성
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -284,7 +340,7 @@ public class manage_menu extends JPanel {
 							menu ttmmp=(menu)me.getComponent();
 							menu_info.setVisible(true);
 							menu_info.set_label(ttmmp.identy);
-							menu_name.setText(Incategory.get(menu_info.ide).name);
+							menu_name.setText(Incategory.get(menu_info.ide).name.substring(Incategory.get(menu_info.ide).name.lastIndexOf("_")+1));
 							menu_cost.setText(""+Incategory.get(menu_info.ide).price);						
 						}
 					});
@@ -330,7 +386,7 @@ public class manage_menu extends JPanel {
 			ide=a;
 		}
 	}
-	class menu extends JLabel {
+	class menu extends JLabel {  //세부 메뉴라벨
 		public int price;
 		public String name;
 		int identy;
@@ -338,14 +394,55 @@ public class manage_menu extends JPanel {
 		public menu(int price, String name) {
 			this.price = price;
 			this.name = name;	
-			setText("<html>" + this.name + "<br>" + this.price + "</html>");
-			setBorder(new LineBorder(new Color(0, 0, 0)));
-			setPreferredSize(new Dimension(100, 100));			
+			// 돈 단위대로 출력
+			if (price >= 1000) {
+				String rightl = "%14s";
+				String nprice = Integer.toString(price);
+				nprice = nprice.substring(0, nprice.length() - 3) + ","
+						+ nprice.substring(nprice.length() - 3, nprice.length()) + "원";
+				setText("<html>" + this.name + "<br>" + nprice + "</html>");
+			} else {
+				String rightl = "%14s";
+				String nprice = Integer.toString(price) + "원";
+				setText("<html>" + this.name + "<br>" + nprice + "</html>");
+			}
+			setHorizontalAlignment(JLabel.CENTER);
+			setFont(new Font("굴림", Font.BOLD, 15));
+			setBorder(new LineBorder(new Color(200, 184, 164), 2, true));
+			setPreferredSize(new Dimension(100, 100));	
+			addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) { // 최대 10개만
+
+				JLabel tjsxor = (JLabel) e.getComponent(); // 선택 카테고리 표시
+				tjsxor.setOpaque(true);
+				tjsxor.setBackground(new Color(120, 108, 100));
+				tjsxor.setForeground(Color.WHITE);
+			}
+
+			public void mouseReleased(MouseEvent e) {
+				JLabel tjsxor = (JLabel) e.getComponent(); // 선택 카테고리 표시
+				tjsxor.setOpaque(false);
+				tjsxor.setForeground(Color.BLACK);
+			}
+			});
 		}
+			
 		void modify_info(int price, String name) {
 			this.price = price;
 			this.name = name;	
-			setText("<html>" + name + "<br>" + price + "</html>");
+			// 돈 단위대로 출력
+						if (price >= 1000) {
+							String rightl = "%14s";
+							String nprice = Integer.toString(price);
+							nprice = nprice.substring(0, nprice.length() - 3) + ","
+									+ nprice.substring(nprice.length() - 3, nprice.length()) + "원";
+							setText("<html>" + this.name + "<br>" + nprice + "</html>");
+						} else {
+							String rightl = "%14s";
+							String nprice = Integer.toString(price) + "원";
+							setText("<html>" + this.name + "<br>" + nprice + "</html>");
+						}
 		}
 	}
 }
