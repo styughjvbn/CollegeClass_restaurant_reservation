@@ -97,7 +97,7 @@ public class manage_menu extends JPanel {
 		add(btnname);
 
 		btnNewButton_1 = new JButton("");//사장 메뉴 창으로 가는 버튼
-		btnNewButton_1.setBorder(new LineBorder(new Color(200, 184, 164)));
+		btnNewButton_1.setBorder(null);
 		btnNewButton_1.setIcon(new ImageIcon("image/back2.png"));
 		btnNewButton_1.setBounds(45, 65, 110, 45);
 		add(btnNewButton_1);
