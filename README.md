@@ -4,10 +4,19 @@ DB와 JAVA를 이용한 식당 에약 프로그램
 
 각자 브런치를 만들고 브런치에 커밋해주세요 
 
-# 사용된 API
+## 사용된 API
 kakao rest-api, Vworld rest-api
 
-## 14주차 진행상황 - DB 연결 완전 구현
+## 개발환경
+Eclipce + Windowbuilder, MySql, JaVa
+
+## ERD
+![KakaoTalk_20211203_142250202](https://user-images.githubusercontent.com/80380576/144705776-b5ea6f2a-2d51-4579-973a-e3f9898ae712.png)
+
+## 프로그램 설계
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/80380576/144705767-c0d4f78c-16cc-4779-8071-1a91d5dc01d2.png)
+
+## 프로젝트 실행화면
 
 + 로그인 패널 GUI 및 기능 완전 구현
 ![1](https://user-images.githubusercontent.com/80380576/144361201-1fa16629-7c84-4b20-8f1e-9a179fb23c16.PNG)
@@ -29,8 +38,8 @@ kakao rest-api, Vworld rest-api
 + 사장 - 점포 관리 기능 완전 구현
 ![6](https://user-images.githubusercontent.com/80380576/144361233-5ae27522-f809-4a9a-b4b6-024fd14a6e1e.PNG)
 
-+ 사장 - 메뉴 관리 기능 완전 구현 GUI 추후 예정
-![7](https://user-images.githubusercontent.com/80380576/144361236-be917a50-77ae-4531-93f7-a244d52f7d6d.PNG)
++ 사장 - 메뉴 관리 기능 완전 구현
+![7](https://user-images.githubusercontent.com/80380576/144705761-7af87c41-5781-425c-9ec1-08fdc5fa451d.PNG)
 
 + 사장 - 예약 관리 기능 완전 구현
 ![8](https://user-images.githubusercontent.com/80380576/144361241-2b3d26b7-28d2-44cb-b4a6-f56ff97efa8e.PNG)
