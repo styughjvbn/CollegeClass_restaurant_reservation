@@ -1,8 +1,7 @@
 # restaurant_reservation
 DB와 JAVA를 이용한 식당 에약 프로그램
-
-
-각자 브런치를 만들고 브런치에 커밋해주세요 
+사장회원이 회원가입 후 자신의 점포 및 메뉴 정보를 수정 - DB 정보수정
+고객회원이 회원가입 후 식당검색을 하면 DB에서 점포의 정보를 불러와서 화면을 구성 예약 정보를 선택해서 예약
 
 ## 사용된 API
 kakao rest-api, Vworld rest-api
