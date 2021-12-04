@@ -30,6 +30,7 @@ Eclipce + Windowbuilder, MySql, JaVa
 ![4](https://user-images.githubusercontent.com/80380576/144361219-02910664-ef26-48d2-85ba-507969db1946.PNG)
 
 + 회원 회원가입 패널 GUI 및 기능 완전 구현
+![12](https://user-images.githubusercontent.com/80380576/144706085-2795f6a7-9ae6-46dd-bde8-506d47df91ea.PNG)
 
 + 사장 로그인시 메뉴 선택
 ![5](https://user-images.githubusercontent.com/80380576/144361226-1be2cf0c-1299-4205-8219-15f07793bb1e.PNG)
